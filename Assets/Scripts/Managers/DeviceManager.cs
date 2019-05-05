@@ -58,7 +58,7 @@
 			AndroidNotification notification = new AndroidNotification();
 			notification.Title = title;
 			notification.Text = text;
-			notification.FireTime = System.DateTime.Now.AddSeconds(60);
+			notification.FireTime = System.DateTime.Now.AddDays(hourToAdd);
 			// Create notification
 
 			// Push Notification

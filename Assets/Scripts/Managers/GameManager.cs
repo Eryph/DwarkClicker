@@ -222,7 +222,7 @@
 			_playerProfile.SerializeDate(DateTime.Now);
 
 
-			DeviceManager.Instance.PushLocalNotification("TestNotification", "Notification triggered, you won", 0.5f);
+			DeviceManager.Instance.PushLocalNotification("The dwarfs thirsty !", "Beer is running low ! Come back and brew some beers.", 24f);
 
 
 		JSonManager.Instance.SavePlayerProfile();
