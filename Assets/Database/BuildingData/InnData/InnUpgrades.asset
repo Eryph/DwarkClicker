@@ -17,5 +17,5 @@ MonoBehaviour:
     coef: 1.4
   _storage:
     value: 500
-    cost: 2000
-    coef: 1.7
+    cost: 1000
+    coef: 3
