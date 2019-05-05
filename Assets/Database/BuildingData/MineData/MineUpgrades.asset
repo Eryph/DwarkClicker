@@ -17,8 +17,8 @@ MonoBehaviour:
     coef: 1.7
   _resByWorker:
     value: 1
-    cost: 1000
-    coef: 1.5
+    cost: 40
+    coef: 3
   _luck:
     value: 1
     cost: 250
@@ -29,7 +29,7 @@ MonoBehaviour:
     coef: 1.5
   _cycleDuration:
     value: 0.1
-    cost: 300
+    cost: 100
     coef: 1.9
   _richVein:
     value: 1

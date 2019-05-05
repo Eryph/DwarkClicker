@@ -21,7 +21,7 @@ MonoBehaviour:
     coef: 1.3
   _cycleDuration:
     value: 0.25
-    cost: 50
+    cost: 500
     coef: 1.3
   _instantSellingChance:
     value: 1
