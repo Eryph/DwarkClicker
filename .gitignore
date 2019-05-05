@@ -1,11 +1,14 @@
 Assets/Profile.json
 Assets/NotiProfile.json
+Assets/Profile.json.meta
+Assets/NotiProfile.json.meta
 
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
 [Bb]uilds/
+[Ee]ditor/
 Assets/AssetStoreTools*
 
 # Visual Studio cache directory
