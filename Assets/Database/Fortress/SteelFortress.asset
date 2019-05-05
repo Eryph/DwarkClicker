@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7374d5ab84fe064fbfb5a8692946146, type: 3}
+  m_Name: SteelFortress
+  m_EditorClassIdentifier: 
+  _UID: 0
+  _name: SteelFortress
+  _price: 1000000
+  _resourceToProduce: {fileID: 11400000, guid: 22b513556c88ea84b9b7fdbc5e5e0592, type: 2}
+  _weaponsToProduce:
+  - {fileID: 11400000, guid: f393b49823e5d3941ac9300cf7841d5b, type: 2}
+  - {fileID: 11400000, guid: d6e20f75d3e5a0241859b6d628b2a225, type: 2}
+  - {fileID: 11400000, guid: 46326221bd3a9e74286c4d1072b0646f, type: 2}

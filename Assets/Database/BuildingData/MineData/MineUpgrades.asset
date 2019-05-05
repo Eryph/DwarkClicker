@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71705f3b0e238e740807cf0ff144c6fb, type: 3}
+  m_Name: MineUpgrades
+  m_EditorClassIdentifier: 
+  _workerNb:
+    value: 1
+    cost: 3500
+    coef: 1.5
+  _resByWorker:
+    value: 1
+    cost: 1000
+    coef: 1.5
+  _luck:
+    value: 1
+    cost: 250
+    coef: 1.2
+  _beerConsumption:
+    value: 1
+    cost: 1000
+    coef: 1.5
+  _cycleDuration:
+    value: 0.25
+    cost: 500
+    coef: 1.4
+  _richVein:
+    value: 1
+    cost: 250
+    coef: 1.2
+  _mithrilChance:
+    value: 10
+    cost: 500
+    coef: 1.4

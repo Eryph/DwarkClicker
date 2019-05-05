@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 801a5066dcb785c4b9a47b8727796ac8, type: 3}
+  m_Name: TradingPostStartStats
+  m_EditorClassIdentifier: 
+  _workerNb: 1
+  _sellByWorker: 5
+  _winBeerAmount: 10
+  _winBeerChance: 500
+  _goldMult: 1
+  _cycleDuration: 60
