@@ -3,7 +3,7 @@
 	using System.Collections;
 	using System.Collections.Generic;
 	using UnityEngine;
-	using Core;
+	using DwarfClicker.Core;
 	using Engine.Manager;
 	using TMPro;
 	using Engine.Utils;

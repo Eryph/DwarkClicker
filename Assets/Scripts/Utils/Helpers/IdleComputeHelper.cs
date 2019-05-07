@@ -1,7 +1,7 @@
 ﻿namespace DwarkClicker.Helper
 {
-	using Core.Containers;
-	using Core.Data;
+	using DwarfClicker.Core.Containers;
+	using DwarfClicker.Core.Data;
 	using Engine.Manager;
 	using Engine.Utils;
 	using System;

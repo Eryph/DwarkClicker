@@ -1,4 +1,4 @@
-﻿namespace Core.Data
+﻿namespace DwarfClicker.Core.Data
 {
     using Engine.Utils;
     using UnityEngine;

@@ -1,6 +1,6 @@
 ﻿namespace Preprod
 {
-	using Core;
+	using DwarfClicker.Core;
 	using Engine.Manager;
 	using Engine.UI.Utils;
 	using Engine.Utils;

@@ -15,8 +15,10 @@
 		[SerializeField] private TextMeshProUGUI _goldDisplay = null;
 		[SerializeField] private TextMeshProUGUI _beerDisplay = null;
 		[SerializeField] private TextMeshProUGUI _mithrilDisplay = null;
-		[SerializeField] private GameObject _fortressPanel = null;
 		[SerializeField] private Text _fortressText = null;
+		[SerializeField] private GameObject _fortressPanel = null;
+		[SerializeField] private GameObject _dailyRewardPanel = null;
+
 
 		private PlayerProfile _playerProfile = null;
 		#endregion Fields
@@ -72,6 +74,11 @@
 		public void OpenFortressPanel()
 		{
 			_fortressPanel.SetActive(true);
+		}
+
+		public void OpenDailyRewardPanel()
+		{
+			_dailyRewardPanel.SetActive(true);
 		}
 		#endregion Methods
 	}

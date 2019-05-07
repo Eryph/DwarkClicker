@@ -1,6 +1,6 @@
-﻿namespace Core.Containers
+﻿namespace DwarfClicker.Core.Containers
 {
-	using Core.Data;
+	using DwarfClicker.Core.Data;
 	using System;
 	using UnityEngine;
 

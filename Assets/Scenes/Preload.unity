@@ -303,6 +303,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff91573728aa174dbd7e0b64caaf329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dailyRewards:
+  - {fileID: 11400000, guid: f15e196b4dedd5642b24c6ba8cf011eb, type: 2}
+  - {fileID: 11400000, guid: f975335d612ffd34682b6e97e3ee1e0a, type: 2}
+  - {fileID: 11400000, guid: 3033771d8d2b7684bbb9f81bac86306f, type: 2}
+  - {fileID: 11400000, guid: 6fa380b5bdc8b114291a92560aa8e8ab, type: 2}
+  - {fileID: 11400000, guid: 69584dcde3d64e747bc7edd7815e9a77, type: 2}
+  - {fileID: 11400000, guid: 106d33fced638454a83e9da7bc06381b, type: 2}
+  - {fileID: 11400000, guid: d2859f60794783e4f8b168b8dc81588b, type: 2}
   _innUpgrades: {fileID: 11400000, guid: 35383cfc864f1054b9235f9a05f3fcf5, type: 2}
   _innStats: {fileID: 11400000, guid: 028c9f72b047aa94d9abb1f16657984f, type: 2}
   _mineUpgrades: {fileID: 11400000, guid: dccd79ea551ef914692a21e1f9000113, type: 2}
@@ -317,6 +325,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8e572151140bb5d4997ffab27d0b97f6, type: 2}
   - {fileID: 11400000, guid: de0b7afbdf3752d4392859227e7aac29, type: 2}
   - {fileID: 11400000, guid: 230148f619126bd4b836f6cc669ca7de, type: 2}
+  _beerIcon: {fileID: 21300000, guid: 81c1db04256e51045a703cb1108dce67, type: 3}
+  _mithrilIcon: {fileID: 21300000, guid: 43278841e53dd8646897cbd788c94ed7, type: 3}
+  _goldIcon: {fileID: 21300000, guid: 89adce5931333e94dbab8090151cf84c, type: 3}
 --- !u!4 &1881333282
 Transform:
   m_ObjectHideFlags: 0

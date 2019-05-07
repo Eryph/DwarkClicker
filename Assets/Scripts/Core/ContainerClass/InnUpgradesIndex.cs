@@ -1,4 +1,4 @@
-﻿namespace Core.Containers
+﻿namespace DwarfClicker.Core.Containers
 {
 	using System;
 

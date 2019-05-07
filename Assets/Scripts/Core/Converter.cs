@@ -1,7 +1,7 @@
-﻿namespace Core
+﻿namespace DwarfClicker.Core
 {
-	using Core.Containers;
-	using Core.Data;
+	using DwarfClicker.Core.Containers;
+	using DwarfClicker.Core.Data;
 	using Engine.Manager;
 	using Engine.Utils;
 	using System;
@@ -53,6 +53,28 @@
 			_profile.Gold += incr;
 		}
 		#endregion Data Updates
+
+		#region Gain
+		public void GainBeer(int amount)
+		{
+			_profile.CurrentFortress.Beer += amount;
+		}
+
+		public void GainMithril(int amount)
+		{
+			_profile.Mithril += amount;
+		}
+
+		public void GainResource(string resourceName, int amount)
+		{
+			_profile.Resources[resourceName].UpdateCount(amount);
+		}
+
+		public void GainGold(int amount)
+		{
+			_profile.Gold += amount;
+		}
+		#endregion Gain
 
 		#region Convert
 		public void MineConverter(ResourceData resource, float beerCost, int resGain)

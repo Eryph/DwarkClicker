@@ -7,7 +7,6 @@
 
 	public class ProgressionBarHandler : MonoBehaviour
 	{
-
 		#region Fields
 		[SerializeField] private RectTransform _bar = null;
 
@@ -25,7 +24,14 @@
 
 		public void UpdateBar(float t)
 		{
-			_bar.localPosition = Vector3.Lerp(_emptyPosition, _fullPosition, t);
+			if (t == 1 || t == 0)
+			{
+				SetEmpty();
+			}
+			else
+			{
+				_bar.localPosition = Vector3.Lerp(_emptyPosition, _fullPosition, t);
+			}
 		}
 
 		public void SetEmpty()

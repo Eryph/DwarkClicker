@@ -1,4 +1,4 @@
-﻿namespace Core
+﻿namespace DwarfClicker.Core
 {
 	using Engine.Manager;
 	using Engine.Utils;

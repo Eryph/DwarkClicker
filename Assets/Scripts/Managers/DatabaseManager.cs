@@ -1,14 +1,18 @@
 ﻿namespace Engine.Manager
 {
 	using Engine.Utils;
-    using Core.Data;
+    using DwarfClicker.Core.Data;
 	using System.Collections;
 	using System.Collections.Generic;
 	using UnityEngine;
+	using DwarfClicker.Database;
 
 	public class DatabaseManager : Singleton<DatabaseManager>
 	{
 		#region Fields
+		[Header("DailyReward")]
+		[SerializeField] private DailyReward[] _dailyRewards;
+
 		[Header("Inn")]
 		[SerializeField] private InnUpgradesData _innUpgrades = null;
 		[SerializeField] private InnStartData _innStats = null;
@@ -31,9 +35,16 @@
 
 		[Header("Fortress")]
 		[SerializeField] private FortressData[] _fortress = null;
+
+		[Header("Sprites")]
+		[SerializeField] private Sprite _beerIcon = null;
+		[SerializeField] private Sprite _mithrilIcon = null;
+		[SerializeField] private Sprite _goldIcon = null;
 		#endregion Fields
 
 		#region Properties
+		public DailyReward[] DailyRewards { get { return _dailyRewards; } }
+
 		public InnUpgradesData InnUpgrades { get { return _innUpgrades; } }
 		public InnStartData InnStats { get { return _innStats; } }
 
@@ -50,6 +61,10 @@
 		public WeaponListData WeaponList { get { return _weaponList; } }
 
 		public FortressData[] Fortress { get { return _fortress; } }
+
+		public Sprite BeerIcon { get { return _beerIcon; } }
+		public Sprite MithrilIcon { get { return _mithrilIcon; } }
+		public Sprite GoldIcon { get { return _goldIcon; } }
 		#endregion Properties
 
 		#region Methods

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _UID: 0
   _name: steel
+  _sprite: {fileID: 21300000, guid: 93d34898cd6f84047940c9e3397ba9cb, type: 3}

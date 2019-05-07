@@ -3,7 +3,7 @@
 	using System.Collections.Generic;
 	using UnityEngine;
 	using System;
-	using Core.Containers;
+	using DwarfClicker.Core.Containers;
 	using Engine.Manager;
 
 	[Serializable]
@@ -14,10 +14,13 @@
 		private DateTime _date;
 		public DateTime _startDate;
 		private DateTime _fortressDate;
+		public DateTime _lastDailyRewardRedeemed;
 
 		public long _serializedDate = 0;
 		public long _serializedStartingDate = 0;
+		public long _serializedLastDailyRewardRedeemed = 0;
 		public int _launchAmount = 0;
+		public int _dailyRewardIndex = 0;
 		#endregion Time
 
 		#region Fortress
@@ -38,6 +41,7 @@
 		#region Time
 		public DateTime Date { get { return _date; } set { _date = value; } }
 		public DateTime StartingDate { get { return _startDate; } }
+		public DateTime LastDailyRewardRedeemed { get { return _lastDailyRewardRedeemed; } }
 		#endregion Time
 
 		#region Fortress
@@ -59,6 +63,25 @@
 				_currentFortressIndex = value;
 				if (_onFortressChange != null)
 					_onFortressChange();
+			}
+		}
+
+		public FortressProfile LastFortress
+		{
+			get
+			{
+				int y = 0;
+				int i = 0;
+				while (i < _fortressList.Count)
+				{
+					if (_fortressList[i]._isBought == false)
+					{
+						break;
+					}
+					y = i;
+					i++;
+				}
+				return (_fortressList[y]);
 			}
 		}
 		#endregion Fortress
@@ -245,6 +268,7 @@
 		#region Init / Reset
 		public void Init()
 		{
+			_launchAmount = 0;
 			_startDate = DateTime.Now;
 			_resources = new DictionaryStringResource();
 			_weapons = new DictionaryStringWeapon();
@@ -296,6 +320,7 @@
 			Gold = 0;
 			Mithril = 0;
 			CurrentFortressIndex = 0;
+			_dailyRewardIndex = 0;
 
 			JSonManager.Instance.SavePlayerProfile();
 		}
@@ -327,12 +352,14 @@
 		{
 			_serializedDate = date.ToFileTime();
 			_serializedStartingDate = _startDate.ToFileTime();
+			_serializedLastDailyRewardRedeemed = _lastDailyRewardRedeemed.ToFileTime();
 		}
 
 		public void DeserializeDate()
 		{
 			_date = DateTime.FromFileTime(_serializedDate);
 			_startDate = DateTime.FromFileTime(_serializedStartingDate);
+			_lastDailyRewardRedeemed = DateTime.FromFileTime(_serializedLastDailyRewardRedeemed);
 		}
 		#endregion Serialization
 		#endregion Methods
