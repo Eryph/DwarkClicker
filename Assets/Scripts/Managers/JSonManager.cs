@@ -98,6 +98,7 @@
 				_playerProfile.Init();
 			}
 			Debug.Log(filePath);
+			_playerProfile.InitFortressInstanceData();
 			_playerProfile.DeserializeDate();
 		}
 

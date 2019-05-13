@@ -1,10 +1,12 @@
 ﻿namespace DwarfClicker.Core.Data
 {
+	using System;
 	using System.Collections;
 	using System.Collections.Generic;
 	using UnityEngine;
 
 	[CreateAssetMenu(fileName = "Resource", menuName = "Data/Resource")]
+	[Serializable]
 	public class ResourceData : ScriptableObject
 	{
 		[SerializeField] private int _UID = 0;

@@ -61,20 +61,20 @@
 				{
 					if (DatabaseManager.Instance.DailyRewards[i].BeerGain > 0)
 					{
-						_dailyRewardBox[i].Init(DatabaseManager.Instance.DailyRewards[i].BeerGain, DatabaseManager.Instance.BeerIcon, Color.red);
+						_dailyRewardBox[i].Init(DatabaseManager.Instance.DailyRewards[i].BeerGain, DatabaseManager.Instance.BeerIcon, Color.white);
 					}
 					if (DatabaseManager.Instance.DailyRewards[i].GoldGain > 0)
 					{
-						_dailyRewardBox[i].Init(DatabaseManager.Instance.DailyRewards[i].GoldGain, DatabaseManager.Instance.GoldIcon, Color.yellow);
+						_dailyRewardBox[i].Init(DatabaseManager.Instance.DailyRewards[i].GoldGain, DatabaseManager.Instance.GoldIcon, Color.white);
 					}
 					if (DatabaseManager.Instance.DailyRewards[i].ResourceGain > 0)
 					{
 						ResourceData resource = profile.LastFortress.ResourceProduced;
-						_dailyRewardBox[i].Init(DatabaseManager.Instance.DailyRewards[i].ResourceGain, resource.ResourceSprite, Color.green);
+						_dailyRewardBox[i].Init(DatabaseManager.Instance.DailyRewards[i].ResourceGain, resource.ResourceSprite, Color.white);
 					}
 					if (DatabaseManager.Instance.DailyRewards[i].MithrilGain > 0)
 					{
-						_dailyRewardBox[i].Init(DatabaseManager.Instance.DailyRewards[i].MithrilGain, DatabaseManager.Instance.MithrilIcon, Color.blue);
+						_dailyRewardBox[i].Init(DatabaseManager.Instance.DailyRewards[i].MithrilGain, DatabaseManager.Instance.MithrilIcon, Color.white);
 					}
 
 					if (i > profile._dailyRewardIndex)

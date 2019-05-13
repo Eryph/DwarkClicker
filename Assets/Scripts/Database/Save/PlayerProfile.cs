@@ -307,6 +307,17 @@
 			}
 		}
 
+		public void InitFortressInstanceData()
+		{
+			DatabaseManager db = DatabaseManager.Instance;
+
+			for (int i = 0; i < db.Fortress.Length; i++)
+			{
+				Fortress[i]._resourceProduced = db.Fortress[i].ResourceToProduce;
+				Fortress[i]._weapons = db.Fortress[i].WeaponsToProduce;
+			}
+		}
+
 		public void Reset()
 		{
 			// Fortress Clear

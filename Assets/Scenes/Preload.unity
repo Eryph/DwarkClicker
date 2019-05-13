@@ -325,9 +325,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8e572151140bb5d4997ffab27d0b97f6, type: 2}
   - {fileID: 11400000, guid: de0b7afbdf3752d4392859227e7aac29, type: 2}
   - {fileID: 11400000, guid: 230148f619126bd4b836f6cc669ca7de, type: 2}
-  _beerIcon: {fileID: 21300000, guid: 81c1db04256e51045a703cb1108dce67, type: 3}
-  _mithrilIcon: {fileID: 21300000, guid: 43278841e53dd8646897cbd788c94ed7, type: 3}
-  _goldIcon: {fileID: 21300000, guid: 89adce5931333e94dbab8090151cf84c, type: 3}
+  _beerIcon: {fileID: 21300000, guid: 94276027ae172dd43a669dcfa8920668, type: 3}
+  _mithrilIcon: {fileID: 21300000, guid: 96e5509b11f77ee47986600a32f754e7, type: 3}
+  _goldIcon: {fileID: 21300000, guid: fb4a34f96f3d32447a80b5189821a6cb, type: 3}
 --- !u!4 &1881333282
 Transform:
   m_ObjectHideFlags: 0

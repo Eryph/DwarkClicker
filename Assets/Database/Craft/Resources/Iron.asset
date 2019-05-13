@@ -13,4 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _UID: 0
   _name: iron
-  _sprite: {fileID: 21300000, guid: 26b02453751e06a4db029905b244ea96, type: 3}
+  _sprite: {fileID: 21300000, guid: 00c713254b4ec8146afa8bd38e662c8a, type: 3}

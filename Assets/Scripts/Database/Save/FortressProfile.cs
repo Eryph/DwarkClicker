@@ -14,7 +14,7 @@
 		#region Fields
 		public bool _isBought = false;
 		public string _name = "FortressName";
-
+		public int _fortressIndex = 0;
 		#region Production
 		public int _weaponIndex = 0;
 		public WeaponData[] _weapons = null;
@@ -49,6 +49,8 @@
 		public WeaponData CurrentCraft { get { return _weapons[_weaponIndex]; } }
 		public WeaponData[] WeaponToCraft { get { return _weapons; } }// set { _weapons = value; } }
 		public ResourceData ResourceProduced { get { return _resourceProduced; } } // set { _resourceProduced = value; } }
+
+		public int FortressIndex { get { return _fortressIndex; } }
 
 		public string Name { get { return _name; } set { _name = value; } }
 
@@ -472,6 +474,11 @@
 			_innUpgradesIndex.ResetUpgrades();
 
 			Name = name;
+			InitInstanceData(weapons, resource);
+		}
+
+		public void InitInstanceData(WeaponData[] weapons, ResourceData resource)
+		{
 			_weapons = weapons;
 			_resourceProduced = resource;
 		}

@@ -242,7 +242,9 @@
 
 		private void ChangeResource()
 		{
-			_resourceProduced = _playerProfile.CurrentFortress.ResourceProduced;
+			FortressProfile fortress = _playerProfile.CurrentFortress;
+			_resourceProduced = DatabaseManager.Instance.Fortress[fortress.FortressIndex].ResourceToProduce;
+			
 		}
 
 		private void HandleFortressChange()

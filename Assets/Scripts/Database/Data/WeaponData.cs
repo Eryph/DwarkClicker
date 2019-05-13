@@ -1,19 +1,14 @@
 ﻿namespace DwarfClicker.Core.Data
 {
 	using Core.Containers;
+	using Engine;
 	using System;
 	using System.Collections;
 	using System.Collections.Generic;
 	using UnityEngine;
 
-	[Serializable]
-	public struct KeyCountPair
-	{
-		public string Key;
-		public int Count;
-	};
-
 	[CreateAssetMenu(fileName = "Weapon", menuName = "Data/Weapon")]
+	[Serializable]
 	public class WeaponData : ScriptableObject
 	{
 		#region Fields
