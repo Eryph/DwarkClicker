@@ -88,7 +88,7 @@
         private void LoadData()
         {
 			ChangeResource();
-            _workerNb = _db.MineStats.WorkerAmount + _db.MineUpgrades.WorkerNb.value * _playerProfile.CurrentFortress.MineUpgradesIndex._workerNbIndex;
+            _workerNb = _db.MineStats.WorkerAmount + _db.MineUpgrades.WorkerAmount.value * _playerProfile.CurrentFortress.MineUpgradesIndex._workerNbIndex;
 			_resByWorker = _db.MineStats.ResByWorker + _db.MineUpgrades.ResByWorker.value * _playerProfile.CurrentFortress.MineUpgradesIndex._resByWorkerIndex;
 			_luck = _db.MineStats.Luck - _db.MineUpgrades.Luck.value * _playerProfile.CurrentFortress.MineUpgradesIndex._luckIndex;
 			_richVein = _db.MineStats.RichVein + _db.MineUpgrades.RichVein.value * _playerProfile.CurrentFortress.MineUpgradesIndex._richVeinIndex;
@@ -174,7 +174,7 @@
 
 		public void UpgradeWorkerNb()
 		{
-			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.WorkerNb, _playerProfile.CurrentFortress.UMineWorkerNbIndex);
+			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.WorkerAmount, _playerProfile.CurrentFortress.UMineWorkerNbIndex);
 			if (_playerProfile.Gold >= cost)
 			{
 				_playerProfile.Gold -= cost;

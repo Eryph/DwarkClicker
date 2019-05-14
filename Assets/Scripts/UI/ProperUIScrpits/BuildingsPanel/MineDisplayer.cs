@@ -31,7 +31,7 @@
 		private void OnMineUpgrade()
 		{
 			FortressProfile currentFortress = _playerProfile.CurrentFortress;
-			_WorkUpText.text = string.Format("R{0} - {1}g", currentFortress.UMineWorkerNbIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.WorkerNb, currentFortress.UMineWorkerNbIndex));
+			_WorkUpText.text = string.Format("R{0} - {1}g", currentFortress.UMineWorkerNbIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.WorkerAmount, currentFortress.UMineWorkerNbIndex));
 			_CycleUpText.text = string.Format("R{0} - {1}g", currentFortress.UMineCycleDurationIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.CycleDuration, currentFortress.UMineCycleDurationIndex));
 			_ResByText.text = string.Format("R{0} - {1}g", currentFortress.UMineResByWorkerIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.ResByWorker, currentFortress.UMineResByWorkerIndex));
 			_beerConsoText.text = string.Format("R{0} - {1:0.#}g", currentFortress.UMineBeerConsoIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.BeerConsumption, currentFortress.UMineBeerConsoIndex));

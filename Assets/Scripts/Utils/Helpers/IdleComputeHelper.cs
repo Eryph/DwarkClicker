@@ -25,7 +25,7 @@
 				beerCostbyWorker -= beerCostbyWorker * db.MineUpgrades.BeerConsumption.value;
 			}
 
-			int workerNb = db.MineStats.WorkerAmount + db.MineUpgrades.WorkerNb.value * fortress.UMineBeerConsoIndex;
+			int workerNb = db.MineStats.WorkerAmount + db.MineUpgrades.WorkerAmount.value * fortress.UMineBeerConsoIndex;
 			float beerCostbyCycle = workerNb * beerCostbyWorker;
 			int cycleNb = (int)(timeElapsed.TotalSeconds / miningTime);
 			int realCycleNb = (int)(fortress.Beer / beerCostbyCycle);
