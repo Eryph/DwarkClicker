@@ -11,10 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d2eb0278ca0b8f4d959b2153c10534a, type: 3}
   m_Name: MineStartStats
   m_EditorClassIdentifier: 
-  _workerNb: 1
+  _workerAmount: 1
   _resByWorker: 1
   _luck: 100
   _beerConsumption: 8
+  _noBeerConsumptionChance: 0
   _cycleDuration: 4
   _richVein: 1
   _mithrilChance: 1000

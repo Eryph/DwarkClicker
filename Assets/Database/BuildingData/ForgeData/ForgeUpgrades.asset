@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8b68599858371b44b35d6e23fce5a0d, type: 3}
   m_Name: ForgeUpgrades
   m_EditorClassIdentifier: 
-  _workerNb:
+  _workerAmount:
     value: 1
     cost: 3500
     coef: 1.7
