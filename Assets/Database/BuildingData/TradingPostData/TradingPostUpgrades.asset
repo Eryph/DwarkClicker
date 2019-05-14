@@ -33,5 +33,5 @@ MonoBehaviour:
     coef: 1.3
   _goldMult:
     value: 0.1
-    cost: 200
+    cost: 750
     coef: 1.5

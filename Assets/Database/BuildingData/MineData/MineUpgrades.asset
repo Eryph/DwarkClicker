@@ -25,8 +25,8 @@ MonoBehaviour:
     coef: 1.2
   _beerConsumption:
     value: 1
-    cost: 1000
-    coef: 1.5
+    cost: 350
+    coef: 2
   _cycleDuration:
     value: 0.1
     cost: 100
@@ -37,8 +37,8 @@ MonoBehaviour:
     coef: 1.5
   _richVein:
     value: 1
-    cost: 250
-    coef: 1.2
+    cost: 50
+    coef: 1.5
   _mithrilChance:
     value: 10
     cost: 500

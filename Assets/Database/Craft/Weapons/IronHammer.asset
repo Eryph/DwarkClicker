@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Name: IronHammer
   m_EditorClassIdentifier: 
   _UID: 0
-  _goldValue: 10
+  _goldValue: 15
   _name: ironHammer
   _recipe:
   - Key: iron
     Count: 4
   _modifierTimer: 5
-  _priceModifierUp: 3
-  _priceModifierDown: 1
-  _priceMax: 15
-  _priceMin: 4
+  _priceModifierUp: 1
+  _priceModifierDown: -8
+  _priceMax: 25
+  _priceMin: 7
