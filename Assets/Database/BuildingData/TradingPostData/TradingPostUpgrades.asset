@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90091626eb17a3540bfc9bf7af8b1cc5, type: 3}
   m_Name: TradingPostUpgrades
   m_EditorClassIdentifier: 
-  _workerNb:
+  _workerAmount:
     value: 1
     cost: 5000
     coef: 1.5
@@ -33,5 +33,5 @@ MonoBehaviour:
     coef: 1.3
   _goldMult:
     value: 0.1
-    cost: 200
+    cost: 750
     coef: 1.5

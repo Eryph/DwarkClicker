@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1c2391f14704ba46ae19130ef1e0d82, type: 3}
   m_Name: ForgeStartStats
   m_EditorClassIdentifier: 
-  _workerNb: 1
+  _workerAmount: 1
   _wByWorker: 1
   _cycleDuration: 10
   _instantSellingChance: 100

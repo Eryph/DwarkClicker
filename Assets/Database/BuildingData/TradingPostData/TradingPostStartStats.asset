@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801a5066dcb785c4b9a47b8727796ac8, type: 3}
   m_Name: TradingPostStartStats
   m_EditorClassIdentifier: 
-  _workerNb: 1
+  _workerAmount: 1
   _sellByWorker: 5
   _winBeerAmount: 10
   _winBeerChance: 500

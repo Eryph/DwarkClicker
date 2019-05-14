@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71705f3b0e238e740807cf0ff144c6fb, type: 3}
   m_Name: MineUpgrades
   m_EditorClassIdentifier: 
-  _workerNb:
+  _workerAmount:
     value: 1
     cost: 3500
     coef: 1.7
@@ -25,16 +25,20 @@ MonoBehaviour:
     coef: 1.2
   _beerConsumption:
     value: 1
-    cost: 1000
-    coef: 1.5
+    cost: 350
+    coef: 2
   _cycleDuration:
     value: 0.1
     cost: 100
     coef: 1.9
+  _noBeerConsumptionChance:
+    value: 2
+    cost: 150
+    coef: 1.5
   _richVein:
     value: 1
-    cost: 250
-    coef: 1.2
+    cost: 50
+    coef: 1.5
   _mithrilChance:
     value: 10
     cost: 500
