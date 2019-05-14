@@ -72,7 +72,7 @@
 		{
 			_weaponToSell = _playerProfile.CurrentFortress.CurrentCraft;
 			_sellByWorker = _db.TradingPostStats.SellByWorker + _db.TradingPostUpgrades.SellByWorker.value * _playerProfile.CurrentFortress.TradingPostUpgradesIndex._sellByWorkerIndex;
-			_workerNb = _db.TradingPostStats.WorkerNb + _db.TradingPostUpgrades.WorkerNb.value * _playerProfile.CurrentFortress.TradingPostUpgradesIndex._workerNbIndex;
+			_workerNb = _db.TradingPostStats.WorkerAmount + _db.TradingPostUpgrades.WorkerAmount.value * _playerProfile.CurrentFortress.TradingPostUpgradesIndex._workerNbIndex;
 			_cycleDuration = _db.TradingPostStats.CycleDuration;
 			for (int i = 0; i <= _playerProfile.CurrentFortress.TradingPostUpgradesIndex._cycleDurationIndex; i++)
 			{
@@ -110,7 +110,7 @@
 
 		public void UpgradeWorkerNb()
 		{
-			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WorkerNb, _playerProfile.CurrentFortress.UTPWorkerNbIndex);
+			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WorkerAmount, _playerProfile.CurrentFortress.UTPWorkerNbIndex);
 			if (_playerProfile.Gold >= cost)
 			{
 				_playerProfile.Gold -= cost;

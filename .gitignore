@@ -41,4 +41,3 @@ sysinfo.txt
 *.apk
 *.unitypackage
 ProjectSettings/ProjectSettings.asset
-*.meta

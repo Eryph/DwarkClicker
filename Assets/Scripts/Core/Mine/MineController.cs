@@ -88,7 +88,7 @@
         private void LoadData()
         {
 			ChangeResource();
-            _workerNb = _db.MineStats.WorkerNb + _db.MineUpgrades.WorkerNb.value * _playerProfile.CurrentFortress.MineUpgradesIndex._workerNbIndex;
+            _workerNb = _db.MineStats.WorkerAmount + _db.MineUpgrades.WorkerNb.value * _playerProfile.CurrentFortress.MineUpgradesIndex._workerNbIndex;
 			_resByWorker = _db.MineStats.ResByWorker + _db.MineUpgrades.ResByWorker.value * _playerProfile.CurrentFortress.MineUpgradesIndex._resByWorkerIndex;
 			_luck = _db.MineStats.Luck - _db.MineUpgrades.Luck.value * _playerProfile.CurrentFortress.MineUpgradesIndex._luckIndex;
 			_richVein = _db.MineStats.RichVein + _db.MineUpgrades.RichVein.value * _playerProfile.CurrentFortress.MineUpgradesIndex._richVeinIndex;

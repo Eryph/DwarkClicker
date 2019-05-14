@@ -36,7 +36,7 @@
 		private void OnForgeUpgrade()
 		{
 			FortressProfile currentFortress = _playerProfile.CurrentFortress;
-			_WorkUpText.text = string.Format("R{0} - {1}g", currentFortress.UForgeWorkerNbIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WorkerNb, currentFortress.UForgeWorkerNbIndex));
+			_WorkUpText.text = string.Format("R{0} - {1}g", currentFortress.UForgeWorkerNbIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WorkerAmount, currentFortress.UForgeWorkerNbIndex));
 			_CycleUpText.text = string.Format("R{0} - {1}g", currentFortress.UForgeCycleDurationIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.CycleDuration, currentFortress.UForgeCycleDurationIndex));
 			_wByWorkerUpText.text = string.Format("R{0} - {1}g", currentFortress.UForgeWByWorkerIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WByWorker, currentFortress.UForgeWByWorkerIndex));
 			_instantSellingChanceText.text = string.Format("R{0} - {1}g", currentFortress.UForgeInstantSellingChanceIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingChance, currentFortress.UForgeInstantSellingChanceIndex));

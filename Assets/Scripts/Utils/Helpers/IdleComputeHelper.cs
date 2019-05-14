@@ -25,7 +25,7 @@
 				beerCostbyWorker -= beerCostbyWorker * db.MineUpgrades.BeerConsumption.value;
 			}
 
-			int workerNb = db.MineStats.WorkerNb + db.MineUpgrades.WorkerNb.value * fortress.UMineBeerConsoIndex;
+			int workerNb = db.MineStats.WorkerAmount + db.MineUpgrades.WorkerNb.value * fortress.UMineBeerConsoIndex;
 			float beerCostbyCycle = workerNb * beerCostbyWorker;
 			int cycleNb = (int)(timeElapsed.TotalSeconds / miningTime);
 			int realCycleNb = (int)(fortress.Beer / beerCostbyCycle);
@@ -72,7 +72,7 @@
 				forgingTime -= forgingTime * db.ForgeUpgrades.CycleDuration.value;
 			}
 
-			int forgeWorkerNb = db.ForgeStats.WorkerNb + db.ForgeUpgrades.WorkerNb.value * fortress.UForgeWorkerNbIndex;
+			int forgeWorkerNb = db.ForgeStats.WorkerAmount + db.ForgeUpgrades.WorkerAmount.value * fortress.UForgeWorkerNbIndex;
 			int wByWorker = db.ForgeStats.WByWorker + db.ForgeUpgrades.WByWorker.value * fortress.UForgeWByWorkerIndex;
 			int resCostByCycle = forgeWorkerNb * wByWorker * playerProfile.Weapons[fortress.CurrentCraft.Name].Recipie[0].Count;
 
@@ -105,7 +105,7 @@
 				tradingTime -= tradingTime * db.TradingPostUpgrades.CycleDuration.value;
 			}
 
-			int tradingWorkerNb = db.TradingPostStats.WorkerNb + db.TradingPostUpgrades.WorkerNb.value * fortress.UTPWorkerNbIndex;
+			int tradingWorkerNb = db.TradingPostStats.WorkerAmount + db.TradingPostUpgrades.WorkerAmount.value * fortress.UTPWorkerNbIndex;
 			int sellByWorker = db.TradingPostStats.SellByWorker + db.TradingPostUpgrades.SellByWorker.value * fortress.UTPSellByWorkerIndex;
 			int wCostByCycle = tradingWorkerNb * sellByWorker;
 

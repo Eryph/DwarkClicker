@@ -36,7 +36,7 @@
 		private void OnTradingPostUpgrade()
 		{
 			FortressProfile currentFortress = _playerProfile.CurrentFortress;
-			_WorkUpText.text = string.Format("R{0} - {1}g", currentFortress.UTPWorkerNbIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WorkerNb, currentFortress.UTPWorkerNbIndex)); ;
+			_WorkUpText.text = string.Format("R{0} - {1}g", currentFortress.UTPWorkerNbIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WorkerAmount, currentFortress.UTPWorkerNbIndex)); ;
 			_CycleUpText.text = string.Format("R{0} - {1}g", currentFortress.UTPCycleDurationIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.SellByWorker, currentFortress.UTPSellByWorkerIndex));
 			_sellByWorkerUpText.text = string.Format("R{0} - {1}g", currentFortress.UTPSellByWorkerIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.SellByWorker, currentFortress.UTPSellByWorkerIndex));
 			_goldMultUpText.text = string.Format("R{0} - {1}g", currentFortress.UTPGoldMultIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.GoldMult, currentFortress.UTPGoldMultIndex));

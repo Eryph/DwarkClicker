@@ -98,7 +98,7 @@
 
 		public void UpgradeWorkerNb()
 		{
-			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WorkerNb, _playerProfile.CurrentFortress.UForgeWorkerNbIndex);
+			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WorkerAmount, _playerProfile.CurrentFortress.UForgeWorkerNbIndex);
 			if (_playerProfile.Gold >= cost)
 			{
 				_playerProfile.Gold -= cost;
@@ -218,7 +218,7 @@
 
 		private void LoadWorkerNb()
 		{
-			_workerNb = _db.ForgeStats.WorkerNb + _db.ForgeUpgrades.WorkerNb.value * _playerProfile.CurrentFortress.ForgeUpgradesIndex._workerNbIndex;
+			_workerNb = _db.ForgeStats.WorkerAmount + _db.ForgeUpgrades.WorkerAmount.value * _playerProfile.CurrentFortress.ForgeUpgradesIndex._workerNbIndex;
 			_forgeCount = _workerNb * _wByWorker;
 		}
 
