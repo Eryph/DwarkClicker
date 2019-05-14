@@ -16,6 +16,6 @@ MonoBehaviour:
   _price: 1000
   _resourceToProduce: {fileID: 11400000, guid: a97b30ea2f20edf46889716f43175b70, type: 2}
   _weaponsToProduce:
-  - {fileID: 11400000, guid: 88d81aa0cd1f8384f96d0b44d84bf8f0, type: 2}
   - {fileID: 11400000, guid: 286435563f701544dafcbddb607544b6, type: 2}
+  - {fileID: 11400000, guid: 88d81aa0cd1f8384f96d0b44d84bf8f0, type: 2}
   - {fileID: 11400000, guid: 39bdb5b4d8cc7bf48b14ba4a0ffaf1ab, type: 2}
