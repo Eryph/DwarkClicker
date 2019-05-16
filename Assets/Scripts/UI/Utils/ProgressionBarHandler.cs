@@ -18,7 +18,7 @@
 		private void Start()
 		{
 			_fullPosition = _bar.localPosition;
-			_emptyPosition = _bar.localPosition - new Vector3(_bar.rect.width, 0, 0);
+			_emptyPosition = _bar.localPosition - new Vector3(126, 0, 0);
 			SetEmpty();
 		}
 

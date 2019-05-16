@@ -231,7 +231,7 @@
 		private void LoadCycleDuration()
 		{
 			_cycleDuration = _db.ForgeStats.CycleDuration;
-			for (int i = 0; i <= _playerProfile.CurrentFortress.ForgeUpgradesIndex._cycleDurationIndex; i++)
+			for (int i = 0; i < _playerProfile.CurrentFortress.ForgeUpgradesIndex._cycleDurationIndex; i++)
 			{
 				_cycleDuration -= _cycleDuration * _db.ForgeUpgrades.CycleDuration.value;
 			}

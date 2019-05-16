@@ -95,7 +95,7 @@
 			_mithrilChance = _db.MineStats.Mithril - _db.MineUpgrades.Mithril.value * _playerProfile.CurrentFortress.MineUpgradesIndex._mithrilChanceIndex;
 
 			_cycleDuration = _db.MineStats.CycleDuration;
-			for (int i = 0; i <= _playerProfile.CurrentFortress.MineUpgradesIndex._cycleDurationIndex; i++)
+			for (int i = 0; i < _playerProfile.CurrentFortress.MineUpgradesIndex._cycleDurationIndex; i++)
 			{
 				_cycleDuration -= _cycleDuration * _db.MineUpgrades.CycleDuration.value;
 			}

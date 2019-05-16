@@ -1,5 +1,6 @@
 ﻿namespace Preprod
 {
+	using DwarkClicker.Helper;
 	using Engine.Manager;
 	using Engine.Utils;
 	using System.Collections;
@@ -77,7 +78,7 @@
 				Text buyText = _buy[i].GetComponentInChildren<Text>();
 				if (buyText != null)
 				{
-					buyText.text = "Buy : " + DatabaseManager.Instance.Fortress[i].Price;
+					buyText.text = "Buy : " + UIHelper.FormatIntegerString(DatabaseManager.Instance.Fortress[i].Price);
 				}
 				index = i + 1;
 			}

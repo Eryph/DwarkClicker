@@ -1,4 +1,4 @@
-﻿namespace Preprod
+﻿namespace DwarfClicker.UI.TradingPost
 {
 	using DwarfClicker.Core;
 	using Engine.Manager;
@@ -17,12 +17,12 @@
 
 		[SerializeField] private TextMeshProUGUI _timerText = null;
 
-		[SerializeField] private TextMeshProUGUI _WorkUpText = null;
-		[SerializeField] private TextMeshProUGUI _CycleUpText = null;
-		[SerializeField] private TextMeshProUGUI _sellByWorkerUpText = null;
-		[SerializeField] private TextMeshProUGUI _goldMultUpText = null;
-		[SerializeField] private TextMeshProUGUI _winBeerChanceUpText = null;
-		[SerializeField] private TextMeshProUGUI _winBeerAmountUpText = null;
+		[SerializeField] private UpgradeButtonHandler _workerUpgrade = null;
+		[SerializeField] private UpgradeButtonHandler _sellbyWorkerUpgrade = null;
+		[SerializeField] private UpgradeButtonHandler _cycleDurationUpgrade = null;
+		[SerializeField] private UpgradeButtonHandler _winBeerAmountUpgrade = null;
+		[SerializeField] private UpgradeButtonHandler _winBeerChanceUpgrade = null;
+		[SerializeField] private UpgradeButtonHandler _goldMultUpgrade = null;
 
 		private PlayerProfile _playerProfile = null;
 		private void Start()
@@ -34,15 +34,41 @@
 			OnTradingPostUpgrade();
 		}
 
+		private void OnEnable()
+		{
+			if (_playerProfile == null)
+			{
+				_playerProfile = JSonManager.Instance.PlayerProfile;
+			}
+			Display();
+		}
+
 		private void OnTradingPostUpgrade()
 		{
+			Display();
+		}
+
+		private void Display()
+		{
 			FortressProfile currentFortress = _playerProfile.CurrentFortress;
-			_WorkUpText.text = string.Format("R{0} - {1}g", currentFortress.UTPWorkerNbIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WorkerAmount, currentFortress.UTPWorkerNbIndex)); ;
-			_CycleUpText.text = string.Format("R{0} - {1}g", currentFortress.UTPCycleDurationIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.SellByWorker, currentFortress.UTPSellByWorkerIndex));
-			_sellByWorkerUpText.text = string.Format("R{0} - {1}g", currentFortress.UTPSellByWorkerIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.SellByWorker, currentFortress.UTPSellByWorkerIndex));
-			_goldMultUpText.text = string.Format("R{0} - {1}g", currentFortress.UTPGoldMultIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.GoldMult, currentFortress.UTPGoldMultIndex));
-			_winBeerChanceUpText.text = string.Format("R{0} - {1}g", currentFortress.UTPWinBeerChanceIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WinBeerChance, currentFortress.UTPWinBeerChanceIndex));
-			_winBeerAmountUpText.text = string.Format("R{0} - {1}g", currentFortress.UTPWinBeerAmountIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WinBeerAmount, currentFortress.UTPWinBeerAmountIndex));
+
+			int price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WorkerAmount, currentFortress.UTPWorkerNbIndex);
+			_workerUpgrade.Init("Worker +", currentFortress.UTPWorkerNbIndex, price);
+
+			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.SellByWorker, currentFortress.UTPSellByWorkerIndex);
+			_sellbyWorkerUpgrade.Init("Sell by Worker", currentFortress.UTPSellByWorkerIndex, price);
+
+			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.CycleDuration, currentFortress.UTPCycleDurationIndex);
+			_cycleDurationUpgrade.Init("Cycle Duration", currentFortress.UTPCycleDurationIndex, price);
+
+			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WinBeerAmount, currentFortress.UTPWinBeerAmountIndex);
+			_winBeerAmountUpgrade.Init("Win Beer Amount", currentFortress.UTPWinBeerAmountIndex, price);
+
+			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WinBeerChance, currentFortress.UTPWinBeerChanceIndex);
+			_winBeerChanceUpgrade.Init("Win Beer Chance", currentFortress.UTPWinBeerChanceIndex, price);
+
+			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.GoldMult, currentFortress.UTPGoldMultIndex);
+			_goldMultUpgrade.Init("Gold Mult", currentFortress.UTPGoldMultIndex, price);
 		}
 
 		private void OnDestroy()

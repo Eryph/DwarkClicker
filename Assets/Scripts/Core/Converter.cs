@@ -124,6 +124,7 @@
 			_profile.Gold += (int)(_profile.Weapons[_toSell.Name].SellPrice * totalToSell * goldMult);
 			_profile.TriggerInventoryChangeEvent();
 
+			//Remanent Market Computing
 			WeaponData[] weapons = _profile.CurrentFortress._weapons;
 			for (int i = 0; i < weapons.Length; i++)
 			{

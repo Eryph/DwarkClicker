@@ -74,7 +74,7 @@
 			_sellByWorker = _db.TradingPostStats.SellByWorker + _db.TradingPostUpgrades.SellByWorker.value * _playerProfile.CurrentFortress.TradingPostUpgradesIndex._sellByWorkerIndex;
 			_workerNb = _db.TradingPostStats.WorkerAmount + _db.TradingPostUpgrades.WorkerAmount.value * _playerProfile.CurrentFortress.TradingPostUpgradesIndex._workerNbIndex;
 			_cycleDuration = _db.TradingPostStats.CycleDuration;
-			for (int i = 0; i <= _playerProfile.CurrentFortress.TradingPostUpgradesIndex._cycleDurationIndex; i++)
+			for (int i = 0; i < _playerProfile.CurrentFortress.TradingPostUpgradesIndex._cycleDurationIndex; i++)
 			{
 				_cycleDuration -= _cycleDuration * _db.TradingPostUpgrades.CycleDuration.value;
 			}

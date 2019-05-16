@@ -32,7 +32,7 @@
 
 		private void UpdateFortress()
 		{
-			_playerProfile.CurrentFortress.OnTPUpgradeChange += OnInnUpgrade;
+			_playerProfile.CurrentFortress.OnInnUpgradeChange += OnInnUpgrade;
 			OnInnUpgrade();
 		}
 
