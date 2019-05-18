@@ -9,15 +9,21 @@
 	using UnityEngine.Assertions;
 	using System.IO;
 	using DwarkClicker.Helper;
+	using DwarfClicker.UI.GainRecap;
 
 	public class GameManager : Singleton<GameManager>
 	{
 		#region Fields
 		[SerializeField] private string _firstSceneToLoadPath = "Assets/Scenes/MainMenu.unity";
 
+		private ProgressionLoadInventory _progressionInventory;
 		private PlayerProfile _playerProfile = null;
 		private DatabaseManager _db = null;
 		#endregion Fields
+
+		#region Properties
+		public ProgressionLoadInventory ProgressionInventory { get { return _progressionInventory; } }
+		#endregion Properties
 
 		#region Events
 		#endregion Events
@@ -47,6 +53,7 @@
 			JSonManager.Instance.OnProfileLoaded -= LoadData;
 		}
 
+		#region Progression Load
 		public void LoadProgression(bool computeCurrent = false)
 		{
 			DateTime currentDate = DateTime.Now;
@@ -76,6 +83,9 @@
 					continue;
 				}
 
+				_progressionInventory = new ProgressionLoadInventory();
+				_progressionInventory.Init();
+				_progressionInventory.SetTimePassed(timeElapsed);
 				IdleComputeHelper.ComputeMineProgression(_db, _playerProfile, fortress, timeElapsed);
 				IdleComputeHelper.ComputeForgeProgression(_db, _playerProfile, fortress, timeElapsed);
 				IdleComputeHelper.ComputeTradingPostProgression(_db, _playerProfile, fortress, timeElapsed);
@@ -83,6 +93,9 @@
 
 			JSonManager.Instance.SavePlayerProfile();
 		}
+
+		
+		#endregion Progression Load
 
 		private void OnApplicationQuit()
 		{

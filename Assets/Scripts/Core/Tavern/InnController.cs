@@ -86,6 +86,7 @@
 		private void LoadStorage()
 		{
 			_storage = _db.InnStats.Storage + _db.InnUpgrades.Storage.value * _playerProfile.CurrentFortress.InnUpgradesIndex._storageIndex;
+			_playerProfile.CurrentFortress.BeerStorage = _storage;
 		}
 		#endregion Utils
 		#endregion Methods

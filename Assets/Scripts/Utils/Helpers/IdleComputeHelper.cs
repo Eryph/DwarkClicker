@@ -37,7 +37,9 @@
 			int resByWorker = db.MineStats.ResByWorker + db.MineUpgrades.ResByWorker.value * fortress.MineUpgradesIndex._resByWorkerIndex;
 			int resGain = realCycleNb * resByWorker * workerNb;
 
-			playerProfile.Resources[fortress.ResourceProduced.Name].UpdateCount(resGain);
+			string resourceKey = fortress.ResourceProduced.Name;
+			playerProfile.Resources[resourceKey].UpdateCount(resGain);
+			GameManager.Instance.ProgressionInventory.SetProducedResource(resourceKey, resGain);
 
 			// Rich Vein
 
@@ -45,7 +47,8 @@
 			int richVein = db.MineStats.RichVein + db.MineUpgrades.RichVein.value * fortress.MineUpgradesIndex._richVeinIndex;
 			int luck = db.MineStats.Luck - db.MineUpgrades.Luck.value * fortress.MineUpgradesIndex._luckIndex;
 			luckCounter = (int)(realCycleNb / luck);
-			playerProfile.Resources[fortress.ResourceProduced.Name].UpdateCount(richVein * luckCounter);
+			playerProfile.Resources[resourceKey].UpdateCount(richVein * luckCounter);
+			GameManager.Instance.ProgressionInventory.SetProducedResource(resourceKey, richVein * luckCounter);
 
 			// Rich Vein
 
@@ -58,6 +61,7 @@
 				if (UnityEngine.Random.Range(0, mithrilChance) == 0)
 				{
 					playerProfile.Mithril++;
+					GameManager.Instance.ProgressionInventory.SetMithril(1);
 				}
 			}
 
@@ -82,7 +86,9 @@
 				forgeRealCycleNb = forgeCycleNb;
 
 			int weaponProduced = forgeRealCycleNb * wByWorker * forgeWorkerNb;
-			playerProfile.Resources[fortress.ResourceProduced.Name].UpdateCount(-weaponProduced * playerProfile.Weapons[fortress.CurrentCraft.Name].Recipie[0].Count);
+			int resourceConsumed = -weaponProduced * playerProfile.Weapons[fortress.CurrentCraft.Name].Recipie[0].Count;
+			playerProfile.Resources[fortress.ResourceProduced.Name].UpdateCount(resourceConsumed);
+			GameManager.Instance.ProgressionInventory.SetConsumedResource(fortress.ResourceProduced.Name, resourceConsumed);
 
 			// Instant Selling
 
@@ -90,11 +96,16 @@
 			int instantSellingChance = db.ForgeStats.InstantSellingChance - db.ForgeUpgrades.InstantSellingChance.value * fortress.UForgeInstantSellingChanceIndex;
 			float instantSellingGoldBonus = db.ForgeStats.InstantSellingGoldBonus + db.ForgeUpgrades.InstantSellingGoldBonus.value * fortress.UForgeInstantSellingGoldBonusIndex;
 			instantSellingCounter = (int)(forgeRealCycleNb / instantSellingChance);
-			playerProfile.Gold += (int)(instantSellingCounter * playerProfile.Weapons[fortress.CurrentCraft.Name].SellPrice * wByWorker * forgeWorkerNb * instantSellingGoldBonus);
+			int goldGain = (int)(instantSellingCounter * playerProfile.Weapons[fortress.CurrentCraft.Name].SellPrice * wByWorker * forgeWorkerNb * instantSellingGoldBonus);
+			playerProfile.Gold += goldGain;
+			GameManager.Instance.ProgressionInventory.SetGold(goldGain);
 
 			// Instant Selling
 
-			playerProfile.Weapons[fortress.CurrentCraft.Name].UpdateCount(weaponProduced - instantSellingCounter);
+			string weaponKey = fortress.CurrentCraft.Name;
+			int weaponGain = weaponProduced - instantSellingCounter;
+			playerProfile.Weapons[weaponKey].UpdateCount(weaponGain);
+			GameManager.Instance.ProgressionInventory.SetProducedWeapon(weaponKey, weaponGain);
 		}
 
 		public static void ComputeTradingPostProgression(DatabaseManager db, PlayerProfile playerProfile, FortressProfile fortress, TimeSpan timeElapsed)
@@ -135,6 +146,7 @@
 				{
 					goldProduced += playerProfile.Weapons[weapons[weaponIndex].Name].SellPrice;
 					playerProfile.Weapons[weapons[weaponIndex].Name].UpdateCount(-1);
+					GameManager.Instance.ProgressionInventory.SetConsumedResource(weapons[weaponIndex].Name, -1);
 					weaponConsumedIt++;
 					for (int i = 0; i < weapons.Length; i++)
 					{
@@ -148,10 +160,9 @@
 			}
 
 			playerProfile.Gold += goldProduced;
-
-			// Update ModTimer
-
+			GameManager.Instance.ProgressionInventory.SetGold(goldProduced);
 			
+			// Update ModTimer
 			for (int i = 0; i < weapons.Length; i++)
 			{
 				while (playerProfile.Weapons[weapons[i].Name].ModTimer >= weapons[i].ModifierTimer)

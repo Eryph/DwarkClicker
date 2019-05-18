@@ -20,6 +20,7 @@
 		public WeaponData[] _weapons = null;
 		public ResourceData _resourceProduced = null;
 		public float _beer = 0;
+		public float _beerStorage = 0;
 		public int _modifierTimer = 0;
 		#endregion Production
 
@@ -50,6 +51,7 @@
 		public WeaponData[] WeaponToCraft { get { return _weapons; } }// set { _weapons = value; } }
 		public ResourceData ResourceProduced { get { return _resourceProduced; } } // set { _resourceProduced = value; } }
 
+
 		public int FortressIndex { get { return _fortressIndex; } }
 
 		public string Name { get { return _name; } set { _name = value; } }
@@ -63,10 +65,13 @@
 			set
 			{
 				_beer = value;
+				_beer = Mathf.Clamp(_beer, 0f, _beerStorage);
 				if (_onBeerChange != null)
 					_onBeerChange();
 			}
 		}
+
+		public float BeerStorage { get { return _beerStorage; } set { _beerStorage = value; } }
 
 		#region Mine Upgrades
 		public MineUpgradesIndex MineUpgradesIndex { get { return _mineUpgradesIndex; } }
