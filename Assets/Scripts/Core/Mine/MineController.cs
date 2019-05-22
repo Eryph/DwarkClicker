@@ -8,19 +8,7 @@
 	using System.Collections.Generic;
 	using UnityEngine;
 
-	public enum EMineUpgradeType
-	{
-		WORKERNB,
-		RESBYWORKER,
-		BEERCONSO,
-		LUCK,
-		RICHVEIN,
-		MITHRILCHANCE,
-		CYCLEDURATION
-	};
-
-	public class MineController : MonoBehaviour
-	{
+	public class MineController : BuildingBase {
         #region Fields
         // Data
         private int _workerNb = 1;
@@ -59,6 +47,7 @@
 			_playerProfile = JSonManager.Instance.PlayerProfile;
 			_playerProfile.CurrentFortress.OnMineUpgradeChange += OnUpgrade;
 			_playerProfile.OnFortressChange += HandleFortressChange;
+			OnPause += SetPause;
 			GameLoopManager.Instance.GameLoop += Loop;
 			LoadData();
 
@@ -107,8 +96,12 @@
 			}
 
 			_beerCost = _workerNb * _beerCostbyWorker;
-            _miningCount = _workerNb * _resByWorker;
-        }
+			_miningCount = _workerNb * _resByWorker;
+
+			_isPaused = _playerProfile.CurrentFortress.MineIsPaused;
+			SetPause(_isPaused);
+
+		}
 		#endregion Monobehaviour
 
 		#region Upgrades
@@ -186,36 +179,46 @@
 		#region Loop
 		private void Loop()
 		{
-			if (_playerProfile.CurrentFortress.Beer >= _beerCost)
+			if (_isPaused)
 			{
-				if (_timer.IsStopped == true)
+				if (!_timer.IsStopped)
 				{
-					ResetTimer();
-				}
-				else if (_timer.IsTimerEnd())
-				{
-					//Normal Mining
 					_timer.Stop();
-					_converter.MineConverter(_resourceProduced, _beerCost, _miningCount);
-
-					//Lucky Mining
-					_luckCounter++;
-					if (_luckCounter >= _luck)
-					{
-						_luckCounter = 0;
-						_converter.MineConverter(_resourceProduced, 0, _richVein);
-					}
-
-					//Mithril Mining
-					if (Random.Range(0, _mithrilChance) == 0)
-					{
-						_converter.UpdateMithril(1);
-					}
 				}
 			}
 			else
 			{
-				StopTimer();
+				if (_playerProfile.CurrentFortress.Beer >= _beerCost)
+				{
+					if (_timer.IsStopped == true)
+					{
+						ResetTimer();
+					}
+					else if (_timer.IsTimerEnd())
+					{
+						//Normal Mining
+						_timer.Stop();
+						_converter.MineConverter(_resourceProduced, _beerCost, _miningCount);
+
+						//Lucky Mining
+						_luckCounter++;
+						if (_luckCounter >= _luck)
+						{
+							_luckCounter = 0;
+							_converter.MineConverter(_resourceProduced, 0, _richVein);
+						}
+
+						//Mithril Mining
+						if (Random.Range(0, _mithrilChance) == 0)
+						{
+							_converter.UpdateMithril(1);
+						}
+					}
+				}
+				else
+				{
+					StopTimer();
+				}
 			}
 		}
         #endregion Loop
@@ -253,6 +256,11 @@
 			ChangeResource();
 			StopTimer();
 			_playerProfile.CurrentFortress.OnMineUpgradeChange += OnUpgrade;
+		}
+
+		private void SetPause(bool isPaused)
+		{
+			_playerProfile.CurrentFortress.MineIsPaused = isPaused;
 		}
 		#endregion Callbacks
 		#endregion Methods

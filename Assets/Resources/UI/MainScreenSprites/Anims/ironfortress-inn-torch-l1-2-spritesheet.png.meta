@@ -1,17 +1,19 @@
 fileFormatVersion: 2
-guid: f2231e5dabb9d0e4883631857562420b
+guid: ccc1bb101846ec6458e6185aeb12a543
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ironfortress-forge-dwarf1-l1-2-spritesheet_0
-    21300002: ironfortress-forge-dwarf1-l1-2-spritesheet_1
-    21300004: ironfortress-forge-dwarf1-l1-2-spritesheet_2
-    21300006: ironfortress-forge-dwarf1-l1-2-spritesheet_3
-    21300008: ironfortress-forge-dwarf1-l1-2-spritesheet_4
-    21300010: ironfortress-forge-dwarf1-l1-2-spritesheet_5
-    21300012: ironfortress-forge-dwarf1-l1-2-spritesheet_6
-    21300014: ironfortress-forge-dwarf1-l1-2-spritesheet_7
-    21300016: ironfortress-forge-dwarf1-l1-2-spritesheet_8
-    21300018: ironfortress-forge-dwarf1-l1-2-spritesheet_9
+    21300000: ironfortress-inn-torch-l1-2-spritesheet_0
+    21300002: ironfortress-inn-torch-l1-2-spritesheet_1
+    21300004: ironfortress-inn-torch-l1-2-spritesheet_2
+    21300006: ironfortress-inn-torch-l1-2-spritesheet_3
+    21300008: ironfortress-inn-torch-l1-2-spritesheet_4
+    21300010: ironfortress-inn-torch-l1-2-spritesheet_5
+    21300012: ironfortress-inn-torch-l1-2-spritesheet_6
+    21300014: ironfortress-inn-torch-l1-2-spritesheet_7
+    21300016: ironfortress-inn-torch-l1-2-spritesheet_8
+    21300018: ironfortress-inn-torch-l1-2-spritesheet_9
+    21300020: ironfortress-inn-torch-l1-2-spritesheet_10
+    21300022: ironfortress-inn-torch-l1-2-spritesheet_11
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -105,12 +107,12 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: WebGL
@@ -127,201 +129,241 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ironfortress-forge-dwarf1-l1-2-spritesheet_0
+      name: ironfortress-inn-torch-l1-2-spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 192
         width: 64
         height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bcae5778c2cc6842b551dbdd2eea040
+      spriteID: 35eef054f90867346b7ca2d289629db0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ironfortress-forge-dwarf1-l1-2-spritesheet_1
+      name: ironfortress-inn-torch-l1-2-spritesheet_1
       rect:
         serializedVersion: 2
         x: 64
         y: 192
         width: 64
         height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d98b94b054669e646a5926df57173737
+      spriteID: 35cd80c743d73274d86dc1aaccc65dab
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ironfortress-forge-dwarf1-l1-2-spritesheet_2
+      name: ironfortress-inn-torch-l1-2-spritesheet_2
       rect:
         serializedVersion: 2
         x: 128
         y: 192
         width: 64
         height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38487051137df364cb18ccd3019f2722
+      spriteID: fab844225a1de114488196d3d2ab07ef
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ironfortress-forge-dwarf1-l1-2-spritesheet_3
+      name: ironfortress-inn-torch-l1-2-spritesheet_3
       rect:
         serializedVersion: 2
         x: 0
         y: 128
         width: 64
         height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 489c8d10322df974f96902d68e182521
+      spriteID: 69c4fb8eb9e01b440a9998ea8b9eb872
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ironfortress-forge-dwarf1-l1-2-spritesheet_4
+      name: ironfortress-inn-torch-l1-2-spritesheet_4
       rect:
         serializedVersion: 2
         x: 64
         y: 128
         width: 64
         height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4fbd33b06f9c5c47b6ebf7e9ae53697
+      spriteID: 78c5f883c4d240e4d9195b72e67744ef
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ironfortress-forge-dwarf1-l1-2-spritesheet_5
+      name: ironfortress-inn-torch-l1-2-spritesheet_5
       rect:
         serializedVersion: 2
         x: 128
         y: 128
         width: 64
         height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd1532932e7c1324f8bd63ef31305101
+      spriteID: 3aab3d336c9a67244985104d3f537fb8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ironfortress-forge-dwarf1-l1-2-spritesheet_6
+      name: ironfortress-inn-torch-l1-2-spritesheet_6
       rect:
         serializedVersion: 2
         x: 0
         y: 64
         width: 64
         height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc6c824f308f3c342be93b122d79baa1
+      spriteID: 0203448ba8d14274c8e07e6f9b9109fa
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ironfortress-forge-dwarf1-l1-2-spritesheet_7
+      name: ironfortress-inn-torch-l1-2-spritesheet_7
       rect:
         serializedVersion: 2
         x: 64
         y: 64
         width: 64
         height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea77ca50ffdc0304ab8272b174fc87f0
+      spriteID: ae2a6c80ef6711a4798d6015d5fbd213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ironfortress-forge-dwarf1-l1-2-spritesheet_8
+      name: ironfortress-inn-torch-l1-2-spritesheet_8
       rect:
         serializedVersion: 2
         x: 128
         y: 64
         width: 64
         height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb659c889594c4c4d82459f369e986c6
+      spriteID: 15102a4c5eb70b94aa258dee5fabb5a4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ironfortress-forge-dwarf1-l1-2-spritesheet_9
+      name: ironfortress-inn-torch-l1-2-spritesheet_9
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 64
         height: 64
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9526f58c34ff5744bbf9626087ad360
+      spriteID: 00e598c1b190d524e9d81c229170c491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ironfortress-inn-torch-l1-2-spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 842794cc776294a46850d113267f1941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ironfortress-inn-torch-l1-2-spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38fd0c49c4d83274b9a1363d7b22b4c5
       vertices: []
       indices: 
       edges: []
@@ -329,7 +371,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 9323f210000b52146afdb46629becf55
+    spriteID: d2c6827281d50204ea21af43c835abdb
     vertices: []
     indices: 
     edges: []

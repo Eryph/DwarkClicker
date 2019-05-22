@@ -1,19 +1,17 @@
 fileFormatVersion: 2
-guid: 521ab8488b32a1d4aad6c7d2af6232e6
+guid: 17ea3656aa05c574585d3f7c9858c9cf
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ironfortress-inn-chandelier-l1-2-spritesheet_0
-    21300002: ironfortress-inn-chandelier-l1-2-spritesheet_1
-    21300004: ironfortress-inn-chandelier-l1-2-spritesheet_2
-    21300006: ironfortress-inn-chandelier-l1-2-spritesheet_3
-    21300008: ironfortress-inn-chandelier-l1-2-spritesheet_4
-    21300010: ironfortress-inn-chandelier-l1-2-spritesheet_5
-    21300012: ironfortress-inn-chandelier-l1-2-spritesheet_6
-    21300014: ironfortress-inn-chandelier-l1-2-spritesheet_7
-    21300016: ironfortress-inn-chandelier-l1-2-spritesheet_8
-    21300018: ironfortress-inn-chandelier-l1-2-spritesheet_9
-    21300020: ironfortress-inn-chandelier-l1-2-spritesheet_10
-    21300022: ironfortress-inn-chandelier-l1-2-spritesheet_11
+    21300000: ironfortress-mine-ae-torch-l1-spritesheet_0
+    21300002: ironfortress-mine-ae-torch-l1-spritesheet_1
+    21300004: ironfortress-mine-ae-torch-l1-spritesheet_2
+    21300006: ironfortress-mine-ae-torch-l1-spritesheet_3
+    21300008: ironfortress-mine-ae-torch-l1-spritesheet_4
+    21300010: ironfortress-mine-ae-torch-l1-spritesheet_5
+    21300012: ironfortress-mine-ae-torch-l1-spritesheet_6
+    21300014: ironfortress-mine-ae-torch-l1-spritesheet_7
+    21300016: ironfortress-mine-ae-torch-l1-spritesheet_8
+    21300018: ironfortress-mine-ae-torch-l1-spritesheet_9
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -107,12 +105,12 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: WebGL
@@ -129,7 +127,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ironfortress-inn-chandelier-l1-2-spritesheet_0
+      name: ironfortress-mine-ae-torch-l1-spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -143,13 +141,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9830d5039ae5f6546b0d91c165631dfa
+      spriteID: aea8188fbffe946478e97f97aaad21e8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ironfortress-inn-chandelier-l1-2-spritesheet_1
+      name: ironfortress-mine-ae-torch-l1-spritesheet_1
       rect:
         serializedVersion: 2
         x: 64
@@ -163,13 +161,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bea28f7c39bf2e4393b0c8b6274ac38
+      spriteID: b7342ca8d98a55c4ba8347e4fc7086a0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ironfortress-inn-chandelier-l1-2-spritesheet_2
+      name: ironfortress-mine-ae-torch-l1-spritesheet_2
       rect:
         serializedVersion: 2
         x: 128
@@ -183,13 +181,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da44a0747818c8044b57dfa9aeccfab6
+      spriteID: d1634943dfbadd2488b371d3b81b6823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ironfortress-inn-chandelier-l1-2-spritesheet_3
+      name: ironfortress-mine-ae-torch-l1-spritesheet_3
       rect:
         serializedVersion: 2
         x: 0
@@ -203,13 +201,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d64c330895ef66c4589d0fcdf7e29154
+      spriteID: c37d7de5ae7954c489109ff779ced45d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ironfortress-inn-chandelier-l1-2-spritesheet_4
+      name: ironfortress-mine-ae-torch-l1-spritesheet_4
       rect:
         serializedVersion: 2
         x: 64
@@ -223,13 +221,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 983357cc58e032d478982e7474b3dab0
+      spriteID: b5bf16cf767016f44be6c52cc99d6b07
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ironfortress-inn-chandelier-l1-2-spritesheet_5
+      name: ironfortress-mine-ae-torch-l1-spritesheet_5
       rect:
         serializedVersion: 2
         x: 128
@@ -243,13 +241,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf7726136b9f3524dadfa960d5956cc3
+      spriteID: 12e3c064010fa874789a02cd70eab3ea
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ironfortress-inn-chandelier-l1-2-spritesheet_6
+      name: ironfortress-mine-ae-torch-l1-spritesheet_6
       rect:
         serializedVersion: 2
         x: 0
@@ -263,13 +261,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19c2b50995c4543478c8ac46cbe9cb83
+      spriteID: 0e096083aedb9994aad1dffb3d007bcc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ironfortress-inn-chandelier-l1-2-spritesheet_7
+      name: ironfortress-mine-ae-torch-l1-spritesheet_7
       rect:
         serializedVersion: 2
         x: 64
@@ -283,13 +281,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4555cedef8576c45bc49bacd535f466
+      spriteID: a5daafa8ff830e64597b30f44b70f8d4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ironfortress-inn-chandelier-l1-2-spritesheet_8
+      name: ironfortress-mine-ae-torch-l1-spritesheet_8
       rect:
         serializedVersion: 2
         x: 128
@@ -303,13 +301,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f86741b2331d7dd4b9f39d31d2a7a4eb
+      spriteID: 72cad52186f63c942be42d1cef2b43ac
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ironfortress-inn-chandelier-l1-2-spritesheet_9
+      name: ironfortress-mine-ae-torch-l1-spritesheet_9
       rect:
         serializedVersion: 2
         x: 0
@@ -323,47 +321,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36e23850f5c9c2548bdc1c148d79950d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ironfortress-inn-chandelier-l1-2-spritesheet_10
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b41058cebbbb134499a0ee28b27b2d6f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ironfortress-inn-chandelier-l1-2-spritesheet_11
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: da961dea10876384f96168a4e70c8878
+      spriteID: 81a2338fb4df4804a9360ee5196efa6e
       vertices: []
       indices: 
       edges: []
@@ -371,7 +329,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 452676da096e57a4f989b36094005241
+    spriteID: a50ff4caa6808d6438a0a1addcc01e4c
     vertices: []
     indices: 
     edges: []

@@ -24,6 +24,10 @@
 		public int _modifierTimer = 0;
 		#endregion Production
 
+		public bool _tradingPostIsPaused = false;
+		public bool _mineIsPaused = false;
+		public bool _forgeIsPaused = false;
+
 		#region Time
 		private DateTime _date;
 		#endregion Time
@@ -37,6 +41,11 @@
 		#endregion Fields
 
 		#region Properties
+		public bool TradingPostIsPaused { get { return _tradingPostIsPaused; } set { _tradingPostIsPaused = value; } }
+		public bool MineIsPaused { get { return _mineIsPaused; } set { _mineIsPaused = value; } }
+		public bool ForgeIsPaused { get { return _forgeIsPaused; } set { _forgeIsPaused = value; } }
+
+
 		public int ModifierTimer { get { return _modifierTimer; } set { _modifierTimer = value; } }
 
 		public int WeaponIndex { get { return _weaponIndex; }

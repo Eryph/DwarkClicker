@@ -1,28 +1,24 @@
 fileFormatVersion: 2
-guid: e5c00f47ca88dc944880b2d97455d50e
+guid: ca6c7054531aa0444ba32dd046f87526
 TextureImporter:
   fileIDToRecycleName:
-    21300000: header-kingbutton-animation_0
-    21300002: header-kingbutton-animation_1
-    21300004: header-kingbutton-animation_2
-    21300006: header-kingbutton-animation_3
-    21300008: header-kingbutton-animation_4
-    21300010: header-kingbutton-animation_5
-    21300012: header-kingbutton-animation_6
-    21300014: header-kingbutton-animation_7
-    21300016: header-kingbutton-animation_8
-    21300018: header-kingbutton-animation_9
-    21300020: header-kingbutton-animation_10
-    21300022: header-kingbutton-animation_11
-    21300024: header-kingbutton-animation_12
-    21300026: header-kingbutton-animation_13
-    21300028: header-kingbutton-animation_14
-    21300030: header-kingbutton-animation_15
+    21300000: header-dailyrewardbutton-spritesheet_0
+    21300002: header-dailyrewardbutton-spritesheet_1
+    21300004: header-dailyrewardbutton-spritesheet_2
+    21300006: header-dailyrewardbutton-spritesheet_3
+    21300008: header-dailyrewardbutton-spritesheet_4
+    21300010: header-dailyrewardbutton-spritesheet_5
+    21300012: header-dailyrewardbutton-spritesheet_6
+    21300014: header-dailyrewardbutton-spritesheet_7
+    21300016: header-dailyrewardbutton-spritesheet_8
+    21300018: header-dailyrewardbutton-spritesheet_9
+    21300020: header-dailyrewardbutton-spritesheet_10
+    21300022: header-dailyrewardbutton-spritesheet_11
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -62,7 +58,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 1, w: 0}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -89,12 +85,12 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: iPhone
@@ -111,12 +107,12 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: WebGL
@@ -133,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: header-kingbutton-animation_0
+      name: header-dailyrewardbutton-spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,19 +137,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 116587dda34427447b86fa90f6db2ac9
+      spriteID: 9aa9acdcccbcb1c4aba59d89706e08b1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: header-kingbutton-animation_1
+      name: header-dailyrewardbutton-spritesheet_1
       rect:
         serializedVersion: 2
         x: 64
@@ -161,19 +157,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfd829ec3b61d5247bf90656e1c626ff
+      spriteID: 6fd108b5a0698e041a9a61da36e7d8a3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: header-kingbutton-animation_2
+      name: header-dailyrewardbutton-spritesheet_2
       rect:
         serializedVersion: 2
         x: 128
@@ -181,19 +177,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b79a79d3741fbc545843ab0747cd79f3
+      spriteID: 8fedea22756b1e54684bec0122826d3c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: header-kingbutton-animation_3
+      name: header-dailyrewardbutton-spritesheet_3
       rect:
         serializedVersion: 2
         x: 192
@@ -201,19 +197,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ac749bd92b396b42ac5f86ad5e93cf7
+      spriteID: 296941449b340d841bef7e477d7b8f86
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: header-kingbutton-animation_4
+      name: header-dailyrewardbutton-spritesheet_4
       rect:
         serializedVersion: 2
         x: 0
@@ -221,19 +217,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3aec939a4cee8c6449c06bab2dc3cefc
+      spriteID: 3236459688c0e7f45ac81a5867c9daee
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: header-kingbutton-animation_5
+      name: header-dailyrewardbutton-spritesheet_5
       rect:
         serializedVersion: 2
         x: 64
@@ -241,19 +237,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8c2f45d0431eb14fb52564600a5910f
+      spriteID: 921a89f5c481b644ca8c3ce0cc33289a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: header-kingbutton-animation_6
+      name: header-dailyrewardbutton-spritesheet_6
       rect:
         serializedVersion: 2
         x: 128
@@ -261,19 +257,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4c994af21bcd3148829aae64cae397a
+      spriteID: 51ec5abc38a728742afecdc803ff160f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: header-kingbutton-animation_7
+      name: header-dailyrewardbutton-spritesheet_7
       rect:
         serializedVersion: 2
         x: 192
@@ -281,19 +277,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2a71bf5a10f1794487688890fa8db10
+      spriteID: b829a77b5684682449ac19c8c26f53a1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: header-kingbutton-animation_8
+      name: header-dailyrewardbutton-spritesheet_8
       rect:
         serializedVersion: 2
         x: 0
@@ -301,19 +297,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88ba2e4edc36bb641bd318ed759c54ab
+      spriteID: f7ffb610e647bae4fb9c2cfaee9017bd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: header-kingbutton-animation_9
+      name: header-dailyrewardbutton-spritesheet_9
       rect:
         serializedVersion: 2
         x: 64
@@ -321,19 +317,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: accc67d6fe239ac41905037b4dfb4668
+      spriteID: 735ce576d15cd3445b5b3cf1a491db2e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: header-kingbutton-animation_10
+      name: header-dailyrewardbutton-spritesheet_10
       rect:
         serializedVersion: 2
         x: 128
@@ -341,19 +337,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64cf39c34472cb444b0ff9f9e1d3488b
+      spriteID: 22b869a715141be42b06fc4c07d53e39
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: header-kingbutton-animation_11
+      name: header-dailyrewardbutton-spritesheet_11
       rect:
         serializedVersion: 2
         x: 192
@@ -361,13 +357,13 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52bdedeb9cce5644d9fc2cb368defb97
+      spriteID: 0639cf71d4ad6dd4b9c56fa30c863160
       vertices: []
       indices: 
       edges: []
@@ -375,7 +371,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 32ec02d5875619c4897ca16dc150a04b
+    spriteID: 592a594755ee76f419508cb6ffd8c9d7
     vertices: []
     indices: 
     edges: []

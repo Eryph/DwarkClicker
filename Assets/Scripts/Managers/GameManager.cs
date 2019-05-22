@@ -86,9 +86,22 @@
 				_progressionInventory = new ProgressionLoadInventory();
 				_progressionInventory.Init();
 				_progressionInventory.SetTimePassed(timeElapsed);
-				IdleComputeHelper.ComputeMineProgression(_db, _playerProfile, fortress, timeElapsed);
-				IdleComputeHelper.ComputeForgeProgression(_db, _playerProfile, fortress, timeElapsed);
-				IdleComputeHelper.ComputeTradingPostProgression(_db, _playerProfile, fortress, timeElapsed);
+				
+
+				if (fortress.MineIsPaused == false)
+				{
+					IdleComputeHelper.ComputeMineProgression(_db, _playerProfile, fortress, timeElapsed);
+				}
+
+				if (fortress.ForgeIsPaused == false)
+				{
+					IdleComputeHelper.ComputeForgeProgression(_db, _playerProfile, fortress, timeElapsed);
+				}
+
+				if (fortress.TradingPostIsPaused == false)
+				{
+					IdleComputeHelper.ComputeTradingPostProgression(_db, _playerProfile, fortress, timeElapsed);
+				}
 			}
 
 			JSonManager.Instance.SavePlayerProfile();

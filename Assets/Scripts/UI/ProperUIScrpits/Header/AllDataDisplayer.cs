@@ -66,7 +66,7 @@
 
 		private void UpdateFortress()
 		{
-			_fortressText.text = _playerProfile.CurrentFortress.Name;
+			//_fortressText.text = _playerProfile.CurrentFortress.Name;
 			_playerProfile.CurrentFortress.OnBeerChange += UpdateBeerDisplay;
 			UpdateBeerDisplay();
 		}

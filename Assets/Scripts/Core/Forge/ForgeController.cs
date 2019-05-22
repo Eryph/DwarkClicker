@@ -8,7 +8,7 @@
 	using System.Collections.Generic;
 	using UnityEngine;
 
-	public class ForgeController : MonoBehaviour
+	public class ForgeController : BuildingBase
 	{
 		#region Fields
 		// Data
@@ -70,6 +70,8 @@
 			LoadInstantSellingGoldBonus();
 			LoadInstantSellingChance();
 			ChangeWeapon();
+			_isPaused = _playerProfile.CurrentFortress.ForgeIsPaused;
+			SetPause(_isPaused);
 		}
 		#endregion Monobehaviour
 
@@ -134,38 +136,48 @@
 		private void Loop()
 		{
 			// Debug
-			if (_currentForgingWeapon == null)
+			if (_isPaused)
 			{
-				ChangeWeapon();
-			}
-
-			if (CanCraft(_forgeCount) == true)
-			{
-				if (_timer.IsStopped == true)
+				if (!_timer.IsStopped)
 				{
-					ResetTimer();
-				}
-				else if (_timer.IsTimerEnd())
-				{
-					_instantSellingIncr++;
 					_timer.Stop();
-					if (_instantSellingIncr >= _instantSellingChance)
-					{
-						//Instant Selling
-						_instantSellingIncr = 0;
-						_converter.ForgeConverterInstantSelling(_currentForgingWeapon, _forgeCount, _instantSellingGoldBonus);
-					}
-					else
-					{
-						//Normal Forging
-						_converter.ForgeConverter(_currentForgingWeapon, _forgeCount);
-					}
-					
 				}
 			}
 			else
 			{
-				_timer.Stop();
+				if (_currentForgingWeapon == null)
+				{
+					ChangeWeapon();
+				}
+
+				if (CanCraft(_forgeCount) == true)
+				{
+					if (_timer.IsStopped == true)
+					{
+						ResetTimer();
+					}
+					else if (_timer.IsTimerEnd())
+					{
+						_instantSellingIncr++;
+						_timer.Stop();
+						if (_instantSellingIncr >= _instantSellingChance)
+						{
+							//Instant Selling
+							_instantSellingIncr = 0;
+							_converter.ForgeConverterInstantSelling(_currentForgingWeapon, _forgeCount, _instantSellingGoldBonus);
+						}
+						else
+						{
+							//Normal Forging
+							_converter.ForgeConverter(_currentForgingWeapon, _forgeCount);
+						}
+
+					}
+				}
+				else
+				{
+					_timer.Stop();
+				}
 			}
 		}
 		#endregion Loop
@@ -197,9 +209,14 @@
 			_playerProfile.CurrentFortress.OnWeaponChange += ChangeWeapon;
 			_timer.Stop();
 		}
-	#endregion Callbacks
 
-	#region Utils
+		private void SetPause(bool isPaused)
+		{
+			_playerProfile.CurrentFortress.ForgeIsPaused = isPaused;
+		}
+		#endregion Callbacks
+
+		#region Utils
 		private bool CanCraft(int mult)
 		{
 			for (int i = 0; i < _currentForgingWeapon.Recipe.Length; i++)

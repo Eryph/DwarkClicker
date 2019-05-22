@@ -7,7 +7,7 @@
 	using System.Collections.Generic;
 	using UnityEngine;
 
-	public class TradingPostController : MonoBehaviour
+	public class TradingPostController : BuildingBase
 	{
 		#region Fields
 		// Data
@@ -35,7 +35,7 @@
 		#endregion Properties
 
 		#region Methods
-			#region Monobehaviour
+		#region Monobehaviour
 		private void Start()
 		{
 			_timer = new Timer();
@@ -43,6 +43,7 @@
 			_playerProfile = JSonManager.Instance.PlayerProfile;
 			_playerProfile.CurrentFortress.OnTPUpgradeChange += OnUpgrade;
 			_playerProfile.OnFortressChange += HandleFortressChange;
+			OnPause += SetPause;
 			GameLoopManager.Instance.GameLoop += Loop;
 			LoadData();
 
@@ -84,6 +85,9 @@
 			_winBeerAmount = _db.TradingPostStats.WinBeerAmount + _db.TradingPostStats.WinBeerAmount * _playerProfile.CurrentFortress.TradingPostUpgradesIndex._winBeerAmountIndex;
 
 			_weaponToSellAmount = _workerNb * _sellByWorker;
+
+			_isPaused = _playerProfile.CurrentFortress.TradingPostIsPaused;
+			SetPause(_isPaused);
 		}
 		#endregion Monobehaviour
 
@@ -152,31 +156,41 @@
 		#region Loop
 		private void Loop()
 		{
-			if (ComputeWeaponToSell())
+			if (_isPaused)
 			{
-				if (_timer.IsStopped == true)
-				{
-					ResetTimer();
-				}
-				else if (_timer.IsTimerEnd())
+				if (!_timer.IsStopped)
 				{
 					_timer.Stop();
-
-					//Normal Trading
-					_converter.TradingPostConverter(_weaponToSell, _sellByWorker * _workerNb, _goldMultiplier);
-
-					// Win Beer
-					_winBeerChanceIncr++;
-					if (_winBeerChanceIncr >= _winBeerChance)
-					{
-						_winBeerChanceIncr = 0;
-						_converter.UpdateBeer(_winBeerAmount);
-					}
 				}
 			}
 			else
 			{
-				_timer.Stop();
+				if (ComputeWeaponToSell())
+				{
+					if (_timer.IsStopped == true)
+					{
+						ResetTimer();
+					}
+					else if (_timer.IsTimerEnd())
+					{
+						_timer.Stop();
+
+						//Normal Trading
+						_converter.TradingPostConverter(_weaponToSell, _sellByWorker * _workerNb, _goldMultiplier);
+
+						// Win Beer
+						_winBeerChanceIncr++;
+						if (_winBeerChanceIncr >= _winBeerChance)
+						{
+							_winBeerChanceIncr = 0;
+							_converter.UpdateBeer(_winBeerAmount);
+						}
+					}
+				}
+				else
+				{
+					_timer.Stop();
+				}
 			}
 		}
 		#endregion Loop
@@ -200,6 +214,11 @@
 			LoadData();
 			_timer.Stop();
 			_playerProfile.CurrentFortress.OnTPUpgradeChange += OnUpgrade;
+		}
+
+		private void SetPause(bool isPaused)
+		{
+			_playerProfile.CurrentFortress.TradingPostIsPaused = isPaused;
 		}
 		#endregion Callbacks
 
