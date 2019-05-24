@@ -17,7 +17,8 @@
 
 		private void OnEnable()
 		{
-			Display();
+			if (JSonManager.Instance.PlayerProfile.LaunchAmount > 0)
+				Display();
 		}
 
 		private void Display()

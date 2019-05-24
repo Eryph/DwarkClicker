@@ -107,9 +107,10 @@
 			JSonManager.Instance.SavePlayerProfile();
 		}
 
-		
+
 		#endregion Progression Load
 
+#if !ANDROID
 		private void OnApplicationQuit()
 		{
 			_playerProfile.LaunchAmount = _playerProfile.LaunchAmount + 1;
@@ -117,23 +118,46 @@
 			JSonManager.Instance.SavePlayerProfile();
 			JSonManager.Instance.SaveNotifProfile();
 		}
+#endif
 
 #if ANDROID
-		private void OnApplicationPause()
+		private void OnApplicationPause(bool pauseStatus)
 		{
-			_playerProfile.LaunchAmount = _playerProfile.LaunchAmount + 1;
-			_playerProfile.SerializeDate(DateTime.Now);
-			_playerProfile.SerializeDate(_playerProfile._lastDailyRewardRedeemed);
+			if (pauseStatus)
+			{
+				_playerProfile.LaunchAmount = _playerProfile.LaunchAmount + 1;
+				_playerProfile.SerializeDate(DateTime.Now);
 
-			DeviceManager.Instance.PushLocalNotification("The dwarfs thirsty !", "Beer is running low ! Come back and brew some beers.", 24f);
+
+				DeviceManager.Instance.PushLocalNotification("The dwarfs thirsty !", "Beer is running low ! Come back and brew some beers.", 24f);
 
 
-		JSonManager.Instance.SavePlayerProfile();
-			JSonManager.Instance.SaveNotifProfile();
+				JSonManager.Instance.SavePlayerProfile();
+				JSonManager.Instance.SaveNotifProfile();
+			}
+			else
+				LoadData();
+		}
+
+		private void OnApplicationFocus(bool focusStatus)
+		{
+			if (focusStatus)
+			{
+				_playerProfile.LaunchAmount = _playerProfile.LaunchAmount + 1;
+				_playerProfile.SerializeDate(DateTime.Now);
+
+				DeviceManager.Instance.PushLocalNotification("The dwarfs thirsty !", "Beer is running low ! Come back and brew some beers.", 24f);
+
+
+				JSonManager.Instance.SavePlayerProfile();
+				JSonManager.Instance.SaveNotifProfile();
+			}
+			else
+				LoadData();
 		}
 #endif
 
-		#region Profile
+#region Profile
 		public void BuyFortress(int index)
 		{
 			if (DatabaseManager.Instance.Fortress[index].Price <= _playerProfile.Gold)
