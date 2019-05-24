@@ -21,6 +21,7 @@
 		public long _serializedLastDailyRewardRedeemed = 0;
 		public int _launchAmount = 0;
 		public int _dailyRewardIndex = 0;
+		public bool _isDailyRewardAvailable = true;
 		#endregion Time
 
 		#region Fortress
@@ -49,6 +50,28 @@
 		public List<FortressProfile> Fortress { get { return _fortressList; } }
 		public FortressProfile CurrentFortress { get { return _fortressList[_currentFortressIndex]; } }
 		public int LaunchAmount { get { return _launchAmount; } set { _launchAmount = value; } }
+
+		public bool IsDailyRewardAvailable
+		{
+			get
+			{
+				return _isDailyRewardAvailable;
+			}
+			set
+			{
+				_isDailyRewardAvailable = value;
+			}
+		}
+
+		public bool IsDailyRewardReset
+		{
+			get
+			{
+				TimeSpan oneDay = new TimeSpan(23, 0, 0);
+				TimeSpan diff = DateTime.Now - _lastDailyRewardRedeemed;
+				return oneDay.Add(new TimeSpan(24, 0, 0)) < diff;
+			}
+		}
 
 		public int CurrentFortressIndex
 		{
@@ -200,68 +223,6 @@
 			}
 		}
 		#endregion Inventory
-
-		/*#region Upgrades
-		private Action _onMineUpgradeChange = null;
-
-		public event Action OnMineUpgradeChange
-		{
-			add
-			{
-				_onMineUpgradeChange -= value;
-				_onMineUpgradeChange += value;
-			}
-			remove
-			{
-				_onMineUpgradeChange -= value;
-			}
-		}
-
-		private Action _onForgeUpgradeChange = null;
-
-		public event Action OnForgeUpgradeChange
-		{
-			add
-			{
-				_onForgeUpgradeChange -= value;
-				_onForgeUpgradeChange += value;
-			}
-			remove
-			{
-				_onForgeUpgradeChange -= value;
-			}
-		}
-
-		private Action _onTPUpgradeChange = null;
-
-		public event Action OnTPUpgradeChange
-		{
-			add
-			{
-				_onTPUpgradeChange -= value;
-				_onTPUpgradeChange += value;
-			}
-			remove
-			{
-				_onTPUpgradeChange -= value;
-			}
-		}
-
-		private Action _onInnUpgradeChange = null;
-
-		public event Action OnInnUpgradeChange
-		{
-			add
-			{
-				_onInnUpgradeChange -= value;
-				_onInnUpgradeChange += value;
-			}
-			remove
-			{
-				_onInnUpgradeChange -= value;
-			}
-		}
-		#endregion Upgrades*/
 		#endregion Events
 
 		#region Methods
@@ -270,6 +231,7 @@
 		{
 			_launchAmount = 0;
 			_startDate = DateTime.Now;
+			_lastDailyRewardRedeemed = DateTime.Now - new TimeSpan(100, 0, 0);
 			_resources = new DictionaryStringResource();
 			_weapons = new DictionaryStringWeapon();
 			_fortressList = new List<FortressProfile>();

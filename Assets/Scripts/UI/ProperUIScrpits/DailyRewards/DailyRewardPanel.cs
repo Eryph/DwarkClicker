@@ -10,44 +10,39 @@
 	using DwarfClicker.Core.Data;
 	using DwarfClicker.Core;
 	using System;
+	using Preprod.UI;
 
 	public class DailyRewardPanel : MonoBehaviour
 	{
-		[SerializeField] private Converter _converter = null;
+		[SerializeField] private DailyRewardController _controller = null;
 		[SerializeField] private DailyRewardBox[] _dailyRewardBox = null;
-		[SerializeField] private Button _redeemButton = null;
-		[SerializeField] private TextMeshProUGUI _redeemButtonText = null;
+		[SerializeField] private GameObject _alreadyRedeemeedeemButton = null;
+		[SerializeField] private AllDataDisplayer _header = null;
 
 		private void OnEnable()
 		{
-			Display();
+			PlayerProfile profile = JSonManager.Instance.PlayerProfile;
+			Display(profile);
+			
+
 		}
 
-		private void Display()
+		private void Display(PlayerProfile profile)
 		{
-			PlayerProfile profile = JSonManager.Instance.PlayerProfile;
-
-			if (_redeemButton != null)
+			_alreadyRedeemeedeemButton.SetActive(false);
+			if (profile._dailyRewardIndex != 0)
 			{
-				_redeemButton.interactable = true;
-				_redeemButtonText.text = "Redeem";
-				if (profile._dailyRewardIndex != 0)
+				if (profile.IsDailyRewardAvailable)
 				{
-					TimeSpan oneDay = new TimeSpan(23, 0, 0);
-					TimeSpan diff = DateTime.Now - profile._lastDailyRewardRedeemed;
-					if (diff < oneDay)
+					_alreadyRedeemeedeemButton.SetActive(false);
+				}
+				else
+				{
+					if (profile.IsDailyRewardReset)
 					{
-						_redeemButton.interactable = false;
-						_redeemButtonText.text = "Already Redeemed Today";
+						profile._dailyRewardIndex = 0;
 					}
-					else
-					{
-						if (diff > oneDay.Add(new TimeSpan(24, 0, 0)))
-						{
-							profile._dailyRewardIndex = 0;
-						}
-						_redeemButton.interactable = true;
-					}
+					_alreadyRedeemeedeemButton.SetActive(true);
 				}
 			}
 
@@ -77,6 +72,11 @@
 						_dailyRewardBox[i].Init(DatabaseManager.Instance.DailyRewards[i].MithrilGain, DatabaseManager.Instance.MithrilIcon, Color.white);
 					}
 
+					if (i == profile._dailyRewardIndex)
+					{
+						_dailyRewardBox[i].SetAvailable();
+					}
+
 					if (i > profile._dailyRewardIndex)
 					{
 						_dailyRewardBox[i].SetNotAvailable();
@@ -87,29 +87,16 @@
 
 		public void RedeemDailyReward()
 		{
+			_controller.RedeemDailyReward();
 			PlayerProfile profile = JSonManager.Instance.PlayerProfile;
-			Gain(profile._dailyRewardIndex);
-			profile._lastDailyRewardRedeemed = DateTime.Now;
-			_redeemButton.interactable = false;
-			profile._dailyRewardIndex++;
-			if (profile._dailyRewardIndex > DatabaseManager.Instance.DailyRewards.Length)
-			{
-				profile._dailyRewardIndex = 0;
-			}
-			Display();
+			_header.SetDailyRewardButtonDisabled();
+			_alreadyRedeemeedeemButton.SetActive(true);
+			Display(profile);
 		}
 
 		public void QuitPanel()
 		{
 			gameObject.SetActive(false);
-		}
-
-		private void Gain(int index)
-		{
-			_converter.GainBeer(DatabaseManager.Instance.DailyRewards[index].BeerGain);
-			_converter.GainGold(DatabaseManager.Instance.DailyRewards[index].GoldGain);
-			_converter.GainMithril(DatabaseManager.Instance.DailyRewards[index].MithrilGain);
-			_converter.GainResource(JSonManager.Instance.PlayerProfile.LastFortress.ResourceProduced.Name, DatabaseManager.Instance.DailyRewards[index].ResourceGain);
 		}
 	}
 }

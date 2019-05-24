@@ -5,21 +5,30 @@
 	using UnityEngine;
 	using TMPro;
 	using UnityEngine.UI;
+	using Engine.Manager;
 
 	public class DailyRewardBox : MonoBehaviour
 	{
+		[SerializeField] private Image _backgroundSprite = null;
 		[SerializeField] private TextMeshProUGUI _amount = null;
-		[SerializeField] private Image _sprite = null;
+		[SerializeField] private Image _rewardSprite = null;
 		[SerializeField] private GameObject _alreadyRedeemedPanel = null;
-		[SerializeField] private GameObject _notAvailablePanel = null;
+		[SerializeField] private Sprite _available = null;
+		[SerializeField] private Sprite _notAvailable = null;
+
+		private Sprite _startSprite = null;
+
+		private void OnEnable()
+		{
+			_startSprite = _backgroundSprite.sprite;
+		}
 
 		public void Init(int amount, Sprite sprite, Color color)
 		{
 			_amount.text = amount.ToString();
-			_sprite.sprite = sprite;
-			_sprite.color = color;
+			_rewardSprite.sprite = sprite;
+			_rewardSprite.color = color;
 			_alreadyRedeemedPanel.SetActive(false);
-			_notAvailablePanel.SetActive(false);
 		}
 
 		public void SetAlreadyRedeemed()
@@ -27,9 +36,14 @@
 			_alreadyRedeemedPanel.SetActive(true);
 		}
 
+		public void SetAvailable()
+		{
+			_backgroundSprite.sprite = _available;
+		}
+
 		public void SetNotAvailable()
 		{
-			_notAvailablePanel.SetActive(true);
+			_backgroundSprite.sprite = _notAvailable;
 		}
 	}
 }

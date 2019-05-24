@@ -8,6 +8,7 @@
 	using TMPro;
 	using UnityEngine.UI;
 	using DwarkClicker.Helper;
+	using System;
 
 	public class AllDataDisplayer : MonoBehaviour
 	{
@@ -15,9 +16,11 @@
 		[SerializeField] private TextMeshProUGUI _goldDisplay = null;
 		[SerializeField] private TextMeshProUGUI _beerDisplay = null;
 		[SerializeField] private TextMeshProUGUI _mithrilDisplay = null;
-		[SerializeField] private Text _fortressText = null;
-		[SerializeField] private GameObject _fortressPanel = null;
+		[SerializeField] private GameObject _dailyRewardDisabledButton = null;
+		[SerializeField] private GameObject _dailyRewardEnabledButton = null;
 		[SerializeField] private GameObject _dailyRewardPanel = null;
+		[SerializeField] private GameObject _fortressPanel = null;
+		
 
 
 		private PlayerProfile _playerProfile = null;
@@ -37,6 +40,17 @@
 			UpdateBeerDisplay();
 			UpdateMithrilDisplay();
 			UpdateFortress();
+
+			if (JSonManager.Instance.PlayerProfile.IsDailyRewardAvailable)
+			{
+				_dailyRewardDisabledButton.SetActive(false);
+				_dailyRewardEnabledButton.SetActive(true);
+			}
+			else
+			{
+				_dailyRewardDisabledButton.SetActive(true);
+				_dailyRewardEnabledButton.SetActive(false);
+			}
 		}
 
 		private void OnDestroy()
@@ -66,7 +80,6 @@
 
 		private void UpdateFortress()
 		{
-			//_fortressText.text = _playerProfile.CurrentFortress.Name;
 			_playerProfile.CurrentFortress.OnBeerChange += UpdateBeerDisplay;
 			UpdateBeerDisplay();
 		}
@@ -79,6 +92,12 @@
 		public void OpenDailyRewardPanel()
 		{
 			_dailyRewardPanel.SetActive(true);
+		}
+
+		public void SetDailyRewardButtonDisabled()
+		{
+			_dailyRewardDisabledButton.SetActive(true);
+			_dailyRewardEnabledButton.SetActive(false);
 		}
 		#endregion Methods
 	}
