@@ -14,5 +14,5 @@ MonoBehaviour:
   _workerAmount: 1
   _wByWorker: 1
   _cycleDuration: 10
-  _instantSellingChance: 100
+  _instantSellingChance: 200
   _instantSellingGoldBonus: 0
