@@ -25,8 +25,8 @@ MonoBehaviour:
     coef: 1.2
   _beerConsumption:
     value: 1
-    cost: 350
-    coef: 2
+    cost: 50
+    coef: 3
   _cycleDuration:
     value: 0.1
     cost: 100

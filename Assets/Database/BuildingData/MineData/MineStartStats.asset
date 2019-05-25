@@ -14,7 +14,7 @@ MonoBehaviour:
   _workerAmount: 1
   _resByWorker: 1
   _luck: 100
-  _beerConsumption: 8
+  _beerConsumption: 7
   _noBeerConsumptionChance: 0
   _cycleDuration: 4
   _richVein: 1
