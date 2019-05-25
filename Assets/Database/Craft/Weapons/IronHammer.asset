@@ -19,6 +19,6 @@ MonoBehaviour:
     Count: 4
   _modifierTimer: 5
   _priceModifierUp: 1
-  _priceModifierDown: -8
+  _priceModifierDown: 8
   _priceMax: 25
   _priceMin: 7
