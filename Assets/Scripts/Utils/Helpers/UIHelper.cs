@@ -36,7 +36,8 @@
 			}
 			else
 			{
-				ret = tmpValue.ToString();
+				tmpValue = (float)Math.Truncate(tmpValue * 10) / 10;
+				ret = tmpValue.ToString("#.#");
 			}
 
 			if (ret == string.Empty)
