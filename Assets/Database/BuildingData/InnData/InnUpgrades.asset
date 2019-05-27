@@ -13,11 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _beerByTap:
     name: Beer By Tap
-    value: 5
+    value: 50
     cost: 50
     coef: 1.4
   _storage:
     name: Beer Storage
-    value: 500
+    value: 1000
     cost: 1000
     coef: 3
