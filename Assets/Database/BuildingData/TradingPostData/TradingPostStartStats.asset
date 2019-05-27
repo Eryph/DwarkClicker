@@ -16,4 +16,4 @@ MonoBehaviour:
   _winBeerAmount: 10
   _winBeerChance: 500
   _goldMult: 1
-  _cycleDuration: 30
+  _cycleDuration: 40
