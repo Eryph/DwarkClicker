@@ -1,6 +1,7 @@
 ﻿namespace DwarfClicker.UI.TradingPost
 {
 	using DwarfClicker.Core;
+	using DwarfClicker.Core.Data;
 	using Engine.Manager;
 	using Engine.UI.Utils;
 	using Engine.Utils;
@@ -51,24 +52,25 @@
 		private void Display()
 		{
 			FortressProfile currentFortress = _playerProfile.CurrentFortress;
+			TradingPostUpgradesData uData = DatabaseManager.Instance.TradingPostUpgrades;
 
 			int price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WorkerAmount, currentFortress.UTPWorkerNbIndex);
-			_workerUpgrade.Init("Worker +", currentFortress.UTPWorkerNbIndex, price);
+			_workerUpgrade.Init(uData.WorkerAmount.name, currentFortress.UTPWorkerNbIndex, price);
 
 			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.SellByWorker, currentFortress.UTPSellByWorkerIndex);
-			_sellbyWorkerUpgrade.Init("Sell by Worker", currentFortress.UTPSellByWorkerIndex, price);
+			_sellbyWorkerUpgrade.Init(uData.SellByWorker.name, currentFortress.UTPSellByWorkerIndex, price);
 
 			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.CycleDuration, currentFortress.UTPCycleDurationIndex);
-			_cycleDurationUpgrade.Init("Cycle Duration", currentFortress.UTPCycleDurationIndex, price);
+			_cycleDurationUpgrade.Init(uData.CycleDuration.name, currentFortress.UTPCycleDurationIndex, price);
 
 			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WinBeerAmount, currentFortress.UTPWinBeerAmountIndex);
-			_winBeerAmountUpgrade.Init("Win Beer Amount", currentFortress.UTPWinBeerAmountIndex, price);
+			_winBeerAmountUpgrade.Init(uData.WinBeerAmount.name, currentFortress.UTPWinBeerAmountIndex, price);
 
 			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WinBeerChance, currentFortress.UTPWinBeerChanceIndex);
-			_winBeerChanceUpgrade.Init("Win Beer Chance", currentFortress.UTPWinBeerChanceIndex, price);
+			_winBeerChanceUpgrade.Init(uData.WinBeerChance.name, currentFortress.UTPWinBeerChanceIndex, price);
 
 			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.GoldMult, currentFortress.UTPGoldMultIndex);
-			_goldMultUpgrade.Init("Gold Mult", currentFortress.UTPGoldMultIndex, price);
+			_goldMultUpgrade.Init(uData.GoldMult.name, currentFortress.UTPGoldMultIndex, price);
 		}
 
 		private void OnDestroy()

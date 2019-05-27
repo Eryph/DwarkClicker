@@ -12,34 +12,42 @@ MonoBehaviour:
   m_Name: MineUpgrades
   m_EditorClassIdentifier: 
   _workerAmount:
+    name: Worker +
     value: 1
     cost: 3500
     coef: 1.7
   _resByWorker:
+    name: Resource Mined +
     value: 1
     cost: 40
     coef: 3
   _luck:
+    name: Luck
     value: 1
     cost: 250
     coef: 1.2
   _beerConsumption:
+    name: Beer Consumption
     value: 1
     cost: 350
     coef: 2
   _cycleDuration:
+    name: Cycle Duration
     value: 0.1
     cost: 100
     coef: 1.9
   _noBeerConsumptionChance:
+    name: No Beer Consumption Chance
     value: 2
     cost: 150
     coef: 1.5
   _richVein:
+    name: Rich Vein
     value: 1
     cost: 50
     coef: 1.5
   _mithrilChance:
+    name: Mithril Mined Chance
     value: 10
     cost: 500
     coef: 1.4

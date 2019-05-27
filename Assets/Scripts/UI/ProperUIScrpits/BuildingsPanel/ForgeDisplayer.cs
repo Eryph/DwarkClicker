@@ -1,6 +1,8 @@
 ﻿namespace Preprod
 {
 	using DwarfClicker.Core;
+	using DwarfClicker.Core.Data;
+	using DwarfClicker.UI.TradingPost;
 	using Engine.Manager;
 	using Engine.UI.Utils;
 	using Engine.Utils;
@@ -17,11 +19,11 @@
 
 		[SerializeField] private TextMeshProUGUI _timerText = null;
 
-		[SerializeField] private TextMeshProUGUI _WorkUpText = null;
-		[SerializeField] private TextMeshProUGUI _CycleUpText = null;
-		[SerializeField] private TextMeshProUGUI _wByWorkerUpText = null;
-		[SerializeField] private TextMeshProUGUI _instantSellingChanceText = null;
-		[SerializeField] private TextMeshProUGUI _instantSellingGoldBonusText = null;
+		[SerializeField] private UpgradeButtonHandler _workerUpgrade = null;
+		[SerializeField] private UpgradeButtonHandler _wByWorkerUpgrade = null;
+		[SerializeField] private UpgradeButtonHandler _cycleDurationUpgrade = null;
+		[SerializeField] private UpgradeButtonHandler _instantSellingChanceUpgrade = null;
+		[SerializeField] private UpgradeButtonHandler _instantSellingGoldBonusUpgrade = null;
 
 		private PlayerProfile _playerProfile = null;
 		private void Start()
@@ -36,11 +38,22 @@
 		private void OnForgeUpgrade()
 		{
 			FortressProfile currentFortress = _playerProfile.CurrentFortress;
-			_WorkUpText.text = string.Format("R{0} - {1}g", currentFortress.UForgeWorkerNbIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WorkerAmount, currentFortress.UForgeWorkerNbIndex));
-			_CycleUpText.text = string.Format("R{0} - {1}g", currentFortress.UForgeCycleDurationIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.CycleDuration, currentFortress.UForgeCycleDurationIndex));
-			_wByWorkerUpText.text = string.Format("R{0} - {1}g", currentFortress.UForgeWByWorkerIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WByWorker, currentFortress.UForgeWByWorkerIndex));
-			_instantSellingChanceText.text = string.Format("R{0} - {1}g", currentFortress.UForgeInstantSellingChanceIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingChance, currentFortress.UForgeInstantSellingChanceIndex));
-			_instantSellingGoldBonusText.text = string.Format("R{0} - {1}g", currentFortress.UForgeInstantSellingGoldBonusIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingGoldBonus, currentFortress.UForgeInstantSellingGoldBonusIndex));
+			ForgeUpgradesData uData = DatabaseManager.Instance.ForgeUpgrades;
+
+			int price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WorkerAmount, currentFortress.UForgeWorkerNbIndex);
+			_workerUpgrade.Init(uData.WorkerAmount.name, currentFortress.UForgeWorkerNbIndex, price);
+
+			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WByWorker, currentFortress.UForgeWByWorkerIndex);
+			_wByWorkerUpgrade.Init(uData.WByWorker.name, currentFortress.UForgeWByWorkerIndex, price);
+
+			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.CycleDuration, currentFortress.UForgeCycleDurationIndex);
+			_cycleDurationUpgrade.Init(uData.CycleDuration.name, currentFortress.UMineCycleDurationIndex, price);
+
+			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingChance, currentFortress.UForgeInstantSellingChanceIndex);
+			_instantSellingChanceUpgrade.Init(uData.InstantSellingChance.name, currentFortress.UTPWinBeerAmountIndex, price);
+
+			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingGoldBonus, currentFortress.UForgeInstantSellingGoldBonusIndex);
+			_instantSellingGoldBonusUpgrade.Init(uData.InstantSellingGoldBonus.name, currentFortress.UForgeInstantSellingGoldBonusIndex, price);
 		}
 
 		private void OnDestroy()

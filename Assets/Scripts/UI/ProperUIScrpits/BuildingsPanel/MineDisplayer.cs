@@ -8,6 +8,8 @@
 	using TMPro;
 	using Engine.Utils;
 	using Engine.UI.Utils;
+	using DwarfClicker.UI.TradingPost;
+	using DwarfClicker.Core.Data;
 
 	public class MineDisplayer : MonoBehaviour {
 
@@ -17,13 +19,14 @@
 
 		[SerializeField] private TextMeshProUGUI _timerText = null;
 
-		[SerializeField] private TextMeshProUGUI _WorkUpText = null;
-		[SerializeField] private TextMeshProUGUI _CycleUpText = null;
-		[SerializeField] private TextMeshProUGUI _ResByText = null;
-		[SerializeField] private TextMeshProUGUI _beerConsoText = null;
-		[SerializeField] private TextMeshProUGUI _mithrilChanceText = null;
-		[SerializeField] private TextMeshProUGUI _luckText = null;
-		[SerializeField] private TextMeshProUGUI _richVeinText = null;
+
+		[SerializeField] private UpgradeButtonHandler _workerUpgrade = null;
+		[SerializeField] private UpgradeButtonHandler _resByWorkerUpgrade = null;
+		[SerializeField] private UpgradeButtonHandler _cycleUpUpgrade = null;
+		[SerializeField] private UpgradeButtonHandler _beerConsoUpgrade = null;
+		[SerializeField] private UpgradeButtonHandler _mithrilChanceUpgrade = null;
+		[SerializeField] private UpgradeButtonHandler _luckUpgrade = null;
+		[SerializeField] private UpgradeButtonHandler _richVeinUpgrade = null;
 
 		private PlayerProfile _playerProfile = null;
 
@@ -31,13 +34,29 @@
 		private void OnMineUpgrade()
 		{
 			FortressProfile currentFortress = _playerProfile.CurrentFortress;
-			_WorkUpText.text = string.Format("R{0} - {1}g", currentFortress.UMineWorkerNbIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.WorkerAmount, currentFortress.UMineWorkerNbIndex));
-			_CycleUpText.text = string.Format("R{0} - {1}g", currentFortress.UMineCycleDurationIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.CycleDuration, currentFortress.UMineCycleDurationIndex));
-			_ResByText.text = string.Format("R{0} - {1}g", currentFortress.UMineResByWorkerIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.ResByWorker, currentFortress.UMineResByWorkerIndex));
-			_beerConsoText.text = string.Format("R{0} - {1:0.#}g", currentFortress.UMineBeerConsoIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.BeerConsumption, currentFortress.UMineBeerConsoIndex));
-			_mithrilChanceText.text = string.Format("R{0} - {1}g", currentFortress.UMineMithrilChanceIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.Mithril, currentFortress.UMineMithrilChanceIndex));
-			_luckText.text = string.Format("R{0} - {1}g", currentFortress.UMineLuckIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.Luck, currentFortress.UMineLuckIndex));
-			_richVeinText.text = string.Format("R{0} - {1}g", currentFortress.UMineRichVeinIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.RichVein, currentFortress.UMineRichVeinIndex));
+			MineUpgradesData uData = DatabaseManager.Instance.MineUpgrades;
+
+
+			int price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.WorkerAmount, currentFortress.UMineWorkerNbIndex);
+			_workerUpgrade.Init(uData.WorkerAmount.name, currentFortress.UMineWorkerNbIndex, price);
+
+			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.ResByWorker, currentFortress.UMineResByWorkerIndex);
+			_resByWorkerUpgrade.Init(uData.ResByWorker.name, currentFortress.UMineResByWorkerIndex, price);
+
+			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.CycleDuration, currentFortress.UMineCycleDurationIndex);
+			_cycleUpUpgrade.Init(uData.CycleDuration.name, currentFortress.UMineCycleDurationIndex, price);
+
+			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.BeerConsumption, currentFortress.UMineBeerConsoIndex);
+			_beerConsoUpgrade.Init(uData.BeerConsumption.name, currentFortress.UMineBeerConsoIndex, price);
+
+			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.Mithril, currentFortress.UMineMithrilChanceIndex);
+			_mithrilChanceUpgrade.Init(uData.Mithril.name, currentFortress.UMineMithrilChanceIndex, price);
+
+			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.Luck, currentFortress.UMineLuckIndex);
+			_luckUpgrade.Init(uData.Luck.name, currentFortress.UMineLuckIndex, price);
+
+			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.RichVein, currentFortress.UMineRichVeinIndex);
+			_richVeinUpgrade.Init(uData.RichVein.name, currentFortress.UMineRichVeinIndex, price);
 		}
 		
 		private void Start()

@@ -9,6 +9,7 @@
 	using UnityEngine;
 
 	public class MineController : BuildingBase {
+
         #region Fields
         // Data
         private int _workerNb = 1;

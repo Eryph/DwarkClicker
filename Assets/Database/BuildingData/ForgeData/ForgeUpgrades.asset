@@ -12,22 +12,27 @@ MonoBehaviour:
   m_Name: ForgeUpgrades
   m_EditorClassIdentifier: 
   _workerAmount:
+    name: Worker +
     value: 1
     cost: 3500
     coef: 1.7
   _wByWorker:
+    name: Weapon Craft +
     value: 1
     cost: 5000
     coef: 1.5
   _cycleDuration:
+    name: Cycle Duration
     value: 0.25
     cost: 150
     coef: 1.9
   _instantSellingChance:
+    name: Instant Selling Chance
     value: 1
     cost: 250
     coef: 1.3
   _instantSellingGoldBonus:
+    name: Instant Selling Gold Bonus
     value: 0.1
     cost: 250
     coef: 1.2

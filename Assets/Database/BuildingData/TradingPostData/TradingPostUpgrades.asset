@@ -12,26 +12,32 @@ MonoBehaviour:
   m_Name: TradingPostUpgrades
   m_EditorClassIdentifier: 
   _workerAmount:
+    name: Worker +
     value: 1
     cost: 5000
     coef: 1.5
   _sellByWorker:
+    name: Sell +
     value: 1
     cost: 3500
     coef: 1.2
   _cycleDuration:
+    name: Cycle Duration
     value: 0.5
     cost: 100
     coef: 1.2
   _winBeerAmount:
+    name: Win Beer Amount
     value: 10
     cost: 250
     coef: 1.3
   _winBeerChance:
+    name: Win Beer Chance
     value: 1
     cost: 250
     coef: 1.3
   _goldMult:
+    name: Gold Multiplier
     value: 0.1
     cost: 750
     coef: 1.5

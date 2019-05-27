@@ -1,6 +1,8 @@
 ﻿namespace Preprod
 {
 	using DwarfClicker.Core;
+	using DwarfClicker.Core.Data;
+	using DwarfClicker.UI.TradingPost;
 	using Engine.Manager;
 	using Engine.Utils;
 	using System.Collections;
@@ -11,8 +13,9 @@
 	public class InnDisplayer : MonoBehaviour
 	{
 		[SerializeField] private Converter _converter = null;
-		[SerializeField] private TextMeshProUGUI _beerByTapText = null;
-		[SerializeField] private TextMeshProUGUI _storageText = null;
+
+		[SerializeField] private UpgradeButtonHandler _beerByTapUpgrade = null;
+		[SerializeField] private UpgradeButtonHandler _storageUpgrade = null;
 
 		private PlayerProfile _playerProfile = null;
 		private void Start()
@@ -26,8 +29,13 @@
 		private void OnInnUpgrade()
 		{
 			FortressProfile currentFortress = _playerProfile.CurrentFortress;
-			_beerByTapText.text = string.Format("R{0} - {1}g", currentFortress.InnBeerByTapIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.InnUpgrades.BeerByTap, currentFortress.InnBeerByTapIndex));
-			_storageText.text = string.Format("R{0} - {1}g", currentFortress.InnStorageIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.InnUpgrades.Storage, currentFortress.InnStorageIndex));
+			InnUpgradesData uData = DatabaseManager.Instance.InnUpgrades;
+
+			int price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.InnUpgrades.BeerByTap, currentFortress.InnBeerByTapIndex);
+			_beerByTapUpgrade.Init(uData.BeerByTap.name, currentFortress.InnBeerByTapIndex, price);
+
+			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.InnUpgrades.Storage, currentFortress.InnStorageIndex);
+			_storageUpgrade.Init(uData.Storage.name, currentFortress.InnStorageIndex, price);
 		}
 
 		private void UpdateFortress()
