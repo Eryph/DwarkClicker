@@ -29,7 +29,7 @@ MonoBehaviour:
   _instantSellingChance:
     name: Instant Selling Chance
     value: 1
-    cost: 250
+    cost: 75
     coef: 1.3
   _instantSellingGoldBonus:
     name: Instant Selling Gold Bonus
