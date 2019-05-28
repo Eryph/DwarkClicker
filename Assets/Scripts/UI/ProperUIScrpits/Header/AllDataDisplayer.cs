@@ -68,7 +68,7 @@
 
 		private void UpdateBeerDisplay()
 		{
-			string displayText = UIHelper.FormatIntegerString(_playerProfile.CurrentFortress.Beer);
+			string displayText = UIHelper.FormatIntegerString((int)_playerProfile.CurrentFortress.Beer);
 			_beerDisplay.text = displayText;
 		}
 

@@ -87,10 +87,15 @@
 		private void UpdateDisplay()
 		{
 			float timeLeft = _mineController.TimeLeft;
+
+			_progressionBar.UpdateTexts((int)_mineController.BeerCost, (int)_playerProfile.CurrentFortress.Beer, _mineController.MiningCount);
+
 			if (timeLeft > 0)
+			{
 				_timerText.text = timeLeft.ToString("0.0");
+			}
 			else
-				_timerText.text = "0";
+				_timerText.text = "";
 
 			if (_progressionBar != null)
 			{

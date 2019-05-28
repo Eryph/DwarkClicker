@@ -74,11 +74,16 @@
 
 		private void UpdateDisplay()
 		{
+			_progressionBar.UpdateTexts(_forgeController.ResourceConsumed, _playerProfile.Resources[_forgeController.CurrentForgingWeapon.Recipe[0].Key].Count, _forgeController.ForgeCount);
+
 			float timeLeft = _forgeController.TimeLeft;
+			
 			if (timeLeft > 0)
+			{
 				_timerText.text = timeLeft.ToString("0.0");
+			}
 			else
-				_timerText.text = "0";
+				_timerText.text = "";
 
 			if (_progressionBar != null)
 			{

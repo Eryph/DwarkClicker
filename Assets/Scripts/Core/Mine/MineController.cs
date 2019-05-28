@@ -37,6 +37,8 @@
 		#region Properties
 		public float TimeLeft { get { return _timer.TimeLeft; } }
 		public float CycleDuration { get { return _cycleDuration; } }
+		public float BeerCost { get { return _beerCost; } }
+		public int MiningCount { get { return _miningCount; } }
         #endregion Properties
 
         #region Methods

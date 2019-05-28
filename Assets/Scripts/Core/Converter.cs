@@ -84,12 +84,9 @@
 			_profile.TriggerInventoryChangeEvent();
 		}
 
-		public void ForgeConverter(WeaponData _toCraft, int nbToCraft)
+		public void ForgeConverter(int resourceToConsumed, WeaponData _toCraft, int nbToCraft)
 		{
-			for (int i = 0; i < _toCraft.Recipe.Length; i++)
-			{
-				_profile.Resources[_toCraft.Recipe[i].Key].UpdateCount(-_toCraft.Recipe[i].Count * nbToCraft);
-			}
+			_profile.Resources[_toCraft.Recipe[0].Key].UpdateCount(-resourceToConsumed);
 			_profile.Weapons[_toCraft.Name].UpdateCount(nbToCraft);
 			_profile.TriggerInventoryChangeEvent();
 		}
@@ -104,21 +101,12 @@
 			_profile.TriggerInventoryChangeEvent();
 		}
 
-		public void TradingPostConverter(WeaponData _toSell, int nbToSell, float goldMult)
+		public void TradingPostConverter(WeaponData _toSell, int nbToSell, int goldToProduce)
 		{
-			int totalToSell = 0;
-			if (nbToSell > _profile.Weapons[_toSell.Name].Count)
-			{
-				totalToSell = nbToSell - (nbToSell - _profile.Weapons[_toSell.Name].Count);
-			}
-			else
-			{
-				totalToSell = nbToSell;
-			}
-			totalToSell = Mathf.Clamp(totalToSell, 0, int.MaxValue);
-			_profile.Weapons[_toSell.Name].UpdateCount(-totalToSell);
+			nbToSell = Mathf.Clamp(nbToSell, 0, int.MaxValue);
+			_profile.Weapons[_toSell.Name].UpdateCount(-nbToSell);
 
-			_profile.Gold += (int)(_profile.Weapons[_toSell.Name].SellPrice * totalToSell * goldMult);
+			_profile.Gold += goldToProduce;
 			_profile.TriggerInventoryChangeEvent();
 
 			//Remanent Market Computing

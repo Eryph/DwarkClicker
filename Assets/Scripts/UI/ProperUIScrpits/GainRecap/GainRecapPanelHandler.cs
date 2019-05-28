@@ -36,6 +36,8 @@
 				return;
 			}
 
+			_timeElapsedText.text = inv.TimePassed.ToString();
+
 			int i = 0;
 			if (inv.ConsumedResource.Count == 0 && inv.ConsumedWeapons.Count == 0)
 			{

@@ -91,11 +91,12 @@
 
 		private void UpdateDisplay()
 		{
+			_progressionBar.UpdateTexts(_tradingPostController.WeaponToSellAmount, (int)_playerProfile.Weapons[_tradingPostController.WeaponToSell.Name].Count, _tradingPostController.GoldToProduce );
 			float timeLeft = _tradingPostController.TimeLeft;
 			if (timeLeft > 0)
 				_timerText.text = timeLeft.ToString("0.0");
 			else
-				_timerText.text = "0";
+				_timerText.text = "";
 
 			if (_progressionBar != null)
 			{

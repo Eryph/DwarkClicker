@@ -29,6 +29,7 @@
 		#endregion Events
 
 		#region Methods
+		#endregion Monobehaviour
 		protected override void Start()
 		{
 			base.Start();
@@ -44,13 +45,7 @@
 				Debug.LogError("First scene to load \"" + _firstSceneToLoadPath + "\" was not found.");
 			}
 		}
-
-		private void LoadData()
-		{
-			_playerProfile = JSonManager.Instance.PlayerProfile;
-			if (_playerProfile.LaunchAmount > 0)
-				LoadProgression();
-		}
+		#region Monobehaviour
 
 		#region Progression Load
 		public void LoadProgression(bool computeCurrent = false)
@@ -105,6 +100,14 @@
 		}
 		#endregion Progression Load
 
+		#region Save/Load Triggers
+		private void LoadData()
+		{
+			_playerProfile = JSonManager.Instance.PlayerProfile;
+			if (_playerProfile.LaunchAmount > 0)
+				LoadProgression();
+		}
+
 		private void OnApplicationQuit()
 		{
 			_playerProfile.LaunchAmount = _playerProfile.LaunchAmount + 1;
@@ -120,7 +123,8 @@
 			{
 				_playerProfile.LaunchAmount = _playerProfile.LaunchAmount + 1;
 				_playerProfile.SerializeDate(DateTime.Now);
-				DeviceManager.Instance.PushLocalNotification("The dwarfs thirsty !", "Beer is running low ! Come back and brew some beers.", 24f);
+				float timeToNotif = ComputeTimeToNotification();
+				DeviceManager.Instance.PushLocalNotification("The dwarfs thirsty !", "Beer is running low ! Come back and brew some beers.", timeToNotif);
 				JSonManager.Instance.SavePlayerProfile();
 				JSonManager.Instance.SaveNotifProfile();
 			}
@@ -144,12 +148,13 @@
 			{
 				_playerProfile.LaunchAmount = _playerProfile.LaunchAmount + 1;
 				_playerProfile.SerializeDate(DateTime.Now);
-				DeviceManager.Instance.PushLocalNotification("The dwarfs thirsty !", "Beer is running low ! Come back and brew some beers.", 24f);
 				JSonManager.Instance.SavePlayerProfile();
 				JSonManager.Instance.SaveNotifProfile();
 			}
 		}
 #endif
+
+		#endregion Save/Load Triggers
 
 		#region Profile
 		public void BuyFortress(int index)
@@ -160,7 +165,33 @@
 				_playerProfile.Fortress[index]._isBought = true;
 			}
 		}
-#endregion Profile
-#endregion Methods
+		#endregion Profile
+
+		#region Compute Time
+		private float ComputeTimeToNotification()
+		{
+			float beerCost = 0;
+			float beerCostbyWorker = _db.MineStats.BeerConsumption;
+			for (int i = 0; i < _playerProfile.CurrentFortress.MineUpgradesIndex._beerConsoIndex; i++)
+			{
+				beerCostbyWorker -= beerCostbyWorker * _db.MineUpgrades.BeerConsumption.value;
+			}
+			int workerNb = _db.MineStats.WorkerAmount + _db.MineUpgrades.WorkerAmount.value * _playerProfile.CurrentFortress.MineUpgradesIndex._workerNbIndex;
+
+			beerCost = workerNb * beerCostbyWorker;
+
+			float cycleDuration = _db.MineStats.CycleDuration;
+			for (int i = 0; i < _playerProfile.CurrentFortress.MineUpgradesIndex._cycleDurationIndex; i++)
+			{
+				cycleDuration -= cycleDuration * _db.MineUpgrades.CycleDuration.value;
+			}
+
+			float cycleAmount = _playerProfile.CurrentFortress.Beer / beerCost;
+
+			float timeToNotif = cycleAmount * cycleDuration / 360;
+			return timeToNotif;
+		}
+		#endregion
+		#endregion Methods
 	}
 }

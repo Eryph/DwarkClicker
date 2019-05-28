@@ -19,6 +19,8 @@
 		private int _winBeerAmount = 0;
 		private int _winBeerChanceIncr = 0;
 		private int _weaponToSellAmount = 0;
+		private int _realToSellAmount = 0;
+		private int _goldToProduce = 0;
 
 		private WeaponData _weaponToSell = null;
 
@@ -30,8 +32,12 @@
 		#endregion Fields
 
 		#region Properties
+		public int WeaponToSellAmount { get { return _weaponToSellAmount; } }
+		public int RealToSellAmount { get { return _realToSellAmount; } }
+		public int GoldToProduce { get { return _goldToProduce; } }
 		public float TimeLeft { get { return _timer.TimeLeft; } }
 		public float CycleDuration { get { return _cycleDuration; } }
+		public WeaponData WeaponToSell { get { return _weaponToSell; } }
 		#endregion Properties
 
 		#region Methods
@@ -87,6 +93,7 @@
 			_weaponToSellAmount = _workerNb * _sellByWorker;
 
 			_isPaused = _playerProfile.CurrentFortress.TradingPostIsPaused;
+			ComputeToSellData(false);
 			SetPause(_isPaused);
 		}
 		#endregion Monobehaviour
@@ -120,6 +127,7 @@
 				_playerProfile.Gold -= cost;
 				_playerProfile.CurrentFortress.UTPWorkerNbIndex++;
 			}
+
 		}
 
 		public void UpgradeGoldMult()
@@ -167,6 +175,7 @@
 			{
 				if (ComputeWeaponToSell())
 				{
+					ComputeToSellData();
 					if (_timer.IsStopped == true)
 					{
 						ResetTimer();
@@ -176,7 +185,8 @@
 						_timer.Stop();
 
 						//Normal Trading
-						_converter.TradingPostConverter(_weaponToSell, _sellByWorker * _workerNb, _goldMultiplier);
+
+						_converter.TradingPostConverter(_weaponToSell, _weaponToSellAmount, _goldToProduce);
 
 						// Win Beer
 						_winBeerChanceIncr++;
@@ -235,6 +245,19 @@
 				}
 			}
 			return false;
+		}
+
+		private void ComputeToSellData(bool computeReal = true)
+		{
+			int _realToSellAmount = _weaponToSellAmount;
+			if (computeReal)
+			{
+				if (_weaponToSellAmount > _playerProfile.Weapons[_weaponToSell.Name].Count)
+				{
+					_realToSellAmount = _weaponToSellAmount - (_weaponToSellAmount - _playerProfile.Weapons[_weaponToSell.Name].Count);
+				}
+			}
+			_goldToProduce = (int)(_playerProfile.Weapons[_weaponToSell.Name].SellPrice * _realToSellAmount * _goldMultiplier);
 		}
 		#endregion Utils
 		#endregion Methods

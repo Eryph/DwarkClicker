@@ -20,6 +20,7 @@
 
 		private int _instantSellingIncr = 0;
 		private int _forgeCount;
+		private int _resourceConsumed;
 
 		private WeaponData _currentForgingWeapon = null;
 
@@ -33,6 +34,9 @@
 		#region Properties
 		public float TimeLeft { get { return _timer.TimeLeft; } }
 		public float CycleDuration { get { return _cycleDuration; } }
+		public int ForgeCount { get { return _forgeCount; } }
+		public int ResourceConsumed { get { return _resourceConsumed; } }
+		public WeaponData CurrentForgingWeapon { get { return _currentForgingWeapon; } }
 		#endregion Properties
 
 		#region Methods
@@ -64,12 +68,12 @@
 
 		private void LoadData()
 		{
+			ChangeWeapon();
 			LoadWByWorker();
 			LoadWorkerNb();
 			LoadCycleDuration();
 			LoadInstantSellingGoldBonus();
 			LoadInstantSellingChance();
-			ChangeWeapon();
 			_isPaused = _playerProfile.CurrentFortress.ForgeIsPaused;
 			SetPause(_isPaused);
 		}
@@ -169,7 +173,7 @@
 						else
 						{
 							//Normal Forging
-							_converter.ForgeConverter(_currentForgingWeapon, _forgeCount);
+							_converter.ForgeConverter(_resourceConsumed, _currentForgingWeapon, _forgeCount);
 						}
 
 					}
@@ -237,12 +241,14 @@
 		{
 			_workerNb = _db.ForgeStats.WorkerAmount + _db.ForgeUpgrades.WorkerAmount.value * _playerProfile.CurrentFortress.ForgeUpgradesIndex._workerNbIndex;
 			_forgeCount = _workerNb * _wByWorker;
+			_resourceConsumed = _currentForgingWeapon.Recipe[0].Count * _forgeCount;
 		}
 
 		private void LoadWByWorker()
 		{
 			_wByWorker = _db.ForgeStats.WByWorker + _db.ForgeUpgrades.WByWorker.value * _playerProfile.CurrentFortress.ForgeUpgradesIndex._wByWorkerIndex;
 			_forgeCount = _workerNb * _wByWorker;
+			_resourceConsumed = _currentForgingWeapon.Recipe[0].Count * _forgeCount;
 		}
 
 		private void LoadCycleDuration()

@@ -11,6 +11,7 @@
 
 
 #region Fields
+		[SerializeField] private float _minTimeToNotifThrow = 24;
 #if ANDROID 
 	private NotifProfile _notifProfile = null;
 #endif
@@ -54,6 +55,11 @@
 
 		public void PushLocalNotification(string title, string text, float hourToAdd)
 		{
+			if (hourToAdd < _minTimeToNotifThrow)
+			{
+				return;
+			}
+
 			// Create notification
 			AndroidNotification notification = new AndroidNotification();
 			notification.Title = title;
