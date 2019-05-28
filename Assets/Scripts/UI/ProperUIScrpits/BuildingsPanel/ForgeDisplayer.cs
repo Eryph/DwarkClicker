@@ -47,10 +47,10 @@
 			_wByWorkerUpgrade.Init(uData.WByWorker.name, currentFortress.UForgeWByWorkerIndex, price);
 
 			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.CycleDuration, currentFortress.UForgeCycleDurationIndex);
-			_cycleDurationUpgrade.Init(uData.CycleDuration.name, currentFortress.UMineCycleDurationIndex, price);
+			_cycleDurationUpgrade.Init(uData.CycleDuration.name, currentFortress.UForgeCycleDurationIndex, price);
 
 			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingChance, currentFortress.UForgeInstantSellingChanceIndex);
-			_instantSellingChanceUpgrade.Init(uData.InstantSellingChance.name, currentFortress.UTPWinBeerAmountIndex, price);
+			_instantSellingChanceUpgrade.Init(uData.InstantSellingChance.name, currentFortress.UForgeInstantSellingChanceIndex, price);
 
 			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingGoldBonus, currentFortress.UForgeInstantSellingGoldBonusIndex);
 			_instantSellingGoldBonusUpgrade.Init(uData.InstantSellingGoldBonus.name, currentFortress.UForgeInstantSellingGoldBonusIndex, price);

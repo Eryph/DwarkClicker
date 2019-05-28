@@ -17,6 +17,8 @@
 		private PlayerProfile _playerProfile = null;
 		private NotifProfile _notifProfile = null;
 		private string _dataPath = null;
+		private bool _isLoaded = false;
+
 		#endregion Fields
 
 		#region Properties
@@ -47,19 +49,29 @@
 		{
 			base.Start();
 
+			Load();
+
+		}
+
+		public void Load()
+		{
 #if ANDROID
 			_dataPath = Application.persistentDataPath + "/";
 #else
 			_dataPath = Application.dataPath + "/";
 #endif
-
-			LoadPlayerProfile();
-			LoadNotifProfile();
-			_onProfileLoaded();
+			if (_isLoaded == false)
+			{
+				LoadPlayerProfile();
+				LoadNotifProfile();
+				_onProfileLoaded();
+				_isLoaded = true;
+			}
 		}
 
 		public void SavePlayerProfile()
 		{
+			_isLoaded = false;
 			string dataAsJson = JsonUtility.ToJson(_playerProfile);
 			Debug.Log(dataAsJson);
 			string filePath = Path.Combine(_dataPath, _jsonDataPath);
@@ -116,6 +128,11 @@
 				_notifProfile = new NotifProfile();
 				_notifProfile.Init();
 			}
+		}
+
+		public void SetLoaded(bool loaded)
+		{
+			_isLoaded = loaded;
 		}
 	
 		#endregion Methods

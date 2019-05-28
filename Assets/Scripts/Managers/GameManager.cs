@@ -50,7 +50,6 @@
 			_playerProfile = JSonManager.Instance.PlayerProfile;
 			if (_playerProfile.LaunchAmount > 0)
 				LoadProgression();
-			JSonManager.Instance.OnProfileLoaded -= LoadData;
 		}
 
 		#region Progression Load
@@ -103,14 +102,9 @@
 					IdleComputeHelper.ComputeTradingPostProgression(_db, _playerProfile, fortress, timeElapsed);
 				}
 			}
-
-			JSonManager.Instance.SavePlayerProfile();
 		}
-
-
 		#endregion Progression Load
 
-#if !ANDROID
 		private void OnApplicationQuit()
 		{
 			_playerProfile.LaunchAmount = _playerProfile.LaunchAmount + 1;
@@ -118,7 +112,6 @@
 			JSonManager.Instance.SavePlayerProfile();
 			JSonManager.Instance.SaveNotifProfile();
 		}
-#endif
 
 #if ANDROID
 		private void OnApplicationPause(bool pauseStatus)
@@ -127,37 +120,38 @@
 			{
 				_playerProfile.LaunchAmount = _playerProfile.LaunchAmount + 1;
 				_playerProfile.SerializeDate(DateTime.Now);
-
-
 				DeviceManager.Instance.PushLocalNotification("The dwarfs thirsty !", "Beer is running low ! Come back and brew some beers.", 24f);
-
-
 				JSonManager.Instance.SavePlayerProfile();
 				JSonManager.Instance.SaveNotifProfile();
 			}
 			else
-				LoadData();
+			{
+				Screen.sleepTimeout = SleepTimeout.NeverSleep;
+				_playerProfile.DeserializeDate();
+				LoadProgression();
+			}
 		}
 
-		private void OnApplicationFocus(bool focusStatus)
+		private void OnApplicationFocus(bool focus)
 		{
-			if (focusStatus)
+			if (focus)
+			{
+				Screen.sleepTimeout = SleepTimeout.NeverSleep;
+				_playerProfile.DeserializeDate();
+				LoadProgression();
+			}
+			else
 			{
 				_playerProfile.LaunchAmount = _playerProfile.LaunchAmount + 1;
 				_playerProfile.SerializeDate(DateTime.Now);
-
 				DeviceManager.Instance.PushLocalNotification("The dwarfs thirsty !", "Beer is running low ! Come back and brew some beers.", 24f);
-
-
 				JSonManager.Instance.SavePlayerProfile();
 				JSonManager.Instance.SaveNotifProfile();
 			}
-			else
-				LoadData();
 		}
 #endif
 
-#region Profile
+		#region Profile
 		public void BuyFortress(int index)
 		{
 			if (DatabaseManager.Instance.Fortress[index].Price <= _playerProfile.Gold)

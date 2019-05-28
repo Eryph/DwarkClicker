@@ -9,6 +9,7 @@
 
 	public class GainRecapPanelHandler : MonoBehaviour
 	{
+		[SerializeField] private TextMeshProUGUI _timeElapsedText = null;
 		[SerializeField] private TextMeshProUGUI _producedText = null;
 		[SerializeField] private TextMeshProUGUI _consumedText = null;
 		[SerializeField] private TextMeshProUGUI _goldText = null;
@@ -19,6 +20,10 @@
 		{
 			if (JSonManager.Instance.PlayerProfile.LaunchAmount > 0)
 				Display();
+			else
+			{
+				gameObject.SetActive(false);
+			}
 		}
 
 		private void Display()

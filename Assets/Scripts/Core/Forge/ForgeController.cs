@@ -111,7 +111,7 @@
 
 		public void UpgradeInstantSellingChance()
 		{
-			int cost = (_playerProfile.CurrentFortress.UForgeInstantSellingChanceIndex + 1) * DatabaseManager.Instance.ForgeUpgrades.InstantSellingChance.cost;
+			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingChance, _playerProfile.CurrentFortress.UForgeInstantSellingChanceIndex);
 			if (_playerProfile.Gold >= cost)
 			{
 				_playerProfile.Gold -= cost;
@@ -122,7 +122,7 @@
 
 		public void UpgradeInstantSellingGoldBonus()
 		{
-			int cost = (_playerProfile.CurrentFortress.UForgeInstantSellingGoldBonusIndex + 1) * DatabaseManager.Instance.ForgeUpgrades.InstantSellingGoldBonus.cost;
+			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingGoldBonus, _playerProfile.CurrentFortress.UForgeInstantSellingGoldBonusIndex);
 			if (_playerProfile.Gold >= cost)
 			{
 				_playerProfile.Gold -= cost;

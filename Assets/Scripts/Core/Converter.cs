@@ -82,7 +82,6 @@
 			_profile.CurrentFortress.Beer -= beerCost;
 			_profile.Resources[resource.Name].UpdateCount(resGain);
 			_profile.TriggerInventoryChangeEvent();
-			JSonManager.Instance.SavePlayerProfile();
 		}
 
 		public void ForgeConverter(WeaponData _toCraft, int nbToCraft)
@@ -93,7 +92,6 @@
 			}
 			_profile.Weapons[_toCraft.Name].UpdateCount(nbToCraft);
 			_profile.TriggerInventoryChangeEvent();
-			JSonManager.Instance.SavePlayerProfile();
 		}
 
 		public void ForgeConverterInstantSelling(WeaponData _toCraft, int nbToCraft, float goldBonus)
@@ -104,7 +102,6 @@
 			}
 			UpdateGold((int)(_toCraft.GoldValue * goldBonus));
 			_profile.TriggerInventoryChangeEvent();
-			JSonManager.Instance.SavePlayerProfile();
 		}
 
 		public void TradingPostConverter(WeaponData _toSell, int nbToSell, float goldMult)
