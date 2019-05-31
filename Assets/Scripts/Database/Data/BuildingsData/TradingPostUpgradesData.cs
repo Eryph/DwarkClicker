@@ -6,11 +6,17 @@
 	[CreateAssetMenu(fileName = "TradingPostUpgrades", menuName = "Data/TradingPostUpgrades")]
 	public class TradingPostUpgradesData : ScriptableObject
 	{
+		[Header("Incremental")]
 		[SerializeField] private IntUpgrade _workerAmount;
+		[Header("Incremental")]
 		[SerializeField] private IntUpgrade _sellByWorker;
+		[Header("Percentage 0-1")]
 		[SerializeField] private FloatUpgrade _cycleDuration;
+		[Header("Incremental")]
 		[SerializeField] private IntUpgrade _winBeerAmount;
+		[Header("Decremental")]
 		[SerializeField] private IntUpgrade _winBeerChance;
+		[Header("Incremental / Percentage 0-1")]
 		[SerializeField] private FloatUpgrade _goldMult;
 
 		public IntUpgrade WorkerAmount { get { return _workerAmount; } }

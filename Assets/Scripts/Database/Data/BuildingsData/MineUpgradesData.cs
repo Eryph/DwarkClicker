@@ -6,14 +6,22 @@
     [CreateAssetMenu(fileName = "MineUpgrades", menuName = "Data/MineUpgrades")]
     public class MineUpgradesData : ScriptableObject
     {
-        [SerializeField] private IntUpgrade _workerAmount;
-        [SerializeField] private IntUpgrade _resByWorker;
-        [SerializeField] private IntUpgrade _luck;
+		[Header("Incremental")]
+		[SerializeField] private IntUpgrade _workerAmount;
+		[Header("Incremental")]
+		[SerializeField] private IntUpgrade _resByWorker;
+		[Header("Decremental")]
+		[SerializeField] private IntUpgrade _luck;
+		[Header("Percentage 0-1")]
 		[SerializeField] private FloatUpgrade _beerConsumption;
+		[Header("Percentage 0-1")]
 		[SerializeField] private FloatUpgrade _cycleDuration;
+		[Header("Incremental / Percentage 0-1")]
 		[SerializeField] private FloatUpgrade _noBeerConsumptionChance;
+		[Header("Decremental")]
 		[SerializeField] private IntUpgrade _richVein;
-        [SerializeField] private IntUpgrade _mithrilChance;
+		[Header("Decremental")]
+		[SerializeField] private IntUpgrade _mithrilChance;
 
         public IntUpgrade WorkerAmount { get { return _workerAmount; } }
         public IntUpgrade ResByWorker { get { return _resByWorker; } }

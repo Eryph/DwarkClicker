@@ -6,7 +6,9 @@
 	[CreateAssetMenu(fileName = "InnUpgrades", menuName = "Data/InnUpgrades")]
 	public class InnUpgradesData : ScriptableObject
 	{
+		[Header("Incremental")]
 		[SerializeField] private IntUpgrade _beerByTap;
+		[Header("Incremental")]
 		[SerializeField] private IntUpgrade _storage;
 
 		public IntUpgrade BeerByTap { get { return _beerByTap; } }
