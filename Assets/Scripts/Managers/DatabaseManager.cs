@@ -36,6 +36,9 @@
 		[Header("Fortress")]
 		[SerializeField] private FortressData[] _fortress = null;
 
+		[Header("FTUE")]
+		[SerializeField] private DialboxData[] _ftueDialboxList = null;
+
 		[Header("Sprites")]
 		[SerializeField] private Sprite _beerIcon = null;
 		[SerializeField] private Sprite _mithrilIcon = null;
@@ -62,6 +65,8 @@
 
 		public FortressData[] Fortress { get { return _fortress; } }
 
+		public DialboxData[] Dialboxs { get { return _ftueDialboxList; } }
+
 		public Sprite BeerIcon { get { return _beerIcon; } }
 		public Sprite MithrilIcon { get { return _mithrilIcon; } }
 		public Sprite GoldIcon { get { return _goldIcon; } }
@@ -76,6 +81,16 @@
 					return _weaponList.Weapons[i];
 			}
 			return null;
+		}
+
+		public string ExtractFTUEDialboxByStep(int step)
+		{
+			for (int i = 0; i < _ftueDialboxList.Length; i++)
+			{
+				if (_ftueDialboxList[i].Step == step)
+					return _ftueDialboxList[i].Text;
+			}
+			return "No Step found. Text does not exist.";
 		}
 		#endregion Methods
 	}

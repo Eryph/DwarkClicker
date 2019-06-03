@@ -29,6 +29,10 @@
 		public int _currentFortressIndex = 0;
 		#endregion Fortress
 
+		#region FTUE
+		public int _currentStep = 0;
+		#endregion FTUE
+
 		#region Inventory
 		public int _gold = 0;
 		public int _mithril = 0;
@@ -39,6 +43,18 @@
 		#endregion Fields
 
 		#region Properties
+		#region FTUE
+		public int FTUEStep
+		{
+			get { return _currentStep; }
+			set
+			{
+				_currentStep = value;
+				_onFTUEStepChange();
+			}
+		}
+		#endregion FTUE
+
 		#region Time
 		public DateTime Date { get { return _date; } set { _date = value; } }
 		public DateTime StartingDate { get { return _startDate; } }
@@ -145,6 +161,23 @@
 		#endregion Properties
 
 		#region Events
+		#region FTUE
+		private Action _onFTUEStepChange = null;
+
+		public event Action OnFTUEStepChange
+		{
+			add
+			{
+				_onFTUEStepChange -= value;
+				_onFTUEStepChange += value;
+			}
+			remove
+			{
+				_onFTUEStepChange -= value;
+			}
+		}
+		#endregion FTUE
+
 		#region Fortress
 		private Action _onFortressChange = null;
 
@@ -229,6 +262,7 @@
 		#region Init / Reset
 		public void Init()
 		{
+			FTUEStep = 0;
 			_launchAmount = 0;
 			_startDate = DateTime.Now;
 			_lastDailyRewardRedeemed = DateTime.Now - new TimeSpan(100, 0, 0);
