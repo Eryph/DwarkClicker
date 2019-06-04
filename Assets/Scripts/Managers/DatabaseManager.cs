@@ -10,6 +10,9 @@
 	public class DatabaseManager : Singleton<DatabaseManager>
 	{
 		#region Fields
+		[Header("General Data")]
+		[SerializeField] private float _polteringValue = 0.05f;
+
 		[Header("DailyReward")]
 		[SerializeField] private DailyReward[] _dailyRewards;
 
@@ -46,6 +49,8 @@
 		#endregion Fields
 
 		#region Properties
+		public float PolteringValue { get { return _polteringValue; } }
+
 		public DailyReward[] DailyRewards { get { return _dailyRewards; } }
 
 		public InnUpgradesData InnUpgrades { get { return _innUpgrades; } }

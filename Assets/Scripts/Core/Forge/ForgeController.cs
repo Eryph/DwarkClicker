@@ -8,7 +8,7 @@
 	using System.Collections.Generic;
 	using UnityEngine;
 
-	public class ForgeController : BuildingBase
+	public class ForgeController : ABuildingBase
 	{
 		#region Fields
 		// Data
@@ -191,6 +191,14 @@
 		{
 			_timer.ResetTimer(_cycleDuration);
 			_timer.IsStopped = false;
+		}
+
+		public override void Poltering()
+		{
+			if (!_timer.IsStopped)
+			{
+				_timer.ReduceRemainingTime(DatabaseManager.Instance.PolteringValue);
+			}
 		}
 		#endregion Timer Management
 

@@ -8,7 +8,7 @@
 	using System.Collections.Generic;
 	using UnityEngine;
 
-	public class MineController : BuildingBase {
+	public class MineController : ABuildingBase {
 
         #region Fields
         // Data
@@ -237,6 +237,14 @@
 		{
 			_timer.IsStopped = true;
 			_timer.Stop();
+		}
+
+		public override void Poltering()
+		{
+			if (!_timer.IsStopped)
+			{
+				_timer.ReduceRemainingTime(DatabaseManager.Instance.PolteringValue);
+			}
 		}
 		#endregion Timer Management
 

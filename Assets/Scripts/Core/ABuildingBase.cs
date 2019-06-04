@@ -5,7 +5,7 @@
 	using System.Collections.Generic;
 	using UnityEngine;
 
-	public class BuildingBase : MonoBehaviour
+	public abstract class ABuildingBase : MonoBehaviour
 	{
 		protected bool _isPaused = false;
 
@@ -26,6 +26,8 @@
 			}
 		}
 
+		public abstract void Poltering();
+
 		public void TogglePause()
 		{
 			_isPaused = !_isPaused;
@@ -34,5 +36,7 @@
 				_onPause(_isPaused);
 			}
 		}
+
+		
 	}
 }

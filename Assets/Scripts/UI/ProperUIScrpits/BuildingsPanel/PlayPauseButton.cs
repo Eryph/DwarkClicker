@@ -9,7 +9,7 @@
 	{
 		[SerializeField] private GameObject _playIcon = null;
 		[SerializeField] private GameObject _pauseIcon = null;
-		[SerializeField] private BuildingBase _buildingController = null;
+		[SerializeField] private ABuildingBase _buildingController = null;
 
 		private void OnEnable()
 		{

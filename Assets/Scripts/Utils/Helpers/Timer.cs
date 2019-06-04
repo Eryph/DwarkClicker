@@ -18,6 +18,11 @@
 		#endregion Properties
 
 		#region Methods
+		public void ReduceRemainingTime(float value)
+		{
+			_timeStamp -= value;
+		}
+
 		public void ResetTimer(float time)
 		{
 			_timeStamp = Time.time + time;
