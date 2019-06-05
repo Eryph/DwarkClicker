@@ -6,18 +6,26 @@
 	using TMPro;
 	using Engine.Manager;
 	using System;
+	using UnityEngine.UI;
+	using DwarkClicker.Helper;
 
 	public class GainRecapPanelHandler : MonoBehaviour
 	{
-		[SerializeField] private TextMeshProUGUI _timeElapsedText = null;
-		[SerializeField] private TextMeshProUGUI _producedText = null;
-		[SerializeField] private TextMeshProUGUI _consumedText = null;
-		[SerializeField] private TextMeshProUGUI _goldText = null;
-		[SerializeField] private TextMeshProUGUI _mithrilText = null;
+		[SerializeField] private Button _globalQuitButton = null;
+		[SerializeField] private GameObject _container = null;
+		[SerializeField] private Transform _timeElapsedContainer = null;
+		[SerializeField] private Transform _producedContainer = null;
+		[SerializeField] private Transform _consumedContainer = null;
+		[SerializeField] private Transform _goldContainer = null;
+		[SerializeField] private Transform _mithrilContainer = null;
 		[SerializeField] private int _timePassedActivationMinutes = 2;
+
+		private bool _shouldDisplay = false;
+		private bool _shouldNowDisplay = false; 
 
 		private void OnEnable()
 		{
+			_globalQuitButton.gameObject.SetActive(true);
 			if (JSonManager.Instance.PlayerProfile.LaunchAmount > 0)
 				Display();
 			else
@@ -26,9 +34,21 @@
 			}
 		}
 
+		private void OnDisable()
+		{
+			_globalQuitButton.gameObject.SetActive(false);
+		}
+
 		private void Display()
 		{
+			
 			ProgressionLoadInventory inv = GameManager.Instance.ProgressionInventory;
+			TextMeshProUGUI timeElapsedText = _timeElapsedContainer.GetComponentInChildren<TextMeshProUGUI>();
+			TextMeshProUGUI producedText = _producedContainer.GetComponentInChildren<TextMeshProUGUI>();
+			TextMeshProUGUI consumedText = _consumedContainer.GetComponentInChildren<TextMeshProUGUI>();
+			TextMeshProUGUI goldText = _goldContainer.GetComponentInChildren<TextMeshProUGUI>();
+			TextMeshProUGUI mithrilText = _mithrilContainer.GetComponentInChildren<TextMeshProUGUI>();
+
 
 			if (inv.HasChanges == false || inv.TimePassed < new TimeSpan(0, _timePassedActivationMinutes, 0))
 			{
@@ -36,12 +56,13 @@
 				return;
 			}
 
-			_timeElapsedText.text = inv.TimePassed.ToString();
+			
+			timeElapsedText.text = UIHelper.FormatTimeSpanToString(inv.TimePassed);
 
 			int i = 0;
 			if (inv.ConsumedResource.Count == 0 && inv.ConsumedWeapons.Count == 0)
 			{
-				_consumedText.text = "Nothing.";
+				consumedText.text = "Nothing.";
 			}
 			else
 			{
@@ -50,13 +71,14 @@
 					TextMeshProUGUI tmpText = null;
 					if (i == 0)
 					{
-						tmpText = _consumedText;
+						tmpText = consumedText;
 					}
 					else
 					{
-						tmpText = Instantiate(_consumedText, _consumedText.transform.parent);
+						Transform tmp = Instantiate(_consumedContainer, _consumedContainer.transform.parent);
+						tmpText = tmp.GetComponentInChildren<TextMeshProUGUI>();
 					}
-					tmpText.text = "- " + pair.Key + " : " + pair.Value.ToString();
+					tmpText.text = pair.Value.ToString() + " " + pair.Key;
 					i++;
 				}
 
@@ -65,20 +87,21 @@
 					TextMeshProUGUI tmpText = null;
 					if (i == 0)
 					{
-						tmpText = _consumedText;
+						tmpText = consumedText;
 					}
 					else
 					{
-						tmpText = Instantiate(_consumedText, _consumedText.transform.parent);
+						Transform tmp = Instantiate(_consumedContainer, _consumedContainer.transform.parent);
+						tmpText = tmp.GetComponentInChildren<TextMeshProUGUI>();
 					}
-					tmpText.text = "- " + pair.Key + " : " + pair.Value.ToString();
+					tmpText.text = pair.Value.ToString() + " " + pair.Key;
 					i++;
 				}
 			}
 
 			if (inv.ProducedResource.Count == 0 && inv.ProducedWeapons.Count == 0)
 			{
-				_producedText.text = "Nothing.";
+				producedText.text = "Nothing.";
 			}
 			else
 			{
@@ -88,13 +111,14 @@
 					TextMeshProUGUI tmpText = null;
 					if (i == 0)
 					{
-						tmpText = _producedText;
+						tmpText = producedText;
 					}
 					else
 					{
-						tmpText = Instantiate(_producedText, _producedText.transform.parent);
+						Transform tmp = Instantiate(_producedContainer, _producedContainer.transform.parent);
+						tmpText = tmp.GetComponentInChildren<TextMeshProUGUI>();
 					}
-					tmpText.text = "- " + pair.Key + " : " + pair.Value.ToString();
+					tmpText.text = "+" + pair.Value.ToString() + " " + pair.Key;
 					i++;
 				}
 
@@ -103,19 +127,38 @@
 					TextMeshProUGUI tmpText = null;
 					if (i == 0)
 					{
-						tmpText = _producedText;
+						tmpText = producedText;
 					}
 					else
 					{
-						tmpText = Instantiate(_producedText, _producedText.transform.parent);
+						Transform tmp = Instantiate(_producedContainer, _producedContainer.transform.parent);
+						tmpText = tmp.GetComponentInChildren<TextMeshProUGUI>();
 					}
-					tmpText.text = "- " + pair.Key + " : " + pair.Value.ToString();
+					tmpText.text = "+" + pair.Value.ToString() + " " + pair.Key;
 					i++;
 				}
 			}
 
-			_goldText.text = "Gold : " + inv.Gold;
-			_mithrilText.text = "Mithril : " + inv.Mithril;
+			goldText.text = "+" + inv.Gold;
+			mithrilText.text = "+" + inv.Mithril;
+			_container.gameObject.SetActive(false);
+			_shouldDisplay = true;
+		}
+
+		private void LateUpdate()
+		{
+			if (_shouldNowDisplay == true)
+			{
+				_container.SetActive(true);
+				Canvas.ForceUpdateCanvases();
+				LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)_container.transform);
+				_shouldNowDisplay = false;
+			}
+			if (_container.activeSelf == false && _shouldDisplay == true)
+			{
+				_container.SetActive(false);
+				_shouldNowDisplay = true;
+			}
 		}
 
 		public void QuitPanel()

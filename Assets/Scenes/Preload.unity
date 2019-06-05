@@ -345,6 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff91573728aa174dbd7e0b64caaf329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _polteringValue: 0.05
   _dailyRewards:
   - {fileID: 11400000, guid: f15e196b4dedd5642b24c6ba8cf011eb, type: 2}
   - {fileID: 11400000, guid: f975335d612ffd34682b6e97e3ee1e0a, type: 2}

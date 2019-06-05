@@ -46,5 +46,25 @@
 			}
 			return ret;
 		}
+
+		public static string FormatTimeSpanToString(TimeSpan timeSpan)
+		{
+			string ret = "";
+			if (timeSpan.Days >= 1)
+			{
+				ret = timeSpan.Days.ToString() + "d ";
+			}
+			if (timeSpan.Hours >= 1)
+			{
+				ret += timeSpan.Hours.ToString() + "h ";
+			}
+			if (timeSpan.Minutes >= 1)
+			{
+				ret += timeSpan.Minutes.ToString() + "m ";
+			}
+			ret += timeSpan.Seconds.ToString() + "s";
+
+			return ret;
+		}
 	}
 }
