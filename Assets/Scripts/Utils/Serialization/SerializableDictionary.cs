@@ -1,5 +1,6 @@
 ﻿namespace Engine.Utils
 {
+	using DwarfClicker.Core.Achievement;
 	using DwarfClicker.Core.Containers;
 	using System;
 	using System.Collections;
@@ -43,4 +44,6 @@
 	[Serializable] public class DictionaryStringResource : SerializableDictionary<string, Resource> { }
 
 	[Serializable] public class DictionaryStringWeapon : SerializableDictionary<string, Weapon> { }
+
+	[Serializable] public class DictionaryStringAchievement : SerializableDictionary<string, Achievement> { }
 }

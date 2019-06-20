@@ -123,8 +123,8 @@
 			{
 				_playerProfile.LaunchAmount = _playerProfile.LaunchAmount + 1;
 				_playerProfile.SerializeDate(DateTime.Now);
-				float timeToNotif = ComputeTimeToNotification();
-				DeviceManager.Instance.PushLocalNotification("The dwarfs thirsty !", "Beer is running low ! Come back and brew some beers.", timeToNotif);
+				//float timeToNotif = ComputeTimeToNotification();
+				//DeviceManager.Instance.PushLocalNotification("The dwarfs thirsty !", "Beer is running low ! Come back and brew some beers.", timeToNotif);
 				JSonManager.Instance.SavePlayerProfile();
 				JSonManager.Instance.SaveNotifProfile();
 			}

@@ -20,8 +20,7 @@
 		[SerializeField] private GameObject _dailyRewardEnabledButton = null;
 		[SerializeField] private GameObject _dailyRewardPanel = null;
 		[SerializeField] private GameObject _fortressPanel = null;
-		
-
+		[SerializeField] private GameObject _achievementPanel = null;
 
 		private PlayerProfile _playerProfile = null;
 		#endregion Fields
@@ -92,6 +91,11 @@
 		public void OpenDailyRewardPanel()
 		{
 			_dailyRewardPanel.SetActive(true);
+		}
+
+		public void OpenAchievementPanel()
+		{
+			_achievementPanel.SetActive(true);
 		}
 
 		public void SetDailyRewardButtonDisabled()

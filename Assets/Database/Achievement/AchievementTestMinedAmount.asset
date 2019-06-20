@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c900238184e66e242927faa14c1e9085, type: 3}
+  m_Name: AchievementTestMinedAmount
+  m_EditorClassIdentifier: 
+  _key: MINED_AMOUNT
+  _name: Mine frenzy
+  _objective: Mine more resources
+  _stepMax: 64000000f4010000e8030000881300001027000050c30000a086010020a1070040420f0080969800
+  _mithrilReward: 10
+  _achievementSprite: {fileID: 0}

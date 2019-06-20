@@ -1,5 +1,6 @@
 ﻿namespace DwarfClicker.Core
 {
+	using DwarfClicker.Core.Achievement;
 	using DwarfClicker.Core.Containers;
 	using DwarfClicker.Core.Data;
 	using Engine.Manager;
@@ -81,13 +82,16 @@
 		{
 			_profile.CurrentFortress.Beer -= beerCost;
 			_profile.Resources[resource.Name].UpdateCount(resGain);
+			AchievementManager.Instance.UpdateAchievement("MINED_AMOUNT", resGain);
 			_profile.TriggerInventoryChangeEvent();
+
 		}
 
 		public void ForgeConverter(int resourceToConsumed, WeaponData _toCraft, int nbToCraft)
 		{
 			_profile.Resources[_toCraft.Recipe[0].Key].UpdateCount(-resourceToConsumed);
 			_profile.Weapons[_toCraft.Name].UpdateCount(nbToCraft);
+			AchievementManager.Instance.UpdateAchievement("FORGED_AMOUNT", nbToCraft);
 			_profile.TriggerInventoryChangeEvent();
 		}
 
@@ -97,7 +101,9 @@
 			{
 				_profile.Resources[_toCraft.Recipe[i].Key].UpdateCount(-_toCraft.Recipe[i].Count * nbToCraft);
 			}
+			AchievementManager.Instance.UpdateAchievement("FORGED_AMOUNT", nbToCraft);
 			UpdateGold((int)(_toCraft.GoldValue * goldBonus));
+			
 			_profile.TriggerInventoryChangeEvent();
 		}
 
@@ -127,8 +133,10 @@
 						_profile.Weapons[weapons[i].Name].SellPrice = Mathf.Clamp(_profile.Weapons[weapons[i].Name].SellPrice, weapons[i].PriceMin, weapons[i].PriceMax);
 					}
 					_profile.Weapons[weapons[i].Name].ModTimer = 0;
+					
 				}
 			}
+			AchievementManager.Instance.UpdateAchievement("SELL_AMOUNT", nbToSell);
 		}
 		#endregion Convert
 

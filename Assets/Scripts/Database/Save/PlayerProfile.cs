@@ -5,6 +5,7 @@
 	using System;
 	using DwarfClicker.Core.Containers;
 	using Engine.Manager;
+	using DwarfClicker.Core.Achievement;
 
 	[Serializable]
 	public class PlayerProfile
@@ -40,6 +41,10 @@
 		public DictionaryStringResource _resources = null;
 		public DictionaryStringWeapon _weapons = null;
 		#endregion Inventory
+
+		#region Achievement
+		public DictionaryStringAchievement _achievements = null;
+		#endregion Achievement
 		#endregion Fields
 
 		#region Properties
@@ -50,7 +55,10 @@
 			set
 			{
 				_currentStep = value;
-				_onFTUEStepChange();
+				if (_onFTUEStepChange != null)
+				{
+					_onFTUEStepChange();
+				}
 			}
 		}
 		#endregion FTUE
@@ -138,6 +146,8 @@
 			}
 			set
 			{
+				if (_gold < value)
+					AchievementManager.Instance.UpdateAchievement("GOLD", value - _gold);
 				_gold = value;
 				if (_onGoldChange != null)
 					_onGoldChange();
@@ -268,6 +278,7 @@
 			_lastDailyRewardRedeemed = DateTime.Now - new TimeSpan(100, 0, 0);
 			_resources = new DictionaryStringResource();
 			_weapons = new DictionaryStringWeapon();
+			_achievements = AchievementManager.Instance.GenerateAchievementCollection();
 			_fortressList = new List<FortressProfile>();
 			DatabaseManager db = DatabaseManager.Instance;
 

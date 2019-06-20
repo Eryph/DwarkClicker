@@ -29,6 +29,7 @@
 
 		private void Init()
 		{
+			return;
 			base.Start();
 			_notifProfile = JSonManager.Instance.NotifProfile;
 			AndroidNotificationChannel channel = AndroidNotificationCenter.GetNotificationChannel("Notif_ChanID");
@@ -55,6 +56,7 @@
 
 		public void PushLocalNotification(string title, string text, float hourToAdd)
 		{
+			return;
 			if (hourToAdd < _minTimeToNotifThrow)
 			{
 				return;

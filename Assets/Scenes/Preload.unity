@@ -235,6 +235,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1054190177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1054190179}
+  - component: {fileID: 1054190178}
+  m_Layer: 0
+  m_Name: AchievementManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1054190178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1054190177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d81ddcc975bedc64782b3a76ce52cb32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _achievementContainers:
+  - {fileID: 11400000, guid: 177d7a40dfa9d8e41ad9b83656c3557e, type: 2}
+  - {fileID: 11400000, guid: c91f73b8c30bc7c4d97b4d76346666f5, type: 2}
+  - {fileID: 11400000, guid: b28c4c6acd68dfd42916cffd1dfb2623, type: 2}
+  - {fileID: 11400000, guid: d6e3382c5db850d4fa8d4798b8f0640d, type: 2}
+--- !u!4 &1054190179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1054190177}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 238.03873, y: 867.5755, z: -7.718384}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1583762785
 GameObject:
   m_ObjectHideFlags: 0

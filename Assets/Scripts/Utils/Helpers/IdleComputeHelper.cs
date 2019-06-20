@@ -1,5 +1,6 @@
 ﻿namespace DwarkClicker.Helper
 {
+	using DwarfClicker.Core.Achievement;
 	using DwarfClicker.Core.Containers;
 	using DwarfClicker.Core.Data;
 	using Engine.Manager;
@@ -39,6 +40,7 @@
 
 			string resourceKey = fortress.ResourceProduced.Name;
 			playerProfile.Resources[resourceKey].UpdateCount(resGain);
+			AchievementManager.Instance.UpdateAchievement("MINED_AMOUNT", resGain);
 			GameManager.Instance.ProgressionInventory.SetProducedResource(resourceKey, resGain);
 
 			// Rich Vein
@@ -48,6 +50,7 @@
 			int luck = db.MineStats.Luck - db.MineUpgrades.Luck.value * fortress.MineUpgradesIndex._luckIndex;
 			luckCounter = (int)(realCycleNb / luck);
 			playerProfile.Resources[resourceKey].UpdateCount(richVein * luckCounter);
+			AchievementManager.Instance.UpdateAchievement("MINED_AMOUNT", richVein * luckCounter);
 			GameManager.Instance.ProgressionInventory.SetProducedResource(resourceKey, richVein * luckCounter);
 
 			// Rich Vein
@@ -88,6 +91,7 @@
 			int weaponProduced = forgeRealCycleNb * wByWorker * forgeWorkerNb;
 			int resourceConsumed = -weaponProduced * playerProfile.Weapons[fortress.CurrentCraft.Name].Recipie[0].Count;
 			playerProfile.Resources[fortress.ResourceProduced.Name].UpdateCount(resourceConsumed);
+			
 			GameManager.Instance.ProgressionInventory.SetConsumedResource(fortress.ResourceProduced.Name, resourceConsumed);
 
 			// Instant Selling
@@ -105,6 +109,7 @@
 			string weaponKey = fortress.CurrentCraft.Name;
 			int weaponGain = weaponProduced - instantSellingCounter;
 			playerProfile.Weapons[weaponKey].UpdateCount(weaponGain);
+			AchievementManager.Instance.UpdateAchievement("FORGED_AMOUNT", weaponGain);
 			GameManager.Instance.ProgressionInventory.SetProducedWeapon(weaponKey, weaponGain);
 		}
 
@@ -146,6 +151,7 @@
 				{
 					goldProduced += playerProfile.Weapons[weapons[weaponIndex].Name].SellPrice;
 					playerProfile.Weapons[weapons[weaponIndex].Name].UpdateCount(-1);
+					AchievementManager.Instance.UpdateAchievement("SELL_AMOUNT", 1);
 					GameManager.Instance.ProgressionInventory.SetConsumedResource(weapons[weaponIndex].Name, -1);
 					weaponConsumedIt++;
 					for (int i = 0; i < weapons.Length; i++)
