@@ -1,5 +1,6 @@
 ﻿namespace DwarfClicker.Core
 {
+	using DwarfClicker.Misc;
 	using System;
 	using System.Collections;
 	using System.Collections.Generic;
@@ -7,6 +8,8 @@
 
 	public abstract class ABuildingBase : MonoBehaviour
 	{
+		[SerializeField] protected FXController _FXController = null;
+
 		protected bool _isPaused = false;
 
 		public bool IsPaused { get { return _isPaused; } }

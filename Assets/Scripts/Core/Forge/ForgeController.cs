@@ -198,6 +198,7 @@
 			if (!_timer.IsStopped)
 			{
 				_timer.ReduceRemainingTime(DatabaseManager.Instance.PolteringValue);
+				_FXController.CreatePolteringParticle();
 			}
 		}
 		#endregion Timer Management

@@ -1,5 +1,6 @@
 ﻿namespace DwarfClicker.Core
 {
+	using DwarfClicker.Misc;
 	using Engine.Manager;
 	using Engine.Utils;
 	using System.Collections;
@@ -14,6 +15,7 @@
 		private int _storage = 1;
 
 		// Utils
+		[SerializeField] private FXController _FXController = null;
 		[SerializeField] private Converter _converter = null;
 		private PlayerProfile _playerProfile = null;
 		private DatabaseManager _db = null;
@@ -41,8 +43,16 @@
 		#region Beer Brewing
 		public void BrewBeer()
 		{
+			
 			_converter.UpdateBeer(_beerByTap);
+			if (_playerProfile.CurrentFortress.Beer <= _storage)
+			{
+				_FXController.CreateBeerTapParticle();
+			}
+
 			_playerProfile.CurrentFortress.Beer = Mathf.Clamp(_playerProfile.CurrentFortress.Beer, 0f, _storage);
+
+			
 		}
 		#endregion Beer Brewing
 
