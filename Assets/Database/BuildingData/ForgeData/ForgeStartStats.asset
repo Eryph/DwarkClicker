@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _workerAmount: 1
   _wByWorker: 1
-  _cycleDuration: 10
+  _cycleDuration: 100
   _instantSellingChance: 200
   _instantSellingGoldBonus: 0

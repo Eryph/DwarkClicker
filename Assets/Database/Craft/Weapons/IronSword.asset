@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: ironSword
   _recipe:
   - Key: iron
-    Count: 1
+    Count: 10
   _modifierTimer: 50
   _priceModifierUp: 1
   _priceModifierDown: 1
