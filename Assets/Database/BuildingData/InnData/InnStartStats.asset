@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a0aab57828f064db70c7e00fcd3ce9, type: 3}
   m_Name: InnStartStats
   m_EditorClassIdentifier: 
-  _beerByTap: 250
-  _storage: 5000
+  _beerByTap: 25
+  _storage: 2500
