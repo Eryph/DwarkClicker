@@ -23,8 +23,8 @@ MonoBehaviour:
     coef: 1.2
   _cycleDuration:
     name: Cycle Duration
-    value: 0.8
-    cost: 200
+    value: 0.05
+    cost: 100
     coef: 1.5
   _winBeerAmount:
     name: Win Beer Amount
