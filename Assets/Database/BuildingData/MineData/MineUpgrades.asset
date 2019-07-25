@@ -33,9 +33,9 @@ MonoBehaviour:
     coef: 2.5
   _cycleDuration:
     name: Cycle Duration
-    value: 0.1
-    cost: 100
-    coef: 1.9
+    value: 0.2
+    cost: 50
+    coef: 1.5
   _noBeerConsumptionChance:
     name: No Beer Consumption Chance
     value: 2

@@ -23,9 +23,9 @@ MonoBehaviour:
     coef: 1.5
   _cycleDuration:
     name: Cycle Duration
-    value: 0.25
-    cost: 150
-    coef: 1.9
+    value: 0.4
+    cost: 100
+    coef: 1.5
   _instantSellingChance:
     name: Instant Selling Chance
     value: 1
