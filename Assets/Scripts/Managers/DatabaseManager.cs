@@ -16,6 +16,12 @@
 		[Header("DailyReward")]
 		[SerializeField] private DailyReward[] _dailyRewards;
 
+		[Header("Music")]
+		[SerializeField] private MusicData[] _musics;
+
+		[Header("Sound")]
+		[SerializeField] private SoundData[] _sounds;
+
 		[Header("Inn")]
 		[SerializeField] private InnUpgradesData _innUpgrades = null;
 		[SerializeField] private InnStartData _innStats = null;
@@ -96,6 +102,42 @@
 					return _ftueDialboxList[i].Text;
 			}
 			return "No Step found. Text does not exist.";
+		}
+
+		public AudioClip ExtractSound(string soundTag = "Random")
+		{
+			if (soundTag == "Random")
+			{
+				int i = Random.Range(0, _sounds.Length);
+				return _sounds[i].Sound;
+			}
+			else
+			{
+				for (int i = 0; i < _sounds.Length; i++)
+				{
+					if (_sounds[i].SoundTag == soundTag)
+						return _sounds[i].Sound;
+				}
+			}
+			return null;
+		}
+
+		public AudioClip ExtractMusic(string musicTag = "Random")
+		{
+			if (musicTag == "Random")
+			{
+				int i = Random.Range(0, _musics.Length);
+				return _musics[i].Music;
+			}
+			else
+			{
+				for (int i = 0; i < _musics.Length; i++)
+				{
+					if (_musics[i].MusicTag == musicTag)
+						return _musics[i].Music;
+				}
+			}
+			return null;
 		}
 		#endregion Methods
 	}

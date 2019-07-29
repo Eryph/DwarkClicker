@@ -7,15 +7,20 @@
 
 	public class FlickeringLight : MonoBehaviour
 	{
+		// ATTRIBUTES
+		// Fields
 		[SerializeField] private float _minScale = 0.2f;
 		[SerializeField] private float _maxScale = 0.8f;
 		[SerializeField] private float _lerpSpeed = 0.5f;
+		// Fields
 
 		private float _startScaleValueX = 0f;
 		private float _startScaleValueY = 0f;
 		private float _targetScale = 0f;
 		private float _t = 0;
+		// ATTRIBUTES
 
+		// METHODS
 		private void Start()
 		{
 			Restart();
@@ -41,5 +46,6 @@
 			_startScaleValueX = transform.localScale.x;
 			_startScaleValueY = transform.localScale.y;
 		}
+		// METHODS
 	}
 }
