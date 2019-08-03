@@ -1,5 +1,6 @@
 ﻿namespace DwarfClicker.Core.Achievement
 {
+	using DwarfClicker.Core.Data;
 	using DwarfClicker.Database;
 	using Engine.Manager;
 	using Engine.Utils;
@@ -11,6 +12,7 @@
 	{
 		#region Fields
 		[SerializeField] private AchievementContainer[] _achievementContainers = null;
+		[SerializeField] private TaskData[] _tasks = null;
 		private PlayerProfile _profile = null;
 		#endregion Fields
 
@@ -19,6 +21,7 @@
 		#endregion Properties
 
 		#region Methods
+		#region Achievement
 		public DictionaryStringAchievement GenerateAchievementCollection()
 		{
 			DictionaryStringAchievement retAchievement = new DictionaryStringAchievement();
@@ -40,6 +43,16 @@
 
 			_profile._achievements[key].AddValue(value);
 		}
+		#endregion Achievement
+		#region KingTask
+		public KingTask GenerateTask()
+		{
+			KingTask task = new KingTask();
+			TaskData randomTask = _tasks[UnityEngine.Random.Range(0, _tasks.Length)];
+			task.Init(randomTask);
+			return task;
+		}
+		#endregion KingTask
 		#endregion Methods
 	}
 }

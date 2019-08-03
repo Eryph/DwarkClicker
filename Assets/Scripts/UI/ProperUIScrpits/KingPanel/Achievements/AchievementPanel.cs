@@ -12,12 +12,7 @@
 	{
 		[SerializeField] private AchievementButton _button = null;
 
-		private void OnEnable()
-		{
-			Init();
-		}
-
-		private void Init()
+		public void Display()
 		{
 			DictionaryStringAchievement achievements = JSonManager.Instance.PlayerProfile._achievements;
 

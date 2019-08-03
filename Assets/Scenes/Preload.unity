@@ -307,6 +307,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c91f73b8c30bc7c4d97b4d76346666f5, type: 2}
   - {fileID: 11400000, guid: b28c4c6acd68dfd42916cffd1dfb2623, type: 2}
   - {fileID: 11400000, guid: d6e3382c5db850d4fa8d4798b8f0640d, type: 2}
+  _tasks: []
 --- !u!4 &1054190179
 Transform:
   m_ObjectHideFlags: 0
