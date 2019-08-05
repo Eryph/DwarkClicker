@@ -21,6 +21,7 @@
 		public bool _isMithrilReward = false;
 		public WeaponData _weapon = null;
 		public ResourceData _resource = null;
+		public Sprite _goalSprite = null;
 		#endregion Fields
 
 		#region Properties
@@ -30,6 +31,7 @@
 		public int GoldRewardAmount { get { return _goldRewardAmount; } }
 		public int MithrilRewardAmount { get { return _mithrilRewardAmount; } }
 		public bool IsMithrilReward { get { return _isMithrilReward; } }
+		public Sprite GoalSprite { get { return _goalSprite; } }
 		#endregion Properties
 
 		#region Methods
@@ -46,11 +48,17 @@
 			{
 				WeaponData[] weaponList = DatabaseManager.Instance.WeaponList.Weapons;
 				_weapon = weaponList[UnityEngine.Random.Range(0, weaponList.Length)];
+				_goalSprite = null; // REPLACE BY ITEMSPRITE;
 			}
 			else if (_taskType == ETaskType.RESOURCE)
 			{
 				ResourceData[] resourceList = DatabaseManager.Instance.ResourceList.Resources;
 				_resource = resourceList[UnityEngine.Random.Range(0, resourceList.Length)];
+				_goalSprite = null; // REPLACE BY ITEMSPRITE;
+			}
+			else
+			{
+				_goalSprite = DatabaseManager.Instance.GoldIcon;
 			}
 		}
 

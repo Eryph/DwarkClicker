@@ -307,7 +307,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c91f73b8c30bc7c4d97b4d76346666f5, type: 2}
   - {fileID: 11400000, guid: b28c4c6acd68dfd42916cffd1dfb2623, type: 2}
   - {fileID: 11400000, guid: d6e3382c5db850d4fa8d4798b8f0640d, type: 2}
-  _tasks: []
+  _tasks:
+  - {fileID: 11400000, guid: 89702d064d9951f44a46f55d42feeae8, type: 2}
+  - {fileID: 11400000, guid: ae1c9740a800c4e4a9c81825c13e0836, type: 2}
+  - {fileID: 11400000, guid: 0123528a1afee3f4baacc6c6fec20b3b, type: 2}
+  - {fileID: 11400000, guid: 14acfab5b0c3dda43b147ddd2f7b9867, type: 2}
+  _taskCooldownH: 1
 --- !u!4 &1054190179
 Transform:
   m_ObjectHideFlags: 0

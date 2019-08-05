@@ -11,7 +11,7 @@
 		TOOL
 	};
 
-	[CreateAssetMenu(fileName = "Fortress", menuName = "Data/Fortress")]
+	[CreateAssetMenu(fileName = "KingTask", menuName = "Data/KingTask")]
 	public class TaskData : ScriptableObject
 	{
 		[SerializeField] private int _amount = 200;

@@ -1,9 +1,11 @@
-﻿namespace DwarfClicker.Core.Achievement
+﻿namespace Engine.Manager
 {
+	using DwarfClicker.Core.Achievement;
 	using DwarfClicker.Core.Data;
 	using DwarfClicker.Database;
 	using Engine.Manager;
 	using Engine.Utils;
+	using System;
 	using System.Collections;
 	using System.Collections.Generic;
 	using UnityEngine;
@@ -13,6 +15,7 @@
 		#region Fields
 		[SerializeField] private AchievementContainer[] _achievementContainers = null;
 		[SerializeField] private TaskData[] _tasks = null;
+		[SerializeField] private int _taskCooldownH = 1;
 		private PlayerProfile _profile = null;
 		#endregion Fields
 
@@ -45,12 +48,47 @@
 		}
 		#endregion Achievement
 		#region KingTask
+		public void ResetTask()
+		{
+			_profile._kingTask = null;
+			_profile._kingTask = GenerateTask();
+		}
+
 		public KingTask GenerateTask()
 		{
 			KingTask task = new KingTask();
 			TaskData randomTask = _tasks[UnityEngine.Random.Range(0, _tasks.Length)];
 			task.Init(randomTask);
 			return task;
+		}
+
+		public void ClaimTaskReward()
+		{
+			KingTask task = _profile._kingTask;
+			switch (task.TaskType)
+			{
+				case ETaskType.GOLD:
+					_profile.Gold -= task.Amount;
+					break;
+				case ETaskType.RESOURCE:
+					_profile.Resources[task._resource.Name].UpdateCount(-task.Amount);
+					break;
+				case ETaskType.TOOL:
+					_profile.Weapons[task._weapon.Name].UpdateCount(-task.Amount);
+					break;
+			}
+
+			if (task.IsMithrilReward)
+			{
+				_profile.Mithril += task.GoldRewardAmount;
+			}
+			else
+			{
+				_profile.Gold += task.GoldRewardAmount;
+			}
+
+			_profile._kingTask = null;
+			_profile._taskTimeStamp = DateTime.Now + new TimeSpan(_taskCooldownH, 0, 0);
 		}
 		#endregion KingTask
 		#endregion Methods

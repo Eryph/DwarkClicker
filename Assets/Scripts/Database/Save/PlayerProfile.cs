@@ -16,10 +16,12 @@
 		public DateTime _startDate;
 		private DateTime _fortressDate;
 		public DateTime _lastDailyRewardRedeemed;
+		public DateTime _taskTimeStamp;
 
 		public long _serializedDate = 0;
 		public long _serializedStartingDate = 0;
 		public long _serializedLastDailyRewardRedeemed = 0;
+		public long _serializedTaskTimeStamp = 0;
 		public int _launchAmount = 0;
 		public int _dailyRewardIndex = 0;
 		public bool _isDailyRewardAvailable = true;
@@ -45,6 +47,10 @@
 		#region Achievement
 		public DictionaryStringAchievement _achievements = null;
 		#endregion Achievement
+
+		#region KingTask
+		public KingTask _kingTask = null;
+		#endregion KingTask
 		#endregion Fields
 
 		#region Properties
@@ -371,6 +377,7 @@
 			_serializedDate = date.ToFileTime();
 			_serializedStartingDate = _startDate.ToFileTime();
 			_serializedLastDailyRewardRedeemed = _lastDailyRewardRedeemed.ToFileTime();
+			_serializedTaskTimeStamp = _taskTimeStamp.ToFileTime();
 		}
 
 		public void DeserializeDate()
@@ -378,6 +385,7 @@
 			_date = DateTime.FromFileTime(_serializedDate);
 			_startDate = DateTime.FromFileTime(_serializedStartingDate);
 			_lastDailyRewardRedeemed = DateTime.FromFileTime(_serializedLastDailyRewardRedeemed);
+			_taskTimeStamp = DateTime.FromFileTime(_serializedTaskTimeStamp);
 		}
 		#endregion Serialization
 		#endregion Methods
