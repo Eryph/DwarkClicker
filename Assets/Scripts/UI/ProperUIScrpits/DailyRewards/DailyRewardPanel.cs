@@ -11,6 +11,7 @@
 	using DwarfClicker.Core;
 	using System;
 	using Preprod.UI;
+	using UnityEngine.Advertisements;
 
 	public class DailyRewardPanel : MonoBehaviour
 	{
@@ -18,29 +19,33 @@
 		[SerializeField] private DailyRewardBox[] _dailyRewardBox = null;
 		[SerializeField] private GameObject _alreadyRedeemeedeemButton = null;
 		[SerializeField] private AllDataDisplayer _header = null;
+		[SerializeField] private float _adRewardMult = 2;
+
+		private PlayerProfile _profile = null;
 
 		private void OnEnable()
 		{
-			PlayerProfile profile = JSonManager.Instance.PlayerProfile;
-			Display(profile);
-			
-
+			if (_profile == null)
+			{
+				_profile = JSonManager.Instance.PlayerProfile;
+			}
+			Display();
 		}
 
-		private void Display(PlayerProfile profile)
+		private void Display()
 		{
 			_alreadyRedeemeedeemButton.SetActive(false);
-			if (profile._dailyRewardIndex != 0)
+			if (_profile._dailyRewardIndex != 0)
 			{
-				if (profile.IsDailyRewardAvailable)
+				if (_profile.IsDailyRewardAvailable)
 				{
 					_alreadyRedeemeedeemButton.SetActive(false);
 				}
 				else
 				{
-					if (profile.IsDailyRewardReset)
+					if (_profile.IsDailyRewardReset)
 					{
-						profile._dailyRewardIndex = 0;
+						_profile._dailyRewardIndex = 0;
 					}
 					_alreadyRedeemeedeemButton.SetActive(true);
 				}
@@ -48,7 +53,7 @@
 
 			for (int i = 0; i < _dailyRewardBox.Length; i++)
 			{
-				if (i < profile._dailyRewardIndex)
+				if (i < _profile._dailyRewardIndex)
 				{
 					_dailyRewardBox[i].SetAlreadyRedeemed();
 				}
@@ -64,7 +69,7 @@
 					}
 					if (DatabaseManager.Instance.DailyRewards[i].ResourceGain > 0)
 					{
-						ResourceData resource = profile.LastFortress.ResourceProduced;
+						ResourceData resource = _profile.LastFortress.ResourceProduced;
 						_dailyRewardBox[i].Init(DatabaseManager.Instance.DailyRewards[i].ResourceGain, resource.ResourceSprite, Color.white);
 					}
 					if (DatabaseManager.Instance.DailyRewards[i].MithrilGain > 0)
@@ -72,12 +77,12 @@
 						_dailyRewardBox[i].Init(DatabaseManager.Instance.DailyRewards[i].MithrilGain, DatabaseManager.Instance.MithrilIcon, Color.white);
 					}
 
-					if (i == profile._dailyRewardIndex)
+					if (i == _profile._dailyRewardIndex)
 					{
 						_dailyRewardBox[i].SetAvailable();
 					}
 
-					if (i > profile._dailyRewardIndex)
+					if (i > _profile._dailyRewardIndex)
 					{
 						_dailyRewardBox[i].SetNotAvailable();
 					}
@@ -88,10 +93,24 @@
 		public void RedeemDailyReward()
 		{
 			_controller.RedeemDailyReward();
-			PlayerProfile profile = JSonManager.Instance.PlayerProfile;
 			_header.SetDailyRewardButtonDisabled();
 			_alreadyRedeemeedeemButton.SetActive(true);
-			Display(profile);
+			Display();
+		}
+
+		public void RedeemAdDailyReward()
+		{
+			_controller.RedeemDailyReward(_adRewardMult);
+			_header.SetDailyRewardButtonDisabled();
+			_alreadyRedeemeedeemButton.SetActive(true);
+			Display();
+			MonetizationManager.Instance.AdFinished -= RedeemAdDailyReward;
+		}
+
+		public void LaunchAd()
+		{
+			MonetizationManager.Instance.ShowAd();
+			MonetizationManager.Instance.AdFinished += RedeemAdDailyReward;
 		}
 
 		public void QuitPanel()

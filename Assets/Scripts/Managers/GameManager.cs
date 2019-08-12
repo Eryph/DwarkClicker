@@ -10,6 +10,7 @@
 	using System.IO;
 	using DwarkClicker.Helper;
 	using DwarfClicker.UI.GainRecap;
+	using DwarfClicker.Misc;
 
 	public class GameManager : Singleton<GameManager>
 	{
@@ -35,6 +36,21 @@
 			base.Start();
 			_db = DatabaseManager.Instance;
 			JSonManager.Instance.OnProfileLoaded += LoadData;
+			//MonetizationManager.Instance.OnSDKReady += LoadGameScene;
+			int buildIndex = SceneUtility.GetBuildIndexByScenePath(_firstSceneToLoadPath);
+			if (buildIndex > 0)
+			{
+				SceneManager.LoadScene(buildIndex);
+			}
+			else
+			{
+				Debug.LogError("First scene to load \"" + _firstSceneToLoadPath + "\" was not found.");
+			}
+		}
+
+		private void LoadGameScene()
+		{
+			MonetizationManager.Instance.OnSDKReady -= LoadGameScene;
 			int buildIndex = SceneUtility.GetBuildIndexByScenePath(_firstSceneToLoadPath);
 			if (buildIndex > 0)
 			{
@@ -66,6 +82,7 @@
 			for (int fIndex = 0; fIndex < _playerProfile.Fortress.Count; fIndex++)
 			{
 				FortressProfile fortress = _playerProfile.Fortress[fIndex];
+
 
 				if (fortress._isBought == false)
 				{

@@ -194,7 +194,6 @@
 			float winBeerAmount = db.TradingPostStats.WinBeerAmount + db.TradingPostUpgrades.WinBeerAmount.value * fortress.UTPWinBeerAmountIndex;
 			winBeerCounter = (int)(tradingRealCycleNb / winBeerChance);
 			fortress.Beer += (winBeerCounter * winBeerAmount);
-
 		}
 	}
 }

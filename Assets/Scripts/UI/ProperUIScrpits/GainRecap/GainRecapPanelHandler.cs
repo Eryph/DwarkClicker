@@ -165,5 +165,17 @@
 		{
 			gameObject.SetActive(false);
 		}
+
+		public void ShowRewardedAd()
+		{
+			MonetizationManager.Instance.AdFinished += DoubleProduction;
+			MonetizationManager.Instance.ShowAd();
+		}
+
+		private void DoubleProduction()
+		{
+			MonetizationManager.Instance.AdFinished -= DoubleProduction;
+			JSonManager.Instance.PlayerProfile.Gold += GameManager.Instance.ProgressionInventory.Gold;
+		}
 	}
 }

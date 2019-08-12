@@ -77,8 +77,15 @@
 			Display(JSonManager.Instance.PlayerProfile);
 		}
 
-		public void ResetTask()
+		public void ShowAdToResetTask()
 		{
+			MonetizationManager.Instance.AdFinished += ResetTask;
+			MonetizationManager.Instance.ShowAd();
+		}
+
+		private void ResetTask()
+		{
+			MonetizationManager.Instance.AdFinished -= ResetTask;
 			AchievementManager.Instance.ResetTask();
 			Display(JSonManager.Instance.PlayerProfile);
 		}
