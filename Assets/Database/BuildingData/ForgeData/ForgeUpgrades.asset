@@ -12,27 +12,32 @@ MonoBehaviour:
   m_Name: ForgeUpgrades
   m_EditorClassIdentifier: 
   _workerAmount:
-    name: Worker +
+    name: Blacksmiths amount
+    desc: Increases the number of dwarf blacksmiths
     value: 1
     cost: 3500
     coef: 1.7
   _wByWorker:
-    name: Weapon Craft +
+    name: Blacksmith skills
+    desc: Increases the amount of forged tools per cycle
     value: 1
     cost: 5000
     coef: 1.5
   _cycleDuration:
-    name: Cycle Duration
+    name: Cycle duration
+    desc: Reduce the time needed to forge the tools
     value: 0.05
     cost: 100
     coef: 1.5
   _instantSellingChance:
-    name: Instant Selling Chance
+    name: 'Bonus : Sell now'
+    desc: Increases the chance to sell the tools instantly
     value: 1
     cost: 75
     coef: 1.3
   _instantSellingGoldBonus:
-    name: Instant Selling Gold Bonus
+    name: 'Bonus : Sales improvement'
+    desc: Increases the gold bonus when the tool is instantly sell
     value: 0.1
     cost: 250
     coef: 1.2

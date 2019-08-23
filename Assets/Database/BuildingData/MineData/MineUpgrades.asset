@@ -12,42 +12,50 @@ MonoBehaviour:
   m_Name: MineUpgrades
   m_EditorClassIdentifier: 
   _workerAmount:
-    name: Worker +
+    name: Miner amount
+    desc: Increases the amount of dwarf miners
     value: 1
     cost: 3500
     coef: 1.7
   _resByWorker:
-    name: Resource Mined +
+    name: Miner skills
+    desc: Increases the amount of resources found per cycle
     value: 1
     cost: 40
     coef: 3
   _luck:
-    name: Luck
+    name: 'Bonus : Luck'
+    desc: Increases the chance of finding free resources
     value: 1
     cost: 250
     coef: 1.2
   _beerConsumption:
-    name: Beer Consumption
+    name: Liquid consumption
+    desc: Reduce the amount of liquid consumed by the dwarves
     value: 0.05
     cost: 50
     coef: 2.5
   _cycleDuration:
-    name: Cycle Duration
+    name: Cycle duration
+    desc: Reduce the time needed to extract resources
     value: 0.05
     cost: 100
     coef: 1.5
   _noBeerConsumptionChance:
-    name: No Beer Consumption Chance
+    name: NOT IN GAME
+    desc: NOT INTEGRATED
     value: 2
     cost: 100
     coef: 1.5
   _richVein:
-    name: Rich Vein
+    name: 'Bonus : Rich vein !'
+    desc: Increases the amount of Mithril found
     value: 1
     cost: 50
     coef: 1.5
   _mithrilChance:
-    name: Mithril Mined Chance
+    name: 'Bonus : Mithril !'
+    desc: Increases the chance of finding Mithril in the mine
     value: 10
     cost: 500
     coef: 1.4

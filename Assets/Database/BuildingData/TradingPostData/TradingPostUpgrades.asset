@@ -12,32 +12,38 @@ MonoBehaviour:
   m_Name: TradingPostUpgrades
   m_EditorClassIdentifier: 
   _workerAmount:
-    name: Worker +
+    name: Merchants amount
+    desc: Increases the number of dwarf merchants
     value: 1
     cost: 5000
     coef: 1.5
   _sellByWorker:
-    name: Sell +
+    name: Storage capacity
+    desc: Increases the number of tool sold per cycle
     value: 1
     cost: 3500
     coef: 1.2
   _cycleDuration:
-    name: Cycle Duration
+    name: Cycle duration
+    desc: Reduce the time needed to sell the tools
     value: 0.05
     cost: 100
     coef: 1.5
   _winBeerAmount:
-    name: Win Beer Amount
+    name: 'Bonus : Liquid amount'
+    desc: Increase the amount of liquid brought back
     value: 10
     cost: 250
     coef: 1.3
   _winBeerChance:
-    name: Win Beer Chance
+    name: 'Bonus : Liquid gift'
+    desc: Increases the chance to come back with liquid
     value: 1
     cost: 250
     coef: 1.3
   _goldMult:
-    name: Gold Multiplier
+    name: Merchants skills
+    desc: Increases the price of each tool sold
     value: 0.1
     cost: 750
     coef: 1.5
