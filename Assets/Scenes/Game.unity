@@ -3356,11 +3356,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -6719,7 +6719,7 @@ Prefab:
     - target: {fileID: 224638831226740182, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -291.36002
+      value: -174.68001
       objectReference: {fileID: 0}
     - target: {fileID: 224638831226740182, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
@@ -6764,32 +6764,32 @@ Prefab:
     - target: {fileID: 114903932624549394, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114903932624549394, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114245457384605198, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114245457384605198, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114356537369264294, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114356537369264294, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1513135222704638, guid: 34d74143f28b3d24d9fd342f6ffbe112, type: 2}
       propertyPath: m_Name
@@ -6798,12 +6798,12 @@ Prefab:
     - target: {fileID: 114978744736058154, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114978744736058154, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224638831226740182, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
@@ -9819,7 +9819,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 379}
   m_SizeDelta: {x: 0, y: 600.9031}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &381329701
@@ -12843,11 +12843,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -13904,11 +13904,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -19055,6 +19055,46 @@ Prefab:
       propertyPath: m_Name
       value: UpgradeWorker
       objectReference: {fileID: 0}
+    - target: {fileID: 114978744736058154, guid: 34d74143f28b3d24d9fd342f6ffbe112,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114978744736058154, guid: 34d74143f28b3d24d9fd342f6ffbe112,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114245457384605198, guid: 34d74143f28b3d24d9fd342f6ffbe112,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114245457384605198, guid: 34d74143f28b3d24d9fd342f6ffbe112,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114356537369264294, guid: 34d74143f28b3d24d9fd342f6ffbe112,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114356537369264294, guid: 34d74143f28b3d24d9fd342f6ffbe112,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114903932624549394, guid: 34d74143f28b3d24d9fd342f6ffbe112,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114903932624549394, guid: 34d74143f28b3d24d9fd342f6ffbe112,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34d74143f28b3d24d9fd342f6ffbe112, type: 2}
   m_IsPrefabAsset: 0
@@ -23642,11 +23682,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -24736,7 +24776,7 @@ Prefab:
     - target: {fileID: 224638831226740182, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -174.68001
+      value: -291.36002
       objectReference: {fileID: 0}
     - target: {fileID: 224638831226740182, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
@@ -24781,32 +24821,32 @@ Prefab:
     - target: {fileID: 114903932624549394, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114903932624549394, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114245457384605198, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114245457384605198, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114356537369264294, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114356537369264294, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1513135222704638, guid: 34d74143f28b3d24d9fd342f6ffbe112, type: 2}
       propertyPath: m_Name
@@ -24815,12 +24855,12 @@ Prefab:
     - target: {fileID: 114978744736058154, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114978744736058154, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224638831226740182, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
@@ -31590,11 +31630,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -34189,11 +34229,11 @@ MonoBehaviour:
     lineCount: 3
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -36269,11 +36309,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -39841,11 +39881,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -40992,32 +41032,32 @@ Prefab:
     - target: {fileID: 114903932624549394, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114903932624549394, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114245457384605198, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114245457384605198, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114356537369264294, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114356537369264294, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1513135222704638, guid: 34d74143f28b3d24d9fd342f6ffbe112, type: 2}
       propertyPath: m_Name
@@ -41026,12 +41066,12 @@ Prefab:
     - target: {fileID: 114978744736058154, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114978744736058154, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224638831226740182, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
@@ -51554,11 +51594,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -55732,32 +55772,32 @@ Prefab:
     - target: {fileID: 114903932624549394, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114903932624549394, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114245457384605198, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114245457384605198, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114356537369264294, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114356537369264294, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1513135222704638, guid: 34d74143f28b3d24d9fd342f6ffbe112, type: 2}
       propertyPath: m_Name
@@ -55766,12 +55806,12 @@ Prefab:
     - target: {fileID: 114978744736058154, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114978744736058154, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224638831226740182, guid: 34d74143f28b3d24d9fd342f6ffbe112,
         type: 2}
