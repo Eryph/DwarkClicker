@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Name: InnUpgrades
   m_EditorClassIdentifier: 
   _beerByTap:
-    name: Beer By Tap
+    name: Brewer skills
+    desc: Increases the amount of liquid brewed per tap
     value: 50
     cost: 50
     coef: 1.4
   _storage:
-    name: Beer Storage
+    name: Cellar size
+    desc: Increase the amount of liquid that can be stored
     value: 1000
     cost: 1000
     coef: 3
