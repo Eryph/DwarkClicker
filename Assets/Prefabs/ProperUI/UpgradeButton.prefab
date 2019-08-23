@@ -168,7 +168,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 4eabd4a1adb869d46a1068350b2f1dad, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3a5b8fcd05c4b2845a48236e6a938369, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -423,7 +423,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 49ba3e6a125815749bd363ea8f2fbb37, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f470ff8f2553284429d6f5d6d895d6be, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -471,7 +471,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_MethodName: UpgradeStorage
+        m_MethodName: UpgradeWorkerNb
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -522,6 +522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _upgradeName: {fileID: 114903932624549394}
+  _upgradeDesc: {fileID: 114356537369264294}
   _price: {fileID: 114245457384605198}
   _currentRank: {fileID: 114978744736058154}
 --- !u!114 &114736911985947302
@@ -543,7 +544,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 2068ee2dea6adb64183ce98b048eac50, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e98b111871e007e48b400c7976f3d7db, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -910,7 +911,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 215.4, y: -58}
+  m_AnchoredPosition: {x: 253.65952, y: -58}
   m_SizeDelta: {x: 138, y: 36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224649264987979752

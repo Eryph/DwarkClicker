@@ -32,10 +32,10 @@
 			InnUpgradesData uData = DatabaseManager.Instance.InnUpgrades;
 
 			int price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.InnUpgrades.BeerByTap, currentFortress.InnBeerByTapIndex);
-			_beerByTapUpgrade.Init(uData.BeerByTap.name, currentFortress.InnBeerByTapIndex, price);
+			_beerByTapUpgrade.Init(uData.BeerByTap.name, uData.BeerByTap.desc, currentFortress.InnBeerByTapIndex, price);
 
 			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.InnUpgrades.Storage, currentFortress.InnStorageIndex);
-			_storageUpgrade.Init(uData.Storage.name, currentFortress.InnStorageIndex, price);
+			_storageUpgrade.Init(uData.Storage.name, uData.Storage.desc, currentFortress.InnStorageIndex, price);
 		}
 
 		private void UpdateFortress()

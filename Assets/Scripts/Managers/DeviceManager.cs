@@ -3,7 +3,7 @@
 	using Engine.Utils;
 	using System.Collections;
 	using System.Collections.Generic;
-	using Unity.Notifications.Android;
+//	using Unity.Notifications.Android;
 	using UnityEngine;
 
 	public class DeviceManager : Singleton<DeviceManager>
@@ -31,7 +31,7 @@
 		{
 			return;
 			base.Start();
-			_notifProfile = JSonManager.Instance.NotifProfile;
+	/*		_notifProfile = JSonManager.Instance.NotifProfile;
 			AndroidNotificationChannel channel = AndroidNotificationCenter.GetNotificationChannel("Notif_ChanID");
 
 			Debug.Log(channel.Id);
@@ -78,7 +78,7 @@
 				// Replace the currently scheduled notification with a new notification.
 				Debug.Log(string.Format("notif {0} is scheduled.", notifID));
 			}
-			// Push Notification
+			// Push Notification*/
 		}
 
 		protected override void OnDestroy()

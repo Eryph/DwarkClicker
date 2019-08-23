@@ -64,10 +64,6 @@
 				Debug.LogError("AD IS NOT SUPPORTED");
 			}
 #endif
-			if (!Advertisement.isInitialized)
-			{
-				Debug.LogError("AD IS NOT INITIALIZED");
-			}
 		}
 
 #region Ads
@@ -125,7 +121,10 @@
 				Debug.LogError("AD IS NOT INITIALIZED");
 			}
 		}
-#endregion Ads
-#endregion Methods
+		#endregion Ads
+
+		#region IAP
+		#endregion IAP
+		#endregion Methods
 	}
 }

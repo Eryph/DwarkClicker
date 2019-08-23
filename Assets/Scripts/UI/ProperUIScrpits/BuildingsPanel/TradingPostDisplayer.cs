@@ -55,22 +55,22 @@
 			TradingPostUpgradesData uData = DatabaseManager.Instance.TradingPostUpgrades;
 
 			int price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WorkerAmount, currentFortress.UTPWorkerNbIndex);
-			_workerUpgrade.Init(uData.WorkerAmount.name, currentFortress.UTPWorkerNbIndex, price);
+			_workerUpgrade.Init(uData.WorkerAmount.name, uData.WorkerAmount.desc, currentFortress.UTPWorkerNbIndex, price);
 
 			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.SellByWorker, currentFortress.UTPSellByWorkerIndex);
-			_sellbyWorkerUpgrade.Init(uData.SellByWorker.name, currentFortress.UTPSellByWorkerIndex, price);
+			_sellbyWorkerUpgrade.Init(uData.SellByWorker.name, uData.SellByWorker.desc, currentFortress.UTPSellByWorkerIndex, price);
 
 			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.CycleDuration, currentFortress.UTPCycleDurationIndex);
-			_cycleDurationUpgrade.Init(uData.CycleDuration.name, currentFortress.UTPCycleDurationIndex, price);
+			_cycleDurationUpgrade.Init(uData.CycleDuration.name, uData.CycleDuration.desc, currentFortress.UTPCycleDurationIndex, price);
 
 			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WinBeerAmount, currentFortress.UTPWinBeerAmountIndex);
-			_winBeerAmountUpgrade.Init(uData.WinBeerAmount.name, currentFortress.UTPWinBeerAmountIndex, price);
+			_winBeerAmountUpgrade.Init(uData.WinBeerAmount.name, uData.WinBeerAmount.desc, currentFortress.UTPWinBeerAmountIndex, price);
 
 			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WinBeerChance, currentFortress.UTPWinBeerChanceIndex);
-			_winBeerChanceUpgrade.Init(uData.WinBeerChance.name, currentFortress.UTPWinBeerChanceIndex, price);
+			_winBeerChanceUpgrade.Init(uData.WinBeerChance.name, uData.WinBeerChance.desc, currentFortress.UTPWinBeerChanceIndex, price);
 
 			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.GoldMult, currentFortress.UTPGoldMultIndex);
-			_goldMultUpgrade.Init(uData.GoldMult.name, currentFortress.UTPGoldMultIndex, price);
+			_goldMultUpgrade.Init(uData.GoldMult.name, uData.GoldMult.desc, currentFortress.UTPGoldMultIndex, price);
 		}
 
 		private void OnDestroy()

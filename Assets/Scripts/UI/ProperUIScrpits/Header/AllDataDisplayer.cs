@@ -21,6 +21,7 @@
 		[SerializeField] private GameObject _dailyRewardPanel = null;
 		[SerializeField] private GameObject _fortressPanel = null;
 		[SerializeField] private GameObject _kingPanel = null;
+		[SerializeField] private GameObject _shopPanel = null;
 
 		private PlayerProfile _playerProfile = null;
 		#endregion Fields
@@ -96,6 +97,11 @@
 		public void OpenKingPanel()
 		{
 			_kingPanel.SetActive(true);
+		}
+
+		public void OpenShopPanel()
+		{
+			_shopPanel.SetActive(true);
 		}
 
 		public void SetDailyRewardButtonDisabled()

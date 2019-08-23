@@ -136,20 +136,23 @@
 #if ANDROID
 		private void OnApplicationPause(bool pauseStatus)
 		{
-			if (pauseStatus)
+			if (_playerProfile != null)
 			{
-				_playerProfile.LaunchAmount = _playerProfile.LaunchAmount + 1;
-				_playerProfile.SerializeDate(DateTime.Now);
-				//float timeToNotif = ComputeTimeToNotification();
-				//DeviceManager.Instance.PushLocalNotification("The dwarfs thirsty !", "Beer is running low ! Come back and brew some beers.", timeToNotif);
-				JSonManager.Instance.SavePlayerProfile();
-				JSonManager.Instance.SaveNotifProfile();
-			}
-			else
-			{
-				Screen.sleepTimeout = SleepTimeout.NeverSleep;
-				_playerProfile.DeserializeDate();
-				LoadProgression();
+				if (pauseStatus)
+				{
+					_playerProfile.LaunchAmount = _playerProfile.LaunchAmount + 1;
+					_playerProfile.SerializeDate(DateTime.Now);
+					//float timeToNotif = ComputeTimeToNotification();
+					//DeviceManager.Instance.PushLocalNotification("The dwarfs thirsty !", "Beer is running low ! Come back and brew some beers.", timeToNotif);
+					JSonManager.Instance.SavePlayerProfile();
+					JSonManager.Instance.SaveNotifProfile();
+				}
+				else
+				{
+					Screen.sleepTimeout = SleepTimeout.NeverSleep;
+					_playerProfile.DeserializeDate();
+					LoadProgression();
+				}
 			}
 		}
 

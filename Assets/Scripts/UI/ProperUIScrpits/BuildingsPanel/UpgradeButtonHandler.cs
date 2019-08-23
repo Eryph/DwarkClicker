@@ -9,12 +9,14 @@
 	public class UpgradeButtonHandler : MonoBehaviour
 	{
 		[SerializeField] private TextMeshProUGUI _upgradeName = null;
+		[SerializeField] private TextMeshProUGUI _upgradeDesc = null;
 		[SerializeField] private TextMeshProUGUI _price = null;
 		[SerializeField] private TextMeshProUGUI _currentRank = null;
 
-		public void Init(string upgradeName, int currentRank, int price)
+		public void Init(string upgradeName, string upgradeDesc, int currentRank, int price)
 		{
 			_upgradeName.text = upgradeName;
+			_upgradeDesc.text = upgradeDesc;
 			_price.text = UIHelper.FormatIntegerString(price);
 			_currentRank.text = "Rank : " + UIHelper.FormatIntegerString(currentRank);
 		}

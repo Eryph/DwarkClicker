@@ -55,7 +55,7 @@
 
 		public void Load()
 		{
-#if ANDROID
+#if !ANDROID
 			_dataPath = Application.persistentDataPath + "/";
 #else
 			_dataPath = Application.dataPath + "/";

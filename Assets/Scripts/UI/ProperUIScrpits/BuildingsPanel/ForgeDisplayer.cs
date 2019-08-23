@@ -41,19 +41,19 @@
 			ForgeUpgradesData uData = DatabaseManager.Instance.ForgeUpgrades;
 
 			int price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WorkerAmount, currentFortress.UForgeWorkerNbIndex);
-			_workerUpgrade.Init(uData.WorkerAmount.name, currentFortress.UForgeWorkerNbIndex, price);
+			_workerUpgrade.Init(uData.WorkerAmount.name, uData.WorkerAmount.desc, currentFortress.UForgeWorkerNbIndex, price);
 
 			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WByWorker, currentFortress.UForgeWByWorkerIndex);
-			_wByWorkerUpgrade.Init(uData.WByWorker.name, currentFortress.UForgeWByWorkerIndex, price);
+			_wByWorkerUpgrade.Init(uData.WByWorker.name, uData.WByWorker.desc, currentFortress.UForgeWByWorkerIndex, price);
 
 			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.CycleDuration, currentFortress.UForgeCycleDurationIndex);
-			_cycleDurationUpgrade.Init(uData.CycleDuration.name, currentFortress.UForgeCycleDurationIndex, price);
+			_cycleDurationUpgrade.Init(uData.CycleDuration.name, uData.CycleDuration.desc, currentFortress.UForgeCycleDurationIndex, price);
 
 			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingChance, currentFortress.UForgeInstantSellingChanceIndex);
-			_instantSellingChanceUpgrade.Init(uData.InstantSellingChance.name, currentFortress.UForgeInstantSellingChanceIndex, price);
+			_instantSellingChanceUpgrade.Init(uData.InstantSellingChance.name, uData.InstantSellingChance.desc, currentFortress.UForgeInstantSellingChanceIndex, price);
 
 			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingGoldBonus, currentFortress.UForgeInstantSellingGoldBonusIndex);
-			_instantSellingGoldBonusUpgrade.Init(uData.InstantSellingGoldBonus.name, currentFortress.UForgeInstantSellingGoldBonusIndex, price);
+			_instantSellingGoldBonusUpgrade.Init(uData.InstantSellingGoldBonus.name, uData.InstantSellingGoldBonus.desc, currentFortress.UForgeInstantSellingGoldBonusIndex, price);
 		}
 
 		private void OnDestroy()

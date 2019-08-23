@@ -38,25 +38,25 @@
 
 
 			int price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.WorkerAmount, currentFortress.UMineWorkerNbIndex);
-			_workerUpgrade.Init(uData.WorkerAmount.name, currentFortress.UMineWorkerNbIndex, price);
+			_workerUpgrade.Init(uData.WorkerAmount.name, uData.WorkerAmount.desc, currentFortress.UMineWorkerNbIndex, price);
 
 			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.ResByWorker, currentFortress.UMineResByWorkerIndex);
-			_resByWorkerUpgrade.Init(uData.ResByWorker.name, currentFortress.UMineResByWorkerIndex, price);
+			_resByWorkerUpgrade.Init(uData.ResByWorker.name, uData.ResByWorker.desc, currentFortress.UMineResByWorkerIndex, price);
 
 			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.CycleDuration, currentFortress.UMineCycleDurationIndex);
-			_cycleUpUpgrade.Init(uData.CycleDuration.name, currentFortress.UMineCycleDurationIndex, price);
+			_cycleUpUpgrade.Init(uData.CycleDuration.name, uData.CycleDuration.desc, currentFortress.UMineCycleDurationIndex, price);
 
 			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.BeerConsumption, currentFortress.UMineBeerConsoIndex);
-			_beerConsoUpgrade.Init(uData.BeerConsumption.name, currentFortress.UMineBeerConsoIndex, price);
+			_beerConsoUpgrade.Init(uData.BeerConsumption.name, uData.BeerConsumption.desc, currentFortress.UMineBeerConsoIndex, price);
 
 			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.Mithril, currentFortress.UMineMithrilChanceIndex);
-			_mithrilChanceUpgrade.Init(uData.Mithril.name, currentFortress.UMineMithrilChanceIndex, price);
+			_mithrilChanceUpgrade.Init(uData.Mithril.name, uData.Mithril.desc, currentFortress.UMineMithrilChanceIndex, price);
 
 			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.Luck, currentFortress.UMineLuckIndex);
-			_luckUpgrade.Init(uData.Luck.name, currentFortress.UMineLuckIndex, price);
+			_luckUpgrade.Init(uData.Luck.name, uData.Luck.desc, currentFortress.UMineLuckIndex, price);
 
 			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.RichVein, currentFortress.UMineRichVeinIndex);
-			_richVeinUpgrade.Init(uData.RichVein.name, currentFortress.UMineRichVeinIndex, price);
+			_richVeinUpgrade.Init(uData.RichVein.name, uData.RichVein.desc, currentFortress.UMineRichVeinIndex, price);
 		}
 		
 		private void Start()
