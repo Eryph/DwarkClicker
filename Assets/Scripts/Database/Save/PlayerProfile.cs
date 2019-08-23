@@ -11,6 +11,11 @@
 	public class PlayerProfile
 	{
 		#region Fields
+		#region Config
+		public bool _isSoundMuted = false;
+		public bool _isMusicMuted = false;
+		#endregion Config
+
 		#region Time
 		private DateTime _date;
 		public DateTime _startDate;
