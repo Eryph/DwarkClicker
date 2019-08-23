@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: TradingPostStartStats
   m_EditorClassIdentifier: 
   _workerAmount: 1
-  _sellByWorker: 1
+  _sellByWorker: 2
   _winBeerAmount: 10
   _winBeerChance: 500
   _goldMult: 1
-  _cycleDuration: 100
+  _cycleDuration: 200
