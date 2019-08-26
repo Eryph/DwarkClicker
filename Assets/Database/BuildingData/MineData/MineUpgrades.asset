@@ -49,7 +49,7 @@ MonoBehaviour:
     coef: 1.5
   _richVein:
     name: 'Bonus : Rich vein !'
-    desc: Increases the amount of Mithril found
+    desc: Increases the amount of resources found
     value: 1
     cost: 50
     coef: 1.5
