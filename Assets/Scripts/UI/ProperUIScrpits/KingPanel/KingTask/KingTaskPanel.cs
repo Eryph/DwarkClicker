@@ -79,8 +79,15 @@
 
 		public void ShowAdToResetTask()
 		{
-			MonetizationManager.Instance.AdFinished += ResetTask;
-			MonetizationManager.Instance.ShowAd();
+			if (JSonManager.Instance.PlayerProfile._noMoreAdsBonus)
+			{
+				MonetizationManager.Instance.AdFinished += ResetTask;
+				MonetizationManager.Instance.ShowAd();
+			}
+			else
+			{
+				ResetTask();
+			}
 		}
 
 		private void ResetTask()

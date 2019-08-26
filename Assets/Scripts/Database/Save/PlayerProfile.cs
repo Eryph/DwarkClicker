@@ -16,6 +16,10 @@
 		public bool _isMusicMuted = false;
 		#endregion Config
 
+		#region Consumable Bonus
+		public bool _noMoreAdsBonus = false;
+		#endregion Consumable Bonus
+
 		#region Time
 		private DateTime _date;
 		public DateTime _startDate;

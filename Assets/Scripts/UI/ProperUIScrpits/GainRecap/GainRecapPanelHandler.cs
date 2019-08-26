@@ -168,8 +168,16 @@
 
 		public void ShowRewardedAd()
 		{
-			MonetizationManager.Instance.AdFinished += DoubleProduction;
-			MonetizationManager.Instance.ShowAd();
+
+			if (JSonManager.Instance.PlayerProfile._noMoreAdsBonus)
+			{
+				MonetizationManager.Instance.AdFinished += DoubleProduction;
+				MonetizationManager.Instance.ShowAd();
+			}
+			else
+			{
+				DoubleProduction();
+			}
 		}
 
 		private void DoubleProduction()
