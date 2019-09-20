@@ -54,7 +54,7 @@
 		{
 			base.Start();
 			Advertisement.AddListener(this);
-#if ANDROID
+
 			if (Advertisement.isSupported)
 			{
 				Advertisement.Initialize(_androidGameId, _testMode);
@@ -63,7 +63,6 @@
 			{
 				Debug.LogError("AD IS NOT SUPPORTED");
 			}
-#endif
 		}
 
 #region Ads

@@ -11,6 +11,7 @@
 	using DwarkClicker.Helper;
 	using DwarfClicker.UI.GainRecap;
 	using DwarfClicker.Misc;
+	using DwarfClicker.Core.Containers;
 
 	public class GameManager : Singleton<GameManager>
 	{
@@ -66,6 +67,9 @@
 		#region Progression Load
 		public void LoadProgression(bool computeCurrent = false)
 		{
+			/*if (_playerProfile._kingTask != null && _playerProfile._kingTask.GoalSprite == null)
+				_playerProfile._kingTask = null;*/
+
 			DateTime currentDate = DateTime.Now;
 			DateTime prevDate;
 			if (computeCurrent == true)
@@ -121,6 +125,19 @@
 		private void LoadData()
 		{
 			_playerProfile = JSonManager.Instance.PlayerProfile;
+			int i = 0;
+			foreach (KeyValuePair<string, Resource> resource in _playerProfile.Resources)
+			{
+				resource.Value.SetSprite(DatabaseManager.Instance.ResourceList.Resources[i].ResourceSprite);
+				i++;
+			}
+			i = 0;
+			foreach (KeyValuePair<string, Weapon> weapon in _playerProfile.Weapons)
+			{
+				weapon.Value.SetSprite(DatabaseManager.Instance.WeaponList.Weapons[i].WeaponSprite);
+				i++;
+			}
+					
 			if (_playerProfile.LaunchAmount > 0)
 				LoadProgression();
 		}

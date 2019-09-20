@@ -10,7 +10,7 @@
 	public class WeaponSelect : MonoBehaviour
 	{
 		#region Fields
-		[SerializeField] private WeaponSelectButton[] _weaponsSelectButtons;
+		[SerializeField] private WeaponSelectButton[] _weaponsSelectButtons = null;
 		#endregion Fields
 
 		#region Methods

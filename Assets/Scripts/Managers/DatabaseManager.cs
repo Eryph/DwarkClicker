@@ -94,6 +94,16 @@
 			return null;
 		}
 
+		public ResourceData ExtractResource(string key)
+		{
+			for (int i = 0; i < _resourceList.Resources.Length; i++)
+			{
+				if (_resourceList.Resources[i].Name == key)
+					return _resourceList.Resources[i];
+			}
+			return null;
+		}
+
 		public string ExtractFTUEDialboxByStep(int step)
 		{
 			for (int i = 0; i < _ftueDialboxList.Length; i++)
@@ -119,6 +129,26 @@
 						return _sounds[i].Sound;
 				}
 			}
+			Debug.LogError("sound tag " + soundTag + " not found.");
+			return null;
+		}
+
+		public AudioClip ExtractRandomSound(string soundTag = "Random")
+		{
+			if (soundTag == "Random")
+			{
+				int i = Random.Range(0, _sounds.Length);
+				return _sounds[i].RandomSound;
+			}
+			else
+			{
+				for (int i = 0; i < _sounds.Length; i++)
+				{
+					if (_sounds[i].SoundTag == soundTag)
+						return _sounds[i].RandomSound;
+				}
+			}
+			Debug.LogError("sound tag " + soundTag + " not found.");
 			return null;
 		}
 
@@ -137,6 +167,7 @@
 						return _musics[i].Music;
 				}
 			}
+			Debug.LogError("music tag " + musicTag + " not found.");
 			return null;
 		}
 		#endregion Methods

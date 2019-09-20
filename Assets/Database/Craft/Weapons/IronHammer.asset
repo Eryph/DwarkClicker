@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _UID: 0
   _goldValue: 12
-  _name: ironHammer
+  _name: Iron Hammer
   _recipe:
   - Key: iron
     Count: 4
@@ -22,3 +22,4 @@ MonoBehaviour:
   _priceModifierDown: 8
   _priceMax: 25
   _priceMin: 7
+  _weaponSprite: {fileID: 21300000, guid: 0ea442ef967fcde4ebd42a53ce12e9ca, type: 3}

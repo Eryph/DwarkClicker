@@ -6,6 +6,7 @@
 	using TMPro;
 	using UnityEngine.UI;
 	using DwarfClicker.Core.Containers;
+	using Engine.Manager;
 
 	public class InventoryCell : MonoBehaviour
 	{
@@ -17,18 +18,24 @@
 		public TextMeshProUGUI Amount { get { return _amount; } }
 		public Image ItemImage { get { return _image; } }
 
+		public void Init(Sprite sprite, int amount)
+		{
+			_amount.text = amount.ToString();
+			_image.sprite = sprite;
+		}
+
 		public void Init(Resource resource)
 		{
-			_name.text = resource.Name;
+			//_name.text = resource.Name;
 			_amount.text = resource.Count.ToString();
-			//_image.sprite = resource.ItemSprite;
+			_image.sprite = DatabaseManager.Instance.ExtractResource(resource.Name).ResourceSprite;
 		}
 
 		public void Init(Weapon weapon)
 		{
-			_name.text = weapon.Name;
+			//_name.text = weapon.Name;
 			_amount.text = weapon.Count.ToString();
-			//_image.sprite = resource.ItemSprite;
+			_image.sprite = DatabaseManager.Instance.ExtractWeapon(weapon.Name).WeaponSprite;
 		}
 	}
 }

@@ -10,6 +10,7 @@
 	using Engine.UI.Utils;
 	using DwarfClicker.UI.TradingPost;
 	using DwarfClicker.Core.Data;
+	using UnityEngine.UI;
 
 	public class MineDisplayer : MonoBehaviour {
 
@@ -28,14 +29,21 @@
 		[SerializeField] private UpgradeButtonHandler _luckUpgrade = null;
 		[SerializeField] private UpgradeButtonHandler _richVeinUpgrade = null;
 
+		[SerializeField] private Image _producedImage = null;
+
 		private PlayerProfile _playerProfile = null;
 
+		private void OnEnable()
+		{
+			SoundManager.Instance.PlaySound("MINE_AMBIENCE");
+		}
 
 		private void OnMineUpgrade()
 		{
 			FortressProfile currentFortress = _playerProfile.CurrentFortress;
 			MineUpgradesData uData = DatabaseManager.Instance.MineUpgrades;
 
+			_producedImage.sprite = currentFortress.ResourceProduced.ResourceSprite;
 
 			int price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.WorkerAmount, currentFortress.UMineWorkerNbIndex);
 			_workerUpgrade.Init(uData.WorkerAmount.name, uData.WorkerAmount.desc, currentFortress.UMineWorkerNbIndex, price);

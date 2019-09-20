@@ -46,6 +46,16 @@
 
 			_profile._achievements[key].AddValue(value);
 		}
+
+		public AchievementContainer ExtractAchievement(string key)
+		{
+			for (int i = 0; i < _achievementContainers.Length; i++)
+			{
+				if (_achievementContainers[i].Name == key)
+					return _achievementContainers[i];
+			}
+			return null;
+		}
 		#endregion Achievement
 		#region KingTask
 		public void ResetTask()
@@ -80,7 +90,7 @@
 
 			if (task.IsMithrilReward)
 			{
-				_profile.Mithril += task.GoldRewardAmount;
+				_profile.Mithril += task.MithrilRewardAmount;
 			}
 			else
 			{

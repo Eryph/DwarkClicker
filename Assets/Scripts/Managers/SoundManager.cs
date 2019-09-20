@@ -116,6 +116,12 @@
 			AudioClip sound = DatabaseManager.Instance.ExtractSound(soundTag);
 			_playSoundEvent(sound);
 		}
+
+		public void PlayRandomSound(string soundTag = "Random")
+		{
+			AudioClip sound = DatabaseManager.Instance.ExtractRandomSound(soundTag);
+			_playSoundEvent(sound);
+		}
 		#endregion Methods
 	}
 }

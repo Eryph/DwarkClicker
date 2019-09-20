@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _UID: 0
   _goldValue: 11
-  _name: ironPickaxe
+  _name: Iron Pickaxe
   _recipe:
   - Key: iron
     Count: 4
@@ -22,3 +22,4 @@ MonoBehaviour:
   _priceModifierDown: 1
   _priceMax: 15
   _priceMin: 4
+  _weaponSprite: {fileID: 21300000, guid: c6a414842e66bce4a8de67e2d9f7b1a6, type: 3}

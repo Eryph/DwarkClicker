@@ -16,23 +16,23 @@
 		[SerializeField] private Image _rewardImage = null;
 		[SerializeField] private TextMeshProUGUI _goalAmount = null;
 		[SerializeField] private TextMeshProUGUI _rewardAmount = null;
-		[SerializeField] private GameObject _noTaskPänel = null;
+		[SerializeField] private GameObject _noTaskPanel = null;
 		[SerializeField] private Button _claimButton = null;
 
 		public void Display(PlayerProfile profile)
 		{
 			if (profile._kingTask == null)
 			{
-				_noTaskPänel.SetActive(true);
+				_noTaskPanel.SetActive(true);
 			}
 			else
 			{
 				KingTask task = profile._kingTask;
-				_noTaskPänel.SetActive(false);
+				_noTaskPanel.SetActive(false);
 				_description.text = task.Description;
 
 
-				_goalImage.sprite = task.GoalSprite; // REPLACE BY ITEMSPRITE
+				_goalImage.sprite = task.GetGoalSprite();
 				_goalAmount.text = task.Amount.ToString();
 
 				if (task.IsMithrilReward)
@@ -79,7 +79,7 @@
 
 		public void ShowAdToResetTask()
 		{
-			if (JSonManager.Instance.PlayerProfile._noMoreAdsBonus)
+			if (!JSonManager.Instance.PlayerProfile._noMoreAdsBonus)
 			{
 				MonetizationManager.Instance.AdFinished += ResetTask;
 				MonetizationManager.Instance.ShowAd();

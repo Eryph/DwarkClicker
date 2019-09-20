@@ -62,7 +62,7 @@
 
 		public void QuitPanel()
 		{
-			gameObject.SetActive(true);
+			gameObject.SetActive(false);
 		}
 
 		public void BuyMithrilPack(int productId)

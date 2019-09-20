@@ -7,6 +7,7 @@
 	using UnityEngine.UI;
 	using DwarfClicker.Core.Achievement;
 	using DwarkClicker.Helper;
+	using Engine.Manager;
 
 	public class AchievementButton : MonoBehaviour
 	{
@@ -18,8 +19,10 @@
 		[SerializeField] private Image _achievementImage = null;
 		[SerializeField] private Transform _bar = null;
 
-		private Achievement _achievement = null;
 		private Vector3 _emptyPos = Vector3.zero;
+
+		private Achievement _achievement = null;
+		
 		private Vector3 _fullPos = Vector3.zero;
 		#endregion Fields
 
@@ -27,6 +30,11 @@
 		#endregion Properties
 
 		#region Methods
+		public void Start()
+		{
+			_emptyPos = _bar.transform.localPosition;
+		}
+
 		public void Display(Achievement achievement = null)
 		{
 			// Set Data
@@ -42,26 +50,26 @@
 
 			if (_achievement._isfinished)
 			{
-				_descText.text = "";
+				_barProgText.text = "Fnished !";
 			}
 			else if (_achievement.CanGetReward)
 			{
-				_descText.text = "Tap to claim your reward !";
+				_barProgText.text = "Tap to claim your reward !";
 			}
 			else
 			{
-				_descText.text = _achievement.Objective;
+				_barProgText.text = UIHelper.FormatIntegerString(_achievement.CurrentValue) + "/" + UIHelper.FormatIntegerString(_achievement.CurrentStepMax);
 			}
+
+			_descText.text = _achievement.Objective;
 
 			_rewardText.text = _achievement.MithrilReward.ToString();
 
-			_barProgText.text = UIHelper.FormatIntegerString(_achievement.CurrentValue) + "/" + UIHelper.FormatIntegerString(_achievement.CurrentStepMax);
-
-			_achievementImage.sprite = _achievement.AchievementSprite;
+			_achievementImage.sprite = AchievementManager.Instance.ExtractAchievement(_achievement.Name).AchievementSprite;
 
 			// Progress Bar set up
 			float t = (float)_achievement.CurrentValue / (float)_achievement.CurrentStepMax;
-			_bar.localPosition = Vector3.Lerp(_emptyPos, _fullPos, t);
+			_bar.localPosition = Vector3.Lerp(_fullPos, _emptyPos, t);
 		}
 
 		public void ClaimReward()

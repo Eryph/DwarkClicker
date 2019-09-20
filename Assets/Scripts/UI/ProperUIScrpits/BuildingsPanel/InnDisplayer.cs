@@ -2,6 +2,7 @@
 {
 	using DwarfClicker.Core;
 	using DwarfClicker.Core.Data;
+	using DwarfClicker.Misc;
 	using DwarfClicker.UI.TradingPost;
 	using Engine.Manager;
 	using Engine.Utils;
@@ -13,17 +14,41 @@
 	public class InnDisplayer : MonoBehaviour
 	{
 		[SerializeField] private Converter _converter = null;
+		[SerializeField] private SoundController _soundController = null;
 
 		[SerializeField] private UpgradeButtonHandler _beerByTapUpgrade = null;
 		[SerializeField] private UpgradeButtonHandler _storageUpgrade = null;
+		[SerializeField] private Transform _bar = null;
+
 
 		private PlayerProfile _playerProfile = null;
+
+		private Vector3 _emptyPos = Vector3.zero;
+
+		private Vector3 _fullPos = Vector3.zero;
+
+		private void OnEnable()
+		{
+			SoundManager.Instance.PlaySound("INN_AMBIENCE");
+			if (_playerProfile != null)
+				UpdateBar();
+		}
+
 		private void Start()
 		{
+			_emptyPos = _bar.localPosition;
 			_playerProfile = JSonManager.Instance.PlayerProfile;
 			_playerProfile.CurrentFortress.OnInnUpgradeChange += OnInnUpgrade;
 			_playerProfile.OnFortressChange += UpdateFortress;
+			_playerProfile.CurrentFortress.OnBeerChange += UpdateBar;
+			UpdateBar();
 			OnInnUpgrade();
+		}
+
+		private void UpdateBar()
+		{
+			float t = _playerProfile.CurrentFortress.Beer / _playerProfile.CurrentFortress.BeerStorage;
+			_bar.localPosition = Vector3.Lerp(_emptyPos, _fullPos, t);
 		}
 
 		private void OnInnUpgrade()
@@ -41,6 +66,7 @@
 		private void UpdateFortress()
 		{
 			_playerProfile.CurrentFortress.OnInnUpgradeChange += OnInnUpgrade;
+			_playerProfile.CurrentFortress.OnBeerChange += UpdateBar;
 			OnInnUpgrade();
 		}
 
@@ -52,6 +78,18 @@
 			{
 				_playerProfile.CurrentFortress.OnInnUpgradeChange -= OnInnUpgrade;
 			}
+		}
+
+		public void PlayBeerSound()
+		{
+			if (_playerProfile.CurrentFortress.Beer >= _playerProfile.CurrentFortress.BeerStorage)
+			{
+				SoundManager.Instance.PlaySound("ERROR_CLICK");
+			}
+			else
+			{
+				_soundController.PlayBeerSound();
+ 			}
 		}
 	}
 }

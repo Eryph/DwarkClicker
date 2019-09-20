@@ -22,6 +22,8 @@
 		[SerializeField] private GameObject _fortressPanel = null;
 		[SerializeField] private GameObject _kingPanel = null;
 		[SerializeField] private GameObject _shopPanel = null;
+		[SerializeField] private GameObject _settingsPanel = null;
+		[SerializeField] private TextMeshProUGUI _fortressCount = null;
 
 		private PlayerProfile _playerProfile = null;
 		#endregion Fields
@@ -40,6 +42,8 @@
 			UpdateBeerDisplay();
 			UpdateMithrilDisplay();
 			UpdateFortress();
+
+			_fortressCount.text = _playerProfile.FortressCount.ToString();
 
 			if (JSonManager.Instance.PlayerProfile.IsDailyRewardAvailable)
 			{
@@ -102,6 +106,11 @@
 		public void OpenShopPanel()
 		{
 			_shopPanel.SetActive(true);
+		}
+
+		public void OpenSetings()
+		{
+			_settingsPanel.SetActive(true);
 		}
 
 		public void SetDailyRewardButtonDisabled()

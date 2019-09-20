@@ -26,6 +26,7 @@
 		public void ResetTimer(float time)
 		{
 			_timeStamp = Time.time + time;
+			_isStopped = false;
 		}
 
 		public bool IsTimerEnd()

@@ -113,8 +113,12 @@
 			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.BeerConsumption, _playerProfile.CurrentFortress.UMineBeerConsoIndex);
 			if (_playerProfile.Gold >= cost)
 			{
+				SoundManager.Instance.PlaySound("BUY_CLICK");
 				_playerProfile.Gold -= cost;
 				_playerProfile.CurrentFortress.UMineBeerConsoIndex++;
+			}
+			{
+				SoundManager.Instance.PlaySound("ERROR_CLICK");
 			}
 		}
 
@@ -123,8 +127,12 @@
 			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.CycleDuration, _playerProfile.CurrentFortress.UMineCycleDurationIndex);
 			if (_playerProfile.Gold >= cost)
 			{
+				SoundManager.Instance.PlaySound("BUY_CLICK");
 				_playerProfile.Gold -= cost;
 				_playerProfile.CurrentFortress.UMineCycleDurationIndex++;
+			}
+			{
+				SoundManager.Instance.PlaySound("ERROR_CLICK");
 			}
 		}
 
@@ -133,8 +141,12 @@
 			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.Luck, _playerProfile.CurrentFortress.UMineLuckIndex);
 			if (_playerProfile.Gold >= cost)
 			{
+				SoundManager.Instance.PlaySound("BUY_CLICK");
 				_playerProfile.Gold -= cost;
 				_playerProfile.CurrentFortress.UMineLuckIndex++;
+			}
+			{
+				SoundManager.Instance.PlaySound("ERROR_CLICK");
 			}
 		}
 
@@ -143,8 +155,12 @@
 			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.Mithril, _playerProfile.CurrentFortress.UMineMithrilChanceIndex);
 			if (_playerProfile.Gold >= cost)
 			{
+				SoundManager.Instance.PlaySound("BUY_CLICK");
 				_playerProfile.Gold -= cost;
 				_playerProfile.CurrentFortress.UMineMithrilChanceIndex++;
+			}
+			{
+				SoundManager.Instance.PlaySound("ERROR_CLICK");
 			}
 		}
 
@@ -153,8 +169,12 @@
 			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.ResByWorker, _playerProfile.CurrentFortress.UMineResByWorkerIndex);
 			if (_playerProfile.Gold >= cost)
 			{
+				SoundManager.Instance.PlaySound("BUY_CLICK");
 				_playerProfile.Gold -= cost;
 				_playerProfile.CurrentFortress.UMineResByWorkerIndex++;
+			}
+			{
+				SoundManager.Instance.PlaySound("ERROR_CLICK");
 			}
 		}
 
@@ -163,8 +183,12 @@
 			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.RichVein, _playerProfile.CurrentFortress.UMineRichVeinIndex);
 			if (_playerProfile.Gold >= cost)
 			{
+				SoundManager.Instance.PlaySound("BUY_CLICK");
 				_playerProfile.Gold -= cost;
 				_playerProfile.CurrentFortress.UMineRichVeinIndex++;
+			}
+			{
+				SoundManager.Instance.PlaySound("ERROR_CLICK");
 			}
 		}
 
@@ -173,8 +197,12 @@
 			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.WorkerAmount, _playerProfile.CurrentFortress.UMineWorkerNbIndex);
 			if (_playerProfile.Gold >= cost)
 			{
+				SoundManager.Instance.PlaySound("BUY_CLICK");
 				_playerProfile.Gold -= cost;
 				_playerProfile.CurrentFortress.UMineWorkerNbIndex++;
+			}
+			{
+				SoundManager.Instance.PlaySound("ERROR_CLICK");
 			}
 		}
 		#endregion Upgrades
@@ -245,6 +273,11 @@
 			{
 				_timer.ReduceRemainingTime(DatabaseManager.Instance.PolteringValue);
 				_FXController.CreatePolteringParticle();
+				SoundManager.Instance.PlayRandomSound("POLTERING_MINE");
+			}
+			else
+			{
+				SoundManager.Instance.PlaySound("ERROR_CLICK");
 			}
 		}
 		#endregion Timer Management

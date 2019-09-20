@@ -9,6 +9,7 @@
 	using System.Collections.Generic;
 	using TMPro;
 	using UnityEngine;
+	using UnityEngine.UI;
 
 	public class TradingPostDisplayer : MonoBehaviour
 	{
@@ -24,6 +25,7 @@
 		[SerializeField] private UpgradeButtonHandler _winBeerAmountUpgrade = null;
 		[SerializeField] private UpgradeButtonHandler _winBeerChanceUpgrade = null;
 		[SerializeField] private UpgradeButtonHandler _goldMultUpgrade = null;
+		[SerializeField] private Image _consumedIcon = null;
 
 		private PlayerProfile _playerProfile = null;
 		private void Start()
@@ -41,6 +43,7 @@
 			{
 				_playerProfile = JSonManager.Instance.PlayerProfile;
 			}
+			SoundManager.Instance.PlaySound("TRADINGPOST_AMBIENCE");
 			Display();
 		}
 
@@ -53,6 +56,8 @@
 		{
 			FortressProfile currentFortress = _playerProfile.CurrentFortress;
 			TradingPostUpgradesData uData = DatabaseManager.Instance.TradingPostUpgrades;
+
+			_consumedIcon.sprite = _tradingPostController.WeaponToSell.WeaponSprite;
 
 			int price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WorkerAmount, currentFortress.UTPWorkerNbIndex);
 			_workerUpgrade.Init(uData.WorkerAmount.name, uData.WorkerAmount.desc, currentFortress.UTPWorkerNbIndex, price);

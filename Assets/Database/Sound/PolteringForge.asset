@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8bdf768ff6079a428f6a521fe9cd405, type: 3}
+  m_Name: PolteringForge
+  m_EditorClassIdentifier: 
+  _soundTag: POLTERING_FORGE
+  _sound:
+  - {fileID: 8300000, guid: a084e39cbfa61f1498d0a8cfdf0bd159, type: 3}
+  - {fileID: 8300000, guid: e22c078981adb894ab32e3d1f446a104, type: 3}
+  - {fileID: 8300000, guid: 830a35a09eb3acc4096d39c4a2a2d3a7, type: 3}
+  - {fileID: 8300000, guid: 36735cc2a0b225d42a92becf0f4df7db, type: 3}

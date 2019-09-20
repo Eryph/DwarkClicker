@@ -104,9 +104,15 @@
 			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.SellByWorker, _playerProfile.CurrentFortress.UTPSellByWorkerIndex);
 			if (_playerProfile.Gold >= cost)
 			{
+				SoundManager.Instance.PlaySound("BUY_CLICK");
 				_playerProfile.Gold -= cost;
 				_playerProfile.CurrentFortress.UTPSellByWorkerIndex++;
 			}
+			else
+			{
+				SoundManager.Instance.PlaySound("ERROR_CLICK");
+			}
+			
 		}
 
 		public void UpgradeCycleDuration()
@@ -114,8 +120,13 @@
 			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.CycleDuration, _playerProfile.CurrentFortress.UTPCycleDurationIndex);
 			if (_playerProfile.Gold >= cost)
 			{
+				SoundManager.Instance.PlaySound("BUY_CLICK");
 				_playerProfile.Gold -= cost;
 				_playerProfile.CurrentFortress.UTPCycleDurationIndex++;
+			}
+			else
+			{
+				SoundManager.Instance.PlaySound("ERROR_CLICK");
 			}
 		}
 
@@ -124,10 +135,14 @@
 			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WorkerAmount, _playerProfile.CurrentFortress.UTPWorkerNbIndex);
 			if (_playerProfile.Gold >= cost)
 			{
+				SoundManager.Instance.PlaySound("BUY_CLICK");
 				_playerProfile.Gold -= cost;
 				_playerProfile.CurrentFortress.UTPWorkerNbIndex++;
 			}
-
+			else
+			{
+				SoundManager.Instance.PlaySound("ERROR_CLICK");
+			}
 		}
 
 		public void UpgradeGoldMult()
@@ -135,8 +150,13 @@
 			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.GoldMult, _playerProfile.CurrentFortress.UTPGoldMultIndex);
 			if (_playerProfile.Gold >= cost)
 			{
+				SoundManager.Instance.PlaySound("BUY_CLICK");
 				_playerProfile.Gold -= cost;
 				_playerProfile.CurrentFortress.UTPGoldMultIndex++;
+			}
+			else
+			{
+				SoundManager.Instance.PlaySound("ERROR_CLICK");
 			}
 		}
 
@@ -145,8 +165,13 @@
 			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WinBeerChance, _playerProfile.CurrentFortress.UTPWinBeerChanceIndex);
 			if (_playerProfile.Gold >= cost)
 			{
+				SoundManager.Instance.PlaySound("BUY_CLICK");
 				_playerProfile.Gold -= cost;
 				_playerProfile.CurrentFortress.UTPWinBeerChanceIndex++;
+			}
+			else
+			{
+				SoundManager.Instance.PlaySound("ERROR_CLICK");
 			}
 		}
 
@@ -155,8 +180,13 @@
 			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WinBeerAmount, _playerProfile.CurrentFortress.UTPWinBeerAmountIndex);
 			if (_playerProfile.Gold >= cost)
 			{
+				SoundManager.Instance.PlaySound("BUY_CLICK");
 				_playerProfile.Gold -= cost;
 				_playerProfile.CurrentFortress.UTPWinBeerAmountIndex++;
+			}
+			else
+			{
+				SoundManager.Instance.PlaySound("ERROR_CLICK");
 			}
 		}
 		#endregion Upgrades
@@ -218,6 +248,11 @@
 			{
 				_timer.ReduceRemainingTime(DatabaseManager.Instance.PolteringValue);
 				_FXController.CreatePolteringParticle();
+				SoundManager.Instance.PlayRandomSound("POLTERING_TRADINGPOST");
+			}
+			else
+			{
+				SoundManager.Instance.PlaySound("ERROR_CLICK");
 			}
 		}
 		#endregion Timer Management

@@ -128,6 +128,25 @@
 			}
 		}
 
+		public int FortressCount
+		{
+			get
+			{
+				int y = 0;
+				int i = 0;
+				while (i < _fortressList.Count)
+				{
+					if (_fortressList[i]._isBought == false)
+					{
+						break;
+					}
+					y = i;
+					i++;
+				}
+				return (y + 1);
+			}
+		}
+
 		public FortressProfile LastFortress
 		{
 			get
@@ -288,9 +307,11 @@
 		public void Init()
 		{
 			FTUEStep = 0;
+			
 			_launchAmount = 0;
 			_startDate = DateTime.Now;
 			_lastDailyRewardRedeemed = DateTime.Now - new TimeSpan(100, 0, 0);
+			_taskTimeStamp = DateTime.Now - new TimeSpan(100, 0, 0);
 			_resources = new DictionaryStringResource();
 			_weapons = new DictionaryStringWeapon();
 			_achievements = AchievementManager.Instance.GenerateAchievementCollection();
@@ -327,6 +348,8 @@
 				fortress.Init(db.Fortress[i].Name, db.Fortress[i].WeaponsToProduce, db.Fortress[i].ResourceToProduce);
 				_fortressList.Add(fortress);
 			}
+
+			_kingTask = AchievementManager.Instance.GenerateTask();
 		}
 
 		public void InitFortressInstanceData()
@@ -343,17 +366,16 @@
 		public void Reset()
 		{
 			// Fortress Clear
-			
+			CurrentFortressIndex = 0;
 			_fortressList.Clear();
 
 			// Inventory Clear
-			Init();
 			ResetCollectionCounts();
-
 			Gold = 0;
 			Mithril = 0;
-			CurrentFortressIndex = 0;
 			_dailyRewardIndex = 0;
+
+			Init();
 
 			JSonManager.Instance.SavePlayerProfile();
 		}

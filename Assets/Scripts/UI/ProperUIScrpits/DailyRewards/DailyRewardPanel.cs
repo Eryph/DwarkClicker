@@ -110,7 +110,7 @@
 		public void LaunchAd()
 		{
 
-			if (JSonManager.Instance.PlayerProfile._noMoreAdsBonus)
+			if (!JSonManager.Instance.PlayerProfile._noMoreAdsBonus)
 			{
 				MonetizationManager.Instance.ShowAd();
 				MonetizationManager.Instance.AdFinished += RedeemAdDailyReward;

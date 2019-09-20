@@ -4,6 +4,7 @@
 	using DwarfClicker.Core.Data;
 	using Engine.Manager;
 	using Engine.Utils;
+	using System;
 	using System.Collections;
 	using System.Collections.Generic;
 	using UnityEngine;
@@ -38,6 +39,23 @@
 		public int ResourceConsumed { get { return _resourceConsumed; } }
 		public WeaponData CurrentForgingWeapon { get { return _currentForgingWeapon; } }
 		#endregion Properties
+
+		#region Events
+		private Action _onWeaponChange = null;
+
+		public event Action OnWeaponChange
+		{
+			add
+			{
+				_onWeaponChange -= value;
+				_onWeaponChange += value;
+			}
+			remove
+			{
+				_onWeaponChange += value;
+			}
+		}
+		#endregion Events
 
 		#region Methods
 		#region Monobehaviour
@@ -85,9 +103,13 @@
 			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.CycleDuration, _playerProfile.CurrentFortress.UForgeCycleDurationIndex);
 			if (_playerProfile.Gold >= cost)
 			{
+				SoundManager.Instance.PlaySound("BUY_CLICK");
 				_playerProfile.Gold -= cost;
 				_playerProfile.CurrentFortress.UForgeCycleDurationIndex++;
 				LoadCycleDuration();
+			}
+			{
+				SoundManager.Instance.PlaySound("ERROR_CLICK");
 			}
 		}
 
@@ -96,9 +118,14 @@
 			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WByWorker, _playerProfile.CurrentFortress.UForgeWByWorkerIndex);
 			if (_playerProfile.Gold >= cost)
 			{
+				SoundManager.Instance.PlaySound("BUY_CLICK");
 				_playerProfile.Gold -= cost;
 				_playerProfile.CurrentFortress.UForgeWByWorkerIndex++;
 				LoadWByWorker();
+			}
+			else
+			{
+				SoundManager.Instance.PlaySound("ERROR_CLICK");
 			}
 		}
 
@@ -107,9 +134,14 @@
 			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WorkerAmount, _playerProfile.CurrentFortress.UForgeWorkerNbIndex);
 			if (_playerProfile.Gold >= cost)
 			{
+				SoundManager.Instance.PlaySound("BUY_CLICK");
 				_playerProfile.Gold -= cost;
 				_playerProfile.CurrentFortress.UForgeWorkerNbIndex++;
 				LoadWorkerNb();
+			}
+			else
+			{
+				SoundManager.Instance.PlaySound("ERROR_CLICK");
 			}
 		}
 
@@ -118,9 +150,14 @@
 			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingChance, _playerProfile.CurrentFortress.UForgeInstantSellingChanceIndex);
 			if (_playerProfile.Gold >= cost)
 			{
+				SoundManager.Instance.PlaySound("BUY_CLICK");
 				_playerProfile.Gold -= cost;
 				_playerProfile.CurrentFortress.UForgeInstantSellingChanceIndex++;
 				LoadInstantSellingChance();
+			}
+			else
+			{
+				SoundManager.Instance.PlaySound("ERROR_CLICK");
 			}
 		}
 
@@ -129,9 +166,14 @@
 			int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingGoldBonus, _playerProfile.CurrentFortress.UForgeInstantSellingGoldBonusIndex);
 			if (_playerProfile.Gold >= cost)
 			{
+				SoundManager.Instance.PlaySound("BUY_CLICK");
 				_playerProfile.Gold -= cost;
 				_playerProfile.CurrentFortress.UForgeInstantSellingGoldBonusIndex++;
 				LoadInstantSellingGoldBonus();
+			}
+			else
+			{
+				SoundManager.Instance.PlaySound("ERROR_CLICK");
 			}
 		}
 		#endregion Upgrades
@@ -199,6 +241,11 @@
 			{
 				_timer.ReduceRemainingTime(DatabaseManager.Instance.PolteringValue);
 				_FXController.CreatePolteringParticle();
+				SoundManager.Instance.PlayRandomSound("POLTERING_FORGE");
+			}
+			else
+			{
+				SoundManager.Instance.PlaySound("ERROR_CLICK");
 			}
 		}
 		#endregion Timer Management
@@ -212,6 +259,8 @@
 		private void ChangeWeapon()
 		{
 			_currentForgingWeapon = _playerProfile.CurrentFortress.CurrentCraft;
+			if (_onWeaponChange != null)
+				_onWeaponChange();
 		}
 
 		private void HandleFortressChange()

@@ -16,4 +16,4 @@ MonoBehaviour:
   _objective: Mine more resources
   _stepMax: 64000000f4010000e8030000881300001027000050c30000a086010020a1070040420f0080969800
   _mithrilReward: 10
-  _achievementSprite: {fileID: 0}
+  _achievementSprite: {fileID: 21300000, guid: 3dd295d28ffed5c419fb6ebd77850bab, type: 3}

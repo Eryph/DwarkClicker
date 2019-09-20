@@ -23,6 +23,7 @@
 		[SerializeField] private int _priceModifierDown = 2;
 		[SerializeField] private int _priceMax = 7;
 		[SerializeField] private int _priceMin = 1;
+		[SerializeField] private Sprite _weaponSprite = null;
 
 		#endregion Fields
 		public int UID { get { return _UID; } }
@@ -35,5 +36,6 @@
 		public int PriceModifierDown { get { return _priceModifierDown; } }
 		public int PriceMax { get { return _priceMax; } }
 		public int PriceMin { get { return _priceMin; } }
+		public Sprite WeaponSprite { get { return _weaponSprite; } }
 	}
 }
