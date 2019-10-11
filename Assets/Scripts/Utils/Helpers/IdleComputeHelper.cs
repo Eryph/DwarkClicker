@@ -152,7 +152,7 @@
 					goldProduced += playerProfile.Weapons[weapons[weaponIndex].Name].SellPrice;
 					playerProfile.Weapons[weapons[weaponIndex].Name].UpdateCount(-1);
 					AchievementManager.Instance.UpdateAchievement("SELL_AMOUNT", 1);
-					GameManager.Instance.ProgressionInventory.SetConsumedResource(weapons[weaponIndex].Name, -1);
+					GameManager.Instance.ProgressionInventory.SetConsumedWeapon(weapons[weaponIndex].Name, -1);
 					weaponConsumedIt++;
 					for (int i = 0; i < weapons.Length; i++)
 					{

@@ -17,6 +17,8 @@
 		[SerializeField] private TextMeshProUGUI _topText = null;
 		[SerializeField] private TextMeshProUGUI _bottomText = null;
 
+		[SerializeField] private GameObject _fullScreenQuitButton = null;
+
 		private void Start()
 		{
 			if (FTUEManager.Instance.Dialbox == null)

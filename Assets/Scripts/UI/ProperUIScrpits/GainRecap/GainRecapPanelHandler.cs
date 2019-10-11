@@ -11,21 +11,26 @@
 
 	public class GainRecapPanelHandler : MonoBehaviour
 	{
-		[SerializeField] private Button _globalQuitButton = null;
-		[SerializeField] private GameObject _container = null;
-		[SerializeField] private Transform _timeElapsedContainer = null;
+		[SerializeField] private TextMeshProUGUI _timeElapsedText = null;
+		[SerializeField] private TextMeshProUGUI _goldGainText = null;
+		[SerializeField] private TextMeshProUGUI _mithrilGainText = null;
 		[SerializeField] private Transform _producedContainer = null;
 		[SerializeField] private Transform _consumedContainer = null;
-		[SerializeField] private Transform _goldContainer = null;
-		[SerializeField] private Transform _mithrilContainer = null;
+		[SerializeField] private ScrollIconHandler _scrollIconHandler = null;
 		[SerializeField] private int _timePassedActivationMinutes = 2;
 
+		/*[SerializeField] private Button _globalQuitButton = null;
+		[SerializeField] private GameObject _container = null;
+		[SerializeField] private Transform _timeElapsedContainer = null;
+		[SerializeField] private Transform _goldContainer = null;
+		[SerializeField] private Transform _mithrilContainer = null;
+		
+		*/
 		private bool _shouldDisplay = false;
-		private bool _shouldNowDisplay = false; 
+		private bool _shouldNowDisplay = false;
 
 		private void OnEnable()
 		{
-			_globalQuitButton.gameObject.SetActive(true);
 			if (JSonManager.Instance.PlayerProfile.LaunchAmount > 0)
 				Display();
 			else
@@ -34,21 +39,18 @@
 			}
 		}
 
-		private void OnDisable()
-		{
-			_globalQuitButton.gameObject.SetActive(false);
-		}
-
 		private void Display()
 		{
-			
+
 			ProgressionLoadInventory inv = GameManager.Instance.ProgressionInventory;
-			TextMeshProUGUI timeElapsedText = _timeElapsedContainer.GetComponentInChildren<TextMeshProUGUI>();
+			/*TextMeshProUGUI timeElapsedText = _timeElapsedContainer.GetComponentInChildren<TextMeshProUGUI>();
 			TextMeshProUGUI producedText = _producedContainer.GetComponentInChildren<TextMeshProUGUI>();
 			TextMeshProUGUI consumedText = _consumedContainer.GetComponentInChildren<TextMeshProUGUI>();
 			TextMeshProUGUI goldText = _goldContainer.GetComponentInChildren<TextMeshProUGUI>();
 			TextMeshProUGUI mithrilText = _mithrilContainer.GetComponentInChildren<TextMeshProUGUI>();
+			*/
 
+			
 
 			if (inv.HasChanges == false || inv.TimePassed < new TimeSpan(0, _timePassedActivationMinutes, 0))
 			{
@@ -56,98 +58,40 @@
 				return;
 			}
 
-			
-			timeElapsedText.text = UIHelper.FormatTimeSpanToString(inv.TimePassed);
+			_timeElapsedText.text = UIHelper.FormatTimeSpanToString(inv.TimePassed);
+			_goldGainText.text = UIHelper.FormatIntegerString(inv.Gold);
+			_mithrilGainText.text = UIHelper.FormatIntegerString(inv.Mithril);
 
-			int i = 0;
-			if (inv.ConsumedResource.Count == 0 && inv.ConsumedWeapons.Count == 0)
+			foreach (KeyValuePair<string, int> pair in inv.ConsumedResource)
 			{
-				consumedText.text = "Nothing.";
-			}
-			else
-			{
-				foreach (KeyValuePair<string, int> pair in inv.ConsumedResource)
-				{
-					TextMeshProUGUI tmpText = null;
-					if (i == 0)
-					{
-						tmpText = consumedText;
-					}
-					else
-					{
-						Transform tmp = Instantiate(_consumedContainer, _consumedContainer.transform.parent);
-						tmpText = tmp.GetComponentInChildren<TextMeshProUGUI>();
-					}
-					tmpText.text = pair.Value.ToString() + " " + pair.Key;
-					i++;
-				}
-
-				foreach (KeyValuePair<string, int> pair in inv.ConsumedWeapons)
-				{
-					TextMeshProUGUI tmpText = null;
-					if (i == 0)
-					{
-						tmpText = consumedText;
-					}
-					else
-					{
-						Transform tmp = Instantiate(_consumedContainer, _consumedContainer.transform.parent);
-						tmpText = tmp.GetComponentInChildren<TextMeshProUGUI>();
-					}
-					tmpText.text = pair.Value.ToString() + " " + pair.Key;
-					i++;
-				}
+				ScrollIconHandler tmp = Instantiate(_scrollIconHandler, _consumedContainer) as ScrollIconHandler;
+				tmp.Init(DatabaseManager.Instance.ExtractResource(pair.Key).ResourceSprite, pair.Value);
 			}
 
-			if (inv.ProducedResource.Count == 0 && inv.ProducedWeapons.Count == 0)
+			foreach (KeyValuePair<string, int> pair in inv.ConsumedWeapons)
 			{
-				producedText.text = "Nothing.";
-			}
-			else
-			{
-				i = 0;
-				foreach (KeyValuePair<string, int> pair in inv.ProducedWeapons)
-				{
-					TextMeshProUGUI tmpText = null;
-					if (i == 0)
-					{
-						tmpText = producedText;
-					}
-					else
-					{
-						Transform tmp = Instantiate(_producedContainer, _producedContainer.transform.parent);
-						tmpText = tmp.GetComponentInChildren<TextMeshProUGUI>();
-					}
-					tmpText.text = "+" + pair.Value.ToString() + " " + pair.Key;
-					i++;
-				}
-
-				foreach (KeyValuePair<string, int> pair in inv.ProducedResource)
-				{
-					TextMeshProUGUI tmpText = null;
-					if (i == 0)
-					{
-						tmpText = producedText;
-					}
-					else
-					{
-						Transform tmp = Instantiate(_producedContainer, _producedContainer.transform.parent);
-						tmpText = tmp.GetComponentInChildren<TextMeshProUGUI>();
-					}
-					tmpText.text = "+" + pair.Value.ToString() + " " + pair.Key;
-					i++;
-				}
+				ScrollIconHandler tmp = Instantiate(_scrollIconHandler, _consumedContainer) as ScrollIconHandler;
+				tmp.Init(DatabaseManager.Instance.ExtractWeapon(pair.Key).WeaponSprite, pair.Value);
 			}
 
-			goldText.text = "+" + inv.Gold;
-			mithrilText.text = "+" + inv.Mithril;
-			_container.gameObject.SetActive(false);
+			foreach (KeyValuePair<string, int> pair in inv.ProducedResource)
+			{
+				ScrollIconHandler tmp = Instantiate(_scrollIconHandler, _producedContainer) as ScrollIconHandler;
+				tmp.Init(DatabaseManager.Instance.ExtractResource(pair.Key).ResourceSprite, pair.Value);
+			}
+
+			foreach (KeyValuePair<string, int> pair in inv.ProducedWeapons)
+			{
+				ScrollIconHandler tmp = Instantiate(_scrollIconHandler, _producedContainer) as ScrollIconHandler;
+				tmp.Init(DatabaseManager.Instance.ExtractWeapon(pair.Key).WeaponSprite, pair.Value);
+			}
+
 			_shouldDisplay = true;
 		}
 
 		private void LateUpdate()
 		{
-			if (_shouldNowDisplay == true)
+			/*if (_shouldNowDisplay == true)
 			{
 				_container.SetActive(true);
 				Canvas.ForceUpdateCanvases();
@@ -158,7 +102,7 @@
 			{
 				_container.SetActive(false);
 				_shouldNowDisplay = true;
-			}
+			}*/
 		}
 
 		public void QuitPanel()
