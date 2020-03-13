@@ -12,16 +12,18 @@
 	using System;
 	using Preprod.UI;
 	using UnityEngine.Advertisements;
+    using DwarfClicker.UI.PopUp;
 
-	public class DailyRewardPanel : MonoBehaviour
+    public class DailyRewardPanel : MonoBehaviour
 	{
 		[SerializeField] private DailyRewardController _controller = null;
 		[SerializeField] private DailyRewardBox[] _dailyRewardBox = null;
 		[SerializeField] private GameObject _alreadyRedeemeedeemButton = null;
 		[SerializeField] private AllDataDisplayer _header = null;
 		[SerializeField] private float _adRewardMult = 2;
+        [SerializeField] private PopUpWindowController _popUpWindowController = null;
 
-		private PlayerProfile _profile = null;
+        private PlayerProfile _profile = null;
 
 		private void OnEnable()
 		{
@@ -32,8 +34,20 @@
 			Display();
 		}
 
-		private void Display()
+        private void OnDisable()
+        {
+            if (_profile.FTUEStep == 19)
+            {
+                FTUEManager.Instance.StepFinished();
+            }
+        }
+
+        private void Display()
 		{
+            if (_profile.FTUEStep == 18)
+            {
+                FTUEManager.Instance.StepFinished();
+            }
 			_alreadyRedeemeedeemButton.SetActive(false);
 			if (_profile._dailyRewardIndex != 0)
 			{
@@ -96,6 +110,7 @@
 			_header.SetDailyRewardButtonDisabled();
 			_alreadyRedeemeedeemButton.SetActive(true);
 			Display();
+            _popUpWindowController.Display(0, "Daily reward redeemed !");
 		}
 
 		public void RedeemAdDailyReward()
@@ -105,7 +120,8 @@
 			_alreadyRedeemeedeemButton.SetActive(true);
 			Display();
 			MonetizationManager.Instance.AdFinished -= RedeemAdDailyReward;
-		}
+            _popUpWindowController.Display(1, "Transaction succesfull,\nDaily rewards doubled.");
+        }
 
 		public void LaunchAd()
 		{

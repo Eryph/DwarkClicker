@@ -44,7 +44,14 @@
 				InitializePurchasing();
 			}
 			MyDebug("Complete = " + return_complete.ToString());
-		}
+            foreach (Product product in m_StoreController.products.all)
+            {
+                Debug.Log("Title : " + product.metadata.localizedTitle);
+                Debug.Log("Price : " + product.metadata.localizedPrice);
+                Debug.Log("Description : " + product.metadata.localizedDescription);
+            }
+            //Debug.Log(m_StoreController.products.all);
+        }
 
 		public void InitializePurchasing()
 		{
@@ -65,6 +72,7 @@
 			IAPConfigurationHelper.PopulateConfigurationBuilder(ref builder, catalog);
 
 			UnityPurchasing.Initialize(this, builder);
+            
 		}
 
 

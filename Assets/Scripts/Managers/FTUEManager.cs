@@ -38,7 +38,7 @@
 			if (IsActivated)
 			{
 				string text = DatabaseManager.Instance.ExtractFTUEDialboxByStep(_currentStep);
-				_dialbox.TriggerDialbox(text);
+				_dialbox.TriggerDialbox(text, _currentStep);
 			}
 		}
 

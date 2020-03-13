@@ -71,7 +71,8 @@
 		{
 			_isMusicMuted = !_isMusicMuted;
 			MuteHandle();
-		}
+
+        }
 
 		public void MuteSoundToggle()
 		{

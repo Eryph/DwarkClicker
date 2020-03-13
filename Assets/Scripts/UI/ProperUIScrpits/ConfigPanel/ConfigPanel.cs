@@ -5,18 +5,34 @@
 	using System.Collections;
 	using System.Collections.Generic;
 	using UnityEngine;
+    using UnityEngine.UI;
 
-	public class ConfigPanel : MonoBehaviour
+    public class ConfigPanel : MonoBehaviour
 	{
 		[SerializeField] private GameObject _resetProfileConfimationPanel = null;
 		[SerializeField] private SoundController _soundController = null;
 
-		private void OnEnable()
+        [Header("Buttons")]
+        [SerializeField] private Image _soundMutedButton = null;
+        [SerializeField] private Image _musicMutedButton = null;
+
+        [Header("Sprites")]
+        [SerializeField] private Sprite _soundMutedSprite = null;
+        [SerializeField] private Sprite _soundNotMutedSprite = null;
+        [SerializeField] private Sprite _musicMutedSprite = null;
+        [SerializeField] private Sprite _musicNotMutedSprite = null;
+
+        private void OnEnable()
 		{
 			
 		}
 
-		public void QuitPanel()
+        private void Start()
+        {
+            UpdateMuteButtons();
+        }
+
+        public void QuitPanel()
 		{
 			gameObject.SetActive(false);
 		}
@@ -24,14 +40,16 @@
 		public void MuteSound()
 		{
 			_soundController.MuteSoundToggle();
-		}
+            UpdateMuteButtons();
+        }
 
 		public void MuteMusic()
 		{
-			_soundController.MuteMusicToggle();
-		}
+            _soundController.MuteMusicToggle();
+            UpdateMuteButtons();
+        }
 
-		public void ResetProfileButton()
+        public void ResetProfileButton()
 		{
 			_resetProfileConfimationPanel.SetActive(true);
 		}
@@ -46,5 +64,17 @@
 			QuitResetProfilePanel();
 			JSonManager.Instance.PlayerProfile.Reset();
 		}
-	}
+
+        private void UpdateMuteButtons()
+        {
+            if (!SoundManager.Instance.IsMusicMuted)
+                _musicMutedButton.sprite = _musicMutedSprite;
+            else
+                _musicMutedButton.sprite = _musicNotMutedSprite;
+            if (SoundManager.Instance.IsSoundMuted)
+                _soundMutedButton.sprite = _soundMutedSprite;
+            else
+                _soundMutedButton.sprite = _soundNotMutedSprite;
+        }
+    }
 }

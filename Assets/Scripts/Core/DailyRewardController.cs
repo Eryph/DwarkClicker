@@ -1,6 +1,7 @@
 ﻿namespace DwarfClicker.Core
 {
-	using Engine.Manager;
+    using DwarfClicker.UI.PopUp;
+    using Engine.Manager;
 	using Engine.Utils;
 	using System;
 	using System.Collections;
@@ -10,7 +11,9 @@
 	public class DailyRewardController : MonoBehaviour
 	{
 		[SerializeField] private Converter _converter = null;
-		private PlayerProfile _playerProfile = null;
+  
+
+        private PlayerProfile _playerProfile = null;
 
 		private void Start()
 		{

@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -12,7 +13,7 @@ MonoBehaviour:
   m_Name: IronFortress
   m_EditorClassIdentifier: 
   _UID: 0
-  _name: IronFortress
+  _name: Iron Fortress
   _price: 1000
   _resourceToProduce: {fileID: 11400000, guid: a97b30ea2f20edf46889716f43175b70, type: 2}
   _weaponsToProduce:

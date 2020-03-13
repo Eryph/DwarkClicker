@@ -105,7 +105,13 @@
 
 		public void OpenShopPanel()
 		{
-			_shopPanel.SetActive(true);
+            if (JSonManager.Instance.PlayerProfile.FTUEStep != 2 &&
+               JSonManager.Instance.PlayerProfile.FTUEStep != 5 &&
+               JSonManager.Instance.PlayerProfile.FTUEStep != 8 &&
+               JSonManager.Instance.PlayerProfile.FTUEStep != 14)
+            {
+                _shopPanel.SetActive(true);
+            }
 		}
 
 		public void OpenSetings()
