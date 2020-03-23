@@ -111,7 +111,22 @@
 			}
 		}
 
-		private void GainMithril(Product product)
+        public void AddPermanentGoldBonus()
+        {
+            JSonManager.Instance.PlayerProfile._goldMultiplierBonus += DatabaseManager.Instance.PermanentBonus.PermanentGoldBonusAdd;
+        }
+
+        public void AddPermanentResBonus()
+        {
+            JSonManager.Instance.PlayerProfile._resourcesMultiplierBonus += DatabaseManager.Instance.PermanentBonus.PermanentResBonusAdd;
+        }
+
+        public void AddPermanentToolBonus()
+        {
+            JSonManager.Instance.PlayerProfile._toolsMultiplierBonus += DatabaseManager.Instance.PermanentBonus.PermanentToolBonusAdd;
+        }
+
+        private void GainMithril(Product product)
 		{
 			JSonManager.Instance.PlayerProfile.Mithril += (int)product.definition.payout.quantity;
 		}
@@ -128,7 +143,6 @@
 				default:
 					break;
 			}
-			
 		}
 		#endregion Methods
 

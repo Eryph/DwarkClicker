@@ -13,14 +13,16 @@
 		[Header("General Data")]
 		[SerializeField] private float _polteringValue = 0.05f;
 
-		[Header("DailyReward")]
-		[SerializeField] private DailyReward[] _dailyRewards;
+        [Header("DailyReward")]
+        [SerializeField] private DailyReward[] _dailyRewards = null;
+        [Header("Shop")]
+        [SerializeField] private PermanentBonusData _permanentBonusData = null;
 
 		[Header("Music")]
-		[SerializeField] private MusicData[] _musics;
+		[SerializeField] private MusicData[] _musics = null;
 
 		[Header("Sound")]
-		[SerializeField] private SoundData[] _sounds;
+		[SerializeField] private SoundData[] _sounds = null;
 
 		[Header("Inn")]
 		[SerializeField] private InnUpgradesData _innUpgrades = null;
@@ -58,6 +60,8 @@
 		public float PolteringValue { get { return _polteringValue; } }
 
 		public DailyReward[] DailyRewards { get { return _dailyRewards; } }
+
+        public PermanentBonusData PermanentBonus { get { return _permanentBonusData; } }
 
 		public InnUpgradesData InnUpgrades { get { return _innUpgrades; } }
 		public InnStartData InnStats { get { return _innStats; } }

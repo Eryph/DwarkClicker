@@ -18,10 +18,18 @@
 
 		#region Consumable Bonus
 		public bool _noMoreAdsBonus = false;
-		#endregion Consumable Bonus
+        public bool _prodSpeedBonus = false;
+        public float _prodSpeedBonusTimeRemaing = 0f;
+        #endregion Consumable Bonus
 
-		#region Time
-		private DateTime _date;
+        #region Permanent Bonus
+        public float _goldMultiplierBonus = 1;
+        public float _resourcesMultiplierBonus = 1;
+        public float _toolsMultiplierBonus = 1;
+        #endregion Permanent Bonus
+
+        #region Time
+        private DateTime _date;
 		public DateTime _startDate;
 		private DateTime _fortressDate;
 		public DateTime _lastDailyRewardRedeemed;

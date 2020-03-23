@@ -39,8 +39,9 @@
 			int resGain = realCycleNb * resByWorker * workerNb;
 
 			string resourceKey = fortress.ResourceProduced.Name;
-			playerProfile.Resources[resourceKey].UpdateCount(resGain);
-			AchievementManager.Instance.UpdateAchievement("MINED_AMOUNT", resGain);
+            float trueResGain = resGain * playerProfile._resourcesMultiplierBonus;
+            playerProfile.Resources[resourceKey].UpdateCount((int)trueResGain);
+			AchievementManager.Instance.UpdateAchievement("MINED_AMOUNT", (int)trueResGain);
 			GameManager.Instance.ProgressionInventory.SetProducedResource(resourceKey, resGain);
 
 			// Rich Vein
@@ -49,9 +50,10 @@
 			int richVein = db.MineStats.RichVein + db.MineUpgrades.RichVein.value * fortress.MineUpgradesIndex._richVeinIndex;
 			int luck = db.MineStats.Luck - db.MineUpgrades.Luck.value * fortress.MineUpgradesIndex._luckIndex;
 			luckCounter = (int)(realCycleNb / luck);
-			playerProfile.Resources[resourceKey].UpdateCount(richVein * luckCounter);
-			AchievementManager.Instance.UpdateAchievement("MINED_AMOUNT", richVein * luckCounter);
-			GameManager.Instance.ProgressionInventory.SetProducedResource(resourceKey, richVein * luckCounter);
+            int gain = (int)(richVein * luckCounter * playerProfile._resourcesMultiplierBonus);
+            playerProfile.Resources[resourceKey].UpdateCount(gain);
+			AchievementManager.Instance.UpdateAchievement("MINED_AMOUNT", gain);
+			GameManager.Instance.ProgressionInventory.SetProducedResource(resourceKey, gain);
 
 			// Rich Vein
 
@@ -101,16 +103,17 @@
 			float instantSellingGoldBonus = db.ForgeStats.InstantSellingGoldBonus + db.ForgeUpgrades.InstantSellingGoldBonus.value * fortress.UForgeInstantSellingGoldBonusIndex;
 			instantSellingCounter = (int)(forgeRealCycleNb / instantSellingChance);
 			int goldGain = (int)(instantSellingCounter * playerProfile.Weapons[fortress.CurrentCraft.Name].SellPrice * wByWorker * forgeWorkerNb * instantSellingGoldBonus);
-			playerProfile.Gold += goldGain;
+			playerProfile.Gold += (int)(goldGain * playerProfile._goldMultiplierBonus);
 			GameManager.Instance.ProgressionInventory.SetGold(goldGain);
 
 			// Instant Selling
 
 			string weaponKey = fortress.CurrentCraft.Name;
 			int weaponGain = weaponProduced - instantSellingCounter;
-			playerProfile.Weapons[weaponKey].UpdateCount(weaponGain);
-			AchievementManager.Instance.UpdateAchievement("FORGED_AMOUNT", weaponGain);
-			GameManager.Instance.ProgressionInventory.SetProducedWeapon(weaponKey, weaponGain);
+            int trueWeaponGain = (int)(weaponGain + playerProfile._toolsMultiplierBonus);
+			playerProfile.Weapons[weaponKey].UpdateCount(trueWeaponGain);
+			AchievementManager.Instance.UpdateAchievement("FORGED_AMOUNT", trueWeaponGain);
+			GameManager.Instance.ProgressionInventory.SetProducedWeapon(weaponKey, trueWeaponGain);
 		}
 
 		public static void ComputeTradingPostProgression(DatabaseManager db, PlayerProfile playerProfile, FortressProfile fortress, TimeSpan timeElapsed)
@@ -165,7 +168,7 @@
 				}
 			}
 
-			playerProfile.Gold += goldProduced;
+			playerProfile.Gold += (int)(goldProduced * playerProfile._goldMultiplierBonus);
 			GameManager.Instance.ProgressionInventory.SetGold(goldProduced);
 			
 			// Update ModTimer

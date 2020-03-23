@@ -80,29 +80,32 @@
 		#region Convert
 		public void MineConverter(ResourceData resource, float beerCost, int resGain)
 		{
+            float trueResGain = resGain * _profile._resourcesMultiplierBonus;
 			_profile.CurrentFortress.Beer -= beerCost;
-			_profile.Resources[resource.Name].UpdateCount(resGain);
-			AchievementManager.Instance.UpdateAchievement("MINED_AMOUNT", resGain);
+			_profile.Resources[resource.Name].UpdateCount((int)trueResGain);
+			AchievementManager.Instance.UpdateAchievement("MINED_AMOUNT", (int)trueResGain);
 			_profile.TriggerInventoryChangeEvent();
 
 		}
 
 		public void ForgeConverter(int resourceToConsumed, WeaponData _toCraft, int nbToCraft)
 		{
-			_profile.Resources[_toCraft.Recipe[0].Key].UpdateCount(-resourceToConsumed);
-			_profile.Weapons[_toCraft.Name].UpdateCount(nbToCraft);
-			AchievementManager.Instance.UpdateAchievement("FORGED_AMOUNT", nbToCraft);
+            float trueToolGain = nbToCraft * _profile._toolsMultiplierBonus;
+            _profile.Resources[_toCraft.Recipe[0].Key].UpdateCount(-resourceToConsumed);
+			_profile.Weapons[_toCraft.Name].UpdateCount((int)trueToolGain);
+			AchievementManager.Instance.UpdateAchievement("FORGED_AMOUNT", (int)trueToolGain);
 			_profile.TriggerInventoryChangeEvent();
 		}
 
 		public void ForgeConverterInstantSelling(WeaponData _toCraft, int nbToCraft, float goldBonus)
 		{
-			for (int i = 0; i < _toCraft.Recipe.Length; i++)
+            float trueToolGain = nbToCraft * _profile._toolsMultiplierBonus;
+            for (int i = 0; i < _toCraft.Recipe.Length; i++)
 			{
 				_profile.Resources[_toCraft.Recipe[i].Key].UpdateCount(-_toCraft.Recipe[i].Count * nbToCraft);
 			}
-			AchievementManager.Instance.UpdateAchievement("FORGED_AMOUNT", nbToCraft);
-			UpdateGold((int)(_toCraft.GoldValue * goldBonus));
+			AchievementManager.Instance.UpdateAchievement("FORGED_AMOUNT", (int)trueToolGain);
+			UpdateGold((int)(_toCraft.GoldValue * goldBonus * _profile._goldMultiplierBonus));
 			
 			_profile.TriggerInventoryChangeEvent();
 		}
@@ -112,7 +115,8 @@
 			nbToSell = Mathf.Clamp(nbToSell, 0, int.MaxValue);
 			_profile.Weapons[_toSell.Name].UpdateCount(-nbToSell);
 
-			_profile.Gold += goldToProduce;
+
+			_profile.Gold += (int)(goldToProduce * _profile._goldMultiplierBonus);
 			_profile.TriggerInventoryChangeEvent();
 
 			//Remanent Market Computing
