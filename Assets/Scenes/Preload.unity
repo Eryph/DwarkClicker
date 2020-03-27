@@ -980,6 +980,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 69584dcde3d64e747bc7edd7815e9a77, type: 2}
   - {fileID: 11400000, guid: 106d33fced638454a83e9da7bc06381b, type: 2}
   - {fileID: 11400000, guid: d2859f60794783e4f8b168b8dc81588b, type: 2}
+  _permanentBonusData: {fileID: 11400000, guid: e4f731eb89fdd4d46bf41a2ce18db8f5,
+    type: 2}
+  _consumableBonusData: {fileID: 11400000, guid: c24bd3e06414ff8409e6bada37b86b32,
+    type: 2}
   _musics:
   - {fileID: 11400000, guid: 64762582403fc414c90104d300b212fc, type: 2}
   - {fileID: 11400000, guid: d0ad34196b8a9214f92a9ec8c8fcdc5f, type: 2}
@@ -996,6 +1000,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1f841ff4cb6a1904186c28408926db93, type: 2}
   - {fileID: 11400000, guid: b23c79420f7b07d468b9dc9d0211471b, type: 2}
   - {fileID: 11400000, guid: 3b70ac670102068468794c948ea386b7, type: 2}
+  - {fileID: 11400000, guid: 20e58b3e7c7304e478207a91dd50d186, type: 2}
+  - {fileID: 11400000, guid: f01bae57b11363449bc7c652eb904ddb, type: 2}
+  - {fileID: 11400000, guid: f87963168a0256b48ad0f1b16809d128, type: 2}
   _innUpgrades: {fileID: 11400000, guid: 35383cfc864f1054b9235f9a05f3fcf5, type: 2}
   _innStats: {fileID: 11400000, guid: 028c9f72b047aa94d9abb1f16657984f, type: 2}
   _mineUpgrades: {fileID: 11400000, guid: dccd79ea551ef914692a21e1f9000113, type: 2}

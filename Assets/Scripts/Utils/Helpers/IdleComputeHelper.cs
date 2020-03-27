@@ -12,15 +12,22 @@
 
 	public static class IdleComputeHelper
 	{
-		public static void ComputeMineProgression(DatabaseManager db, PlayerProfile playerProfile, FortressProfile fortress, TimeSpan timeElapsed)
+		public static void ComputeMineProgression(DatabaseManager db, PlayerProfile playerProfile, FortressProfile fortress, TimeSpan timeElapsed, bool isBonused = false)
 		{
-			float miningTime = db.MineStats.CycleDuration;
+            float cycleMDiv = 1;
+            if (isBonused)
+            {
+                cycleMDiv = DatabaseManager.Instance.ConsumableBonusData.ProductionSpeeMult;
+            }
+
+            float miningTime = db.MineStats.CycleDuration;
 			for (int i = 0; i < fortress.MineUpgradesIndex._cycleDurationIndex; i++)
 			{
 				miningTime -= miningTime * db.MineUpgrades.CycleDuration.value;
 			}
+            miningTime /= cycleMDiv;
 
-			float beerCostbyWorker = db.MineStats.BeerConsumption;
+            float beerCostbyWorker = db.MineStats.BeerConsumption;
 			for (int i = 0; i < fortress.UMineBeerConsoIndex; i++)
 			{
 				beerCostbyWorker -= beerCostbyWorker * db.MineUpgrades.BeerConsumption.value;
@@ -73,13 +80,20 @@
 			// Mithril
 		}
 
-		public static void ComputeForgeProgression(DatabaseManager db, PlayerProfile playerProfile, FortressProfile fortress, TimeSpan timeElapsed)
+		public static void ComputeForgeProgression(DatabaseManager db, PlayerProfile playerProfile, FortressProfile fortress, TimeSpan timeElapsed, bool isBonused = false)
 		{
-			float forgingTime = db.ForgeStats.CycleDuration;
+            float cycleDiv = 1;
+            if (isBonused)
+            {
+                cycleDiv = DatabaseManager.Instance.ConsumableBonusData.ProductionSpeeMult;
+            }
+
+            float forgingTime = db.ForgeStats.CycleDuration;
 			for (int i = 0; i <= fortress.ForgeUpgradesIndex._cycleDurationIndex; i++)
 			{
 				forgingTime -= forgingTime * db.ForgeUpgrades.CycleDuration.value;
 			}
+            forgingTime /= cycleDiv;
 
 			int forgeWorkerNb = db.ForgeStats.WorkerAmount + db.ForgeUpgrades.WorkerAmount.value * fortress.UForgeWorkerNbIndex;
 			int wByWorker = db.ForgeStats.WByWorker + db.ForgeUpgrades.WByWorker.value * fortress.UForgeWByWorkerIndex;
@@ -116,15 +130,22 @@
 			GameManager.Instance.ProgressionInventory.SetProducedWeapon(weaponKey, trueWeaponGain);
 		}
 
-		public static void ComputeTradingPostProgression(DatabaseManager db, PlayerProfile playerProfile, FortressProfile fortress, TimeSpan timeElapsed)
+		public static void ComputeTradingPostProgression(DatabaseManager db, PlayerProfile playerProfile, FortressProfile fortress, TimeSpan timeElapsed, bool isBonused = false)
 		{
-			float tradingTime = db.TradingPostStats.CycleDuration;
+            float cycleDiv = 1;
+            if (isBonused)
+            {
+                cycleDiv = DatabaseManager.Instance.ConsumableBonusData.ProductionSpeeMult;
+            }
+
+            float tradingTime = db.TradingPostStats.CycleDuration;
 			for (int i = 0; i <= fortress.TradingPostUpgradesIndex._cycleDurationIndex; i++)
 			{
 				tradingTime -= tradingTime * db.TradingPostUpgrades.CycleDuration.value;
 			}
+            tradingTime /= cycleDiv;
 
-			int tradingWorkerNb = db.TradingPostStats.WorkerAmount + db.TradingPostUpgrades.WorkerAmount.value * fortress.UTPWorkerNbIndex;
+            int tradingWorkerNb = db.TradingPostStats.WorkerAmount + db.TradingPostUpgrades.WorkerAmount.value * fortress.UTPWorkerNbIndex;
 			int sellByWorker = db.TradingPostStats.SellByWorker + db.TradingPostUpgrades.SellByWorker.value * fortress.UTPSellByWorkerIndex;
 			int wCostByCycle = tradingWorkerNb * sellByWorker;
 

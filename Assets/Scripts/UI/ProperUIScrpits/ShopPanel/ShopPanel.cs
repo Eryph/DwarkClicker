@@ -8,11 +8,14 @@
 	using UnityEngine.Purchasing;
 	using Engine.Manager;
 	using Engine.Utils;
+    using DwarfClicker.UI.PopUp;
 
-	public class ShopPanel : MonoBehaviour
+    public class ShopPanel : MonoBehaviour
 	{
 		#region Fields
 		[SerializeField] private ShopController _shopController = null;
+        [SerializeField] private PopUpWindowController _popup = null;
+        [SerializeField] private BonusProgressBar _bonusProgressBar = null; 
 
 		[Header("Mithril pack Texts")]
 		[SerializeField] private List<TextMeshProUGUI> _mithrilTitles = null;
@@ -49,6 +52,7 @@
 			{
 				_bonusPrice.text = noAds.metadata.localizedPrice.ToString() + noAds.metadata.isoCurrencyCode;
 			}
+            _bonusProgressBar.UpdateBar();
 			_isInit = true;
 		}
 
@@ -76,7 +80,8 @@
 					Debug.Log(string.Format("Purchasing product:" + product.definition.id.ToString()));
 					_shopController.Store.InitiatePurchase(product);
 					_shopController.OnPurchaseComplete += GainMithril;
-				}
+                    _popup.Display(2, "Transaction complete !\nCongatulations !");
+                }
 				else
 				{
 					Debug.Log("BuyProductID: FAIL. Not purchasing product, either is not found or is not available for purchase");
@@ -99,7 +104,7 @@
 					Debug.Log(string.Format("Purchasing product:" + product.definition.id.ToString()));
 					_shopController.Store.InitiatePurchase(product);
 					_shopController.OnPurchaseComplete += SetUpBonus;
-				}
+                }
 				else
 				{
 					Debug.Log("BuyProductID: FAIL. Not purchasing product, either is not found or is not available for purchase");
@@ -114,16 +119,19 @@
         public void AddPermanentGoldBonus()
         {
             JSonManager.Instance.PlayerProfile._goldMultiplierBonus += DatabaseManager.Instance.PermanentBonus.PermanentGoldBonusAdd;
+            _popup.Display(1, "Transaction complete !\nCongatulations !");
         }
 
         public void AddPermanentResBonus()
         {
             JSonManager.Instance.PlayerProfile._resourcesMultiplierBonus += DatabaseManager.Instance.PermanentBonus.PermanentResBonusAdd;
+            _popup.Display(1, "Transaction complete !\nCongatulations !");
         }
 
         public void AddPermanentToolBonus()
         {
             JSonManager.Instance.PlayerProfile._toolsMultiplierBonus += DatabaseManager.Instance.PermanentBonus.PermanentToolBonusAdd;
+            _popup.Display(1, "Transaction complete !\nCongatulations !");
         }
 
         private void GainMithril(Product product)
@@ -139,12 +147,25 @@
 			{
 				case "NO_ADS":
 					profile._noMoreAdsBonus = true;
-					break;
+                    _popup.Display(2, "Transaction complete !\nCongatulations !");
+                    break;
 				default:
 					break;
 			}
 		}
-		#endregion Methods
 
-	}
+        public void OnElixirButtonClick()
+        {
+            _shopController.LaunchElixirAd();
+        }
+
+        public void OnSongButtonClick()
+        {
+            _shopController.LaunchSongAd();
+            _bonusProgressBar.UpdateBar();
+        }
+
+        #endregion Methods
+
+    }
 }

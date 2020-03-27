@@ -28,6 +28,10 @@
         public float _toolsMultiplierBonus = 1;
         #endregion Permanent Bonus
 
+        #region Consumable Bonus
+        public float _bonusTimeRemaining = 0;
+        #endregion Consumable Bonus
+
         #region Time
         private DateTime _date;
 		public DateTime _startDate;

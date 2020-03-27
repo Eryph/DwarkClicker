@@ -15,8 +15,10 @@
 
         [Header("DailyReward")]
         [SerializeField] private DailyReward[] _dailyRewards = null;
+
         [Header("Shop")]
         [SerializeField] private PermanentBonusData _permanentBonusData = null;
+        [SerializeField] private ConsumableBonusData _consumableBonusData = null;
 
 		[Header("Music")]
 		[SerializeField] private MusicData[] _musics = null;
@@ -62,8 +64,9 @@
 		public DailyReward[] DailyRewards { get { return _dailyRewards; } }
 
         public PermanentBonusData PermanentBonus { get { return _permanentBonusData; } }
+        public ConsumableBonusData ConsumableBonusData { get { return _consumableBonusData; } }
 
-		public InnUpgradesData InnUpgrades { get { return _innUpgrades; } }
+        public InnUpgradesData InnUpgrades { get { return _innUpgrades; } }
 		public InnStartData InnStats { get { return _innStats; } }
 
 		public MineUpgradesData MineUpgrades { get { return _mineUpgrades; } }

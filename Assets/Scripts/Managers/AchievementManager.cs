@@ -12,8 +12,11 @@
 
 	public class AchievementManager : Singleton<AchievementManager>
 	{
-		#region Fields
-		[SerializeField] private AchievementContainer[] _achievementContainers = null;
+        #region Events
+        #endregion Events
+
+        #region Fields
+        [SerializeField] private AchievementContainer[] _achievementContainers = null;
 		[SerializeField] private TaskData[] _tasks = null;
 		[SerializeField] private int _taskCooldownH = 1;
 		private PlayerProfile _profile = null;
@@ -98,7 +101,7 @@
 			}
 
 			_profile._kingTask = null;
-			_profile._taskTimeStamp = DateTime.Now + new TimeSpan(_taskCooldownH, 0, 0);
+            _profile._taskTimeStamp = DateTime.Now + new TimeSpan(_taskCooldownH, 0, 0);
 		}
 		#endregion KingTask
 		#endregion Methods

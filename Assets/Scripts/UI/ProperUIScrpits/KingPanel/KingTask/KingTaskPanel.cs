@@ -8,8 +8,9 @@
 	using Engine.Utils;
 	using DwarfClicker.Core.Achievement;
 	using Engine.Manager;
+    using DwarfClicker.UI.PopUp;
 
-	public class KingTaskPanel : MonoBehaviour
+    public class KingTaskPanel : MonoBehaviour
 	{
 		[SerializeField] private TextMeshProUGUI _description = null;
 		[SerializeField] private Image _goalImage = null;
@@ -18,8 +19,9 @@
 		[SerializeField] private TextMeshProUGUI _rewardAmount = null;
 		[SerializeField] private GameObject _noTaskPanel = null;
 		[SerializeField] private Button _claimButton = null;
+        [SerializeField] private PopUpWindowController _popup = null;
 
-		public void Display(PlayerProfile profile)
+        public void Display(PlayerProfile profile)
 		{
 			if (profile._kingTask == null)
 			{
@@ -75,6 +77,7 @@
 		{
 			AchievementManager.Instance.ClaimTaskReward();
 			Display(JSonManager.Instance.PlayerProfile);
+            _popup.Display(1, "Task completed !\nCongatulations !");
 		}
 
 		public void ShowAdToResetTask()

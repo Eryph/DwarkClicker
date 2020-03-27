@@ -257,7 +257,15 @@
         #region Timer Management
         private void ResetTimer()
 		{
-			_timer.ResetTimer(_cycleDuration);
+            if (_playerProfile._bonusTimeRemaining > 0)
+            {
+                float cycleDuration = _cycleDuration / DatabaseManager.Instance.ConsumableBonusData.ProductionSpeeMult;
+                _timer.ResetTimer(cycleDuration);
+            }
+            else
+            {
+                _timer.ResetTimer(_cycleDuration);
+            }
 			_timer.IsStopped = false;
 		}
 

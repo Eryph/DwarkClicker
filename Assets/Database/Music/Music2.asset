@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -12,4 +13,4 @@ MonoBehaviour:
   m_Name: Music2
   m_EditorClassIdentifier: 
   _musicTag: Music2
-  _music: {fileID: 8300000, guid: 9120315b7d0503f479fd19ab3d6d1dd0, type: 3}
+  _music: {fileID: 8300000, guid: f22e39149eb535b4abc216c75e4afec3, type: 3}

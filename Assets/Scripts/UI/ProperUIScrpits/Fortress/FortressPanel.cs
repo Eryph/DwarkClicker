@@ -8,8 +8,9 @@
 	using UnityEngine;
 	using UnityEngine.UI;
     using TMPro;
+    using DwarfClicker.UI.PopUp;
 
-	public class FortressPanel : MonoBehaviour
+    public class FortressPanel : MonoBehaviour
 	{
         #region Fields
         [SerializeField] private Button _buyButton = null;
@@ -21,6 +22,7 @@
         [SerializeField] private Sprite _buttonOnSprite = null;
         [SerializeField] private Sprite _buttonOffSprite = null;
         [SerializeField] private Button _redeemButton = null;
+        [SerializeField] private PopUpWindowController _popUp = null;
 
         private int _index = 0;
 		private PlayerProfile _profile = null;
@@ -123,6 +125,7 @@
 			GameManager.Instance.BuyFortress(_index);
 			DisplayPanel();
             SoundManager.Instance.PlaySound("STANDARD_CLICK");
+            _popUp.Display(2, "Transaction Complete !\nFortress unlocked !");
         }
 
 		public void RedeemProduction()

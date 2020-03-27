@@ -101,24 +101,45 @@
 				_progressionInventory = new ProgressionLoadInventory();
 				_progressionInventory.Init();
 				_progressionInventory.SetTimePassed(timeElapsed);
-				
 
-				if (fortress.MineIsPaused == false)
-				{
-					IdleComputeHelper.ComputeMineProgression(_db, _playerProfile, fortress, timeElapsed);
-				}
-
-				if (fortress.ForgeIsPaused == false)
-				{
-					IdleComputeHelper.ComputeForgeProgression(_db, _playerProfile, fortress, timeElapsed);
-				}
-
-				if (fortress.TradingPostIsPaused == false)
-				{
-					IdleComputeHelper.ComputeTradingPostProgression(_db, _playerProfile, fortress, timeElapsed);
-				}
-			}
+                if (_playerProfile._bonusTimeRemaining > 0)
+                {
+                    if (timeElapsed.TotalSeconds < _playerProfile._bonusTimeRemaining)
+                    {
+                        _playerProfile._bonusTimeRemaining -= (float)timeElapsed.TotalSeconds;
+                        IdleProgression(fortress, timeElapsed);
+                    }
+                    else
+                    {
+                        int bonusTimeElapsed = (int)(timeElapsed.TotalSeconds - _playerProfile._bonusTimeRemaining);
+                        TimeSpan bonusTimeSpan = new TimeSpan(0,0, bonusTimeElapsed);
+                        IdleProgression(fortress, bonusTimeSpan, true);
+                        timeElapsed -= bonusTimeSpan;
+                        IdleProgression(fortress, timeElapsed);
+                        _playerProfile._bonusTimeRemaining = 0;
+                    }
+                }
+                
+            }
 		}
+
+        private void IdleProgression(FortressProfile fortress, TimeSpan timeElapsed, bool isBonused = false)
+        {
+            if (fortress.MineIsPaused == false)
+            {
+                IdleComputeHelper.ComputeMineProgression(_db, _playerProfile, fortress, timeElapsed, isBonused);
+            }
+
+            if (fortress.ForgeIsPaused == false)
+            {
+                IdleComputeHelper.ComputeForgeProgression(_db, _playerProfile, fortress, timeElapsed, isBonused);
+            }
+
+            if (fortress.TradingPostIsPaused == false)
+            {
+                IdleComputeHelper.ComputeTradingPostProgression(_db, _playerProfile, fortress, timeElapsed, isBonused);
+            }
+        }
 		#endregion Progression Load
 
 		#region Save/Load Triggers

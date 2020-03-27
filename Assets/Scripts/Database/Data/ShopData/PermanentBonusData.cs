@@ -5,7 +5,7 @@
     using UnityEngine;
 
     [CreateAssetMenu(fileName = "PermanentBonus", menuName = "Data/Shop/PermanentBonus")]
-    public class PermanentBonusData : MonoBehaviour
+    public class PermanentBonusData : ScriptableObject
     {
         [SerializeField] private float _permanentGoldBonusAdd = 0.1f;
         [SerializeField] private float _permanentResBonusAdd = 0.1f;

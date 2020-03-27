@@ -1,6 +1,7 @@
 ﻿namespace DwarfClicker.Core
 {
-	using System;
+    using Engine.Manager;
+    using System;
 	using System.Collections;
 	using System.Collections.Generic;
 	using UnityEngine;
@@ -75,13 +76,12 @@
             
 		}
 
-
 		public bool IsInitialized()
 		{
 			return m_StoreController != null && m_StoreExtensionProvider != null;
 		}
 
-		public void BuyMithrilPack1()
+        public void BuyMithrilPack1()
 		{
 			BuyProductID("MITHRIL_PACK_1");
 		}
@@ -99,7 +99,8 @@
 			{
 				m_StoreController.ConfirmPendingPurchase(test_product);
 				MyDebug("Completed purchase with " + test_product.transactionID.ToString());
-			}
+                
+            }
 
 		}
 
@@ -195,5 +196,46 @@
 			Debug.Log(debug);
 		}
 
-	}
+        public void LaunchElixirAd()
+        {
+
+            if (!JSonManager.Instance.PlayerProfile._noMoreAdsBonus)
+            {
+                MonetizationManager.Instance.ShowAd();
+                MonetizationManager.Instance.AdFinished += RedeemElixirReward;
+            }
+            else
+            {
+                RedeemElixirReward();
+            }
+        }
+
+        public void RedeemElixirReward()
+        {
+            JSonManager.Instance.PlayerProfile.Mithril += 1;
+        }
+
+        public void LaunchSongAd()
+        {
+
+            if (!JSonManager.Instance.PlayerProfile._noMoreAdsBonus)
+            {
+                MonetizationManager.Instance.ShowAd();
+                MonetizationManager.Instance.AdFinished += RedeemFreeSongBonus;
+            }
+            else
+            {
+                RedeemFreeSongBonus();
+            }
+        }
+
+        private void RedeemFreeSongBonus()
+        {
+            JSonManager.Instance.PlayerProfile._bonusTimeRemaining += DatabaseManager.Instance.ConsumableBonusData.BonusTimeByAd;
+            JSonManager.Instance.PlayerProfile._bonusTimeRemaining
+                = Mathf.Clamp(JSonManager.Instance.PlayerProfile._bonusTimeRemaining, 0, DatabaseManager.Instance.ConsumableBonusData.BonusTimeMax);
+
+        }
+
+    }
 }

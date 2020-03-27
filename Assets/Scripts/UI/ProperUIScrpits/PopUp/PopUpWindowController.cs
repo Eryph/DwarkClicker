@@ -28,6 +28,11 @@
             _startScale = _backgroundImage.transform.localScale;
         }
 
+        private void Start()
+        {
+           
+        }
+
         public void Display(int popUpRank, string popUpText)
         {
             SoundManager.Instance.PlaySound("REWARD_SOUND_R" + (popUpRank + 1).ToString());
@@ -52,6 +57,7 @@
             else
             {
                 GameLoopManager.Instance.GameLoop -= AnimateBackground;
+                _backgroundImage.transform.localScale = _startScale;
                 _currentLerpTime = 0;
             }
         }
@@ -67,6 +73,8 @@
             if (_delaysIndex >= _fireWorksDelays.Length)
             {
                 GameLoopManager.Instance.GameLoop -= AnimateFireWorks;
+                _currentAnimTime = 0;
+                _delaysIndex = 0;
             }
         }
 

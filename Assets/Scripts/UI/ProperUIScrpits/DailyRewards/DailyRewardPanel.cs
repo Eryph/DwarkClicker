@@ -27,7 +27,7 @@
 
 		private void OnEnable()
 		{
-			if (_profile == null)
+            if (_profile == null)
 			{
 				_profile = JSonManager.Instance.PlayerProfile;
 			}
