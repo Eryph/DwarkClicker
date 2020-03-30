@@ -7,11 +7,12 @@
 	using UnityEngine;
 	using DwarfClicker.Database;
 
-	public class DatabaseManager : Singleton<DatabaseManager>
-	{
-		#region Fields
-		[Header("General Data")]
-		[SerializeField] private float _polteringValue = 0.05f;
+    public class DatabaseManager : Singleton<DatabaseManager>
+    {
+        #region Fields
+        [Header("General Data")]
+        [SerializeField] private float _polteringValue = 0.05f;
+        [SerializeField] private int _upgradeMithrilPrice = 100;
 
         [Header("DailyReward")]
         [SerializeField] private DailyReward[] _dailyRewards = null;
@@ -56,12 +57,15 @@
 		[SerializeField] private Sprite _beerIcon = null;
 		[SerializeField] private Sprite _mithrilIcon = null;
 		[SerializeField] private Sprite _goldIcon = null;
-		#endregion Fields
+        [SerializeField] private Sprite _goldButtonIcon = null;
+        [SerializeField] private Sprite _mithrilButtonIcon = null;
+        #endregion Fields
 
-		#region Properties
-		public float PolteringValue { get { return _polteringValue; } }
+        #region Properties
+        public float PolteringValue { get { return _polteringValue; } }
+        public int UpgradeMithrilPrice { get { return _upgradeMithrilPrice; } }
 
-		public DailyReward[] DailyRewards { get { return _dailyRewards; } }
+        public DailyReward[] DailyRewards { get { return _dailyRewards; } }
 
         public PermanentBonusData PermanentBonus { get { return _permanentBonusData; } }
         public ConsumableBonusData ConsumableBonusData { get { return _consumableBonusData; } }
@@ -88,10 +92,12 @@
 		public Sprite BeerIcon { get { return _beerIcon; } }
 		public Sprite MithrilIcon { get { return _mithrilIcon; } }
 		public Sprite GoldIcon { get { return _goldIcon; } }
-		#endregion Properties
+        public Sprite MithrilButtonIcon { get { return _mithrilButtonIcon; } }
+        public Sprite GoldButtonIcon { get { return _goldButtonIcon; } }
+        #endregion Properties
 
-		#region Methods
-		public WeaponData ExtractWeapon(string key)
+        #region Methods
+        public WeaponData ExtractWeapon(string key)
 		{
 			for (int i = 0; i < _weaponList.Weapons.Length; i++)
 			{

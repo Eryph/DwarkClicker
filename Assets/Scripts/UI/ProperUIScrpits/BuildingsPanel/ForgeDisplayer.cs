@@ -6,7 +6,8 @@
 	using Engine.Manager;
 	using Engine.UI.Utils;
 	using Engine.Utils;
-	using System.Collections;
+    using System;
+    using System.Collections;
 	using System.Collections.Generic;
 	using TMPro;
 	using UnityEngine;
@@ -14,7 +15,27 @@
 
 	public class ForgeDisplayer : MonoBehaviour
 	{
-		[SerializeField] private Converter _converter = null;
+        #region Events
+        private Action _onSwitchGoldMithril = null;
+
+        public event Action OnSwitchGoldMithril
+        {
+            add
+            {
+                _onSwitchGoldMithril -= value;
+                _onSwitchGoldMithril += value;
+            }
+            remove
+            {
+                _onSwitchGoldMithril -= value;
+            }
+        }
+        #endregion Events
+
+        [SerializeField] private Image _goldMithrilSwitchButtonImage = null;
+        [SerializeField] private Image[] _goldMithrilSwitchUpgrades = null;
+
+        [SerializeField] private Converter _converter = null;
 		[SerializeField] private ForgeController _forgeController = null;
 		[SerializeField] private ProgressionBarHandler _progressionBar = null;
 
@@ -29,11 +50,14 @@
 		[SerializeField] private Image _producedImage = null;
 
 		private PlayerProfile _playerProfile = null;
+        private bool _isGoldTrans = true;
+
 		private void Start()
 		{
 			_playerProfile = JSonManager.Instance.PlayerProfile;
 			_playerProfile.CurrentFortress.OnForgeUpgradeChange += OnForgeUpgrade;
 			_playerProfile.OnFortressChange += UpdateFortress;
+            _onSwitchGoldMithril += Display;
 			GameLoopManager.Instance.GameLoop += UpdateDisplay;
 			OnForgeUpgrade();
 		}
@@ -54,7 +78,17 @@
 			_forgeController.OnWeaponChange -= Display;
 		}
 
-		private void Display()
+        public void SwitchGoldMithril()
+        {
+            if (_onSwitchGoldMithril != null)
+            {
+                _isGoldTrans = !_isGoldTrans;
+                _forgeController.IsGoldTrans = _isGoldTrans;
+                _onSwitchGoldMithril();
+            }
+        }
+
+        private void Display()
 		{
 			FortressProfile currentFortress = _playerProfile.CurrentFortress;
 			ForgeUpgradesData uData = DatabaseManager.Instance.ForgeUpgrades;
@@ -62,21 +96,49 @@
 			_consumedImage.sprite = currentFortress.ResourceProduced.ResourceSprite;
 			_producedImage.sprite = _forgeController.CurrentForgingWeapon.WeaponSprite;
 
-			int price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WorkerAmount, currentFortress.UForgeWorkerNbIndex);
-			_workerUpgrade.Init(uData.WorkerAmount.name, uData.WorkerAmount.desc, currentFortress.UForgeWorkerNbIndex, price);
+            if (_isGoldTrans)
+            {
+			    int price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WorkerAmount, currentFortress.UForgeWorkerNbIndex);
+			    _workerUpgrade.Init(uData.WorkerAmount.name, uData.WorkerAmount.desc, currentFortress.UForgeWorkerNbIndex, price, _playerProfile.Gold);
 
-			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WByWorker, currentFortress.UForgeWByWorkerIndex);
-			_wByWorkerUpgrade.Init(uData.WByWorker.name, uData.WByWorker.desc, currentFortress.UForgeWByWorkerIndex, price);
+			    price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WByWorker, currentFortress.UForgeWByWorkerIndex);
+			    _wByWorkerUpgrade.Init(uData.WByWorker.name, uData.WByWorker.desc, currentFortress.UForgeWByWorkerIndex, price, _playerProfile.Gold);
 
-			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.CycleDuration, currentFortress.UForgeCycleDurationIndex);
-			_cycleDurationUpgrade.Init(uData.CycleDuration.name, uData.CycleDuration.desc, currentFortress.UForgeCycleDurationIndex, price);
+			    price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.CycleDuration, currentFortress.UForgeCycleDurationIndex);
+			    _cycleDurationUpgrade.Init(uData.CycleDuration.name, uData.CycleDuration.desc, currentFortress.UForgeCycleDurationIndex, price, _playerProfile.Gold);
 
-			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingChance, currentFortress.UForgeInstantSellingChanceIndex);
-			_instantSellingChanceUpgrade.Init(uData.InstantSellingChance.name, uData.InstantSellingChance.desc, currentFortress.UForgeInstantSellingChanceIndex, price);
+			    price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingChance, currentFortress.UForgeInstantSellingChanceIndex);
+			    _instantSellingChanceUpgrade.Init(uData.InstantSellingChance.name, uData.InstantSellingChance.desc, currentFortress.UForgeInstantSellingChanceIndex, price, _playerProfile.Gold);
 
-			price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingGoldBonus, currentFortress.UForgeInstantSellingGoldBonusIndex);
-			_instantSellingGoldBonusUpgrade.Init(uData.InstantSellingGoldBonus.name, uData.InstantSellingGoldBonus.desc, currentFortress.UForgeInstantSellingGoldBonusIndex, price);
-		}
+			    price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingGoldBonus, currentFortress.UForgeInstantSellingGoldBonusIndex);
+			    _instantSellingGoldBonusUpgrade.Init(uData.InstantSellingGoldBonus.name, uData.InstantSellingGoldBonus.desc, currentFortress.UForgeInstantSellingGoldBonusIndex, price, _playerProfile.Gold);
+
+                _goldMithrilSwitchButtonImage.sprite = DatabaseManager.Instance.MithrilButtonIcon;
+            }
+            else
+            {
+                int price = DatabaseManager.Instance.UpgradeMithrilPrice;
+                _workerUpgrade.Init(uData.WorkerAmount.name, uData.WorkerAmount.desc, currentFortress.UForgeWorkerNbIndex, price, _playerProfile.Mithril);
+                _wByWorkerUpgrade.Init(uData.WByWorker.name, uData.WByWorker.desc, currentFortress.UForgeWByWorkerIndex, price, _playerProfile.Mithril);
+                _cycleDurationUpgrade.Init(uData.CycleDuration.name, uData.CycleDuration.desc, currentFortress.UForgeCycleDurationIndex, price, _playerProfile.Mithril);
+                _instantSellingChanceUpgrade.Init(uData.InstantSellingChance.name, uData.InstantSellingChance.desc, currentFortress.UForgeInstantSellingChanceIndex, price, _playerProfile.Mithril);
+                _instantSellingGoldBonusUpgrade.Init(uData.InstantSellingGoldBonus.name, uData.InstantSellingGoldBonus.desc, currentFortress.UForgeInstantSellingGoldBonusIndex, price, _playerProfile.Mithril);
+
+                _goldMithrilSwitchButtonImage.sprite = DatabaseManager.Instance.GoldButtonIcon;
+            }
+
+            for (int i = 0; i < _goldMithrilSwitchUpgrades.Length; i++)
+            {
+                if (_isGoldTrans)
+                {
+                    _goldMithrilSwitchUpgrades[i].sprite = DatabaseManager.Instance.GoldButtonIcon;
+                }
+                else
+                {
+                    _goldMithrilSwitchUpgrades[i].sprite = DatabaseManager.Instance.MithrilButtonIcon;
+                }
+            }
+        }
 
 		private void OnForgeUpgrade()
 		{

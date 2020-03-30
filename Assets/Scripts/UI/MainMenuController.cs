@@ -1,6 +1,7 @@
 ﻿using DwarfClicker.UI.PopUp;
 using Engine.Manager;
 using Engine.UI.FTUE;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +9,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour {
 
-	#region Fields
-	[SerializeField] private GameObject _innUpgradeMenu = null;
+    #region Fields
+    [SerializeField] private GameObject _innUpgradeMenu = null;
 	[SerializeField] private GameObject _mineUpgradeMenu = null;
 	[SerializeField] private GameObject _forgeUpgradeMenu = null;
 	[SerializeField] private GameObject _tradingPostUpgradeMenu = null;
