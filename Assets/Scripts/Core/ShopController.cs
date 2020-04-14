@@ -208,6 +208,7 @@
             {
                 RedeemElixirReward();
             }
+
         }
 
         public void RedeemElixirReward()
@@ -234,7 +235,10 @@
             JSonManager.Instance.PlayerProfile._bonusTimeRemaining += DatabaseManager.Instance.ConsumableBonusData.BonusTimeByAd;
             JSonManager.Instance.PlayerProfile._bonusTimeRemaining
                 = Mathf.Clamp(JSonManager.Instance.PlayerProfile._bonusTimeRemaining, 0, DatabaseManager.Instance.ConsumableBonusData.BonusTimeMax);
-
+            if (JSonManager.Instance.PlayerProfile._bonusTimeRemaining >= DatabaseManager.Instance.ConsumableBonusData.BonusTimeMax)
+            {
+                AchievementManager.Instance.UpdateAchievement("TEMP_BONUS", 1);
+            }
         }
 
     }

@@ -108,12 +108,15 @@
 		{
 			if (Advertisement.isInitialized)
 			{
-				if (Advertisement.IsReady(_placementId))
-					Advertisement.Show(_placementId);
-				else
-				{
-					Debug.LogError("AD NOT READY YET");
-				}
+                if (Advertisement.IsReady(_placementId))
+                {
+                    Advertisement.Show(_placementId);
+                    AchievementManager.Instance.UpdateAchievement("ADS", 1);
+                }
+                else
+                {
+                    Debug.LogError("AD NOT READY YET");
+                }
 			}
 			else
 			{

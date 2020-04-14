@@ -354,6 +354,7 @@
 		private void ChangeWeapon()
 		{
 			_currentForgingWeapon = _playerProfile.CurrentFortress.CurrentCraft;
+            AchievementManager.Instance.UpdateAchievement("CRAFT_SELECTOR", 1);
 			if (_onWeaponChange != null)
 				_onWeaponChange();
 		}

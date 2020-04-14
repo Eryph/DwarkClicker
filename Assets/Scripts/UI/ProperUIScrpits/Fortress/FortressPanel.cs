@@ -123,7 +123,8 @@
 		public void BuyFortress()
 		{
 			GameManager.Instance.BuyFortress(_index);
-			DisplayPanel();
+            AchievementManager.Instance.UpdateAchievement("FORTRESS", 1);
+            DisplayPanel();
             SoundManager.Instance.PlaySound("STANDARD_CLICK");
             _popUp.Display(2, "Transaction Complete !\nFortress unlocked !");
         }

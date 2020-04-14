@@ -12,7 +12,9 @@
 
     public class ShopPanel : MonoBehaviour
 	{
-		#region Fields
+        #region Fields
+        [SerializeField] private GameObject _shopButtonEnable = null;
+        [SerializeField] private GameObject _shopButtonDisable = null;
 		[SerializeField] private ShopController _shopController = null;
         [SerializeField] private PopUpWindowController _popup = null;
         [SerializeField] private BonusProgressBar _bonusProgressBar = null; 
@@ -61,10 +63,18 @@
 			if (_isInit == false)
 			{
 				Init();
+                _shopButtonDisable.SetActive(true);
+                _shopButtonEnable.SetActive(false);
 			}
 		}
 
-		public void QuitPanel()
+        private void OnDisable()
+        {
+            _shopButtonDisable.SetActive(false);
+            _shopButtonEnable.SetActive(true);
+        }
+
+        public void QuitPanel()
 		{
 			gameObject.SetActive(false);
 		}

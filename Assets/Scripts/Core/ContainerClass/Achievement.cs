@@ -33,8 +33,24 @@
 		public bool IsFinished { get { return _isfinished; } }
 		public Sprite AchievementSprite { get { return _achievementSprite; } }
 
-		public bool CanGetReward { get { return _currentValue >= _stepMax[_currentStep]; } }
-		public int CurrentStepMax { get { return _stepMax[_currentStep]; } }
+		public bool CanGetReward {
+            get
+            {
+                if (_currentStep < _stepMax.Length)
+                    return _currentValue >= _stepMax[_currentStep];
+                else
+                    return false;
+            }
+        }
+		public int CurrentStepMax {
+            get
+            {
+                if (_currentStep < _stepMax.Length)
+                    return _stepMax[_currentStep];
+                else
+                    return _stepMax[_stepMax.Length - 1];
+            }
+        }
 		#endregion Properties
 
 		#region Methods

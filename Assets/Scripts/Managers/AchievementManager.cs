@@ -102,7 +102,9 @@
 
 			_profile._kingTask = null;
             _profile._taskTimeStamp = DateTime.Now + new TimeSpan(_taskCooldownH, 0, 0);
-		}
+
+            AchievementManager.Instance.UpdateAchievement("KING_TASK", 1);
+        }
 		#endregion KingTask
 		#endregion Methods
 	}
