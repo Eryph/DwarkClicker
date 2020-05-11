@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a592b3bd4a048ca4a945995f4cf1de2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stepAmount: 35
+  _stepAmount: 32
 --- !u!4 &152170768
 Transform:
   m_ObjectHideFlags: 0
@@ -1041,9 +1041,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a2b32c864f44bbd4390e865b599d66b2, type: 2}
   - {fileID: 11400000, guid: c4bb5638e1638dc499a9586ea116fc46, type: 2}
   - {fileID: 11400000, guid: e4a9547ea430a424690a855e5f18a58c, type: 2}
-  - {fileID: 11400000, guid: d3f6026f166684848bbe441d94dbde34, type: 2}
-  - {fileID: 11400000, guid: 5e9e723a7d1b5364d9a580c320f7a8c5, type: 2}
-  - {fileID: 11400000, guid: f679a832092241a4f9ddcecc559199bf, type: 2}
   _beerIcon: {fileID: 21300000, guid: 6fd25befc0012c841a165b02ad75ba62, type: 3}
   _mithrilIcon: {fileID: 21300000, guid: 0fd132f843b49364eb64373c8d898420, type: 3}
   _goldIcon: {fileID: 21300000, guid: 0f8964f246313d1458907072c596ed10, type: 3}

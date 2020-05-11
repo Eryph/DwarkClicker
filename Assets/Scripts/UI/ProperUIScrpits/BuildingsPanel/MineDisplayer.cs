@@ -52,7 +52,10 @@
 
 		[SerializeField] private Image _producedImage = null;
 
-		private PlayerProfile _playerProfile = null;
+        [SerializeField] private Image _backgroundImage = null;
+        [SerializeField] private Sprite[] _backgrounds = null;
+
+        private PlayerProfile _playerProfile = null;
         private bool _isGoldTrans = true;
 
         private void OnEnable()
@@ -154,6 +157,8 @@
 		{
 			_playerProfile.CurrentFortress.OnMineUpgradeChange += OnMineUpgrade;
 			OnMineUpgrade();
+
+            _backgroundImage.sprite = _backgrounds[_playerProfile.CurrentFortressIndex];
 		}
 
 		private void UpdateDisplay()

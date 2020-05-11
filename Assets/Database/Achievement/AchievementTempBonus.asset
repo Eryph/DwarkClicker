@@ -17,4 +17,4 @@ MonoBehaviour:
   _objective: Fill up elixir
   _stepMax: 01000000
   _mithrilReward: 5
-  _achievementSprite: {fileID: 0}
+  _achievementSprite: {fileID: 21300000, guid: 741af327a9ef6684386612624e0a6423, type: 3}

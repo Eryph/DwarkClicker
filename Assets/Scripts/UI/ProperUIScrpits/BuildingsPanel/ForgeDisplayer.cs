@@ -48,6 +48,8 @@
 		[SerializeField] private UpgradeButtonHandler _instantSellingGoldBonusUpgrade = null;
 		[SerializeField] private Image _consumedImage = null;
 		[SerializeField] private Image _producedImage = null;
+        [SerializeField] private Image _backgroundImage = null;
+        [SerializeField] private Sprite[] _backgrounds = null;
 
 		private PlayerProfile _playerProfile = null;
         private bool _isGoldTrans = true;
@@ -159,6 +161,7 @@
 		{
 			_playerProfile.CurrentFortress.OnForgeUpgradeChange += OnForgeUpgrade;
 			OnForgeUpgrade();
+            _backgroundImage.sprite = _backgrounds[_playerProfile.CurrentFortressIndex];
 		}
 
 		private void UpdateDisplay()

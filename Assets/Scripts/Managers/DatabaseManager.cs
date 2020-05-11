@@ -59,6 +59,7 @@
 		[SerializeField] private Sprite _goldIcon = null;
         [SerializeField] private Sprite _goldButtonIcon = null;
         [SerializeField] private Sprite _mithrilButtonIcon = null;
+        
         #endregion Fields
 
         #region Properties

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: InnStartStats
   m_EditorClassIdentifier: 
   _beerByTap: 21
-  _storage: 700
+  _storage: 800

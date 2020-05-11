@@ -42,7 +42,7 @@
 
 			fortress.Beer -= (int)(realCycleNb * beerCostbyCycle);
 
-			int resByWorker = db.MineStats.ResByWorker + db.MineUpgrades.ResByWorker.value * fortress.MineUpgradesIndex._resByWorkerIndex;
+			int resByWorker = (int)(db.MineStats.ResByWorker + db.MineUpgrades.ResByWorker.value * fortress.MineUpgradesIndex._resByWorkerIndex);
 			int resGain = realCycleNb * resByWorker * workerNb;
 
 			string resourceKey = fortress.ResourceProduced.Name;

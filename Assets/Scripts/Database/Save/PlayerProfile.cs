@@ -377,19 +377,28 @@
 
 		public void Reset()
 		{
-			// Fortress Clear
-			CurrentFortressIndex = 0;
+            // Bonus Clear
+            _noMoreAdsBonus = false;
+            _goldMultiplierBonus = 1;
+            _resourcesMultiplierBonus = 1;
+            _toolsMultiplierBonus = 1;
+            _bonusTimeRemaining = 0;
+
+            // Fortress Clear
+            CurrentFortressIndex = 0;
 			_fortressList.Clear();
 
 			// Inventory Clear
 			ResetCollectionCounts();
 			Gold = 0;
 			Mithril = 0;
+            
 			_dailyRewardIndex = 0;
 
 			Init();
 
 			JSonManager.Instance.SavePlayerProfile();
+            Application.Quit();
 		}
 
 		private void ResetCollectionCounts()

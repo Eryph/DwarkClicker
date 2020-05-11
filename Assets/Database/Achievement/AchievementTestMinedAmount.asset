@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -16,4 +17,4 @@ MonoBehaviour:
   _objective: Mine more resources
   _stepMax: 64000000f4010000e8030000881300001027000050c30000a086010020a1070040420f0080969800
   _mithrilReward: 10
-  _achievementSprite: {fileID: 21300000, guid: 3dd295d28ffed5c419fb6ebd77850bab, type: 3}
+  _achievementSprite: {fileID: 21300000, guid: 552b4c84034933543a6c1b792bcf4a05, type: 3}

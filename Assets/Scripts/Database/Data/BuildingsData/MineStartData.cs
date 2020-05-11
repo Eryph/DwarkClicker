@@ -7,16 +7,16 @@
 	public class MineStartData : ScriptableObject
 	{
 		[SerializeField] private int _workerAmount;
-		[SerializeField] private int _resByWorker;
+		[SerializeField] private float _resByWorker;
 		[SerializeField] private int _luck;
 		[SerializeField] private float _beerConsumption;
 		[SerializeField] private float _noBeerConsumptionChance;
 		[SerializeField] private float _cycleDuration;
 		[SerializeField] private int _richVein;
 		[SerializeField] private int _mithrilChance;
-
+         
 		public int WorkerAmount { get { return _workerAmount; } }
-		public int ResByWorker { get { return _resByWorker; } }
+		public float ResByWorker { get { return _resByWorker; } }
 		public int Luck { get { return _luck; } }
 		public float NoBeerConsumptionChance { get { return _noBeerConsumptionChance; } }
 		public float BeerConsumption { get { return _beerConsumption; } }

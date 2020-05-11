@@ -48,7 +48,10 @@
 		[SerializeField] private UpgradeButtonHandler _goldMultUpgrade = null;
 		[SerializeField] private Image _consumedIcon = null;
 
-		private PlayerProfile _playerProfile = null;
+        [SerializeField] private Image _backgroundImage = null;
+        [SerializeField] private Sprite[] _backgrounds = null;
+
+        private PlayerProfile _playerProfile = null;
         private bool _isGoldTrans = true;
 
         private void Start()
@@ -155,6 +158,8 @@
 		{
 			_playerProfile.CurrentFortress.OnTPUpgradeChange += OnTradingPostUpgrade;
 			OnTradingPostUpgrade();
+
+            _backgroundImage.sprite = _backgrounds[_playerProfile.CurrentFortressIndex];
 		}
 
 		private void UpdateDisplay()

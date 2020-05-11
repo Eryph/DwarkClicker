@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -16,4 +17,4 @@ MonoBehaviour:
   _objective: Forge more tools
   _stepMax: 3200000064000000f4010000e8030000881300001027000050c30000a086010020a1070040420f00
   _mithrilReward: 10
-  _achievementSprite: {fileID: 21300000, guid: fe36ff7695777c2489338706caf26e1c, type: 3}
+  _achievementSprite: {fileID: 21300000, guid: fe38f66cc2bf52d47be3239d63b01b34, type: 3}

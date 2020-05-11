@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -15,14 +16,14 @@ MonoBehaviour:
     name: Miner amount
     desc: Increases the amount of dwarf miners
     value: 1
-    cost: 3500
-    coef: 1.7
+    cost: 100000
+    coef: 4
   _resByWorker:
     name: Miner skills
     desc: Increases the amount of resources found per cycle
-    value: 1
-    cost: 40
-    coef: 3
+    value: 0.3
+    cost: 10
+    coef: 2
   _luck:
     name: 'Bonus : Luck'
     desc: Increases the chance of finding free resources
@@ -32,7 +33,7 @@ MonoBehaviour:
   _beerConsumption:
     name: Liquid consumption
     desc: Reduce the amount of liquid consumed by the dwarves
-    value: 0.05
+    value: 0.03
     cost: 50
     coef: 2.5
   _cycleDuration:

@@ -17,4 +17,4 @@ MonoBehaviour:
   _objective: Change tool created
   _stepMax: 01000000
   _mithrilReward: 5
-  _achievementSprite: {fileID: 0}
+  _achievementSprite: {fileID: 21300000, guid: bfdde1246e60e3f4fa739552ca49a397, type: 3}

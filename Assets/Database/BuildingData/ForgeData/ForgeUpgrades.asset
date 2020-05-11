@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -27,7 +28,7 @@ MonoBehaviour:
     name: Cycle duration
     desc: Reduce the time needed to forge the tools
     value: 0.05
-    cost: 100
+    cost: 100000
     coef: 1.5
   _instantSellingChance:
     name: 'Bonus : Sell now'
@@ -38,6 +39,6 @@ MonoBehaviour:
   _instantSellingGoldBonus:
     name: 'Bonus : Sales improvement'
     desc: Increases the gold bonus when the tool is instantly sell
-    value: 0.1
+    value: 0.2
     cost: 250
     coef: 1.2

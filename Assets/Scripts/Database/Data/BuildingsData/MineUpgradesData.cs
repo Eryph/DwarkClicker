@@ -9,7 +9,7 @@
 		[Header("Incremental")]
 		[SerializeField] private IntUpgrade _workerAmount;
 		[Header("Incremental")]
-		[SerializeField] private IntUpgrade _resByWorker;
+		[SerializeField] private FloatUpgrade _resByWorker;
 		[Header("Decremental")]
 		[SerializeField] private IntUpgrade _luck;
 		[Header("Percentage 0-1")]
@@ -24,7 +24,7 @@
 		[SerializeField] private IntUpgrade _mithrilChance;
 
         public IntUpgrade WorkerAmount { get { return _workerAmount; } }
-        public IntUpgrade ResByWorker { get { return _resByWorker; } }
+        public FloatUpgrade ResByWorker { get { return _resByWorker; } }
         public IntUpgrade Luck { get { return _luck; } }
 		public FloatUpgrade BeerConsumption { get { return _beerConsumption; } }
 		public FloatUpgrade NoBeerConsumption { get { return _noBeerConsumptionChance; } }

@@ -4,12 +4,13 @@
 	using System.Collections;
 	using System.Collections.Generic;
 	using UnityEngine;
-	using TMPro;
+    using UnityEngine.UI;
+    using TMPro;
 	using DwarfClicker.Misc;
 
 	public class DialboxController : MonoBehaviour
 	{
-		[SerializeField] private Transform _content = null;
+		[SerializeField] private ScrollRect _scroll = null;
 		[SerializeField] private int _posToSwitch = 1500;
 
 		[SerializeField] private Fader _firstFullScreenDialbox = null;
@@ -128,17 +129,19 @@
 
 		public void SetTopBottomDialbox()
 		{
-			if (FTUEManager.Instance.IsActivated)
-			if (_content.position.y < _posToSwitch)
-			{
-				_bottomDialbox.SetActive(true);
-				_topDialbox.SetActive(false);
-			}
-			else
-			{
-				_bottomDialbox.SetActive(false);
-				_topDialbox.SetActive(true);
-			}
+            if (FTUEManager.Instance.IsActivated)
+            {
+                if (_scroll.verticalNormalizedPosition >= 0.5)
+                {
+                    _bottomDialbox.SetActive(true);
+                    _topDialbox.SetActive(false);
+                }
+                else
+                {
+                    _bottomDialbox.SetActive(false);
+                    _topDialbox.SetActive(true);
+                }
+            }
 		}
 
 		//DEBUG

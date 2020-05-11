@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -15,4 +16,4 @@ MonoBehaviour:
   _wByWorker: 1
   _cycleDuration: 100
   _instantSellingChance: 200
-  _instantSellingGoldBonus: 0
+  _instantSellingGoldBonus: 1

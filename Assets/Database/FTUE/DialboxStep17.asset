@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: DIALBOX_KEY17
   _step: 16
-  _text: "Now you know the basics on how to manage your fortress. But I still have
-    to explain what you can do with all the coins you're earning! \n"
+  _text: 'Now you know the basics on how to manage your fortress. Good luck, and make
+    me rich !
+
+'

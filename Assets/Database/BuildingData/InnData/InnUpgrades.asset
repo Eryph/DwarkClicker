@@ -21,6 +21,6 @@ MonoBehaviour:
   _storage:
     name: Cellar size
     desc: Increases the amount of liquid that can be stored
-    value: 1000
+    value: 40
     cost: 1000
     coef: 3

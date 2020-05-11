@@ -91,6 +91,11 @@
 			BuyProductID("NO_ADS");
 		}
 
+        public void BuyCoffee()
+        {
+            BuyProductID("COFFEE");
+        }
+
 		public void CompletePurchase()
 		{
 			if (test_product == null)
@@ -99,6 +104,10 @@
 			{
 				m_StoreController.ConfirmPendingPurchase(test_product);
 				MyDebug("Completed purchase with " + test_product.transactionID.ToString());
+                if (test_product.definition.id == "COFFEE")
+                {
+                    JSonManager.Instance.PlayerProfile.Resources["purpleMithril"].UpdateCount(1);
+                }
                 
             }
 
