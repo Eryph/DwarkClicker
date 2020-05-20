@@ -25,8 +25,9 @@
 		[SerializeField] private Image _marketStreamImage = null;
 		[SerializeField] private Image _itemImage = null;
 
-		private Button _button = null;
-		private bool _isSelected = false;
+		[SerializeField] private Button _button = null;
+
+        private bool _isSelected = false;
 
 		private bool _min = false;
 		private bool _max = false;

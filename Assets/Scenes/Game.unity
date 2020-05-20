@@ -1079,7 +1079,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6635,6 +6635,21 @@ PrefabInstance:
       propertyPath: m_textInfo.lineCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114585693305908576, guid: e8f4b6b920ca3024bbf828bffd314de9,
+        type: 3}
+      propertyPath: m_text
+      value: Day 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114585693305908576, guid: e8f4b6b920ca3024bbf828bffd314de9,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114585693305908576, guid: e8f4b6b920ca3024bbf828bffd314de9,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114379177609462912, guid: e8f4b6b920ca3024bbf828bffd314de9,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -11511,7 +11526,7 @@ RectTransform:
   m_GameObject: {fileID: 275951558}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.000002, y: 1.000002, z: 1.000002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1654408857}
   m_Father: {fileID: 353246371}
@@ -21438,7 +21453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -23382,7 +23397,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -253, y: 621}
+  m_AnchoredPosition: {x: -253, y: 0}
   m_SizeDelta: {x: 506, y: 2038}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &576957183
@@ -24836,8 +24851,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -252.9, y: 0}
-  m_SizeDelta: {x: 505.8, y: 927.2}
+  m_AnchoredPosition: {x: -252.9, y: 1087}
+  m_SizeDelta: {x: 505.8, y: 1110.4}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &599877066
 MonoBehaviour:
@@ -25318,7 +25333,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Get abother task
+  m_text: Get another task
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5eba36dbff619f744a94bfe9ec0314ed, type: 2}
   m_sharedMaterial: {fileID: 21283753269594162, guid: 5eba36dbff619f744a94bfe9ec0314ed,
@@ -25347,8 +25362,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 5.81
-  m_fontSizeBase: 5.81
+  m_fontSize: 5.16
+  m_fontSizeBase: 5.16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -26287,6 +26302,21 @@ PrefabInstance:
     - target: {fileID: 114585693305908576, guid: e8f4b6b920ca3024bbf828bffd314de9,
         type: 3}
       propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114585693305908576, guid: e8f4b6b920ca3024bbf828bffd314de9,
+        type: 3}
+      propertyPath: m_text
+      value: Day 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114585693305908576, guid: e8f4b6b920ca3024bbf828bffd314de9,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114585693305908576, guid: e8f4b6b920ca3024bbf828bffd314de9,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114379177609462912, guid: e8f4b6b920ca3024bbf828bffd314de9,
@@ -27622,7 +27652,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000000055349, y: -0.000015258789}
+  m_AnchoredPosition: {x: 0.000000055349, y: -0.0000076293945}
   m_SizeDelta: {x: 0, y: 61}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &658859254
@@ -31598,6 +31628,7 @@ MonoBehaviour:
   _weaponPrice: {fileID: 468658967}
   _marketStreamImage: {fileID: 609031522}
   _itemImage: {fileID: 1204256870}
+  _button: {fileID: 744538418}
 --- !u!114 &744538418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32534,7 +32565,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -0.000009984736, y: 0.0000026047442}
-  m_SizeDelta: {x: 0, y: 27.7}
+  m_SizeDelta: {x: -136.21, y: 27.7}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &765999467
 MonoBehaviour:
@@ -33361,7 +33392,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rexards
+  m_text: Rewards
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5eba36dbff619f744a94bfe9ec0314ed, type: 2}
   m_sharedMaterial: {fileID: 21283753269594162, guid: 5eba36dbff619f744a94bfe9ec0314ed,
@@ -36825,6 +36856,7 @@ MonoBehaviour:
   _weaponPrice: {fileID: 1436334340}
   _marketStreamImage: {fileID: 1320546359}
   _itemImage: {fileID: 500053126}
+  _button: {fileID: 868149548}
 --- !u!114 &868149548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40539,7 +40571,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &963415356
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40909,7 +40941,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The king doesn't need you for know.
+  m_text: The king doesn't need you for now.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5eba36dbff619f744a94bfe9ec0314ed, type: 2}
   m_sharedMaterial: {fileID: 21283753269594162, guid: 5eba36dbff619f744a94bfe9ec0314ed,
@@ -41841,6 +41873,21 @@ PrefabInstance:
     - target: {fileID: 114585693305908576, guid: e8f4b6b920ca3024bbf828bffd314de9,
         type: 3}
       propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114585693305908576, guid: e8f4b6b920ca3024bbf828bffd314de9,
+        type: 3}
+      propertyPath: m_text
+      value: Day 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114585693305908576, guid: e8f4b6b920ca3024bbf828bffd314de9,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114585693305908576, guid: e8f4b6b920ca3024bbf828bffd314de9,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114379177609462912, guid: e8f4b6b920ca3024bbf828bffd314de9,
@@ -46759,18 +46806,21 @@ MonoBehaviour:
   - {fileID: 526905800}
   - {fileID: 288665785}
   - {fileID: 1862827708}
+  - {fileID: 668737909}
   _mithrilDescs:
   - {fileID: 1811137112}
   - {fileID: 832519098}
   - {fileID: 770545868}
   - {fileID: 1529661398}
   - {fileID: 1971824760}
+  - {fileID: 609066302}
   _mithrilPrices:
   - {fileID: 2112368067}
   - {fileID: 392326292}
   - {fileID: 1321958808}
   - {fileID: 502287068}
   - {fileID: 2100206551}
+  - {fileID: 1924086800}
   _bonusTitle: {fileID: 477884996}
   _bonusDesc: {fileID: 1297179324}
   _bonusPrice: {fileID: 1239322656}
@@ -55702,7 +55752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -56171,6 +56221,31 @@ PrefabInstance:
     - target: {fileID: 114585693305908576, guid: e8f4b6b920ca3024bbf828bffd314de9,
         type: 3}
       propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114585693305908576, guid: e8f4b6b920ca3024bbf828bffd314de9,
+        type: 3}
+      propertyPath: m_text
+      value: Day 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114585693305908576, guid: e8f4b6b920ca3024bbf828bffd314de9,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114585693305908576, guid: e8f4b6b920ca3024bbf828bffd314de9,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114585693305908576, guid: e8f4b6b920ca3024bbf828bffd314de9,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114585693305908576, guid: e8f4b6b920ca3024bbf828bffd314de9,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114379177609462912, guid: e8f4b6b920ca3024bbf828bffd314de9,
@@ -60137,6 +60212,7 @@ MonoBehaviour:
   _weaponPrice: {fileID: 1154906789}
   _marketStreamImage: {fileID: 1442455308}
   _itemImage: {fileID: 85245699}
+  _button: {fileID: 1404661465}
 --- !u!114 &1404661465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62856,7 +62932,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A little bit of a ithril pack
+  m_text: A little bit of mithril
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5eba36dbff619f744a94bfe9ec0314ed, type: 2}
   m_sharedMaterial: {fileID: 21283753269594162, guid: 5eba36dbff619f744a94bfe9ec0314ed,
@@ -62926,10 +63002,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0.5068508, w: 0}
   m_textInfo:
     textComponent: {fileID: 1483055944}
-    characterCount: 29
+    characterCount: 23
     spriteCount: 0
-    spaceCount: 6
-    wordCount: 7
+    spaceCount: 4
+    wordCount: 5
     linkCount: 0
     lineCount: 2
     pageCount: 1
@@ -66402,6 +66478,21 @@ PrefabInstance:
       propertyPath: m_textInfo.lineCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114585693305908576, guid: e8f4b6b920ca3024bbf828bffd314de9,
+        type: 3}
+      propertyPath: m_text
+      value: Day 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114585693305908576, guid: e8f4b6b920ca3024bbf828bffd314de9,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114585693305908576, guid: e8f4b6b920ca3024bbf828bffd314de9,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114379177609462912, guid: e8f4b6b920ca3024bbf828bffd314de9,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -67735,7 +67826,8 @@ MonoBehaviour:
   _rewardAmount: {fileID: 1266017478}
   _noTaskPanel: {fileID: 950139440}
   _claimButton: {fileID: 1950222084}
-  _popup: {fileID: 0}
+  _popup: {fileID: 392862565}
+  _inventoryPanel: {fileID: 2052187222}
 --- !u!114 &1589837370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72969,7 +73061,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -77970,6 +78062,21 @@ PrefabInstance:
       propertyPath: m_textInfo.lineCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114585693305908576, guid: e8f4b6b920ca3024bbf828bffd314de9,
+        type: 3}
+      propertyPath: m_text
+      value: Day 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114585693305908576, guid: e8f4b6b920ca3024bbf828bffd314de9,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114585693305908576, guid: e8f4b6b920ca3024bbf828bffd314de9,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114379177609462912, guid: e8f4b6b920ca3024bbf828bffd314de9,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -78576,7 +78683,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -0.000009984736, y: 0.0000026047442}
-  m_SizeDelta: {x: 0, y: 27.7}
+  m_SizeDelta: {x: -136.21, y: 27.7}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1902307648
 MonoBehaviour:

@@ -124,7 +124,7 @@
 
 			string weaponKey = fortress.CurrentCraft.Name;
 			int weaponGain = weaponProduced - instantSellingCounter;
-            int trueWeaponGain = (int)(weaponGain + playerProfile._toolsMultiplierBonus);
+            int trueWeaponGain = (int)(weaponGain * playerProfile._toolsMultiplierBonus);
 			playerProfile.Weapons[weaponKey].UpdateCount(trueWeaponGain);
 			AchievementManager.Instance.UpdateAchievement("FORGED_AMOUNT", trueWeaponGain);
 			GameManager.Instance.ProgressionInventory.SetProducedWeapon(weaponKey, trueWeaponGain);

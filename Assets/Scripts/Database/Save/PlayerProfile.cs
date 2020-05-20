@@ -63,6 +63,7 @@
 
 		public DictionaryStringResource _resources = null;
 		public DictionaryStringWeapon _weapons = null;
+        private bool _hasReset = false;
 		#endregion Inventory
 
 		#region Achievement
@@ -180,7 +181,9 @@
 		#endregion Fortress
 
 		#region Inventory
-		public DictionaryStringResource Resources { get { return _resources; } }
+        public bool HasReset { get { return _hasReset; } }
+
+        public DictionaryStringResource Resources { get { return _resources; } }
 
 		public DictionaryStringWeapon Weapons { get { return _weapons; } }
 

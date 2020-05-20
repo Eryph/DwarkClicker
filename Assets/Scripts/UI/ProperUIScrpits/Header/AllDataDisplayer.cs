@@ -108,9 +108,14 @@
             if (JSonManager.Instance.PlayerProfile.FTUEStep != 2 &&
                JSonManager.Instance.PlayerProfile.FTUEStep != 5 &&
                JSonManager.Instance.PlayerProfile.FTUEStep != 8 &&
-               JSonManager.Instance.PlayerProfile.FTUEStep != 14)
+               JSonManager.Instance.PlayerProfile.FTUEStep != 14 &&
+               _shopPanel.activeSelf == false)
             {
                 _shopPanel.SetActive(true);
+            }
+            else if (_shopPanel.activeSelf)
+            {
+                _shopPanel.SetActive(false);
             }
 		}
 

@@ -25,9 +25,22 @@
 
 		#region Properties
 		public ProgressionLoadInventory ProgressionInventory { get { return _progressionInventory; } }
-		#endregion Properties
+        #endregion Properties
 
-		#region Events
+        #region Events
+        private event Action _onProgressionLoad = null;
+        public event Action OnProgressionLoad
+        {
+            add
+            {
+                _onProgressionLoad -= value;
+                _onProgressionLoad += value;
+            }
+            remove
+            {
+                _onProgressionLoad -= value;
+            }
+        }
 		#endregion Events
 
 		#region Methods
@@ -102,25 +115,27 @@
 				_progressionInventory.Init();
 				_progressionInventory.SetTimePassed(timeElapsed);
 
-                if (_playerProfile._bonusTimeRemaining > 0)
+                if (timeElapsed.TotalSeconds < _playerProfile._bonusTimeRemaining)
                 {
-                    if (timeElapsed.TotalSeconds < _playerProfile._bonusTimeRemaining)
-                    {
-                        _playerProfile._bonusTimeRemaining -= (float)timeElapsed.TotalSeconds;
-                        IdleProgression(fortress, timeElapsed);
-                    }
-                    else
+                    _playerProfile._bonusTimeRemaining -= (float)timeElapsed.TotalSeconds;
+                    IdleProgression(fortress, timeElapsed, true);
+                }
+                else
+                {
+                    if (_playerProfile._bonusTimeRemaining > 0)
                     {
                         int bonusTimeElapsed = (int)(timeElapsed.TotalSeconds - _playerProfile._bonusTimeRemaining);
-                        TimeSpan bonusTimeSpan = new TimeSpan(0,0, bonusTimeElapsed);
+                        TimeSpan bonusTimeSpan = new TimeSpan(0, 0, bonusTimeElapsed);
                         IdleProgression(fortress, bonusTimeSpan, true);
                         timeElapsed -= bonusTimeSpan;
-                        IdleProgression(fortress, timeElapsed);
-                        _playerProfile._bonusTimeRemaining = 0;
                     }
+                    IdleProgression(fortress, timeElapsed);
+                    _playerProfile._bonusTimeRemaining = 0;
                 }
-                
+
             }
+            if (_onProgressionLoad != null)
+                _onProgressionLoad();
 		}
 
         private void IdleProgression(FortressProfile fortress, TimeSpan timeElapsed, bool isBonused = false)
@@ -161,36 +176,40 @@
 					
 			if (_playerProfile.LaunchAmount > 0)
 				LoadProgression();
-		}
+        }
 
 		private void OnApplicationQuit()
 		{
-			_playerProfile.LaunchAmount = _playerProfile.LaunchAmount + 1;
-			_playerProfile.SerializeDate(DateTime.Now);
+            if (_playerProfile.HasReset == false)
+                _playerProfile.LaunchAmount = _playerProfile.LaunchAmount + 1;
+            _playerProfile.SerializeDate(DateTime.Now);
 			JSonManager.Instance.SavePlayerProfile();
 			JSonManager.Instance.SaveNotifProfile();
-		}
+            
+        }
 
 #if ANDROID
 		private void OnApplicationPause(bool pauseStatus)
 		{
-			if (_playerProfile != null)
+            if (_playerProfile == null)
+            {
+                _playerProfile = JSonManager.Instance.PlayerProfile;
+            }
+
+			if (pauseStatus)
 			{
-				if (pauseStatus)
-				{
-					_playerProfile.LaunchAmount = _playerProfile.LaunchAmount + 1;
-					_playerProfile.SerializeDate(DateTime.Now);
-					//float timeToNotif = ComputeTimeToNotification();
-					//DeviceManager.Instance.PushLocalNotification("The dwarfs thirsty !", "Beer is running low ! Come back and brew some beers.", timeToNotif);
-					JSonManager.Instance.SavePlayerProfile();
-					JSonManager.Instance.SaveNotifProfile();
-				}
-				else
-				{
-					Screen.sleepTimeout = SleepTimeout.NeverSleep;
-					_playerProfile.DeserializeDate();
-					LoadProgression();
-				}
+				_playerProfile.LaunchAmount = _playerProfile.LaunchAmount + 1;
+				_playerProfile.SerializeDate(DateTime.Now);
+				//float timeToNotif = ComputeTimeToNotification();
+				//DeviceManager.Instance.PushLocalNotification("The dwarfs thirsty !", "Beer is running low ! Come back and brew some beers.", timeToNotif);
+				JSonManager.Instance.SavePlayerProfile();
+				JSonManager.Instance.SaveNotifProfile();
+			}
+			else
+			{
+				Screen.sleepTimeout = SleepTimeout.NeverSleep;
+				_playerProfile.DeserializeDate();
+				LoadProgression();
 			}
 		}
 

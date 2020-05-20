@@ -20,6 +20,7 @@
 		[SerializeField] private GameObject _noTaskPanel = null;
 		[SerializeField] private Button _claimButton = null;
         [SerializeField] private PopUpWindowController _popup = null;
+        [SerializeField] private InventoryPanel _inventoryPanel = null;
 
         public void Display(PlayerProfile profile)
 		{
@@ -77,7 +78,8 @@
 		{
 			AchievementManager.Instance.ClaimTaskReward();
 			Display(JSonManager.Instance.PlayerProfile);
-            _popup.Display(1, "Task completed !\nCongatulations !");
+            _popup.Display(1, "Task completed !\nCongratulations !");
+            _inventoryPanel.Display();
 		}
 
 		public void ShowAdToResetTask()

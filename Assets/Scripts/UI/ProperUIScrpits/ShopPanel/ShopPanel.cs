@@ -9,6 +9,7 @@
 	using Engine.Manager;
 	using Engine.Utils;
     using DwarfClicker.UI.PopUp;
+    using DwarkClicker.Helper;
 
     public class ShopPanel : MonoBehaviour
 	{
@@ -37,14 +38,14 @@
 		{
 			for (int i = 0; i < _mithrilDescs.Count; i++)
 			{
-				Product mithrilPack = _shopController.Store.products.WithID("MITHRIL_PACK_" + (i+1).ToString());
-				_mithrilTitles[i].text = mithrilPack.metadata.localizedTitle;
+				Product mithrilPack = _shopController.Store.products.WithID("mithril_pack" + i.ToString());
+				_mithrilTitles[i].text = UIHelper.FormatProductName(mithrilPack.metadata.localizedTitle);
 				_mithrilDescs[i].text = mithrilPack.metadata.localizedDescription;
 				_mithrilPrices[i].text = mithrilPack.metadata.localizedPrice.ToString() + mithrilPack.metadata.isoCurrencyCode;
 
 			}
-			Product noAds = _shopController.Store.products.WithID("NO_ADS");
-			_bonusTitle.text = noAds.metadata.localizedTitle;
+			Product noAds = _shopController.Store.products.WithID("no_ads");
+			_bonusTitle.text = UIHelper.FormatProductName(noAds.metadata.localizedTitle);
 			_bonusDesc.text = noAds.metadata.localizedDescription;
 			if (JSonManager.Instance.PlayerProfile._noMoreAdsBonus)
 			{
@@ -83,14 +84,14 @@
 		{
 			if (_shopController.IsInitialized())
 			{
-				Product product = _shopController.Store.products.WithID("MITHRIL_PACK_" + productId.ToString());
+				Product product = _shopController.Store.products.WithID("mithril_pack" + productId.ToString());
 
 				if (product != null && product.availableToPurchase)
 				{
 					Debug.Log(string.Format("Purchasing product:" + product.definition.id.ToString()));
 					_shopController.Store.InitiatePurchase(product);
-					_shopController.OnPurchaseComplete += GainMithril;
-                    _popup.Display(2, "Transaction complete !\nCongatulations !");
+                    _shopController.OnPurchaseComplete += GainMithril;
+                    _shopController.OnPurchaseComplete += PopUpReward;
                 }
 				else
 				{
@@ -155,7 +156,7 @@
 
 			switch (product.definition.id)
 			{
-				case "NO_ADS":
+				case "no_ads":
 					profile._noMoreAdsBonus = true;
                     _popup.Display(2, "Transaction complete !\nCongatulations !");
                     break;
@@ -172,7 +173,29 @@
         public void OnSongButtonClick()
         {
             _shopController.LaunchSongAd();
+            MonetizationManager.Instance.AdFinished += _bonusProgressBar.UpdateBar;
             _bonusProgressBar.UpdateBar();
+        }
+
+        public void BuyGoldMultiplier()
+        {
+            JSonManager.Instance.PlayerProfile._goldMultiplierBonus += 0.1f;
+        }
+        public void BuyResourcesMultiplier()
+        {
+
+            JSonManager.Instance.PlayerProfile._resourcesMultiplierBonus += 0.1f;
+
+        }
+        public void BuyToolsMultiplier()
+        {
+
+            JSonManager.Instance.PlayerProfile._toolsMultiplierBonus += 0.1f;
+        }
+
+        public void PopUpReward(Product product)
+        {
+            _popup.Display(2, "Transaction complete !\nCongatulations !");
         }
 
         #endregion Methods

@@ -13,6 +13,7 @@
         public void UpdateBar()
         {
             _slider.value = JSonManager.Instance.PlayerProfile._bonusTimeRemaining / DatabaseManager.Instance.ConsumableBonusData.BonusTimeMax;
+            MonetizationManager.Instance.AdFinished -= UpdateBar;
         }
     }
 }

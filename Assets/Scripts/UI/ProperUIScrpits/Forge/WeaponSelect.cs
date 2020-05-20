@@ -27,7 +27,7 @@
 					_weaponsSelectButtons[i].Init(JSonManager.Instance.PlayerProfile.Weapons[weapons[i].Name], weapons[i]);
 					if (i == currentCraft)
 					{
-						_weaponsSelectButtons[i].Select();
+						SelectWeapon(i);
 					}
 				}
 				else

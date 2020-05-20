@@ -29,19 +29,24 @@
 		private bool _shouldDisplay = false;
 		private bool _shouldNowDisplay = false;
 
-		private void OnEnable()
+        private void Start()
+        {
+            GameManager.Instance.OnProgressionLoad += Display;
+        }
+
+        private void OnEnable()
 		{
-			if (JSonManager.Instance.PlayerProfile.LaunchAmount > 0)
+			if (JSonManager.Instance.PlayerProfile.LaunchAmount > 0 && FTUEManager.Instance.IsActivated == false)
 				Display();
 			else
 			{
 				gameObject.SetActive(false);
-			}
+            }
 		}
 
 		private void Display()
 		{
-
+            gameObject.SetActive(true);
 			ProgressionLoadInventory inv = GameManager.Instance.ProgressionInventory;
 			/*TextMeshProUGUI timeElapsedText = _timeElapsedContainer.GetComponentInChildren<TextMeshProUGUI>();
 			TextMeshProUGUI producedText = _producedContainer.GetComponentInChildren<TextMeshProUGUI>();

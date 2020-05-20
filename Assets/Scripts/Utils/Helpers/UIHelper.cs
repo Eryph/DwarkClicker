@@ -66,5 +66,20 @@
 
 			return ret;
 		}
+
+        public static string FormatProductName(string productName)
+        {
+            string ret = productName;
+
+            for (int i = 0; i < productName.Length; i++)
+            {
+                if (productName[i] == '(')
+                {
+                    ret = productName.Substring(i);
+                }
+            }
+
+            return ret;
+        }
 	}
 }
