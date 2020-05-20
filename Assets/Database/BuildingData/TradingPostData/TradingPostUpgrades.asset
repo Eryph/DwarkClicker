@@ -16,20 +16,20 @@ MonoBehaviour:
     name: Merchants amount
     desc: Increases the number of dwarf merchants
     value: 1
-    cost: 100000
-    coef: 1.5
+    cost: 200
+    coef: 2
   _sellByWorker:
     name: Storage capacity
     desc: Increases the number of tool sold per cycle
     value: 1
-    cost: 3500
-    coef: 1.2
+    cost: 200
+    coef: 2
   _cycleDuration:
     name: Cycle duration
     desc: Reduce the time needed to sell the tools
     value: 0.0605
-    cost: 100000
-    coef: 1.5
+    cost: 50
+    coef: 2
   _winBeerAmount:
     name: 'Bonus : Liquid amount'
     desc: Increase the amount of liquid brought back

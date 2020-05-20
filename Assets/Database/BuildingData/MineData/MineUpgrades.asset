@@ -22,7 +22,7 @@ MonoBehaviour:
     name: Miner skills
     desc: Increases the amount of resources found per cycle
     value: 0.3
-    cost: 10
+    cost: 50
     coef: 2
   _luck:
     name: 'Bonus : Luck'
