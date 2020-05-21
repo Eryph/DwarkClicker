@@ -22,7 +22,7 @@ MonoBehaviour:
     name: Blacksmith skills
     desc: Increases the amount of forged tools per cycle
     value: 1
-    cost: 200
+    cost: 150
     coef: 2
   _cycleDuration:
     name: Cycle duration
