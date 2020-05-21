@@ -31,8 +31,8 @@ MonoBehaviour:
     cost: 250
     coef: 1.2
   _beerConsumption:
-    name: Liquid consumption
-    desc: Reduce the amount of liquid consumed by the dwarves
+    name: NOT IN GAME
+    desc: NOT IN GAME
     value: 0.03
     cost: 50
     coef: 2.5
