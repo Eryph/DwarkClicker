@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _beerByTap:
     name: Brewer skills
-    desc: Increases the amount of liquid brewed per tap
+    desc: Increases the amount of Elixeer brewed per tap
     value: 50
     cost: 50
     coef: 1.4
   _storage:
     name: Cellar size
-    desc: Increases the amount of liquid that can be stored
+    desc: Increases the amount of Elixeer that can be stored
     value: 32
     cost: 50
     coef: 1.32
