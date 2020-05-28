@@ -54,14 +54,15 @@
         private PlayerProfile _playerProfile = null;
         private bool _isGoldTrans = true;
 
-        private void Start()
-		{
-			_playerProfile = JSonManager.Instance.PlayerProfile;
-			_playerProfile.CurrentFortress.OnTPUpgradeChange += OnTradingPostUpgrade;
-			_playerProfile.OnFortressChange += UpdateFortress;
-			GameLoopManager.Instance.GameLoop += UpdateDisplay;
+        public void Init()
+        {
+            _playerProfile = JSonManager.Instance.PlayerProfile;
+            _playerProfile.CurrentFortress.OnTPUpgradeChange += OnTradingPostUpgrade;
+            _playerProfile.OnFortressChange += UpdateFortress;
+            GameLoopManager.Instance.GameLoop += UpdateDisplay;
             _onSwitchGoldMithril += Display;
-			OnTradingPostUpgrade();
+            OnTradingPostUpgrade();
+            _backgroundImage.sprite = _backgrounds[_playerProfile.CurrentFortressIndex];
         }
 
 		private void OnEnable()

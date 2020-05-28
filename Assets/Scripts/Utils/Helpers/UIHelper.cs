@@ -75,7 +75,7 @@
             {
                 if (productName[i] == '(')
                 {
-                    ret = productName.Substring(i);
+                    ret = productName.Substring(0, i - 1);
                 }
             }
 

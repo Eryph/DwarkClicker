@@ -36,18 +36,10 @@
 
         private void OnDisable()
         {
-            if (_profile.FTUEStep == 19)
-            {
-                FTUEManager.Instance.StepFinished();
-            }
         }
 
         private void Display()
 		{
-            if (_profile.FTUEStep == 18)
-            {
-                FTUEManager.Instance.StepFinished();
-            }
 			_alreadyRedeemeedeemButton.SetActive(false);
 			if (_profile._dailyRewardIndex != 0)
 			{

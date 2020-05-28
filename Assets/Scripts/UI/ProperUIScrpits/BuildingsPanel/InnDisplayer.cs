@@ -63,7 +63,7 @@
                 UpdateBar();
         }
 
-        private void Start()
+        public void Init()
         {
             _emptyPos = _bar.localPosition;
             _playerProfile = JSonManager.Instance.PlayerProfile;

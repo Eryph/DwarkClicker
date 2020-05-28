@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: DIALBOX_KEY11
   _step: 10
-  _text: "Here you can choose what item the Blacksmiths will forge. They all need
-    the same amount of minerals to be forged.\r\n"
+  _text: "Click here to receive your first mithril.\r\n\n"

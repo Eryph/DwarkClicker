@@ -180,12 +180,16 @@
 
 		private void OnApplicationQuit()
 		{
+            
             if (_playerProfile.HasReset == false)
                 _playerProfile.LaunchAmount = _playerProfile.LaunchAmount + 1;
             _playerProfile.SerializeDate(DateTime.Now);
 			JSonManager.Instance.SavePlayerProfile();
 			JSonManager.Instance.SaveNotifProfile();
-            
+            if (FTUEManager.Instance.CurrentStep < FTUEManager.Instance.StepAmount)
+            {
+                JSonManager.Instance.PlayerProfile.Reset();
+            }
         }
 
 #if ANDROID

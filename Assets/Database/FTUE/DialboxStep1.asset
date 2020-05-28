@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: DIALBOX_KEY1
   _step: 0
-  _text: Hey there new intendant! Welcome to your fortress! Let me show you around.
+  _text: Welcome to your Fortress, Warden ! I was waiting for you. Let me show you
+    around !

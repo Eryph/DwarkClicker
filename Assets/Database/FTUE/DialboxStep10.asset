@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: DIALBOX_KEY10
   _step: 9
-  _text: "Blacksmiths can forge various items, and your role here is crucial. Listen
-    to me intendant, here's the Craft Selector.\r\n"
+  _text: "The only building left is the Treasure Room. Where you can find a lots of
+    bonus and get Mithril, a powerful money.\r\n\n"

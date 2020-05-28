@@ -30,7 +30,12 @@
 		[SerializeField] private TextMeshProUGUI _bonusDesc = null;
 		[SerializeField] private TextMeshProUGUI _bonusPrice = null;
 
-		private bool _isInit = false;
+        [Header("Tea Texts")]
+        [SerializeField] private TextMeshProUGUI _teaTitle = null;
+        [SerializeField] private TextMeshProUGUI _teaDesc = null;
+        [SerializeField] private TextMeshProUGUI _teaPrice = null;
+
+        private bool _isInit = false;
 		#endregion Fields
 
 		#region Methods
@@ -47,14 +52,22 @@
 			Product noAds = _shopController.Store.products.WithID("no_ads");
 			_bonusTitle.text = UIHelper.FormatProductName(noAds.metadata.localizedTitle);
 			_bonusDesc.text = noAds.metadata.localizedDescription;
-			if (JSonManager.Instance.PlayerProfile._noMoreAdsBonus)
-			{
-				_bonusPrice.text = "Bought";
-			}
-			else
-			{
-				_bonusPrice.text = noAds.metadata.localizedPrice.ToString() + noAds.metadata.isoCurrencyCode;
-			}
+            if (JSonManager.Instance.PlayerProfile._noMoreAdsBonus)
+            {
+                _bonusPrice.text = "Bought";
+            }
+            else
+            {
+                _bonusPrice.text = noAds.metadata.localizedPrice.ToString() + noAds.metadata.isoCurrencyCode;
+            }
+
+
+            Product tea = _shopController.Store.products.WithID("tea");
+            _teaTitle.text = UIHelper.FormatProductName(tea.metadata.localizedTitle);
+            _teaDesc.text = tea.metadata.localizedDescription;
+            _teaPrice.text = tea.metadata.localizedPrice.ToString() + tea.metadata.isoCurrencyCode;
+
+
             _bonusProgressBar.UpdateBar();
 			_isInit = true;
 		}
@@ -64,10 +77,12 @@
 			if (_isInit == false)
 			{
 				Init();
-                _shopButtonDisable.SetActive(true);
-                _shopButtonEnable.SetActive(false);
+
 			}
-		}
+            FTUEManager.Instance.StepFinished();
+            _shopButtonDisable.SetActive(true);
+            _shopButtonEnable.SetActive(false);
+        }
 
         private void OnDisable()
         {
@@ -168,6 +183,7 @@
         public void OnElixirButtonClick()
         {
             _shopController.LaunchElixirAd();
+            FTUEManager.Instance.StepFinished();
         }
 
         public void OnSongButtonClick()

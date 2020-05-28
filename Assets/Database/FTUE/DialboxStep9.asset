@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: DIALBOX_KEY9
   _step: 8
-  _text: "Enter the Forge.\r\n"
+  _text: "Our Merchants sell the tools to earn coins. With this Coins you can upgrade
+    the buildings, to produce more and faster !\r\n"

@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: DIALBOX_KEY12
   _step: 11
-  _text: "But each item have a different selling price, and this price will evolve
-    depending on the items you will sell. \r\n"
+  _text: "Now explore your Fortress, discover its secrets, and with your help Warden,
+    we can restore the Mighty Dwarven Kingdom to its former glory ! I wish you good
+    luck and a lot of coins !\r\n\n"

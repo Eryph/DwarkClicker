@@ -24,12 +24,9 @@
 		[SerializeField] private GameObject _fullScreenQuitButton = null;
 
         [Header("HighLights")]
-        [SerializeField] private GameObject _innHighlight = null;
-        [SerializeField] private GameObject _mineHighlight = null;
-        [SerializeField] private GameObject _forgeHighlight = null;
-        [SerializeField] private GameObject _tradingPostHighlight = null;
-        [SerializeField] private GameObject _closeButtonHighlight = null;
-        [SerializeField] private GameObject _craftSelectorHighlight = null;
+        private int _highlightsIndex = 0;
+        [SerializeField] private GameObject[] _highlights = null;
+
 
         private void Start()
 		{
@@ -58,56 +55,28 @@
 			_bottomDialbox.SetActive(false);
 		}
 
-        private void SetHiglight(int currentStep)
+        public void TriggerNextHiglight()
         {
-            Debug.Log("CURRENT STEP : " + currentStep);
-            switch (currentStep)
+            if (_highlightsIndex > 0)
+                _highlights[_highlightsIndex - 1].SetActive(false);
+            if (_highlightsIndex < _highlights.Length)
             {
-                case 2:
-                    _innHighlight.SetActive(true);
-                    break;
-                case 4:
-                    _closeButtonHighlight.SetActive(true);
-                    break;
-                case 5:
-                    _mineHighlight.SetActive(true);
-                    break;
-                case 8:
-                    _forgeHighlight.SetActive(true);
-                    break;
-                case 9:
-                    _craftSelectorHighlight.SetActive(true);
-                    break;
-                case 14:
-                    _tradingPostHighlight.SetActive(true);
-                    break;
-                default:
-                    DisableHighlight();
-                    break;
+                _highlights[_highlightsIndex].SetActive(true);
+                _highlightsIndex++;
             }
-        }
-
-        private void DisableHighlight()
-        {
-            _innHighlight.SetActive(false);
-            _mineHighlight.SetActive(false);
-            _forgeHighlight.SetActive(false);
-            _tradingPostHighlight.SetActive(false);
-            _closeButtonHighlight.SetActive(false);
-            _closeButtonHighlight.SetActive(false);
-            _craftSelectorHighlight.SetActive(false);
         }
 
 		public void TriggerDialbox(string text, int currentStep)
 		{
 			if (FTUEManager.Instance.IsActivated)
 			{
-				gameObject.SetActive(true);
+                if (FTUEManager.Instance.CurrentStep >= 1)
+                    TriggerNextHiglight();
+                gameObject.SetActive(true);
 				_bottomDialbox.SetActive(true);
 				_topDialbox.SetActive(false);
 				_topText.text = text;
 				_bottomText.text = text;
-                SetHiglight(currentStep);
 			}
 			else
 				DisableDialbox();
@@ -123,7 +92,7 @@
             if (JSonManager.Instance.PlayerProfile.CurrentFortress.Beer >= JSonManager.Instance.PlayerProfile.CurrentFortress.BeerStorage)
             {
                 JSonManager.Instance.PlayerProfile.CurrentFortress.OnBeerChange -= CheckBeerStorage;
-                SetStepFinished();
+                TriggerNextHiglight();
             }
         }
 
@@ -148,25 +117,12 @@
 
 		public void SetStepFinished()
 		{
-            DisableHighlight();
             FTUEManager.Instance.StepFinished();
 		}
 
         public void DialboxStepFinished()
         {
-            if (_innHighlight.activeSelf == false &&
-                _mineHighlight.activeSelf == false &&
-                _forgeHighlight.activeSelf == false &&
-                _tradingPostHighlight.activeSelf == false &&
-                JSonManager.Instance.PlayerProfile.FTUEStep != 3 &&
-                JSonManager.Instance.PlayerProfile.FTUEStep != 4 &&
-                JSonManager.Instance.PlayerProfile.FTUEStep != 7 &&
-                JSonManager.Instance.PlayerProfile.FTUEStep != 13 &&
-                JSonManager.Instance.PlayerProfile.FTUEStep != 14 &&
-                JSonManager.Instance.PlayerProfile.FTUEStep != 15 &&
-                JSonManager.Instance.PlayerProfile.FTUEStep != 18 &&
-                JSonManager.Instance.PlayerProfile.FTUEStep != 19)
-
+            if (FTUEManager.Instance.CurrentStep == 0 || FTUEManager.Instance.CurrentStep == 11)
                 SetStepFinished();
         }
 

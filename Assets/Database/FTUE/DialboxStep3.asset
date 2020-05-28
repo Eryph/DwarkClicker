@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: DIALBOX_KEY3
   _step: 2
-  _text: First, the Inn, a mythical place.
+  _text: 'Brew Elixeer as much as you can ! '

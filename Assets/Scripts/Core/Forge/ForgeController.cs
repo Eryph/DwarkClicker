@@ -395,14 +395,14 @@
 		{
 			_workerNb = _db.ForgeStats.WorkerAmount + _db.ForgeUpgrades.WorkerAmount.value * _playerProfile.CurrentFortress.ForgeUpgradesIndex._workerNbIndex;
 			_forgeCount = _workerNb * _wByWorker;
-			_resourceConsumed = _currentForgingWeapon.Recipe[0].Count * _forgeCount;
+			_resourceConsumed = _currentForgingWeapon.Recipe[0].Count;
 		}
 
 		private void LoadWByWorker()
 		{
 			_wByWorker = _db.ForgeStats.WByWorker + _db.ForgeUpgrades.WByWorker.value * _playerProfile.CurrentFortress.ForgeUpgradesIndex._wByWorkerIndex;
 			_forgeCount = _workerNb * _wByWorker;
-			_resourceConsumed = _currentForgingWeapon.Recipe[0].Count * _forgeCount;
+			_resourceConsumed = _currentForgingWeapon.Recipe[0].Count;
 		}
 
 		private void LoadCycleDuration()

@@ -234,6 +234,5 @@
                 AchievementManager.Instance.UpdateAchievement("TEMP_BONUS", 1);
             }
         }
-
     }
 }

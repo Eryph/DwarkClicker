@@ -105,7 +105,7 @@
 				forgeRealCycleNb = forgeCycleNb;
 
 			int weaponProduced = forgeRealCycleNb * wByWorker * forgeWorkerNb;
-			int resourceConsumed = -weaponProduced * playerProfile.Weapons[fortress.CurrentCraft.Name].Recipie[0].Count;
+			int resourceConsumed = -forgeRealCycleNb * playerProfile.Weapons[fortress.CurrentCraft.Name].Recipie[0].Count;
 			playerProfile.Resources[fortress.ResourceProduced.Name].UpdateCount(resourceConsumed);
 			
 			GameManager.Instance.ProgressionInventory.SetConsumedResource(fortress.ResourceProduced.Name, resourceConsumed);

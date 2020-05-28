@@ -75,16 +75,17 @@
 				if (_adFinished != null)
 				{
 					_adFinished();
-				}
+                }
 			}
 			else if (showResult == ShowResult.Skipped)
 			{
 				Debug.LogWarning("The ad was skipped, no reward.");
-			}
+            }
 			else if (showResult == ShowResult.Failed)
 			{
 				Debug.LogWarning("The ad did not finish due to an error.");
-			}
+                
+            }
 		}
 
 		public void OnUnityAdsReady(string placementId)

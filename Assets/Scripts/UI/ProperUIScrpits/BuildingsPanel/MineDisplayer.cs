@@ -45,7 +45,6 @@
 		[SerializeField] private UpgradeButtonHandler _workerUpgrade = null;
 		[SerializeField] private UpgradeButtonHandler _resByWorkerUpgrade = null;
 		[SerializeField] private UpgradeButtonHandler _cycleUpUpgrade = null;
-		[SerializeField] private UpgradeButtonHandler _beerConsoUpgrade = null;
 		[SerializeField] private UpgradeButtonHandler _mithrilChanceUpgrade = null;
 		[SerializeField] private UpgradeButtonHandler _luckUpgrade = null;
 		[SerializeField] private UpgradeButtonHandler _richVeinUpgrade = null;
@@ -82,8 +81,8 @@
                 price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.CycleDuration, currentFortress.UMineCycleDurationIndex);
                 _cycleUpUpgrade.Init(uData.CycleDuration.name, uData.CycleDuration.desc, currentFortress.UMineCycleDurationIndex, price, _playerProfile.Gold);
 
-                price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.BeerConsumption, currentFortress.UMineBeerConsoIndex);
-                _beerConsoUpgrade.Init(uData.BeerConsumption.name, uData.BeerConsumption.desc, currentFortress.UMineBeerConsoIndex, price, _playerProfile.Gold);
+                //price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.BeerConsumption, currentFortress.UMineBeerConsoIndex);
+                //_beerConsoUpgrade.Init(uData.BeerConsumption.name, uData.BeerConsumption.desc, currentFortress.UMineBeerConsoIndex, price, _playerProfile.Gold);
 
                 price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.Mithril, currentFortress.UMineMithrilChanceIndex);
                 _mithrilChanceUpgrade.Init(uData.Mithril.name, uData.Mithril.desc, currentFortress.UMineMithrilChanceIndex, price, _playerProfile.Gold);
@@ -102,7 +101,6 @@
                 _workerUpgrade.Init(uData.WorkerAmount.name, uData.WorkerAmount.desc, currentFortress.UMineWorkerNbIndex, price, _playerProfile.Mithril);
                 _resByWorkerUpgrade.Init(uData.ResByWorker.name, uData.ResByWorker.desc, currentFortress.UMineResByWorkerIndex, price, _playerProfile.Mithril);
                 _cycleUpUpgrade.Init(uData.CycleDuration.name, uData.CycleDuration.desc, currentFortress.UMineCycleDurationIndex, price, _playerProfile.Mithril);
-                _beerConsoUpgrade.Init(uData.BeerConsumption.name, uData.BeerConsumption.desc, currentFortress.UMineBeerConsoIndex, price, _playerProfile.Mithril);
                 _mithrilChanceUpgrade.Init(uData.Mithril.name, uData.Mithril.desc, currentFortress.UMineMithrilChanceIndex, price, _playerProfile.Mithril);
                 _luckUpgrade.Init(uData.Luck.name, uData.Luck.desc, currentFortress.UMineLuckIndex, price, _playerProfile.Mithril);
                 _richVeinUpgrade.Init(uData.RichVein.name, uData.RichVein.desc, currentFortress.UMineRichVeinIndex, price, _playerProfile.Mithril);
@@ -123,7 +121,7 @@
         }
 
 
-        private void Start()
+        public void Init()
 		{
 			_playerProfile = JSonManager.Instance.PlayerProfile;
 			_playerProfile.CurrentFortress.OnMineUpgradeChange += OnMineUpgrade;
@@ -131,7 +129,8 @@
             _onSwitchGoldMithril += OnMineUpgrade;
 			GameLoopManager.Instance.GameLoop += UpdateDisplay;
 			OnMineUpgrade();
-		}
+            _backgroundImage.sprite = _backgrounds[_playerProfile.CurrentFortressIndex];
+        }
 
 		private void OnDestroy()
 		{

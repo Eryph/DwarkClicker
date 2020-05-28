@@ -24,6 +24,7 @@
 			_achievementPanel.Display();
 			_inventoryPanel.Display();
 			_kingTaskPanel.Display(profile);
+            
 		}
 
 		public void QuitPanel()

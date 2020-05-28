@@ -11,6 +11,7 @@
 	{
 		#region Fields
 		[SerializeField] private WeaponSelectButton[] _weaponsSelectButtons = null;
+        private int _ftueCounter = 0;
 		#endregion Fields
 
 		#region Methods
@@ -28,6 +29,7 @@
 					if (i == currentCraft)
 					{
 						SelectWeapon(i);
+                        _ftueCounter++;
 					}
 				}
 				else
@@ -45,7 +47,11 @@
 				{
 					if (selectedIndex == i)
 					{
-						_weaponsSelectButtons[i].Select();
+                        if (FTUEManager.Instance.CurrentStep == 6 && _ftueCounter > 0)
+                        {
+                            FTUEManager.Instance.SetNewHighlight();
+                        }
+                        _weaponsSelectButtons[i].Select();
 						JSonManager.Instance.PlayerProfile.CurrentFortress.WeaponIndex = i;
 					}
 					else

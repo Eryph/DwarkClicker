@@ -12,10 +12,12 @@
 		private DialboxController _dialbox = null;
 		private int _currentStep = 0;
 		[SerializeField] private int _stepAmount = 15;
-		#endregion Fields
+        #endregion Fields
 
-		#region Properties
-		public DialboxController Dialbox { get { return _dialbox; } }
+        #region Properties
+        public int StepAmount { get { return _stepAmount; } }
+        public int CurrentStep { get { return _currentStep; } }
+        public DialboxController Dialbox { get { return _dialbox; } }
 		public bool IsActivated { get { return _currentStep < _stepAmount; } }
 		#endregion Properties
 
@@ -41,6 +43,11 @@
 				_dialbox.TriggerDialbox(text, _currentStep);
 			}
 		}
+
+        public void SetNewHighlight()
+        {
+            _dialbox.TriggerNextHiglight();
+        }
 
 		public void StepFinished()
 		{

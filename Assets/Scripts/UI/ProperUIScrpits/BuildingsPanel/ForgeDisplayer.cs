@@ -54,7 +54,7 @@
 		private PlayerProfile _playerProfile = null;
         private bool _isGoldTrans = true;
 
-		private void Start()
+		public void Init()
 		{
 			_playerProfile = JSonManager.Instance.PlayerProfile;
 			_playerProfile.CurrentFortress.OnForgeUpgradeChange += OnForgeUpgrade;

@@ -353,7 +353,7 @@
 			{
 				_timer.ReduceRemainingTime(DatabaseManager.Instance.PolteringValue);
 				_FXController.CreatePolteringParticle();
-				SoundManager.Instance.PlayRandomSound("POLTERING_TRADINGPOST");
+                SoundManager.Instance.PlayRandomSound("POLTERING_TRADINGPOST");
 			}
 			else
 			{
@@ -366,7 +366,13 @@
 		private void OnUpgrade()
 		{
 			LoadData();
-		}
+            
+        }
+
+        public void TriggerHighlight()
+        {
+            FTUEManager.Instance.SetNewHighlight();
+        }
 
 		private void HandleFortressChange()
 		{

@@ -3,7 +3,8 @@
 	using DwarfClicker.Core.Containers;
 	using DwarfClicker.Core.Data;
 	using Engine.Manager;
-	using Engine.Utils;
+    using Engine.UI.FTUE;
+    using Engine.Utils;
 	using System.Collections;
 	using System.Collections.Generic;
 	using UnityEngine;
@@ -29,10 +30,12 @@
 
 		// Utils
 		[SerializeField] private Converter _converter = null;
+        [SerializeField] private DialboxController _dialboxController = null;
 		private Timer _timer = null;
 		private PlayerProfile _playerProfile = null;
 		private DatabaseManager _db = null;
         private bool _isGoldTrans = true;
+        private int _polteringFTUECount = 0;
         #endregion Fields
 
         #region Properties
@@ -394,6 +397,12 @@
 		{
 			if (!_timer.IsStopped)
 			{
+                if (_polteringFTUECount < 5)
+                {
+                    _polteringFTUECount++;
+                    if (_polteringFTUECount >= 5)
+                        _dialboxController.TriggerNextHiglight();
+                }
 				_timer.ReduceRemainingTime(DatabaseManager.Instance.PolteringValue);
 				_FXController.CreatePolteringParticle();
 				SoundManager.Instance.PlayRandomSound("POLTERING_MINE");

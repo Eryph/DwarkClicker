@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: DIALBOX_KEY5
   _step: 4
-  _text: "Good! Miners will enjoy it for a while, then you'll have to come back to
-    brew more. Now let's see how Miners are doing. \r\n\n"
+  _text: 'he Miner uses the Elixeer to extract resources. Tap on the progress bar
+    to speed them.
+
+
+'
