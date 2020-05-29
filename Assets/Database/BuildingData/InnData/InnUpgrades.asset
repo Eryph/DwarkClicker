@@ -15,9 +15,9 @@ MonoBehaviour:
   _beerByTap:
     name: Brewer skills
     desc: Increases the amount of Elixeer brewed per tap
-    value: 50
-    cost: 50
-    coef: 1.4
+    value: 2
+    cost: 100
+    coef: 1.32
   _storage:
     name: Cellar size
     desc: Increases the amount of Elixeer that can be stored

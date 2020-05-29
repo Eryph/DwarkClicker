@@ -16,8 +16,8 @@ MonoBehaviour:
     name: Miner amount
     desc: Increases the amount of dwarf miners
     value: 1
-    cost: 100000
-    coef: 4
+    cost: 350
+    coef: 2
   _resByWorker:
     name: Miner skills
     desc: Increases the amount of resources found per cycle
@@ -29,7 +29,7 @@ MonoBehaviour:
     desc: Increases the chance of finding free resources
     value: 1
     cost: 250
-    coef: 1.2
+    coef: 1.8
   _beerConsumption:
     name: NOT IN GAME
     desc: NOT IN GAME
@@ -41,7 +41,7 @@ MonoBehaviour:
     desc: Reduce the time needed to extract resources
     value: 0.05
     cost: 100
-    coef: 1.5
+    coef: 4
   _noBeerConsumptionChance:
     name: NOT IN GAME
     desc: NOT INTEGRATED
@@ -58,5 +58,5 @@ MonoBehaviour:
     name: 'Bonus : Mithril !'
     desc: Increases the chance of finding Mithril in the mine
     value: 10
-    cost: 500
-    coef: 1.4
+    cost: 30
+    coef: 1.5

@@ -34,17 +34,17 @@ MonoBehaviour:
     name: 'Bonus : Elixeer amount'
     desc: Increase the amount of Elixeer brought back
     value: 10
-    cost: 250
-    coef: 1.3
+    cost: 150
+    coef: 1.5
   _winBeerChance:
     name: 'Bonus : Elixeer gift'
     desc: Increases the chance to come back with Elixeer
     value: 1
     cost: 250
-    coef: 1.3
+    coef: 1.5
   _goldMult:
     name: Merchants skills
     desc: Increases the price of each tool sold
-    value: 0.1
-    cost: 750
-    coef: 1.5
+    value: 0.4
+    cost: 1000
+    coef: 4

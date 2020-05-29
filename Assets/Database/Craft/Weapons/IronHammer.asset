@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -12,14 +13,14 @@ MonoBehaviour:
   m_Name: IronHammer
   m_EditorClassIdentifier: 
   _UID: 0
-  _goldValue: 12
+  _goldValue: 1
   _name: Iron Hammer
   _recipe:
   - Key: iron
-    Count: 4
+    Count: 10
   _modifierTimer: 75
   _priceModifierUp: 1
-  _priceModifierDown: 8
-  _priceMax: 25
-  _priceMin: 7
+  _priceModifierDown: 3
+  _priceMax: 10
+  _priceMin: 1
   _weaponSprite: {fileID: 21300000, guid: 0ea442ef967fcde4ebd42a53ce12e9ca, type: 3}

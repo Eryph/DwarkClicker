@@ -16,8 +16,8 @@ MonoBehaviour:
     name: Blacksmiths amount
     desc: Increases the number of dwarf blacksmiths
     value: 1
-    cost: 3500
-    coef: 1.7
+    cost: 300
+    coef: 2.5
   _wByWorker:
     name: Blacksmith skills
     desc: Increases the amount of forged tools per cycle
@@ -28,8 +28,8 @@ MonoBehaviour:
     name: Cycle duration
     desc: Reduce the time needed to forge the tools
     value: 0.05
-    cost: 100000
-    coef: 1.5
+    cost: 75
+    coef: 4
   _instantSellingChance:
     name: 'Bonus : Sell now'
     desc: Increases the chance to sell the tools instantly
@@ -40,5 +40,5 @@ MonoBehaviour:
     name: 'Bonus : Sales improvement'
     desc: Increases the gold bonus when the tool is instantly sell
     value: 0.2
-    cost: 250
+    cost: 42
     coef: 1.2
