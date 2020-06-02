@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f3585da11d49994f9ec1b0b1e3caefa, type: 3}
-  m_Name: KingTask3
+  m_Name: KingTaskResHigh
   m_EditorClassIdentifier: 
-  _amountAsked: 200
+  _amountAsked: 3000
   _description: fluff
-  _typeAsked: 1
-  _mithrilRewardAmount: 1
-  _rewardMultMin: 0.8
+  _typeAsked: 0
+  _mithrilRewardAmount: 3
+  _rewardMultMin: 1
   _rewardMultMax: 1.5

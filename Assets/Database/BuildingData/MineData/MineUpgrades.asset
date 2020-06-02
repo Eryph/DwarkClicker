@@ -18,45 +18,53 @@ MonoBehaviour:
     value: 1
     cost: 350
     coef: 2
+    max: 0
   _resByWorker:
     name: Miner skills
     desc: Increases the amount of resources found per cycle
     value: 0.3
     cost: 50
     coef: 1.32
+    max: 0
   _luck:
     name: 'Bonus : Luck'
     desc: Increases the chance of finding free resources
     value: 1
     cost: 250
     coef: 1.8
+    max: 100
   _beerConsumption:
     name: NOT IN GAME
     desc: NOT IN GAME
     value: 0.03
     cost: 50
     coef: 2.5
+    max: 0
   _cycleDuration:
     name: Cycle duration
     desc: Reduce the time needed to extract resources
     value: 0.05
     cost: 100
     coef: 4
+    max: 0
   _noBeerConsumptionChance:
     name: NOT IN GAME
     desc: NOT INTEGRATED
     value: 2
     cost: 100
     coef: 1.5
+    max: 0
   _richVein:
     name: 'Bonus : Rich vein !'
     desc: Increases the amount of resources found
     value: 1
     cost: 50
     coef: 1.5
+    max: 0
   _mithrilChance:
     name: 'Bonus : Mithril !'
     desc: Increases the chance of finding Mithril in the mine
     value: 10
     cost: 30
     coef: 1.5
+    max: 100

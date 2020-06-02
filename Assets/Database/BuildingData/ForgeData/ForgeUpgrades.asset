@@ -18,27 +18,32 @@ MonoBehaviour:
     value: 1
     cost: 300
     coef: 2.5
+    max: 0
   _wByWorker:
     name: Blacksmith skills
     desc: Increases the amount of forged tools per cycle
     value: 1
     cost: 150
     coef: 2
+    max: 0
   _cycleDuration:
     name: Cycle duration
     desc: Reduce the time needed to forge the tools
     value: 0.05
     cost: 75
     coef: 4
+    max: 0
   _instantSellingChance:
     name: 'Bonus : Sell now'
     desc: Increases the chance to sell the tools instantly
     value: 1
     cost: 75
     coef: 1.3
+    max: 200
   _instantSellingGoldBonus:
     name: 'Bonus : Sales improvement'
     desc: Increases the gold bonus when the tool is instantly sell
     value: 0.2
     cost: 42
     coef: 1.2
+    max: 0
