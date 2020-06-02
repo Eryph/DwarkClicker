@@ -10,7 +10,9 @@
 		[SerializeField] private float _cycleDuration = 0;
 		[SerializeField] private int _instantSellingChance = 0;
 		[SerializeField] private float _instantSellingGoldBonus = 0;
+        [SerializeField] private int _maxIndex = 50;
 
+        public int MaxIndex { get { return _maxIndex; } }
 		public int WorkerAmount { get { return _workerAmount; } }
 		public int WByWorker { get { return _wByWorker; } }
 		public float CycleDuration { get { return _cycleDuration; } }

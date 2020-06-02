@@ -91,14 +91,8 @@
 					break;
 			}
 
-			if (task.IsMithrilReward)
-			{
-				_profile.Mithril += task.MithrilRewardAmount;
-			}
-			else
-			{
-				_profile.Gold += task.GoldRewardAmount;
-			}
+			_profile.Mithril += task.MithrilRewardAmount;
+
 
 			_profile._kingTask = null;
             _profile._taskTimeStamp = DateTime.Now + new TimeSpan(_taskCooldownH, 0, 0);

@@ -22,12 +22,18 @@ public class MainMenuController : MonoBehaviour {
     #region Methods
     public void DisplayInnMenu()
     {
-       if (JSonManager.Instance.PlayerProfile.FTUEStep == 1)
-       {
-           _dialboxController.SetStepFinished();
-           _innUpgradeMenu.SetActive(true);
-           _quitMenuButton.SetActive(true);
-       }  
+        if (JSonManager.Instance.PlayerProfile.FTUEStep == 1)
+        {
+            _dialboxController.SetStepFinished();
+            _innUpgradeMenu.SetActive(true);
+            _quitMenuButton.SetActive(true);
+        }
+        else if (!FTUEManager.Instance.IsActivated)
+        {
+            _innUpgradeMenu.SetActive(true);
+            _quitMenuButton.SetActive(true);
+        }
+           
     }
 
     public void DisplayMineMenu()
@@ -35,56 +41,80 @@ public class MainMenuController : MonoBehaviour {
         if (JSonManager.Instance.PlayerProfile.FTUEStep == 3)
         {
             _dialboxController.SetStepFinished();
+            _mineUpgradeMenu.SetActive(true);
+            _quitMenuButton.SetActive(true);
         }
-        _mineUpgradeMenu.SetActive(true);
-        _quitMenuButton.SetActive(true);
+        else if (!FTUEManager.Instance.IsActivated)
+        {
+            _mineUpgradeMenu.SetActive(true);
+            _quitMenuButton.SetActive(true);
+        }
     }
 
     public void DisplayForgeMenu()
     {
-       
-         if (JSonManager.Instance.PlayerProfile.FTUEStep == 5)
-         {
-                _dialboxController.SetStepFinished();
+
+        if (JSonManager.Instance.PlayerProfile.FTUEStep == 5)
+        {
+            _dialboxController.SetStepFinished();
+            _forgeUpgradeMenu.SetActive(true);
+            _quitMenuButton.SetActive(true);
         }
-         _forgeUpgradeMenu.SetActive(true);
-         _quitMenuButton.SetActive(true);
+        else if (!FTUEManager.Instance.IsActivated)
+        {
+            _forgeUpgradeMenu.SetActive(true);
+            _quitMenuButton.SetActive(true);
+        }
     }
 
     public void DisplayTradingPostMenu()
     {
 
-            if (JSonManager.Instance.PlayerProfile.FTUEStep == 7)
-            {
+        if (JSonManager.Instance.PlayerProfile.FTUEStep == 7)
+        {
             _dialboxController.SetStepFinished();
-        }
             _tradingPostUpgradeMenu.SetActive(true);
             _quitMenuButton.SetActive(true);
+        }
+        else if (!FTUEManager.Instance.IsActivated)
+        {
+            _tradingPostUpgradeMenu.SetActive(true);
+            _quitMenuButton.SetActive(true);
+        }
     }
 
     public void DisableMenu()
     {
+        if (_dialboxController.HighLightIndex == 3 ||
+            _dialboxController.HighLightIndex == 6 ||
+            _dialboxController.HighLightIndex == 9 ||
+            _dialboxController.HighLightIndex == 12 ||
+            !FTUEManager.Instance.IsActivated)
+        {
             _innUpgradeMenu.SetActive(false);
             _mineUpgradeMenu.SetActive(false);
             _forgeUpgradeMenu.SetActive(false);
             _tradingPostUpgradeMenu.SetActive(false);
             _quitMenuButton.SetActive(false);
-            if (JSonManager.Instance.PlayerProfile.FTUEStep == 2)
-            {
-                _dialboxController.SetStepFinished();
-            }
-            if (JSonManager.Instance.PlayerProfile.FTUEStep == 4)
-            {
-                _dialboxController.SetStepFinished();
-            }
-            if (JSonManager.Instance.PlayerProfile.FTUEStep == 6)
-            {
-                _dialboxController.SetStepFinished();
-            }
-            if (JSonManager.Instance.PlayerProfile.FTUEStep == 8)
-            {
-                _dialboxController.SetStepFinished();
-            }
+            _dialboxController.SetStepFinished();
+        }
+
+        /*if (JSonManager.Instance.PlayerProfile.FTUEStep == 2)
+        {
+            _dialboxController.SetStepFinished();
+        }
+        if (JSonManager.Instance.PlayerProfile.FTUEStep == 4)
+        {
+            _dialboxController.SetStepFinished();
+        }
+        if (JSonManager.Instance.PlayerProfile.FTUEStep == 6)
+        {
+            _dialboxController.SetStepFinished();
+        }
+        if (JSonManager.Instance.PlayerProfile.FTUEStep == 8)
+        {
+            _dialboxController.SetStepFinished();
+        }*/
     }
 	#endregion Methods
 }

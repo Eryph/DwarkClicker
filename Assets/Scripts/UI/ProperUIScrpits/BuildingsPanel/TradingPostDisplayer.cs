@@ -99,6 +99,7 @@
 
             if (_isGoldTrans)
             {
+                bool isDecremental = currentFortress.UForgeInstantSellingChanceIndex >= uData.WinBeerChance.max;
                 int price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WorkerAmount, currentFortress.UTPWorkerNbIndex);
                 _workerUpgrade.Init(uData.WorkerAmount.name, uData.WorkerAmount.desc, currentFortress.UTPWorkerNbIndex, price, _playerProfile.Gold);
 
@@ -112,7 +113,7 @@
                 _winBeerAmountUpgrade.Init(uData.WinBeerAmount.name, uData.WinBeerAmount.desc, currentFortress.UTPWinBeerAmountIndex, price, _playerProfile.Gold);
 
                 price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WinBeerChance, currentFortress.UTPWinBeerChanceIndex);
-                _winBeerChanceUpgrade.Init(uData.WinBeerChance.name, uData.WinBeerChance.desc, currentFortress.UTPWinBeerChanceIndex, price, _playerProfile.Gold);
+                _winBeerChanceUpgrade.Init(uData.WinBeerChance.name, uData.WinBeerChance.desc, currentFortress.UTPWinBeerChanceIndex, price, _playerProfile.Gold, isDecremental);
 
                 price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.GoldMult, currentFortress.UTPGoldMultIndex);
                 _goldMultUpgrade.Init(uData.GoldMult.name, uData.GoldMult.desc, currentFortress.UTPGoldMultIndex, price, _playerProfile.Gold);
@@ -121,12 +122,13 @@
             }
             else
             {
+                bool isDecremental = currentFortress.UForgeInstantSellingChanceIndex >= uData.WinBeerChance.max;
                 int price = DatabaseManager.Instance.UpgradeMithrilPrice;
                 _workerUpgrade.Init(uData.WorkerAmount.name, uData.WorkerAmount.desc, currentFortress.UTPWorkerNbIndex, price, _playerProfile.Mithril);
                 _sellbyWorkerUpgrade.Init(uData.SellByWorker.name, uData.SellByWorker.desc, currentFortress.UTPSellByWorkerIndex, price, _playerProfile.Mithril);
                 _cycleDurationUpgrade.Init(uData.CycleDuration.name, uData.CycleDuration.desc, currentFortress.UTPCycleDurationIndex, price, _playerProfile.Mithril);
                 _winBeerAmountUpgrade.Init(uData.WinBeerAmount.name, uData.WinBeerAmount.desc, currentFortress.UTPWinBeerAmountIndex, price, _playerProfile.Mithril);
-                _winBeerChanceUpgrade.Init(uData.WinBeerChance.name, uData.WinBeerChance.desc, currentFortress.UTPWinBeerChanceIndex, price, _playerProfile.Mithril);
+                _winBeerChanceUpgrade.Init(uData.WinBeerChance.name, uData.WinBeerChance.desc, currentFortress.UTPWinBeerChanceIndex, price, _playerProfile.Mithril, isDecremental);
                 _goldMultUpgrade.Init(uData.GoldMult.name, uData.GoldMult.desc, currentFortress.UTPGoldMultIndex, price, _playerProfile.Mithril);
 
                 _goldMithrilSwitchButtonImage.sprite = DatabaseManager.Instance.GoldButtonIcon;

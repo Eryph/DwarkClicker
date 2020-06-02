@@ -90,25 +90,25 @@
 
 		public void OpenFortressPanel()
 		{
-			_fortressPanel.SetActive(true);
+            if (!FTUEManager.Instance.IsActivated)
+                _fortressPanel.SetActive(true);
 		}
 
 		public void OpenDailyRewardPanel()
 		{
-			_dailyRewardPanel.SetActive(true);
+            if (!FTUEManager.Instance.IsActivated)
+                _dailyRewardPanel.SetActive(true);
 		}
 
 		public void OpenKingPanel()
 		{
+            if (!FTUEManager.Instance.IsActivated)
 			_kingPanel.SetActive(true);
 		}
 
 		public void OpenShopPanel()
 		{
-            if (JSonManager.Instance.PlayerProfile.FTUEStep != 2 &&
-               JSonManager.Instance.PlayerProfile.FTUEStep != 5 &&
-               JSonManager.Instance.PlayerProfile.FTUEStep != 8 &&
-               JSonManager.Instance.PlayerProfile.FTUEStep != 14 &&
+            if ((JSonManager.Instance.PlayerProfile.FTUEStep == 9 || !FTUEManager.Instance.IsActivated) &&
                _shopPanel.activeSelf == false)
             {
                 _shopPanel.SetActive(true);

@@ -52,7 +52,8 @@
 			JSonManager.Instance.OnProfileLoaded += LoadData;
 			//MonetizationManager.Instance.OnSDKReady += LoadGameScene;
 			int buildIndex = SceneUtility.GetBuildIndexByScenePath(_firstSceneToLoadPath);
-			if (buildIndex > 0)
+           
+            if (buildIndex > 0)
 			{
 				SceneManager.LoadScene(buildIndex);
 			}
@@ -64,7 +65,7 @@
 
 		private void LoadGameScene()
 		{
-			MonetizationManager.Instance.OnSDKReady -= LoadGameScene;
+            MonetizationManager.Instance.OnSDKReady -= LoadGameScene;
 			int buildIndex = SceneUtility.GetBuildIndexByScenePath(_firstSceneToLoadPath);
 			if (buildIndex > 0)
 			{
@@ -160,8 +161,13 @@
 		#region Save/Load Triggers
 		private void LoadData()
 		{
-			_playerProfile = JSonManager.Instance.PlayerProfile;
-			int i = 0;
+            
+            _playerProfile = JSonManager.Instance.PlayerProfile;
+            if (FTUEManager.Instance.CurrentStep < FTUEManager.Instance.StepAmount)
+            {
+                JSonManager.Instance.PlayerProfile.Reset();
+            }
+            int i = 0;
 			foreach (KeyValuePair<string, Resource> resource in _playerProfile.Resources)
 			{
 				resource.Value.SetSprite(DatabaseManager.Instance.ResourceList.Resources[i].ResourceSprite);
@@ -176,6 +182,7 @@
 					
 			if (_playerProfile.LaunchAmount > 0)
 				LoadProgression();
+            
         }
 
 		private void OnApplicationQuit()
@@ -186,10 +193,10 @@
             _playerProfile.SerializeDate(DateTime.Now);
 			JSonManager.Instance.SavePlayerProfile();
 			JSonManager.Instance.SaveNotifProfile();
-            if (FTUEManager.Instance.CurrentStep < FTUEManager.Instance.StepAmount)
+            /*if (FTUEManager.Instance.CurrentStep < FTUEManager.Instance.StepAmount)
             {
                 JSonManager.Instance.PlayerProfile.Reset();
-            }
+            }*/
         }
 
 #if ANDROID

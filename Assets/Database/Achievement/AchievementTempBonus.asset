@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: TEMP_BONUS
   _name: Ready for a good day !
-  _objective: Fill up elixir
+  _objective: Fill up elixeer
   _stepMax: 01000000
   _mithrilReward: 5
   _achievementSprite: {fileID: 21300000, guid: 741af327a9ef6684386612624e0a6423, type: 3}

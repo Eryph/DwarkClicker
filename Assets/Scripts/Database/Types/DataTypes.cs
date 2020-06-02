@@ -10,6 +10,7 @@
         public int value;
         public int cost;
 		public float coef;
+        public int max;
     };
 
     [Serializable]
@@ -20,5 +21,6 @@
 		public float value;
         public int cost;
 		public float coef;
+        public int max;
 	};
 }

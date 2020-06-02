@@ -92,7 +92,8 @@
 
         public void QuitPanel()
 		{
-			gameObject.SetActive(false);
+            if (!FTUEManager.Instance.IsActivated)
+			    gameObject.SetActive(false);
 		}
 
 		public void BuyMithrilPack(int productId)

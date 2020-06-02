@@ -85,7 +85,8 @@
 				_currentStep = value;
 				if (_onFTUEStepChange != null)
 				{
-					_onFTUEStepChange();
+                    if (value != 0)
+					    _onFTUEStepChange();
 				}
 			}
 		}

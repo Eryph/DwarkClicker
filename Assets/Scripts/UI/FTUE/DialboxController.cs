@@ -27,6 +27,13 @@
         private int _highlightsIndex = 0;
         [SerializeField] private GameObject[] _highlights = null;
 
+        public int HighLightIndex
+        {
+            get
+            {
+                return _highlightsIndex;
+            }
+        }
 
         private void Start()
 		{
@@ -54,6 +61,18 @@
 			_topDialbox.SetActive(false);
 			_bottomDialbox.SetActive(false);
 		}
+
+        public void QuitButtonHighlight()
+        {
+            if (HighLightIndex == 3 ||
+            HighLightIndex == 6 ||
+            HighLightIndex == 9 ||
+            HighLightIndex == 12 ||
+            !FTUEManager.Instance.IsActivated)
+            {
+                TriggerNextHiglight();
+            }
+        }
 
         public void TriggerNextHiglight()
         {

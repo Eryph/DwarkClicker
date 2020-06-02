@@ -19,7 +19,6 @@
 		public ETaskType _taskType = ETaskType.TOOL;
 		public int _goldRewardAmount = 100;
 		public int _mithrilRewardAmount = 1;
-		public bool _isMithrilReward = false;
 		public WeaponData _weapon = null;
 		public ResourceData _resource = null;
 		public Sprite _goalSprite = null;
@@ -31,19 +30,16 @@
 		public ETaskType TaskType { get { return _taskType; } }
 		public int GoldRewardAmount { get { return _goldRewardAmount; } }
 		public int MithrilRewardAmount { get { return _mithrilRewardAmount; } }
-		public bool IsMithrilReward { get { return _isMithrilReward; } }
 		public Sprite GoalSprite { get { return _goalSprite; } }
 		#endregion Properties
 
 		#region Methods
 		public void Init(TaskData task)
 		{
-			_amount = (int)(task.Amount * UnityEngine.Random.Range(task.PriceMultMin, task.PriceMultMax));
+			_amount = (int)(task.AmountAsked * UnityEngine.Random.Range(task.PriceMultMin, task.PriceMultMax));
 			_description = task.Description;
-			_taskType = task.TaskType;
-			_goldRewardAmount = (int)(task.GoldRewardAmount * UnityEngine.Random.Range(task.RewardMultMin, task.RewardMultMax)); ;
+            _taskType = task.TypeAsked;
 			_mithrilRewardAmount = task.MithrilRewardAmount;
-			_isMithrilReward = UnityEngine.Random.Range(0f, 1f) <= task.MithrilRewardChance;
 			PlayerProfile profile = JSonManager.Instance.PlayerProfile;
 
 			if (_taskType == ETaskType.TOOL)
@@ -62,7 +58,6 @@
 				}
 				_weapon = weaponList[UnityEngine.Random.Range(0, weaponList.Count)];
 				_goalSprite = DatabaseManager.Instance.ExtractWeapon(_weapon.Name).WeaponSprite;
-				_isMithrilReward = UnityEngine.Random.Range(0f, 1f) <= task.MithrilRewardChance;
 			}
 			else if (_taskType == ETaskType.RESOURCE)
 			{
@@ -77,12 +72,10 @@
 				}
 				_resource = resourceList[UnityEngine.Random.Range(0, resourceList.Count)];
 				_goalSprite = DatabaseManager.Instance.ExtractResource(_resource.Name).ResourceSprite;
-				_isMithrilReward = UnityEngine.Random.Range(0f, 1f) <= task.MithrilRewardChance;
 			}
 			else
 			{
 				_goalSprite = DatabaseManager.Instance.GoldIcon;
-				_isMithrilReward = true;
 			}
 		}
 
@@ -102,10 +95,7 @@
 
 		public void GetReward()
 		{
-			if (_isMithrilReward)
-				JSonManager.Instance.PlayerProfile.Mithril += _mithrilRewardAmount;
-			else
-				JSonManager.Instance.PlayerProfile.Gold += _goldRewardAmount;
+            JSonManager.Instance.PlayerProfile.Mithril += _mithrilRewardAmount;
 		}
 		#endregion Methods
 	}

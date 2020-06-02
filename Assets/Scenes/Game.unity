@@ -40109,7 +40109,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dwarves use the strength of the yellow liquid to extract minerals
+  m_text: Dwarves use the strength of the Elixeer to extract minerals
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e5b2ff6829776c740bfae851914b4ecd, type: 2}
   m_sharedMaterial: {fileID: 21698828713965658, guid: e5b2ff6829776c740bfae851914b4ecd,
@@ -64412,7 +64412,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Brew beer
+  m_text: Brew Elixeer
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e5b2ff6829776c740bfae851914b4ecd, type: 2}
   m_sharedMaterial: {fileID: 21698828713965658, guid: e5b2ff6829776c740bfae851914b4ecd,

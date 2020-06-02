@@ -64,66 +64,72 @@
 		#region Upgrades
 		public void UpgradeBeerByTap()
 		{
-            if (_isGoldTrans)
+            if (!FTUEManager.Instance.IsActivated)
             {
-                int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.InnUpgrades.BeerByTap, _playerProfile.CurrentFortress.InnBeerByTapIndex);
-                if (_playerProfile.Gold >= cost)
+                if (_isGoldTrans)
                 {
-                    SoundManager.Instance.PlaySound("BUY_CLICK");
-                    _playerProfile.Gold -= cost;
-                    _playerProfile.CurrentFortress.InnBeerByTapIndex++;
-                    LoadBeerByTap();
+                    int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.InnUpgrades.BeerByTap, _playerProfile.CurrentFortress.InnBeerByTapIndex);
+                    if (_playerProfile.Gold >= cost)
+                    {
+                        SoundManager.Instance.PlaySound("BUY_CLICK");
+                        _playerProfile.Gold -= cost;
+                        _playerProfile.CurrentFortress.InnBeerByTapIndex++;
+                        LoadBeerByTap();
+                    }
+                    else
+                    {
+                        SoundManager.Instance.PlaySound("ERROR_CLICK");
+                    }
                 }
                 else
                 {
-                    SoundManager.Instance.PlaySound("ERROR_CLICK");
-                }
-            }
-            else
-            {
-                if (_playerProfile.Mithril >= DatabaseManager.Instance.UpgradeMithrilPrice)
-                {
-                    SoundManager.Instance.PlaySound("BUY_CLICK");
-                    _playerProfile.Mithril -= DatabaseManager.Instance.UpgradeMithrilPrice;
-                    _playerProfile.CurrentFortress.InnBeerByTapIndex++;
-                    LoadBeerByTap();
-                }
-                else
-                {
-                    SoundManager.Instance.PlaySound("ERROR_CLICK");
+                    if (_playerProfile.Mithril >= DatabaseManager.Instance.UpgradeMithrilPrice)
+                    {
+                        SoundManager.Instance.PlaySound("BUY_CLICK");
+                        _playerProfile.Mithril -= DatabaseManager.Instance.UpgradeMithrilPrice;
+                        _playerProfile.CurrentFortress.InnBeerByTapIndex++;
+                        LoadBeerByTap();
+                    }
+                    else
+                    {
+                        SoundManager.Instance.PlaySound("ERROR_CLICK");
+                    }
                 }
             }
         }
 
 		public void UpgradeStorage()
 		{
-            if (_isGoldTrans)
+            if (!FTUEManager.Instance.IsActivated)
             {
-                int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.InnUpgrades.Storage, _playerProfile.CurrentFortress.InnStorageIndex);
-                if (_playerProfile.Gold >= cost)
+                if (_isGoldTrans)
                 {
-                    SoundManager.Instance.PlaySound("BUY_CLICK");
-                    _playerProfile.Gold -= cost;
-                    _playerProfile.CurrentFortress.InnStorageIndex++;
-                    LoadStorage();
+                    int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.InnUpgrades.Storage, _playerProfile.CurrentFortress.InnStorageIndex);
+                    if (_playerProfile.Gold >= cost)
+                    {
+                        SoundManager.Instance.PlaySound("BUY_CLICK");
+                        _playerProfile.Gold -= cost;
+                        _playerProfile.CurrentFortress.InnStorageIndex++;
+                        LoadStorage();
+                    }
+                    else
+                    {
+                        SoundManager.Instance.PlaySound("ERROR_CLICK");
+                    }
                 }
                 else
                 {
-                    SoundManager.Instance.PlaySound("ERROR_CLICK");
-                }
-            }
-            else
-            {
-                if (_playerProfile.Mithril >= DatabaseManager.Instance.UpgradeMithrilPrice)
-                {
-                    SoundManager.Instance.PlaySound("BUY_CLICK");
-                    _playerProfile.Mithril -= DatabaseManager.Instance.UpgradeMithrilPrice;
-                    _playerProfile.CurrentFortress.InnStorageIndex++;
-                    LoadStorage();
-                }
-                else
-                {
-                    SoundManager.Instance.PlaySound("ERROR_CLICK");
+                    if (_playerProfile.Mithril >= DatabaseManager.Instance.UpgradeMithrilPrice)
+                    {
+                        SoundManager.Instance.PlaySound("BUY_CLICK");
+                        _playerProfile.Mithril -= DatabaseManager.Instance.UpgradeMithrilPrice;
+                        _playerProfile.CurrentFortress.InnStorageIndex++;
+                        LoadStorage();
+                    }
+                    else
+                    {
+                        SoundManager.Instance.PlaySound("ERROR_CLICK");
+                    }
                 }
             }
         }

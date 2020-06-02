@@ -38,16 +38,10 @@
 				_goalImage.sprite = task.GetGoalSprite();
 				_goalAmount.text = task.Amount.ToString();
 
-				if (task.IsMithrilReward)
-				{
-					_rewardImage.sprite = DatabaseManager.Instance.MithrilIcon;
-					_rewardAmount.text = task.MithrilRewardAmount.ToString();
-				}
-				else
-				{
-					_rewardImage.sprite = DatabaseManager.Instance.GoldIcon;
-					_rewardAmount.text = task.GoldRewardAmount.ToString();
-				}
+			    _rewardImage.sprite = DatabaseManager.Instance.MithrilIcon;
+				_rewardAmount.text = task.MithrilRewardAmount.ToString();
+
+			
 
 				int goalCount = 0;
 				switch (task.TaskType)

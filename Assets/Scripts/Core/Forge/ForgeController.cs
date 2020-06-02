@@ -102,164 +102,182 @@
 		#region Upgrades
 		public void UpgradeCycleDuration()
 		{
-            if (_isGoldTrans)
+            if (!FTUEManager.Instance.IsActivated)
             {
-                int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.CycleDuration, _playerProfile.CurrentFortress.UForgeCycleDurationIndex);
-                if (_playerProfile.Gold >= cost)
+                if (_isGoldTrans)
                 {
-                    SoundManager.Instance.PlaySound("BUY_CLICK");
-                    _playerProfile.Gold -= cost;
-                    _playerProfile.CurrentFortress.UForgeCycleDurationIndex++;
-                    LoadCycleDuration();
-                }
-                {
-                    SoundManager.Instance.PlaySound("ERROR_CLICK");
-                }
-            }
-            else
-            {
-                if (_playerProfile.Mithril >= DatabaseManager.Instance.UpgradeMithrilPrice)
-                {
-                    SoundManager.Instance.PlaySound("BUY_CLICK");
-                    _playerProfile.Mithril -= DatabaseManager.Instance.UpgradeMithrilPrice;
-                    _playerProfile.CurrentFortress.UForgeCycleDurationIndex++;
-                    LoadCycleDuration();
+                    int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.CycleDuration, _playerProfile.CurrentFortress.UForgeCycleDurationIndex);
+                    if (_playerProfile.Gold >= cost)
+                    {
+                        SoundManager.Instance.PlaySound("BUY_CLICK");
+                        _playerProfile.Gold -= cost;
+                        _playerProfile.CurrentFortress.UForgeCycleDurationIndex++;
+                        LoadCycleDuration();
+                    }
+                    {
+                        SoundManager.Instance.PlaySound("ERROR_CLICK");
+                    }
                 }
                 else
                 {
-                    SoundManager.Instance.PlaySound("ERROR_CLICK");
+                    if (_playerProfile.Mithril >= DatabaseManager.Instance.UpgradeMithrilPrice)
+                    {
+                        SoundManager.Instance.PlaySound("BUY_CLICK");
+                        _playerProfile.Mithril -= DatabaseManager.Instance.UpgradeMithrilPrice;
+                        _playerProfile.CurrentFortress.UForgeCycleDurationIndex++;
+                        LoadCycleDuration();
+                    }
+                    else
+                    {
+                        SoundManager.Instance.PlaySound("ERROR_CLICK");
+                    }
                 }
             }
         }
 
 		public void UpgradeWByWorker()
 		{
-            if (_isGoldTrans)
+            if (!FTUEManager.Instance.IsActivated)
             {
-                int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WByWorker, _playerProfile.CurrentFortress.UForgeWByWorkerIndex);
-                if (_playerProfile.Gold >= cost)
+                if (_isGoldTrans)
                 {
-                    SoundManager.Instance.PlaySound("BUY_CLICK");
-                    _playerProfile.Gold -= cost;
-                    _playerProfile.CurrentFortress.UForgeWByWorkerIndex++;
-                    LoadWByWorker();
+                    int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WByWorker, _playerProfile.CurrentFortress.UForgeWByWorkerIndex);
+                    if (_playerProfile.Gold >= cost)
+                    {
+                        SoundManager.Instance.PlaySound("BUY_CLICK");
+                        _playerProfile.Gold -= cost;
+                        _playerProfile.CurrentFortress.UForgeWByWorkerIndex++;
+                        LoadWByWorker();
+                    }
+                    else
+                    {
+                        SoundManager.Instance.PlaySound("ERROR_CLICK");
+                    }
                 }
                 else
                 {
-                    SoundManager.Instance.PlaySound("ERROR_CLICK");
-                }
-            }
-            else
-            {
-                if (_playerProfile.Mithril >= DatabaseManager.Instance.UpgradeMithrilPrice)
-                {
-                    SoundManager.Instance.PlaySound("BUY_CLICK");
-                    _playerProfile.Mithril -= DatabaseManager.Instance.UpgradeMithrilPrice;
-                    _playerProfile.CurrentFortress.UForgeWByWorkerIndex++;
-                    LoadWByWorker();
-                }
-                else
-                {
-                    SoundManager.Instance.PlaySound("ERROR_CLICK");
+                    if (_playerProfile.Mithril >= DatabaseManager.Instance.UpgradeMithrilPrice)
+                    {
+                        SoundManager.Instance.PlaySound("BUY_CLICK");
+                        _playerProfile.Mithril -= DatabaseManager.Instance.UpgradeMithrilPrice;
+                        _playerProfile.CurrentFortress.UForgeWByWorkerIndex++;
+                        LoadWByWorker();
+                    }
+                    else
+                    {
+                        SoundManager.Instance.PlaySound("ERROR_CLICK");
+                    }
                 }
             }
         }
 
 		public void UpgradeWorkerNb()
 		{
-            if (_isGoldTrans)
+            if (!FTUEManager.Instance.IsActivated)
             {
-                int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WorkerAmount, _playerProfile.CurrentFortress.UForgeWorkerNbIndex);
-                if (_playerProfile.Gold >= cost)
+                if (_isGoldTrans)
                 {
-                    SoundManager.Instance.PlaySound("BUY_CLICK");
-                    _playerProfile.Gold -= cost;
-                    _playerProfile.CurrentFortress.UForgeWorkerNbIndex++;
-                    LoadWorkerNb();
+                    int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WorkerAmount, _playerProfile.CurrentFortress.UForgeWorkerNbIndex);
+                    if (_playerProfile.Gold >= cost)
+                    {
+                        SoundManager.Instance.PlaySound("BUY_CLICK");
+                        _playerProfile.Gold -= cost;
+                        _playerProfile.CurrentFortress.UForgeWorkerNbIndex++;
+                        LoadWorkerNb();
+                    }
+                    else
+                    {
+                        SoundManager.Instance.PlaySound("ERROR_CLICK");
+                    }
                 }
                 else
                 {
-                    SoundManager.Instance.PlaySound("ERROR_CLICK");
-                }
-            }
-            else
-            {
-                if (_playerProfile.Mithril >= DatabaseManager.Instance.UpgradeMithrilPrice)
-                {
-                    SoundManager.Instance.PlaySound("BUY_CLICK");
-                    _playerProfile.Mithril -= DatabaseManager.Instance.UpgradeMithrilPrice;
-                    _playerProfile.CurrentFortress.UForgeWorkerNbIndex++;
-                    LoadWorkerNb();
-                }
-                else
-                {
-                    SoundManager.Instance.PlaySound("ERROR_CLICK");
+                    if (_playerProfile.Mithril >= DatabaseManager.Instance.UpgradeMithrilPrice)
+                    {
+                        SoundManager.Instance.PlaySound("BUY_CLICK");
+                        _playerProfile.Mithril -= DatabaseManager.Instance.UpgradeMithrilPrice;
+                        _playerProfile.CurrentFortress.UForgeWorkerNbIndex++;
+                        LoadWorkerNb();
+                    }
+                    else
+                    {
+                        SoundManager.Instance.PlaySound("ERROR_CLICK");
+                    }
                 }
             }
         }
 
 		public void UpgradeInstantSellingChance()
 		{
-            if (_isGoldTrans)
+            if (!FTUEManager.Instance.IsActivated)
             {
-                int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingChance, _playerProfile.CurrentFortress.UForgeInstantSellingChanceIndex);
-                if (_playerProfile.Gold >= cost)
+                if (_playerProfile.CurrentFortress.UForgeInstantSellingChanceIndex < DatabaseManager.Instance.ForgeUpgrades.InstantSellingChance.max)
                 {
-                    SoundManager.Instance.PlaySound("BUY_CLICK");
-                    _playerProfile.Gold -= cost;
-                    _playerProfile.CurrentFortress.UForgeInstantSellingChanceIndex++;
-                    LoadInstantSellingChance();
-                }
-                else
-                {
-                    SoundManager.Instance.PlaySound("ERROR_CLICK");
-                }
-            }
-            else
-            {
-                if (_playerProfile.Mithril >= DatabaseManager.Instance.UpgradeMithrilPrice)
-                {
-                    SoundManager.Instance.PlaySound("BUY_CLICK");
-                    _playerProfile.Mithril -= DatabaseManager.Instance.UpgradeMithrilPrice;
-                    _playerProfile.CurrentFortress.UForgeInstantSellingChanceIndex++;
-                    LoadInstantSellingChance();
-                }
-                else
-                {
-                    SoundManager.Instance.PlaySound("ERROR_CLICK");
+                    if (_isGoldTrans)
+                    {
+                        int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingChance, _playerProfile.CurrentFortress.UForgeInstantSellingChanceIndex);
+                        if (_playerProfile.Gold >= cost)
+                        {
+                            SoundManager.Instance.PlaySound("BUY_CLICK");
+                            _playerProfile.Gold -= cost;
+                            _playerProfile.CurrentFortress.UForgeInstantSellingChanceIndex++;
+                            LoadInstantSellingChance();
+                        }
+                        else
+                        {
+                            SoundManager.Instance.PlaySound("ERROR_CLICK");
+                        }
+                    }
+                    else
+                    {
+                        if (_playerProfile.Mithril >= DatabaseManager.Instance.UpgradeMithrilPrice)
+                        {
+                            SoundManager.Instance.PlaySound("BUY_CLICK");
+                            _playerProfile.Mithril -= DatabaseManager.Instance.UpgradeMithrilPrice;
+                            _playerProfile.CurrentFortress.UForgeInstantSellingChanceIndex++;
+                            LoadInstantSellingChance();
+                        }
+                        else
+                        {
+                            SoundManager.Instance.PlaySound("ERROR_CLICK");
+                        }
+                    }
                 }
             }
         }
 
 		public void UpgradeInstantSellingGoldBonus()
 		{
-            if (_isGoldTrans)
+            if (!FTUEManager.Instance.IsActivated)
             {
-                int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingGoldBonus, _playerProfile.CurrentFortress.UForgeInstantSellingGoldBonusIndex);
-                if (_playerProfile.Gold >= cost)
+                if (_isGoldTrans)
                 {
-                    SoundManager.Instance.PlaySound("BUY_CLICK");
-                    _playerProfile.Gold -= cost;
-                    _playerProfile.CurrentFortress.UForgeInstantSellingGoldBonusIndex++;
-                    LoadInstantSellingGoldBonus();
+                    int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingGoldBonus, _playerProfile.CurrentFortress.UForgeInstantSellingGoldBonusIndex);
+                    if (_playerProfile.Gold >= cost)
+                    {
+                        SoundManager.Instance.PlaySound("BUY_CLICK");
+                        _playerProfile.Gold -= cost;
+                        _playerProfile.CurrentFortress.UForgeInstantSellingGoldBonusIndex++;
+                        LoadInstantSellingGoldBonus();
+                    }
+                    else
+                    {
+                        SoundManager.Instance.PlaySound("ERROR_CLICK");
+                    }
                 }
                 else
                 {
-                    SoundManager.Instance.PlaySound("ERROR_CLICK");
-                }
-            }
-            else
-            {
-                if (_playerProfile.Mithril >= DatabaseManager.Instance.UpgradeMithrilPrice)
-                {
-                    SoundManager.Instance.PlaySound("BUY_CLICK");
-                    _playerProfile.Mithril -= DatabaseManager.Instance.UpgradeMithrilPrice;
-                    _playerProfile.CurrentFortress.UForgeInstantSellingGoldBonusIndex++;
-                    LoadInstantSellingGoldBonus();
-                }
-                else
-                {
-                    SoundManager.Instance.PlaySound("ERROR_CLICK");
+                    if (_playerProfile.Mithril >= DatabaseManager.Instance.UpgradeMithrilPrice)
+                    {
+                        SoundManager.Instance.PlaySound("BUY_CLICK");
+                        _playerProfile.Mithril -= DatabaseManager.Instance.UpgradeMithrilPrice;
+                        _playerProfile.CurrentFortress.UForgeInstantSellingGoldBonusIndex++;
+                        LoadInstantSellingGoldBonus();
+                    }
+                    else
+                    {
+                        SoundManager.Instance.PlaySound("ERROR_CLICK");
+                    }
                 }
             }
         }
@@ -417,7 +435,8 @@
 		private void LoadInstantSellingChance()
 		{
 			_instantSellingChance = _db.ForgeStats.InstantSellingChance - _db.ForgeUpgrades.InstantSellingChance.value * _playerProfile.CurrentFortress.ForgeUpgradesIndex._instantSellingChanceIndex;
-		}
+            _instantSellingChance = Mathf.Clamp(_instantSellingChance, 1, _db.ForgeStats.InstantSellingChance);
+        }
 
 		private void LoadInstantSellingGoldBonus()
 		{

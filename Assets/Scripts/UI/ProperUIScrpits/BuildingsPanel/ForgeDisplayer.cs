@@ -100,7 +100,8 @@
 
             if (_isGoldTrans)
             {
-			    int price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WorkerAmount, currentFortress.UForgeWorkerNbIndex);
+                bool isDecremental = currentFortress.UForgeInstantSellingChanceIndex >= uData.InstantSellingChance.max;
+                int price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WorkerAmount, currentFortress.UForgeWorkerNbIndex);
 			    _workerUpgrade.Init(uData.WorkerAmount.name, uData.WorkerAmount.desc, currentFortress.UForgeWorkerNbIndex, price, _playerProfile.Gold);
 
 			    price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WByWorker, currentFortress.UForgeWByWorkerIndex);
@@ -113,19 +114,19 @@
 			    _instantSellingChanceUpgrade.Init(uData.InstantSellingChance.name, uData.InstantSellingChance.desc, currentFortress.UForgeInstantSellingChanceIndex, price, _playerProfile.Gold);
 
 			    price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingGoldBonus, currentFortress.UForgeInstantSellingGoldBonusIndex);
-			    _instantSellingGoldBonusUpgrade.Init(uData.InstantSellingGoldBonus.name, uData.InstantSellingGoldBonus.desc, currentFortress.UForgeInstantSellingGoldBonusIndex, price, _playerProfile.Gold);
+                _instantSellingGoldBonusUpgrade.Init(uData.InstantSellingGoldBonus.name, uData.InstantSellingGoldBonus.desc, currentFortress.UForgeInstantSellingGoldBonusIndex, price, _playerProfile.Gold, isDecremental);
 
                 _goldMithrilSwitchButtonImage.sprite = DatabaseManager.Instance.MithrilButtonIcon;
             }
             else
             {
                 int price = DatabaseManager.Instance.UpgradeMithrilPrice;
+                bool isDecremental = currentFortress.UForgeInstantSellingChanceIndex >= uData.InstantSellingChance.max;
                 _workerUpgrade.Init(uData.WorkerAmount.name, uData.WorkerAmount.desc, currentFortress.UForgeWorkerNbIndex, price, _playerProfile.Mithril);
                 _wByWorkerUpgrade.Init(uData.WByWorker.name, uData.WByWorker.desc, currentFortress.UForgeWByWorkerIndex, price, _playerProfile.Mithril);
                 _cycleDurationUpgrade.Init(uData.CycleDuration.name, uData.CycleDuration.desc, currentFortress.UForgeCycleDurationIndex, price, _playerProfile.Mithril);
-                _instantSellingChanceUpgrade.Init(uData.InstantSellingChance.name, uData.InstantSellingChance.desc, currentFortress.UForgeInstantSellingChanceIndex, price, _playerProfile.Mithril);
+                _instantSellingChanceUpgrade.Init(uData.InstantSellingChance.name, uData.InstantSellingChance.desc, currentFortress.UForgeInstantSellingChanceIndex, price, _playerProfile.Mithril, isDecremental);
                 _instantSellingGoldBonusUpgrade.Init(uData.InstantSellingGoldBonus.name, uData.InstantSellingGoldBonus.desc, currentFortress.UForgeInstantSellingGoldBonusIndex, price, _playerProfile.Mithril);
-
                 _goldMithrilSwitchButtonImage.sprite = DatabaseManager.Instance.GoldButtonIcon;
             }
 

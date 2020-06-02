@@ -20,10 +20,11 @@
 		[SerializeField] private TextMeshProUGUI _price = null;
 		[SerializeField] private TextMeshProUGUI _currentRank = null;
 
-		public void Init(string upgradeName, string upgradeDesc, int currentRank, int price, int currentAmount)
+		public void Init(string upgradeName, string upgradeDesc, int currentRank, int price, int currentAmount, bool isDecremental = false)
 		{
 			PlayerProfile profile = JSonManager.Instance.PlayerProfile;
-			if (currentAmount >= price)
+            
+            if (currentAmount >= price)
 			{
 				_bg.sprite = _onBgSprite;
 			}
@@ -31,11 +32,22 @@
 			{
 				_bg.sprite = _offBgSprite;
 			}
+
+            if (isDecremental)
+            {
+                _bg.sprite = _offBgSprite;
+                _price.text = "0";
+                _currentRank.text = "Rank : MAX";
+            }
+            else
+            {
+                _price.text = UIHelper.FormatIntegerString(price);
+                _currentRank.text = "Rank : " + UIHelper.FormatIntegerString(currentRank);
+            }
+
 			_upgradeName.text = upgradeName;
 			_upgradeDesc.text = upgradeDesc;
-			_price.text = UIHelper.FormatIntegerString(price);
-
-            _currentRank.text = "Rank : " + UIHelper.FormatIntegerString(currentRank);
+			
 		}
 	}
 }
