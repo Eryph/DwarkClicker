@@ -18,6 +18,8 @@
 		[SerializeField] private TextMeshProUGUI _barProgText = null;
 		[SerializeField] private Image _achievementImage = null;
 		[SerializeField] private Transform _bar = null;
+        [SerializeField] private Image _background = null;
+        [SerializeField] private Sprite _backgroundSprite = null;
 
 		private Vector3 _emptyPos = Vector3.zero;
 
@@ -51,6 +53,7 @@
 			if (_achievement._isfinished)
 			{
 				_barProgText.text = "Fnished !";
+                _background.sprite = _backgroundSprite;
 			}
 			else if (_achievement.CanGetReward)
 			{

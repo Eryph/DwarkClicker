@@ -402,7 +402,6 @@
 			Init();
 
 			JSonManager.Instance.SavePlayerProfile();
-            Application.Quit();
 		}
 
 		private void ResetCollectionCounts()

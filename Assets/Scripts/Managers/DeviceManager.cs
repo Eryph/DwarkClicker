@@ -3,7 +3,7 @@
 	using Engine.Utils;
 	using System.Collections;
 	using System.Collections.Generic;
-//	using Unity.Notifications.Android;
+	using Unity.Notifications.Android;
 	using UnityEngine;
 
 	public class DeviceManager : Singleton<DeviceManager>
@@ -13,7 +13,7 @@
 #region Fields
 		[SerializeField] private float _minTimeToNotifThrow = 24;
 #if ANDROID 
-	private NotifProfile _notifProfile = null;
+	    private NotifProfile _notifProfile = null;
 #endif
 #endregion Fields
 
@@ -29,9 +29,8 @@
 
 		private void Init()
 		{
-			return;
 			base.Start();
-	/*		_notifProfile = JSonManager.Instance.NotifProfile;
+			_notifProfile = JSonManager.Instance.NotifProfile;
 			AndroidNotificationChannel channel = AndroidNotificationCenter.GetNotificationChannel("Notif_ChanID");
 
 			Debug.Log(channel.Id);
@@ -56,7 +55,6 @@
 
 		public void PushLocalNotification(string title, string text, float hourToAdd)
 		{
-			return;
 			if (hourToAdd < _minTimeToNotifThrow)
 			{
 				return;
@@ -78,7 +76,7 @@
 				// Replace the currently scheduled notification with a new notification.
 				Debug.Log(string.Format("notif {0} is scheduled.", notifID));
 			}
-			// Push Notification*/
+			// Push Notification
 		}
 
 		protected override void OnDestroy()

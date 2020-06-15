@@ -63,6 +63,7 @@
 		{
 			QuitResetProfilePanel();
 			JSonManager.Instance.PlayerProfile.Reset();
+            Application.Quit();
 		}
 
         private void UpdateMuteButtons()

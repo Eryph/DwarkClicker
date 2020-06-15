@@ -46,7 +46,7 @@
 				Product mithrilPack = _shopController.Store.products.WithID("mithril_pack" + i.ToString());
 				_mithrilTitles[i].text = UIHelper.FormatProductName(mithrilPack.metadata.localizedTitle);
 				_mithrilDescs[i].text = mithrilPack.metadata.localizedDescription;
-				_mithrilPrices[i].text = mithrilPack.metadata.localizedPrice.ToString() + mithrilPack.metadata.isoCurrencyCode;
+				_mithrilPrices[i].text = mithrilPack.metadata.localizedPrice.ToString() + UIHelper.FormatCurrency(mithrilPack.metadata.isoCurrencyCode);
 
 			}
 			Product noAds = _shopController.Store.products.WithID("no_ads");
@@ -58,14 +58,14 @@
             }
             else
             {
-                _bonusPrice.text = noAds.metadata.localizedPrice.ToString() + noAds.metadata.isoCurrencyCode;
+                _bonusPrice.text = noAds.metadata.localizedPrice.ToString() + UIHelper.FormatCurrency(noAds.metadata.isoCurrencyCode);
             }
 
 
             Product tea = _shopController.Store.products.WithID("tea");
             _teaTitle.text = UIHelper.FormatProductName(tea.metadata.localizedTitle);
             _teaDesc.text = tea.metadata.localizedDescription;
-            _teaPrice.text = tea.metadata.localizedPrice.ToString() + tea.metadata.isoCurrencyCode;
+            _teaPrice.text = tea.metadata.localizedPrice.ToString() + UIHelper.FormatCurrency(tea.metadata.isoCurrencyCode);
 
 
             _bonusProgressBar.UpdateBar();
@@ -176,7 +176,12 @@
 					profile._noMoreAdsBonus = true;
                     _popup.Display(2, "Transaction complete !\nCongatulations !");
                     break;
-				default:
+                case "tea":
+                    if (JSonManager.Instance.PlayerProfile.Resources["purpleMithril"].Count <= 0)
+                        JSonManager.Instance.PlayerProfile.Resources["purpleMithril"].UpdateCount(1);
+                    _popup.Display(2, "Transaction complete !\nCongatulations !");
+                    break;
+                default:
 					break;
 			}
 		}

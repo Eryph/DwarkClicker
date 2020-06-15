@@ -51,16 +51,6 @@
 			_db = DatabaseManager.Instance;
 			JSonManager.Instance.OnProfileLoaded += LoadData;
 			//MonetizationManager.Instance.OnSDKReady += LoadGameScene;
-			int buildIndex = SceneUtility.GetBuildIndexByScenePath(_firstSceneToLoadPath);
-           
-            if (buildIndex > 0)
-			{
-				SceneManager.LoadScene(buildIndex);
-			}
-			else
-			{
-				Debug.LogError("First scene to load \"" + _firstSceneToLoadPath + "\" was not found.");
-			}
 		}
 
 		private void LoadGameScene()
@@ -163,10 +153,6 @@
 		{
             
             _playerProfile = JSonManager.Instance.PlayerProfile;
-            if (FTUEManager.Instance.CurrentStep < FTUEManager.Instance.StepAmount)
-            {
-                JSonManager.Instance.PlayerProfile.Reset();
-            }
             int i = 0;
 			foreach (KeyValuePair<string, Resource> resource in _playerProfile.Resources)
 			{
@@ -179,10 +165,25 @@
 				weapon.Value.SetSprite(DatabaseManager.Instance.WeaponList.Weapons[i].WeaponSprite);
 				i++;
 			}
-					
-			if (_playerProfile.LaunchAmount > 0)
+
+            if (FTUEManager.Instance.CurrentStep < FTUEManager.Instance.StepAmount)
+            {
+                _playerProfile.Reset();
+            }
+            else if (_playerProfile.LaunchAmount > 0)
 				LoadProgression();
-            
+
+            int buildIndex = SceneUtility.GetBuildIndexByScenePath(_firstSceneToLoadPath);
+
+            if (buildIndex > 0)
+            {
+                SceneManager.LoadScene(buildIndex);
+            }
+            else
+            {
+                Debug.LogError("First scene to load \"" + _firstSceneToLoadPath + "\" was not found.");
+            }
+
         }
 
 		private void OnApplicationQuit()
@@ -202,43 +203,52 @@
 #if ANDROID
 		private void OnApplicationPause(bool pauseStatus)
 		{
-            if (_playerProfile == null)
+            Scene currentScene = SceneManager.GetActiveScene();
+            if (currentScene.name != "Preload")
             {
-                _playerProfile = JSonManager.Instance.PlayerProfile;
-            }
+                if (_playerProfile == null)
+                {
+                    _playerProfile = JSonManager.Instance.PlayerProfile;
+                }
 
-			if (pauseStatus)
-			{
-				_playerProfile.LaunchAmount = _playerProfile.LaunchAmount + 1;
-				_playerProfile.SerializeDate(DateTime.Now);
-				//float timeToNotif = ComputeTimeToNotification();
-				//DeviceManager.Instance.PushLocalNotification("The dwarfs thirsty !", "Beer is running low ! Come back and brew some beers.", timeToNotif);
-				JSonManager.Instance.SavePlayerProfile();
-				JSonManager.Instance.SaveNotifProfile();
-			}
-			else
-			{
-				Screen.sleepTimeout = SleepTimeout.NeverSleep;
-				_playerProfile.DeserializeDate();
-				LoadProgression();
-			}
+
+                if (pauseStatus)
+                {
+                    _playerProfile.LaunchAmount = _playerProfile.LaunchAmount + 1;
+                    _playerProfile.SerializeDate(DateTime.Now);
+                    float timeToNotif = ComputeTimeToNotification();
+                    DeviceManager.Instance.PushLocalNotification("The dwarves are thirsty !", "Elixeer is running low ! Come back and brew some.", timeToNotif);
+                    JSonManager.Instance.SavePlayerProfile();
+                    JSonManager.Instance.SaveNotifProfile();
+                }
+                else
+                {
+                    Screen.sleepTimeout = SleepTimeout.NeverSleep;
+                    _playerProfile.DeserializeDate();
+                    LoadProgression();
+                }
+            }
 		}
 
 		private void OnApplicationFocus(bool focus)
 		{
-			if (focus)
-			{
-				Screen.sleepTimeout = SleepTimeout.NeverSleep;
-				_playerProfile.DeserializeDate();
-				LoadProgression();
-			}
-			else
-			{
-				_playerProfile.LaunchAmount = _playerProfile.LaunchAmount + 1;
-				_playerProfile.SerializeDate(DateTime.Now);
-				JSonManager.Instance.SavePlayerProfile();
-				JSonManager.Instance.SaveNotifProfile();
-			}
+            Scene currentScene = SceneManager.GetActiveScene();
+            if (currentScene.name != "Preload")
+            {
+                if (focus)
+                {
+                    Screen.sleepTimeout = SleepTimeout.NeverSleep;
+                    _playerProfile.DeserializeDate();
+                    LoadProgression();
+                }
+                else
+                {
+                    _playerProfile.LaunchAmount = _playerProfile.LaunchAmount + 1;
+                    _playerProfile.SerializeDate(DateTime.Now);
+                    JSonManager.Instance.SavePlayerProfile();
+                    JSonManager.Instance.SaveNotifProfile();
+                }
+            }
 		}
 #endif
 

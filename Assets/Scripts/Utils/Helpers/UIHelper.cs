@@ -8,6 +8,19 @@
 	public static class UIHelper
 	{
 
+        public static string FormatCurrency(string isoCurrency)
+        {
+            switch (isoCurrency)
+            {
+                case "EUR":
+                    return "€";
+                case "USD":
+                    return "$";
+                default:
+                    return isoCurrency;
+            }
+        }
+
 		public static string FormatIntegerString(float value)
 		{
 			string ret = "";
