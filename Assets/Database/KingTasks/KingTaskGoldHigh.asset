@@ -15,6 +15,6 @@ MonoBehaviour:
   _amountAsked: 750
   _description: fluff
   _typeAsked: 1
-  _mithrilRewardAmount: 5
+  _mithrilRewardAmount: 3
   _rewardMultMin: 1
   _rewardMultMax: 1.5

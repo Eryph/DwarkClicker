@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -12,14 +13,14 @@ MonoBehaviour:
   m_Name: GoldBracelet
   m_EditorClassIdentifier: 
   _UID: 0
-  _goldValue: 100
+  _goldValue: 12
   _name: Gold Bracelet
   _recipe:
   - Key: gold
-    Count: 3
-  _modifierTimer: 1
-  _priceModifierUp: 1
-  _priceModifierDown: 2
-  _priceMax: 7
-  _priceMin: 1
+    Count: 10
+  _modifierTimer: 1000
+  _priceModifierUp: 2
+  _priceModifierDown: 1
+  _priceMax: 25
+  _priceMin: 15
   _weaponSprite: {fileID: 21300000, guid: 40d26ab16b4f2fc4ca5f0a05aaaed1c6, type: 3}

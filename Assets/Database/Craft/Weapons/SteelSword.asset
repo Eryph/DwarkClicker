@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -12,14 +13,14 @@ MonoBehaviour:
   m_Name: SteelSword
   m_EditorClassIdentifier: 
   _UID: 0
-  _goldValue: 50
+  _goldValue: 3
   _name: Steel Sword
   _recipe:
   - Key: steel
-    Count: 3
-  _modifierTimer: 1
-  _priceModifierUp: 1
-  _priceModifierDown: 2
+    Count: 10
+  _modifierTimer: 250
+  _priceModifierUp: 2
+  _priceModifierDown: 1
   _priceMax: 7
-  _priceMin: 1
+  _priceMin: 3
   _weaponSprite: {fileID: 21300000, guid: b4932b04427ebd54ea8ecdc0b358123e, type: 3}

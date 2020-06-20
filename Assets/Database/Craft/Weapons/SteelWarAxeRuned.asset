@@ -4,22 +4,23 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee7830ff341f2314f92aa5b9a606c1eb, type: 3}
-  m_Name: SteelWarAxe
+  m_Name: SteelWarAxeRuned
   m_EditorClassIdentifier: 
   _UID: 0
-  _goldValue: 50
-  _name: Steel War Axe
+  _goldValue: 4
+  _name: Runed Steel War Axe
   _recipe:
   - Key: steel
-    Count: 3
-  _modifierTimer: 1
+    Count: 10
+  _modifierTimer: 500
   _priceModifierUp: 1
-  _priceModifierDown: 2
-  _priceMax: 7
-  _priceMin: 1
+  _priceModifierDown: 27
+  _priceMax: 30
+  _priceMin: 2
   _weaponSprite: {fileID: 21300000, guid: 8bb5f58523464f74ba6e161650264c5e, type: 3}
