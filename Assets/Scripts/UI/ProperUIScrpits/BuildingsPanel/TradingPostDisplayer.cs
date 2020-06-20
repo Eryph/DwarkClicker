@@ -99,7 +99,7 @@
 
             if (_isGoldTrans)
             {
-                bool isDecremental = currentFortress.UForgeInstantSellingChanceIndex >= uData.WinBeerChance.max;
+                bool isMax = currentFortress.UForgeCycleDurationIndex >= uData.CycleDuration.max;
                 int price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WorkerAmount, currentFortress.UTPWorkerNbIndex);
                 _workerUpgrade.Init(uData.WorkerAmount.name, uData.WorkerAmount.desc, currentFortress.UTPWorkerNbIndex, price, _playerProfile.Gold);
 
@@ -107,13 +107,14 @@
                 _sellbyWorkerUpgrade.Init(uData.SellByWorker.name, uData.SellByWorker.desc, currentFortress.UTPSellByWorkerIndex, price, _playerProfile.Gold);
 
                 price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.CycleDuration, currentFortress.UTPCycleDurationIndex);
-                _cycleDurationUpgrade.Init(uData.CycleDuration.name, uData.CycleDuration.desc, currentFortress.UTPCycleDurationIndex, price, _playerProfile.Gold);
+                _cycleDurationUpgrade.Init(uData.CycleDuration.name, uData.CycleDuration.desc, currentFortress.UTPCycleDurationIndex, price, _playerProfile.Gold, isMax);
 
                 price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WinBeerAmount, currentFortress.UTPWinBeerAmountIndex);
                 _winBeerAmountUpgrade.Init(uData.WinBeerAmount.name, uData.WinBeerAmount.desc, currentFortress.UTPWinBeerAmountIndex, price, _playerProfile.Gold);
 
                 price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WinBeerChance, currentFortress.UTPWinBeerChanceIndex);
-                _winBeerChanceUpgrade.Init(uData.WinBeerChance.name, uData.WinBeerChance.desc, currentFortress.UTPWinBeerChanceIndex, price, _playerProfile.Gold, isDecremental);
+                isMax = currentFortress.UForgeInstantSellingChanceIndex >= uData.WinBeerChance.max;
+                _winBeerChanceUpgrade.Init(uData.WinBeerChance.name, uData.WinBeerChance.desc, currentFortress.UTPWinBeerChanceIndex, price, _playerProfile.Gold, isMax);
 
                 price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.GoldMult, currentFortress.UTPGoldMultIndex);
                 _goldMultUpgrade.Init(uData.GoldMult.name, uData.GoldMult.desc, currentFortress.UTPGoldMultIndex, price, _playerProfile.Gold);

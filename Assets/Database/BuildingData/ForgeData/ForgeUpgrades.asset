@@ -32,7 +32,7 @@ MonoBehaviour:
     value: 0.05
     cost: 75
     coef: 4
-    max: 0
+    max: 25
   _instantSellingChance:
     name: 'Bonus : Sell now'
     desc: Increases the chance to sell the tools instantly

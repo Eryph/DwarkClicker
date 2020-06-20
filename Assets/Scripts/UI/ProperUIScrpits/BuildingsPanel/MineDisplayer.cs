@@ -72,7 +72,6 @@
 
             if (_isGoldTrans)
             {
-                bool isDecremental = currentFortress.UForgeInstantSellingChanceIndex >= uData.Mithril.max;
                 int price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.WorkerAmount, currentFortress.UMineWorkerNbIndex);
                 _workerUpgrade.Init(uData.WorkerAmount.name, uData.WorkerAmount.desc, currentFortress.UMineWorkerNbIndex, price, _playerProfile.Gold);
 
@@ -80,21 +79,23 @@
                 _resByWorkerUpgrade.Init(uData.ResByWorker.name, uData.ResByWorker.desc, currentFortress.UMineResByWorkerIndex, price, _playerProfile.Gold);
 
                 price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.CycleDuration, currentFortress.UMineCycleDurationIndex);
+                bool isMax = currentFortress.UForgeCycleDurationIndex >= uData.CycleDuration.max;
                 _cycleUpUpgrade.Init(uData.CycleDuration.name, uData.CycleDuration.desc, currentFortress.UMineCycleDurationIndex, price, _playerProfile.Gold);
 
                 //price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.BeerConsumption, currentFortress.UMineBeerConsoIndex);
                 //_beerConsoUpgrade.Init(uData.BeerConsumption.name, uData.BeerConsumption.desc, currentFortress.UMineBeerConsoIndex, price, _playerProfile.Gold);
 
                 price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.Mithril, currentFortress.UMineMithrilChanceIndex);
-                _mithrilChanceUpgrade.Init(uData.Mithril.name, uData.Mithril.desc, currentFortress.UMineMithrilChanceIndex, price, _playerProfile.Gold, isDecremental);
+                isMax = currentFortress.UForgeInstantSellingChanceIndex >= uData.Mithril.max;
+                _mithrilChanceUpgrade.Init(uData.Mithril.name, uData.Mithril.desc, currentFortress.UMineMithrilChanceIndex, price, _playerProfile.Gold, isMax);
 
                 price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.Luck, currentFortress.UMineLuckIndex);
-                isDecremental = currentFortress.UForgeInstantSellingChanceIndex >= uData.Luck.max;
-                _luckUpgrade.Init(uData.Luck.name, uData.Luck.desc, currentFortress.UMineLuckIndex, price, _playerProfile.Gold, isDecremental);
+                isMax = currentFortress.UForgeInstantSellingChanceIndex >= uData.Luck.max;
+                _luckUpgrade.Init(uData.Luck.name, uData.Luck.desc, currentFortress.UMineLuckIndex, price, _playerProfile.Gold, isMax);
 
                 price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.RichVein, currentFortress.UMineRichVeinIndex);
-                isDecremental = currentFortress.UForgeInstantSellingChanceIndex >= uData.RichVein.max;
-                _richVeinUpgrade.Init(uData.RichVein.name, uData.RichVein.desc, currentFortress.UMineRichVeinIndex, price, _playerProfile.Gold, isDecremental);
+                isMax = currentFortress.UForgeInstantSellingChanceIndex >= uData.RichVein.max;
+                _richVeinUpgrade.Init(uData.RichVein.name, uData.RichVein.desc, currentFortress.UMineRichVeinIndex, price, _playerProfile.Gold, isMax);
 
                 _goldMithrilSwitchButtonImage.sprite = DatabaseManager.Instance.MithrilButtonIcon;
             }

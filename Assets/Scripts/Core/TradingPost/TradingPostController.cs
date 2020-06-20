@@ -392,7 +392,8 @@
 
         public void TriggerHighlight()
         {
-            FTUEManager.Instance.SetNewHighlight();
+            if (FTUEManager.Instance.IsActivated)
+                FTUEManager.Instance.SetNewHighlight();
         }
 
 		private void HandleFortressChange()

@@ -36,7 +36,7 @@
             if (isDecremental)
             {
                 _bg.sprite = _offBgSprite;
-                _price.text = "0";
+                _price.text = "";
                 _currentRank.text = "Rank : MAX";
             }
             else
