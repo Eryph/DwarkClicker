@@ -135,7 +135,7 @@
 			set
 			{
 				CurrentFortress.ResetEvents();
-				GameManager.Instance.LoadProgression(true);
+				//GameManager.Instance.LoadProgression(true);
 				_currentFortressIndex = value;
 				if (_onFortressChange != null)
 					_onFortressChange();

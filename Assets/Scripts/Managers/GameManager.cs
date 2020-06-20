@@ -87,20 +87,19 @@
 			_playerProfile.FortressDate = currentDate;
 			TimeSpan timeElapsed = currentDate.Subtract(prevDate);
 
-			for (int fIndex = 0; fIndex < _playerProfile.Fortress.Count; fIndex++)
-			{
-				FortressProfile fortress = _playerProfile.Fortress[fIndex];
+			//for (int fIndex = 0; fIndex < _playerProfile.Fortress.Count; fIndex++)
+			//{
+				FortressProfile fortress = _playerProfile.LastFortress;
 
-
-				if (fortress._isBought == false)
+				/*if (fortress._isBought == false)
 				{
 					continue;
-				}
+				}*/
 				
-				if (computeCurrent == true && fIndex == _playerProfile.CurrentFortressIndex)
+				/*if (computeCurrent == true && fIndex == _playerProfile.CurrentFortressIndex)
 				{
 					continue;
-				}
+				}*/
 
 				_progressionInventory = new ProgressionLoadInventory();
 				_progressionInventory.Init();
@@ -124,7 +123,7 @@
                     _playerProfile._bonusTimeRemaining = 0;
                 }
 
-            }
+            //}
             if (_onProgressionLoad != null)
                 _onProgressionLoad();
 		}

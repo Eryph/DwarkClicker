@@ -427,7 +427,7 @@
 		{
 			if (!_timer.IsStopped)
 			{
-                if (_polteringFTUECount < 5)
+                if (_polteringFTUECount < 5 && FTUEManager.Instance.CurrentStep < FTUEManager.Instance.StepAmount)
                 {
                     _polteringFTUECount++;
                     if (_polteringFTUECount >= 5)
