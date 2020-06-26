@@ -30,6 +30,24 @@
 		[SerializeField] private TextMeshProUGUI _bonusDesc = null;
 		[SerializeField] private TextMeshProUGUI _bonusPrice = null;
 
+        [Header("Gold Song")]
+        [SerializeField] private TextMeshProUGUI _goldSongTitle = null;
+        [SerializeField] private TextMeshProUGUI _goldSongDesc = null;
+        [SerializeField] private TextMeshProUGUI _goldSongPrice = null;
+        [SerializeField] private TextMeshProUGUI _goldSongMult = null;
+
+        [Header("Mine Song")]
+        [SerializeField] private TextMeshProUGUI _mineSongTitle = null;
+        [SerializeField] private TextMeshProUGUI _mineSongDesc = null;
+        [SerializeField] private TextMeshProUGUI _mineSongPrice = null;
+        [SerializeField] private TextMeshProUGUI _mineSongMult = null;
+
+        [Header("Forge Song")]
+        [SerializeField] private TextMeshProUGUI _forgeSongTitle = null;
+        [SerializeField] private TextMeshProUGUI _forgeSongDesc = null;
+        [SerializeField] private TextMeshProUGUI _forgeSongPrice = null;
+        [SerializeField] private TextMeshProUGUI _forgeSongMult = null;
+
         [Header("Tea Texts")]
         [SerializeField] private TextMeshProUGUI _teaTitle = null;
         [SerializeField] private TextMeshProUGUI _teaDesc = null;
@@ -82,6 +100,7 @@
             FTUEManager.Instance.StepFinished();
             _shopButtonDisable.SetActive(true);
             _shopButtonEnable.SetActive(false);
+            DisplaySong();
         }
 
         private void OnDisable()
@@ -143,22 +162,49 @@
 			}
 		}
 
+        public void DisplaySong()
+        {
+            _goldSongTitle.text = "Gold Song";
+            _goldSongPrice.text = DatabaseManager.Instance.SongPrice.ToString();
+            _goldSongMult.text = JSonManager.Instance.PlayerProfile._goldMultiplierBonus.ToString("#.#") + "x";
+
+            _mineSongTitle.text = "Mine Song";
+            _mineSongPrice.text = DatabaseManager.Instance.SongPrice.ToString();
+            _mineSongMult.text = JSonManager.Instance.PlayerProfile._resourcesMultiplierBonus.ToString("#.#") + "x";
+
+            _forgeSongTitle.text = "Forge Song";
+            _forgeSongPrice.text =  DatabaseManager.Instance.SongPrice.ToString();
+            _forgeSongMult.text = JSonManager.Instance.PlayerProfile._toolsMultiplierBonus.ToString("#.#") + "x";
+        }
+
         public void AddPermanentGoldBonus()
         {
-            JSonManager.Instance.PlayerProfile._goldMultiplierBonus += DatabaseManager.Instance.PermanentBonus.PermanentGoldBonusAdd;
-            _popup.Display(1, "Transaction complete !\nCongatulations !");
+            if (JSonManager.Instance.PlayerProfile.Mithril >= DatabaseManager.Instance.SongPrice)
+            {
+                JSonManager.Instance.PlayerProfile._goldMultiplierBonus += DatabaseManager.Instance.PermanentBonus.PermanentGoldBonusAdd;
+                _popup.Display(1, "Transaction complete !\nCongatulations !");
+                DisplaySong();
+            }
         }
 
         public void AddPermanentResBonus()
         {
-            JSonManager.Instance.PlayerProfile._resourcesMultiplierBonus += DatabaseManager.Instance.PermanentBonus.PermanentResBonusAdd;
-            _popup.Display(1, "Transaction complete !\nCongatulations !");
+            if (JSonManager.Instance.PlayerProfile.Mithril >= DatabaseManager.Instance.SongPrice)
+            {
+                JSonManager.Instance.PlayerProfile._resourcesMultiplierBonus += DatabaseManager.Instance.PermanentBonus.PermanentResBonusAdd;
+                _popup.Display(1, "Transaction complete !\nCongatulations !");
+                DisplaySong();
+            }
         }
 
         public void AddPermanentToolBonus()
         {
-            JSonManager.Instance.PlayerProfile._toolsMultiplierBonus += DatabaseManager.Instance.PermanentBonus.PermanentToolBonusAdd;
-            _popup.Display(1, "Transaction complete !\nCongatulations !");
+            if (JSonManager.Instance.PlayerProfile.Mithril >= DatabaseManager.Instance.SongPrice)
+            {
+                JSonManager.Instance.PlayerProfile._toolsMultiplierBonus += DatabaseManager.Instance.PermanentBonus.PermanentToolBonusAdd;
+                _popup.Display(1, "Transaction complete !\nCongatulations !");
+                DisplaySong();
+            }
         }
 
         private void GainMithril(Product product)
@@ -194,9 +240,8 @@
 
         public void OnSongButtonClick()
         {
-            _shopController.LaunchSongAd();
-            MonetizationManager.Instance.AdFinished += _bonusProgressBar.UpdateBar;
-            _bonusProgressBar.UpdateBar();
+            _shopController.LaunchSongAd(_bonusProgressBar);
+            //_bonusProgressBar.UpdateBar();
         }
 
         public void BuyGoldMultiplier()

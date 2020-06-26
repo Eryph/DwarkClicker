@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: DIALBOX_KEY3
   _step: 2
-  _text: 'Brew Elixeer as much as you can ! '
+  _text: 'Brew as much Elixeer as you can ! '

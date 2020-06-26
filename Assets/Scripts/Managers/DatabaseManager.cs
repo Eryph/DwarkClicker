@@ -13,6 +13,7 @@
         [Header("General Data")]
         [SerializeField] private float _polteringValue = 0.05f;
         [SerializeField] private int _upgradeMithrilPrice = 100;
+        [SerializeField] private int _songPrice = 1000;
 
         [Header("DailyReward")]
         [SerializeField] private DailyReward[] _dailyRewards = null;
@@ -65,6 +66,7 @@
         #region Properties
         public float PolteringValue { get { return _polteringValue; } }
         public int UpgradeMithrilPrice { get { return _upgradeMithrilPrice; } }
+        public int SongPrice { get { return _songPrice; } }
 
         public DailyReward[] DailyRewards { get { return _dailyRewards; } }
 

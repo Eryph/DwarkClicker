@@ -62,7 +62,8 @@
             _onSwitchGoldMithril += Display;
 			GameLoopManager.Instance.GameLoop += UpdateDisplay;
 			OnForgeUpgrade();
-		}
+            _backgroundImage.sprite = _backgrounds[_playerProfile.CurrentFortressIndex];
+        }
 
 		private void OnEnable()
 		{

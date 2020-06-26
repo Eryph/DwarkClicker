@@ -13,7 +13,7 @@
             switch (isoCurrency)
             {
                 case "EUR":
-                    return "€";
+                    return "E";
                 case "USD":
                     return "$";
                 default:
@@ -30,12 +30,12 @@
 			if (value >= 1000000)
 			{
 				tmpValue = value / 1000000;
-				unitCharacter = 'm';
+				unitCharacter = 'M';
 			}
 			else if (value >= 1000)
 			{
 				tmpValue = value / 1000;
-				unitCharacter = 'k';
+				unitCharacter = 'K';
 			}
 			else
 			{

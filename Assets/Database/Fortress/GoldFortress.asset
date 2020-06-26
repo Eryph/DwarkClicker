@@ -20,3 +20,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dc18c2f39609ceb478897cc02ee141be, type: 2}
   - {fileID: 11400000, guid: ab6e580b2fd79c74a9ebd62544f0fbd7, type: 2}
   - {fileID: 11400000, guid: 7f21c194568c0a54689a621f00c37cae, type: 2}
+  _fortressIcon: {fileID: 21300000, guid: a7a692c23280d294a85f430d05a54944, type: 3}

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: DIALBOX_KEY1
   _step: 0
-  _text: Welcome to your Fortress, Warden ! I was waiting for you. Let me show you
-    around !
+  _text: "Welcome to your Fortress, Warden ! \nI was waiting for you. Let me show
+    you around !"

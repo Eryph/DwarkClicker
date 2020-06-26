@@ -17,6 +17,7 @@
 	{
 		#region Fields
 		[SerializeField] private string _firstSceneToLoadPath = "Assets/Scenes/MainMenu.unity";
+        [SerializeField] private LoadingScreenHandler _loadingHandler = null;
 
 		private ProgressionLoadInventory _progressionInventory;
 		private PlayerProfile _playerProfile = null;
@@ -59,7 +60,8 @@
 			int buildIndex = SceneUtility.GetBuildIndexByScenePath(_firstSceneToLoadPath);
 			if (buildIndex > 0)
 			{
-				SceneManager.LoadScene(buildIndex);
+			    AsyncOperation asyncOp =  SceneManager.LoadSceneAsync(buildIndex);
+                _loadingHandler.Load(asyncOp);
 			}
 			else
 			{

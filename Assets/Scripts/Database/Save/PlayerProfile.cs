@@ -361,7 +361,7 @@
 					fortress._isBought = false;
 				}
 
-				fortress.Init(db.Fortress[i].Name, db.Fortress[i].WeaponsToProduce, db.Fortress[i].ResourceToProduce);
+				fortress.Init(db.Fortress[i].Name, db.Fortress[i].WeaponsToProduce, db.Fortress[i].ResourceToProduce, db.Fortress[i].FortressIcon);
 				_fortressList.Add(fortress);
 			}
 

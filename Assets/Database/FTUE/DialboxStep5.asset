@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: DIALBOX_KEY5
   _step: 4
-  _text: 'The miner uses the Elixeer to extract resources. Tap on the progress bar
-    to speed them.
+  _text: 'Thanks to Elixeer, the Miners can extract resources. Tap on the progress
+    bar to speed up production.
 
 
 '

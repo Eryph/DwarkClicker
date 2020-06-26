@@ -12,7 +12,9 @@
 		[SerializeField] private int _price = 1000;
 		[SerializeField] private ResourceData _resourceToProduce = null;
 		[SerializeField] private WeaponData[] _weaponsToProduce = null;
+        [SerializeField] private Sprite _fortressIcon = null;
 
+        public Sprite FortressIcon { get { return _fortressIcon; } }
 		public int UID { get { return _UID; } }
 		public string Name { get { return _name; } }
 		public int Price { get { return _price; } }

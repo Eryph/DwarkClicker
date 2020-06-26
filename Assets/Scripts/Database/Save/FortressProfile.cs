@@ -22,6 +22,7 @@
 		public float _beer = 0;
 		public float _beerStorage = 0;
 		public int _modifierTimer = 0;
+        public Sprite _fortressIcon = null;
 		#endregion Production
 
 		public bool _tradingPostIsPaused = false;
@@ -473,7 +474,7 @@
 		#endregion Events
 
 		#region Methods
-		public void Init(string name, WeaponData[] weapons, ResourceData resource)
+		public void Init(string name, WeaponData[] weapons, ResourceData resource, Sprite icon)
 		{
 			_beer = 0;
 
@@ -488,7 +489,8 @@
 			_innUpgradesIndex.ResetUpgrades();
 
 			Name = name;
-			InitInstanceData(weapons, resource);
+            _fortressIcon = icon;
+            InitInstanceData(weapons, resource);
 		}
 
 		public void InitInstanceData(WeaponData[] weapons, ResourceData resource)

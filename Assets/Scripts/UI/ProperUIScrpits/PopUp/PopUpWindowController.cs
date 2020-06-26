@@ -9,6 +9,7 @@
 
     public class PopUpWindowController : MonoBehaviour
     {
+        [SerializeField] private Animator _anim = null;
         [SerializeField] private Image _backgroundImage = null;
         [SerializeField] private TextMeshProUGUI _popUpText = null;
         [SerializeField] private Sprite[] _backgroundSprites = null;
@@ -33,12 +34,22 @@
            
         }
 
-        public void Display(int popUpRank, string popUpText)
+        public void Display(int popUpRank, string popUpText, bool isFortress = false)
         {
             SoundManager.Instance.PlaySound("REWARD_SOUND_R" + (popUpRank + 1).ToString());
             gameObject.SetActive(true);
             popUpRank = Mathf.Clamp(popUpRank, 0, _backgroundSprites.Length - 1);
-            _backgroundImage.sprite = _backgroundSprites[popUpRank];
+            if (isFortress)
+            {
+                _backgroundImage.sprite = _backgroundSprites[3];
+            }
+            else
+            {
+                _backgroundImage.sprite = _backgroundSprites[popUpRank];
+            }
+            
+            //_anim.SetTrigger("l" + popUpRank.ToString());
+
             _popUpText.text = popUpText;
             GameLoopManager.Instance.GameLoop += AnimateFireWorks;
             GameLoopManager.Instance.GameLoop += AnimateBackground;

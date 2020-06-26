@@ -24,6 +24,7 @@
 		[SerializeField] private GameObject _shopPanel = null;
 		[SerializeField] private GameObject _settingsPanel = null;
 		[SerializeField] private TextMeshProUGUI _fortressCount = null;
+        [SerializeField] private Image _fortressIcon = null;
 
 		private PlayerProfile _playerProfile = null;
 		#endregion Fields
@@ -43,8 +44,6 @@
 			UpdateMithrilDisplay();
 			UpdateFortress();
 
-			_fortressCount.text = _playerProfile.FortressCount.ToString();
-
 			if (JSonManager.Instance.PlayerProfile.IsDailyRewardAvailable)
 			{
 				_dailyRewardDisabledButton.SetActive(false);
@@ -55,6 +54,8 @@
 				_dailyRewardDisabledButton.SetActive(true);
 				_dailyRewardEnabledButton.SetActive(false);
 			}
+
+            _fortressIcon.sprite = DatabaseManager.Instance.Fortress[_playerProfile.CurrentFortressIndex].FortressIcon; ;
 		}
 
 		private void OnDestroy()
@@ -86,25 +87,29 @@
 		{
 			_playerProfile.CurrentFortress.OnBeerChange += UpdateBeerDisplay;
 			UpdateBeerDisplay();
+            _fortressIcon.sprite = DatabaseManager.Instance.Fortress[_playerProfile.CurrentFortressIndex].FortressIcon;
 		}
 
 		public void OpenFortressPanel()
 		{
             if (!FTUEManager.Instance.IsActivated)
-                _fortressPanel.SetActive(true);
+                _fortressPanel.SetActive(!_fortressPanel.activeSelf);
 		}
 
 		public void OpenDailyRewardPanel()
 		{
             if (!FTUEManager.Instance.IsActivated)
-                _dailyRewardPanel.SetActive(true);
+                _dailyRewardPanel.SetActive(!_dailyRewardPanel.activeSelf);
 		}
 
-		public void OpenKingPanel()
-		{
+        public void OpenKingPanel()
+        {
             if (!FTUEManager.Instance.IsActivated)
-			_kingPanel.SetActive(true);
-		}
+            {
+
+                _kingPanel.SetActive(!_kingPanel.activeSelf);
+            }
+        }
 
 		public void OpenShopPanel()
 		{
@@ -121,7 +126,7 @@
 
 		public void OpenSetings()
 		{
-			_settingsPanel.SetActive(true);
+			_settingsPanel.SetActive(!_settingsPanel.activeSelf);
 		}
 
 		public void SetDailyRewardButtonDisabled()

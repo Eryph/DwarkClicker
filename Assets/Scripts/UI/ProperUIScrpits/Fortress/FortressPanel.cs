@@ -9,20 +9,25 @@
 	using UnityEngine.UI;
     using TMPro;
     using DwarfClicker.UI.PopUp;
+    using DwarfClicker.Core.Data;
 
     public class FortressPanel : MonoBehaviour
-	{
+    {
         #region Fields
-        [SerializeField] private Button _buyButton = null;
-        [SerializeField] private Image _buttonImage = null;
-        [SerializeField] private TextMeshProUGUI _fortressName = null;
-        [SerializeField] private TextMeshProUGUI _buttonText = null;
-        [SerializeField] private Image _fortressImage = null;
-        [SerializeField] private Image _coinImage = null;
-        [SerializeField] private Sprite _buttonOnSprite = null;
-        [SerializeField] private Sprite _buttonOffSprite = null;
-        [SerializeField] private Button _redeemButton = null;
         [SerializeField] private PopUpWindowController _popUp = null;
+        [SerializeField] private TextMeshProUGUI _fortressName = null;
+        [SerializeField] private TextMeshProUGUI _nextFortressPrice = null;
+        [SerializeField] private Image _currentFortressIcon = null;
+        [SerializeField] private Image _currentFortressResource = null;
+        [SerializeField] private Image[] _currentFortressItems = null;
+        [SerializeField] private Image[] _nextFortressIcons = null;
+        [SerializeField] private Image[] _nextFortressItems = null;
+        [SerializeField] private Image _nextFortressResource = null;
+        [SerializeField] private Button _buyButton = null;
+        [SerializeField] private GameObject _resourceText = null;
+        [SerializeField] private GameObject _itemText = null;
+        [SerializeField] private GameObject _forNowText = null;
+
 
         private int _index = 0;
 		private PlayerProfile _profile = null;
@@ -42,97 +47,83 @@
 			{
 				_profile = JSonManager.Instance.PlayerProfile;
 			}
-            _index = _profile.CurrentFortressIndex;
 			DisplayPanel();
 		}
 
 		public void DisplayPanel()
 		{
-            //_fortressImage.sprite = _profile.Fortress[_index].FortressImage;
-            FortressProfile fortress = _profile.Fortress[_index];
-            _fortressName.text = fortress.Name;
-
-            if (fortress._isBought)
+            PlayerProfile profile = JSonManager.Instance.PlayerProfile;
+            FortressData currentFortress = DatabaseManager.Instance.Fortress[profile._currentFortressIndex];
+            
+            if (profile._currentFortressIndex + 1 < DatabaseManager.Instance.Fortress.Length)
             {
-                _coinImage.gameObject.SetActive(false);
-                _buttonText.text = "Go to";
-                if (_index == _profile.CurrentFortressIndex)
+                FortressData nextFortress = DatabaseManager.Instance.Fortress[profile._currentFortressIndex + 1];
+                _fortressName.text = nextFortress.Name;
+                _nextFortressPrice.text = UIHelper.FormatIntegerString(nextFortress.Price);
+                _currentFortressIcon.sprite = currentFortress.FortressIcon;
+                _currentFortressResource.sprite = currentFortress.ResourceToProduce.ResourceSprite;
+                for (int i = 0; i < _currentFortressItems.Length; i++)
                 {
-                    _buyButton.interactable = false;
+                    _currentFortressItems[i].sprite = currentFortress.WeaponsToProduce[i].WeaponSprite;
                 }
-                else
+                for (int i = 0; i < _nextFortressItems.Length; i++)
                 {
-                    _buyButton.interactable = true;
+                    _nextFortressItems[i].sprite = nextFortress.WeaponsToProduce[i].WeaponSprite;
                 }
+
+                for (int i = 0; i < _nextFortressIcons.Length; i++)
+                {
+                    _nextFortressIcons[i].sprite = nextFortress.FortressIcon;
+                }
+
+                _buyButton.interactable = profile.Gold >= nextFortress.Price;
             }
             else
             {
-                _coinImage.gameObject.SetActive(true);
-                int price = DatabaseManager.Instance.Fortress[_index].Price;
-                _buttonText.text = "Price : " + UIHelper.FormatIntegerString(price);
-                if (price > _profile.Gold)
+                _currentFortressIcon.sprite = currentFortress.FortressIcon;
+                _currentFortressResource.sprite = currentFortress.ResourceToProduce.ResourceSprite;
+                for (int i = 0; i < _currentFortressItems.Length; i++)
                 {
-                    _buttonImage.sprite = _buttonOffSprite;
-                    _buyButton.interactable = false;
+                    _currentFortressItems[i].sprite = currentFortress.WeaponsToProduce[i].WeaponSprite;
                 }
-                else
+
+                _fortressName.text = "Not available";
+                _buyButton.gameObject.SetActive(false);
+                _nextFortressResource.gameObject.SetActive(false);
+                _resourceText.gameObject.SetActive(false);
+                _itemText.gameObject.SetActive(false);
+
+                for (int i = 0; i < _nextFortressIcons.Length; i++)
                 {
-                    _buttonImage.sprite = _buttonOnSprite;
-                    _buyButton.interactable = true;
+                    _nextFortressIcons[i].gameObject.SetActive(false);
                 }
+
+                for (int i = 0; i < _nextFortressItems.Length; i++)
+                {
+                    _nextFortressItems[i].gameObject.SetActive(false);
+                }
+                _forNowText.SetActive(true);
             }
+
         }
 
-        public void BuyOrSwitchFortress()
-        {
-            if (_profile.Fortress[_index]._isBought)
-                SwitchFortress();
-            else
-                BuyFortress();
-        }
-
-        public void NextFortress()
-        {
-            _index++;
-            if (_index >= _profile.Fortress.Count)
-            {
-                _index = 0;
-            }
-            SoundManager.Instance.PlaySound("STANDARD_CLICK");
-            DisplayPanel();
-        }
-
-        public void PreviousFortress()
-        {
-            _index--;
-            if (_index < 0)
-            {
-                _index = _profile.Fortress.Count;
-            }
-            SoundManager.Instance.PlaySound("STANDARD_CLICK");
-            DisplayPanel();
-        }
+        
 
 		public void SwitchFortress()
 		{
-			_profile.CurrentFortressIndex = _index;
-			DisplayPanel();
+			_profile.CurrentFortressIndex = JSonManager.Instance.PlayerProfile._currentFortressIndex + 1;
             SoundManager.Instance.PlaySound("STANDARD_CLICK");
         }
 
 		public void BuyFortress()
 		{
-			GameManager.Instance.BuyFortress(_index);
+			GameManager.Instance.BuyFortress(JSonManager.Instance.PlayerProfile._currentFortressIndex + 1);
             AchievementManager.Instance.UpdateAchievement("FORTRESS", 1);
-            DisplayPanel();
             SoundManager.Instance.PlaySound("STANDARD_CLICK");
-            _popUp.Display(2, "Transaction Complete !\nFortress unlocked !");
+            _popUp.Display(2, "Transaction Complete !\nFortress unlocked !", true);
+            SwitchFortress();
+            QuitPanel();
         }
-
-		public void RedeemProduction()
-		{
-			GameManager.Instance.LoadProgression(true);
-		}
 
 		public void QuitPanel()
 		{

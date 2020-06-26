@@ -20,6 +20,7 @@
 		[SerializeField] private Transform _bar = null;
         [SerializeField] private Image _background = null;
         [SerializeField] private Sprite _backgroundSprite = null;
+        [SerializeField] private GameObject _pricePanel = null;
 
 		private Vector3 _emptyPos = Vector3.zero;
 
@@ -54,6 +55,7 @@
 			{
 				_barProgText.text = "Fnished !";
                 _background.sprite = _backgroundSprite;
+                _pricePanel.gameObject.SetActive(false);
 			}
 			else if (_achievement.CanGetReward)
 			{

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: DIALBOX_KEY7
   _step: 6
-  _text: "Here the Blacksmiths turn resources into tools. You can choose which tool
-    is forged. The tool\u2019s price evolves with time, keep an eye on it.\r\n"
+  _text: "Here the Blacksmiths turn resources into Items. You can choose which Item
+    is forged. The Item\u2019s price evolves with time, keep an eye on it.\r\n"

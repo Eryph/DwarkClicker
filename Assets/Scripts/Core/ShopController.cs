@@ -1,5 +1,6 @@
 ﻿namespace DwarfClicker.Core
 {
+    using DwarfClicker.UI.ShopPanel;
     using Engine.Manager;
     using System;
 	using System.Collections;
@@ -210,17 +211,19 @@
             JSonManager.Instance.PlayerProfile.Mithril += 1;
         }
 
-        public void LaunchSongAd()
+        public void LaunchSongAd(BonusProgressBar bonusProgressBar)
         {
 
             if (!JSonManager.Instance.PlayerProfile._noMoreAdsBonus)
             {
                 MonetizationManager.Instance.ShowAd();
                 MonetizationManager.Instance.AdFinished += RedeemFreeSongBonus;
+                MonetizationManager.Instance.AdFinished += bonusProgressBar.UpdateBar;
             }
             else
             {
                 RedeemFreeSongBonus();
+                bonusProgressBar.UpdateBar();
             }
         }
 

@@ -77,5 +77,15 @@
             else
                 _soundMutedButton.sprite = _soundNotMutedSprite;
         }
+
+        public void OpenTwitter()
+        {
+            Application.OpenURL("https://twitter.com/DwarfClicker?s=09");
+        }
+
+        public void OpenFacebook()
+        {
+            Application.OpenURL("https://www.facebook.com/DwarfClicker/");
+        }
     }
 }

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: DIALBOX_KEY4
   _step: 3
-  _text: "Great ! Now let\u2019s see what our miners do with this Elixeer.\r\n"
+  _text: "Great ! Let\u2019s see what the Miners are doing.\r\n"

@@ -49,7 +49,7 @@
 
 		private void PlaySound(AudioClip sound)
 		{
-			_musicSource.PlayOneShot(sound);
+		    _soundSource.PlayOneShot(sound);
 		}
 
 		public void PlayPoltering(string soundTag)

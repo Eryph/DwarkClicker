@@ -22,9 +22,12 @@
 		[SerializeField] private TextMeshProUGUI _bottomText = null;
 
 		[SerializeField] private GameObject _fullScreenQuitButton = null;
+        [SerializeField] private GameObject _downArrow = null;
+        [SerializeField] private GameObject _upArrow = null;
 
         [Header("HighLights")]
         private int _highlightsIndex = 0;
+        [SerializeField] private GameObject _fullHighlight = null;
         [SerializeField] private GameObject[] _highlights = null;
 
         public int HighLightIndex
@@ -37,23 +40,27 @@
 
         private void Start()
 		{
-			if (FTUEManager.Instance.Dialbox == null)
-			{
-				FTUEManager.Instance.SetDialbox(this);
-			}
-			else
-			{
-				Debug.LogError("Multiple DialboxController is not supported.");
-			}
-			if (JSonManager.Instance.PlayerProfile.FTUEStep <= 0)
-			{
-				_firstFullScreenDialbox.gameObject.SetActive(true);
-			}
-            if (JSonManager.Instance.PlayerProfile.FTUEStep <= 3)
+            if (!FTUEManager.Instance.IsDebug)
             {
-                JSonManager.Instance.PlayerProfile.CurrentFortress.OnBeerChange += CheckBeerStorage;
+                if (FTUEManager.Instance.Dialbox == null)
+                {
+                    FTUEManager.Instance.SetDialbox(this);
+                }
+                else
+                {
+                    Debug.LogError("Multiple DialboxController is not supported.");
+                }
+                if (JSonManager.Instance.PlayerProfile.FTUEStep <= 0)
+                {
+                    _firstFullScreenDialbox.gameObject.SetActive(true);
+                    _fullHighlight.SetActive(true);
+                }
+                if (JSonManager.Instance.PlayerProfile.FTUEStep <= 3)
+                {
+                    JSonManager.Instance.PlayerProfile.CurrentFortress.OnBeerChange += CheckBeerStorage;
+                }
+                FTUEManager.Instance.TriggerStep();
             }
-			FTUEManager.Instance.TriggerStep();
 		}
 
 		private void OnDisable()
@@ -92,10 +99,64 @@
                 if (FTUEManager.Instance.CurrentStep >= 1)
                     TriggerNextHiglight();
                 gameObject.SetActive(true);
-				_bottomDialbox.SetActive(true);
-				_topDialbox.SetActive(false);
+                SetTopBottomDialbox();
 				_topText.text = text;
 				_bottomText.text = text;
+                if (FTUEManager.Instance.CurrentStep == 11)
+                {
+                    _fullHighlight.SetActive(true);
+                }
+
+                switch (HighLightIndex)
+                {
+                    case 0:
+                        EnableArrow(false);
+                        break;
+                    case 1:
+                        EnableArrow(true);
+                        break;
+                    case 2:
+                        EnableArrow(false);
+                        break;
+                    case 3:
+                        EnableArrow(false);
+                        break;
+                    case 4:
+                        EnableArrow(true);
+                        break;
+                    case 5:
+                        EnableArrow(false);
+                        break;
+                    case 6:
+                        EnableArrow(false);
+                        break;
+                    case 7:
+                        EnableArrow(true);
+                        break;
+                    case 8:
+                        EnableArrow(false);
+                        break;
+                    case 9:
+                        EnableArrow(false);
+                        break;
+                    case 10:
+                        EnableUpArrow(true);
+                        EnableArrow(false);
+                        break;
+                    case 11:
+                        EnableUpArrow(false);
+                        EnableArrow(false);
+                        break;
+                    case 12:
+                        EnableUpArrow(false);
+                        EnableArrow(false);
+                        break;
+                    case 13:
+                        EnableUpArrow(true);
+                        EnableArrow(false);
+                        break;
+                }
+
 			}
 			else
 				DisableDialbox();
@@ -142,12 +203,25 @@
         public void DialboxStepFinished()
         {
             if (FTUEManager.Instance.CurrentStep == 0 || FTUEManager.Instance.CurrentStep == 11)
+            {
                 SetStepFinished();
+                _fullHighlight.SetActive(false);
+            }
         }
 
 		public void FinishFirstStep()
 		{
 			_firstFullScreenDialbox.FadeStart();
 		}
-	}
+
+        public void EnableArrow(bool v)
+        {
+            _downArrow.SetActive(v);
+        }
+
+        public void EnableUpArrow(bool v)
+        {
+            _upArrow.SetActive(v);
+        }
+    }
 }
