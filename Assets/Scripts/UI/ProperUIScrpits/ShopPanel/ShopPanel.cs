@@ -184,6 +184,7 @@
                 JSonManager.Instance.PlayerProfile._goldMultiplierBonus += DatabaseManager.Instance.PermanentBonus.PermanentGoldBonusAdd;
                 _popup.Display(1, "Transaction complete !\nCongatulations !");
                 DisplaySong();
+                JSonManager.Instance.PlayerProfile.Mithril -= DatabaseManager.Instance.SongPrice;
             }
         }
 
@@ -194,6 +195,7 @@
                 JSonManager.Instance.PlayerProfile._resourcesMultiplierBonus += DatabaseManager.Instance.PermanentBonus.PermanentResBonusAdd;
                 _popup.Display(1, "Transaction complete !\nCongatulations !");
                 DisplaySong();
+                JSonManager.Instance.PlayerProfile.Mithril -= DatabaseManager.Instance.SongPrice;
             }
         }
 
@@ -204,6 +206,7 @@
                 JSonManager.Instance.PlayerProfile._toolsMultiplierBonus += DatabaseManager.Instance.PermanentBonus.PermanentToolBonusAdd;
                 _popup.Display(1, "Transaction complete !\nCongatulations !");
                 DisplaySong();
+                JSonManager.Instance.PlayerProfile.Mithril -= DatabaseManager.Instance.SongPrice;
             }
         }
 

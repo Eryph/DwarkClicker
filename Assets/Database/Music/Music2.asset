@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Music2
   m_EditorClassIdentifier: 
   _musicTag: Music2
-  _music: {fileID: 8300000, guid: f22e39149eb535b4abc216c75e4afec3, type: 3}
+  _music: {fileID: 8300000, guid: 1d8dc1cb23b767248ac63fc69bab6ce7, type: 3}
