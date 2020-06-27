@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _UID: 0
   _goldValue: 4
-  _name: Runed Steel War Axe
+  _name: War Axe
   _recipe:
   - Key: steel
     Count: 10

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _UID: 0
   _goldValue: 1
-  _name: Iron Wood Axe
+  _name: Axe
   _recipe:
   - Key: iron
     Count: 10

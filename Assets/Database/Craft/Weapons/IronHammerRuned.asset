@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _UID: 0
   _goldValue: 1
-  _name: Runed Iron Hammer
+  _name: Hammer
   _recipe:
   - Key: iron
     Count: 10

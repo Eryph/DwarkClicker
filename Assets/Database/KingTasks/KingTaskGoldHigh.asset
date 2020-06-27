@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KingTaskGoldHigh
   m_EditorClassIdentifier: 
   _amountAsked: 750
-  _description: fluff
+  _description: A little gift to our neighbours is a way to avoid war.
   _typeAsked: 1
   _mithrilRewardAmount: 3
   _rewardMultMin: 1

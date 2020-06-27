@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KingTaskResLow
   m_EditorClassIdentifier: 
   _amountAsked: 1000
-  _description: fluff
+  _description: We need to build new roads to upgrade our Kingdom.
   _typeAsked: 0
   _mithrilRewardAmount: 1
   _rewardMultMin: 0.8

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _UID: 0
   _goldValue: 12
-  _name: Gold Bracelet
+  _name: Bracelet
   _recipe:
   - Key: gold
     Count: 10

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KingTaskToolsLow
   m_EditorClassIdentifier: 
   _amountAsked: 100
-  _description: fluff
+  _description: A merchant outpost needs to be repaired.
   _typeAsked: 2
   _mithrilRewardAmount: 1
   _rewardMultMin: 0.5
