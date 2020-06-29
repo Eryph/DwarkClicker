@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _UID: 0
   _goldValue: 3
-  _name: Steel Dagger
+  _name: Dagger
   _recipe:
   - Key: steel
     Count: 10

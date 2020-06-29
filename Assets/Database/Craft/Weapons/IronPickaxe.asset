@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _UID: 0
   _goldValue: 2
-  _name: Iron Pickaxe
+  _name: Pickaxe
   _recipe:
   - Key: iron
     Count: 10

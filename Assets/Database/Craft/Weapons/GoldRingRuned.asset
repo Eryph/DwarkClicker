@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _UID: 0
   _goldValue: 15
-  _name: Runed Gold Ring
+  _name: Ring
   _recipe:
   - Key: gold
     Count: 10

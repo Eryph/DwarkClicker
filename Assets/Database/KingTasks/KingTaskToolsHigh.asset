@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KingTaskToolsHigh
   m_EditorClassIdentifier: 
   _amountAsked: 500
-  _description: fluff
+  _description: The Great Mine of the Kingdom needs items to find Mithril.
   _typeAsked: 2
   _mithrilRewardAmount: 4
   _rewardMultMin: 1

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: KingTaskResHigh
   m_EditorClassIdentifier: 
   _amountAsked: 3000
-  _description: fluff
+  _description: The Dwarf Kingdom needs to strengthen its defenses. Your resources
+    will be usefull for the wall.
   _typeAsked: 0
   _mithrilRewardAmount: 5
   _rewardMultMin: 1

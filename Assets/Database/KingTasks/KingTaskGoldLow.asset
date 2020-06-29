@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KingTaskGoldLow
   m_EditorClassIdentifier: 
   _amountAsked: 100
-  _description: fluff
+  _description: The Kingdom's taxes have been raised.
   _typeAsked: 1
   _mithrilRewardAmount: 1
   _rewardMultMin: 0.8
