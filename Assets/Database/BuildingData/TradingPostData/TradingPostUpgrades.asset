@@ -32,7 +32,7 @@ MonoBehaviour:
     value: 0.08
     cost: 50
     coef: 4
-    max: 25
+    max: 7
   _winBeerAmount:
     name: 'Bonus : Elixeer amount'
     desc: Increase the amount of Elixeer brought back

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: GOLD
   _name: It's a fortune !
-  _objective: 
-  _stepMax: 0a000000f4010000e803000050c30000a086010020a1070040420f00404b4c008096980000e1f505
-  _mithrilReward: 10
+  _objective: Earn more coins
+  _stepMax: e803000050c3000040420f0050c30000a086010020a1070040420f00404b4c0080969800ffffff7f
+  _mithrilReward: 0
   _achievementSprite: {fileID: 21300000, guid: 552b4c84034933543a6c1b792bcf4a05, type: 3}

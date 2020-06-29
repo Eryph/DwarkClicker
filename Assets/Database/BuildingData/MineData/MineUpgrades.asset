@@ -46,7 +46,7 @@ MonoBehaviour:
     value: 0.05
     cost: 100
     coef: 4
-    max: 25
+    max: 13
   _noBeerConsumptionChance:
     name: NOT IN GAME
     desc: NOT INTEGRATED

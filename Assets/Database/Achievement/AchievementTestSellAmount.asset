@@ -15,6 +15,6 @@ MonoBehaviour:
   _key: SELL_AMOUNT
   _name: Merchant experts
   _objective: Sell more tools
-  _stepMax: 3200000064000000f4010000e8030000881300001027000050c30000a086010020a1070040420f00
+  _stepMax: f40100001027000090d0030040420f0040787d0100c2eb0b
   _mithrilReward: 10
   _achievementSprite: {fileID: 21300000, guid: b2515c6f81a4b75488dd5065fdabe692, type: 3}
