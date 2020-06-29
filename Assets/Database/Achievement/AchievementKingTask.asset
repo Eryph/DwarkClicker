@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: KING_TASK
   _name: King's thane
-  _objective: Complete king tasks
+  _objective: Complete King tasks
   _stepMax: 01000000050000000a0000001e00000028000000320000006400000096000000c8000000fa000000
   _mithrilReward: 5
   _achievementSprite: {fileID: 21300000, guid: 629134a343bb65842b3bb3d0d80d61d9, type: 3}

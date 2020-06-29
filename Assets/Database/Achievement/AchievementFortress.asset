@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: FORTRESS
   _name: Builder
-  _objective: Build new fortress
+  _objective: Build new fortresses
   _stepMax: 010000000200000003000000040000000500000008000000
   _mithrilReward: 5
   _achievementSprite: {fileID: 21300000, guid: 9d0f075c91cf4ac4093bccccd8f37d02, type: 3}

@@ -37,8 +37,8 @@
 		{
 			FortressProfile currentFortress = _playerProfile.CurrentFortress;
 			_WorkUpText.text = string.Format("R{0} - {1}g", currentFortress.UTPWorkerNbIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WorkerAmount, currentFortress.UTPWorkerNbIndex)); ;
-			_CycleUpText.text = string.Format("R{0} - {1}g", currentFortress.UTPCycleDurationIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.SellByWorker, currentFortress.UTPSellByWorkerIndex));
-			_sellByWorkerUpText.text = string.Format("R{0} - {1}g", currentFortress.UTPSellByWorkerIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.SellByWorker, currentFortress.UTPSellByWorkerIndex));
+			_CycleUpText.text = string.Format("R{0} - {1}g", currentFortress.UTPCycleDurationIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.GoldBySell, currentFortress.UTPSellByWorkerIndex));
+			_sellByWorkerUpText.text = string.Format("R{0} - {1}g", currentFortress.UTPSellByWorkerIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.GoldBySell, currentFortress.UTPSellByWorkerIndex));
 			_goldMultUpText.text = string.Format("R{0} - {1}g", currentFortress.UTPGoldMultIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.GoldMult, currentFortress.UTPGoldMultIndex));
 			_winBeerChanceUpText.text = string.Format("R{0} - {1}g", currentFortress.UTPWinBeerChanceIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WinBeerChance, currentFortress.UTPWinBeerChanceIndex));
 			_winBeerAmountUpText.text = string.Format("R{0} - {1}g", currentFortress.UTPWinBeerAmountIndex, _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WinBeerAmount, currentFortress.UTPWinBeerAmountIndex));

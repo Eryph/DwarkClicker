@@ -12,7 +12,7 @@
 		#region Fields
 		// Data
 		private int _workerNb = 1;
-		private int _sellByWorker = 1;
+		private int _goldBySell = 0;
 		private float _cycleDuration = 4f;
 		private float _goldMultiplier = 0;
 		private int _winBeerChance = 0;
@@ -80,7 +80,7 @@
 		private void LoadData()
 		{
 			_weaponToSell = _playerProfile.CurrentFortress.CurrentCraft;
-			_sellByWorker = _db.TradingPostStats.SellByWorker + _db.TradingPostUpgrades.SellByWorker.value * _playerProfile.CurrentFortress.TradingPostUpgradesIndex._sellByWorkerIndex;
+			_goldBySell = _db.TradingPostStats.SellByWorker + _db.TradingPostUpgrades.GoldBySell.value * _playerProfile.CurrentFortress.TradingPostUpgradesIndex._sellByWorkerIndex;
 			_workerNb = _db.TradingPostStats.WorkerAmount + _db.TradingPostUpgrades.WorkerAmount.value * _playerProfile.CurrentFortress.TradingPostUpgradesIndex._workerNbIndex;
 			_cycleDuration = _db.TradingPostStats.CycleDuration;
 			for (int i = 0; i < _playerProfile.CurrentFortress.TradingPostUpgradesIndex._cycleDurationIndex; i++)
@@ -92,7 +92,7 @@
 			_winBeerChance = _db.TradingPostStats.WinBeerChance - _db.TradingPostStats.WinBeerChance * _playerProfile.CurrentFortress.TradingPostUpgradesIndex._winBeerChanceIndex;
 			_winBeerAmount = _db.TradingPostStats.WinBeerAmount + _db.TradingPostStats.WinBeerAmount * _playerProfile.CurrentFortress.TradingPostUpgradesIndex._winBeerAmountIndex;
 
-			_weaponToSellAmount = _workerNb * _sellByWorker;
+			_weaponToSellAmount = _workerNb;
 
 			_isPaused = _playerProfile.CurrentFortress.TradingPostIsPaused;
 			ComputeToSellData(false);
@@ -107,7 +107,7 @@
             {
                 if (_isGoldTrans)
                 {
-                    ulong cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.SellByWorker, _playerProfile.CurrentFortress.UTPSellByWorkerIndex);
+                    ulong cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.GoldBySell, _playerProfile.CurrentFortress.UTPSellByWorkerIndex);
                     if (_playerProfile.Gold >= cost)
                     {
                         SoundManager.Instance.PlaySound("BUY_CLICK");
@@ -427,14 +427,14 @@
 		private void ComputeToSellData(bool computeReal = true)
 		{
 			int _realToSellAmount = _weaponToSellAmount;
-			if (computeReal)
+			/*if (computeReal)
 			{
 				if (_weaponToSellAmount > _playerProfile.Weapons[_weaponToSell.Name].Count)
 				{
 					_realToSellAmount = _weaponToSellAmount - (_weaponToSellAmount - _playerProfile.Weapons[_weaponToSell.Name].Count);
 				}
-			}
-			_goldToProduce = (int)((int)_playerProfile.Weapons[_weaponToSell.Name].SellPrice * _realToSellAmount * _goldMultiplier);
+			}*/
+			_goldToProduce = (int)(((int)_playerProfile.Weapons[_weaponToSell.Name].SellPrice + _goldBySell) * _realToSellAmount * _goldMultiplier);
 		}
 		#endregion Utils
 		#endregion Methods

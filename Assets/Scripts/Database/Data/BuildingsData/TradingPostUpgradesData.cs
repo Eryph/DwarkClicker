@@ -9,7 +9,7 @@
 		[Header("Incremental")]
 		[SerializeField] private IntUpgrade _workerAmount;
 		[Header("Incremental")]
-		[SerializeField] private IntUpgrade _sellByWorker;
+		[SerializeField] private IntUpgrade _goldBySell;
 		[Header("Percentage 0-1")]
 		[SerializeField] private FloatUpgrade _cycleDuration;
 		[Header("Incremental")]
@@ -20,7 +20,7 @@
 		[SerializeField] private FloatUpgrade _goldMult;
 
 		public IntUpgrade WorkerAmount { get { return _workerAmount; } }
-		public IntUpgrade SellByWorker { get { return _sellByWorker; } }
+		public IntUpgrade GoldBySell { get { return _goldBySell; } }
 		public FloatUpgrade CycleDuration { get { return _cycleDuration; } }
 		public FloatUpgrade GoldMult { get { return _goldMult; } }
 		public IntUpgrade WinBeerChance { get { return _winBeerChance; } }

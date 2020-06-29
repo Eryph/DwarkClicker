@@ -21,35 +21,35 @@ MonoBehaviour:
     max: 0
   _sellByWorker:
     name: Storage capacity
-    desc: Increases the number of tool sold per cycle
+    desc: Increases the number of item sold per cycle
     value: 1
     cost: 150
     coef: 2
     max: 0
   _cycleDuration:
     name: Cycle duration
-    desc: Reduce the time needed to sell the tools
+    desc: Reduce the time needed to sell the items
     value: 0.08
     cost: 50
     coef: 4
     max: 7
   _winBeerAmount:
     name: 'Bonus : Elixeer amount'
-    desc: Increase the amount of Elixeer brought back
+    desc: Increase the amount of free Elixeer
     value: 10
     cost: 150
     coef: 1.5
     max: 0
   _winBeerChance:
     name: 'Bonus : Elixeer gift'
-    desc: Increases the chance to come back with Elixeer
+    desc: Increases the chance to gain free Elixeer
     value: 1
     cost: 250
     coef: 1.5
     max: 500
   _goldMult:
     name: Merchants skills
-    desc: Increases the price of each tool sold
+    desc: Increases the price of each item sold
     value: 0.4
     cost: 1000
     coef: 4

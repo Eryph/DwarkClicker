@@ -103,8 +103,8 @@
                 ulong price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WorkerAmount, currentFortress.UTPWorkerNbIndex);
                 _workerUpgrade.Init(uData.WorkerAmount.name, uData.WorkerAmount.desc, currentFortress.UTPWorkerNbIndex, price, _playerProfile.Gold);
 
-                price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.SellByWorker, currentFortress.UTPSellByWorkerIndex);
-                _sellbyWorkerUpgrade.Init(uData.SellByWorker.name, uData.SellByWorker.desc, currentFortress.UTPSellByWorkerIndex, price, _playerProfile.Gold);
+                price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.GoldBySell, currentFortress.UTPSellByWorkerIndex);
+                _sellbyWorkerUpgrade.Init(uData.GoldBySell.name, uData.GoldBySell.desc, currentFortress.UTPSellByWorkerIndex, price, _playerProfile.Gold);
 
                 price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.CycleDuration, currentFortress.UTPCycleDurationIndex);
                 _cycleDurationUpgrade.Init(uData.CycleDuration.name, uData.CycleDuration.desc, currentFortress.UTPCycleDurationIndex, price, _playerProfile.Gold, isMax);
@@ -126,7 +126,7 @@
                 bool isDecremental = currentFortress.UForgeInstantSellingChanceIndex >= uData.WinBeerChance.max;
                 int price = DatabaseManager.Instance.UpgradeMithrilPrice;
                 _workerUpgrade.Init(uData.WorkerAmount.name, uData.WorkerAmount.desc, currentFortress.UTPWorkerNbIndex, price, _playerProfile.Mithril);
-                _sellbyWorkerUpgrade.Init(uData.SellByWorker.name, uData.SellByWorker.desc, currentFortress.UTPSellByWorkerIndex, price, _playerProfile.Mithril);
+                _sellbyWorkerUpgrade.Init(uData.GoldBySell.name, uData.GoldBySell.desc, currentFortress.UTPSellByWorkerIndex, price, _playerProfile.Mithril);
                 _cycleDurationUpgrade.Init(uData.CycleDuration.name, uData.CycleDuration.desc, currentFortress.UTPCycleDurationIndex, price, _playerProfile.Mithril);
                 _winBeerAmountUpgrade.Init(uData.WinBeerAmount.name, uData.WinBeerAmount.desc, currentFortress.UTPWinBeerAmountIndex, price, _playerProfile.Mithril);
                 _winBeerChanceUpgrade.Init(uData.WinBeerChance.name, uData.WinBeerChance.desc, currentFortress.UTPWinBeerChanceIndex, price, _playerProfile.Mithril, isDecremental);

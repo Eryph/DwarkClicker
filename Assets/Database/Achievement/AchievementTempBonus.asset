@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: ELIXEER_STORAGE
   _name: Ready for a good day !
-  _objective: Fill up elixeer
+  _objective: Fill up Elixeer
   _stepMax: 01000000
   _mithrilReward: 5
   _achievementSprite: {fileID: 21300000, guid: 741af327a9ef6684386612624e0a6423, type: 3}

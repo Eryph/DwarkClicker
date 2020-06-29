@@ -14,21 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _workerAmount:
     name: Miner amount
-    desc: Increases the amount of dwarf miners
+    desc: Increase the amount of Miners
     value: 1
     cost: 350
     coef: 2
     max: 0
   _resByWorker:
     name: Miner skills
-    desc: Increases the amount of resources found per cycle
+    desc: Increase the amount of resources mined per cycle
     value: 0.3
     cost: 50
     coef: 1.32
     max: 0
   _luck:
     name: 'Bonus : Luck'
-    desc: Increases the chance of finding free resources
+    desc: Increase the chance of mining bonus resources
     value: 1
     cost: 250
     coef: 1.8
@@ -42,7 +42,7 @@ MonoBehaviour:
     max: 0
   _cycleDuration:
     name: Cycle duration
-    desc: Reduce the time needed to extract resources
+    desc: Reduce the time needed to mine resources
     value: 0.05
     cost: 100
     coef: 4
@@ -56,14 +56,14 @@ MonoBehaviour:
     max: 0
   _richVein:
     name: 'Bonus : Rich vein !'
-    desc: Increases the amount of resources found
+    desc: Increase the amount of resources mined
     value: 1
     cost: 50
     coef: 1.5
     max: 0
   _mithrilChance:
     name: 'Bonus : Mithril !'
-    desc: Increases the chance of finding Mithril in the mine
+    desc: Increase the chance of mining Mithril
     value: 10
     cost: 30
     coef: 1.5

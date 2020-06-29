@@ -9,15 +9,17 @@
 
     public class PopUpWindowController : MonoBehaviour
     {
-        [SerializeField] private Animator _anim = null;
+        [SerializeField] private Animator[] _anims = null;
         [SerializeField] private Image _backgroundImage = null;
-        [SerializeField] private TextMeshProUGUI _popUpText = null;
+        [SerializeField] private TextMeshProUGUI[] _popUpText = null;
         [SerializeField] private Sprite[] _backgroundSprites = null;
         [SerializeField] private float _lerpTime = 0.1f;
 
         [SerializeField] private float[] _fireWorksDelays = null;
         [SerializeField] private Animator[] _fireWorks = null;
 
+
+        private GameObject _currentAnim = null;
         private Vector3 _startScale = Vector3.zero;
         private float _currentLerpTime = 0f;
 
@@ -41,16 +43,34 @@
             popUpRank = Mathf.Clamp(popUpRank, 0, _backgroundSprites.Length - 1);
             if (isFortress)
             {
-                _backgroundImage.sprite = _backgroundSprites[3];
+                for (int i = 0; i < _anims.Length; i++)
+                {
+                    _anims[i].gameObject.SetActive(false);
+                }
+                _anims[3].gameObject.SetActive(true);
+                _currentAnim = _anims[3].gameObject;
+                _popUpText[3].text = popUpText;
             }
             else
             {
-                _backgroundImage.sprite = _backgroundSprites[popUpRank];
+                for (int i = 0; i < _anims.Length; i++)
+                {
+                    if (i == popUpRank)
+                    {
+                        _anims[i].gameObject.SetActive(true);
+                        _currentAnim = _anims[i].gameObject;
+                        _popUpText[i].text = popUpText;
+                    }
+                    else
+                    {
+                        _anims[i].gameObject.SetActive(false);
+                    }
+                }
             }
             
             //_anim.SetTrigger("l" + popUpRank.ToString());
 
-            _popUpText.text = popUpText;
+            
             GameLoopManager.Instance.GameLoop += AnimateFireWorks;
             GameLoopManager.Instance.GameLoop += AnimateBackground;
             
@@ -62,13 +82,13 @@
             {
                 float t = _currentLerpTime / _lerpTime;
                 t = t * t * t * t * t * t;
-                _backgroundImage.transform.localScale = Vector3.Lerp(Vector3.zero, _startScale, t);
+                _currentAnim.transform.localScale = Vector3.Lerp(Vector3.zero, _startScale, t);
                 _currentLerpTime += Time.deltaTime;
             }
             else
             {
                 GameLoopManager.Instance.GameLoop -= AnimateBackground;
-                _backgroundImage.transform.localScale = _startScale;
+                _currentAnim.transform.localScale = _startScale;
                 _currentLerpTime = 0;
             }
         }

@@ -28,10 +28,10 @@
             miningTime /= cycleMDiv;
 
             float beerCostbyWorker = db.MineStats.BeerConsumption;
-			for (int i = 0; i < fortress.UMineBeerConsoIndex; i++)
+			/*for (int i = 0; i < fortress.UMineBeerConsoIndex; i++)
 			{
 				beerCostbyWorker -= beerCostbyWorker * db.MineUpgrades.BeerConsumption.value;
-			}
+			}*/
 
 			int workerNb = db.MineStats.WorkerAmount + db.MineUpgrades.WorkerAmount.value * fortress.UMineBeerConsoIndex;
 			float beerCostbyCycle = workerNb * beerCostbyWorker;
@@ -105,7 +105,7 @@
 				forgeRealCycleNb = forgeCycleNb;
 
 			int weaponProduced = forgeRealCycleNb * wByWorker * forgeWorkerNb;
-			int resourceConsumed = -forgeRealCycleNb * playerProfile.Weapons[fortress.CurrentCraft.Name].Recipie[0].Count;
+			int resourceConsumed = -forgeRealCycleNb * playerProfile.Weapons[fortress.CurrentCraft.Name].Recipie[0].Count * forgeWorkerNb;
 			playerProfile.Resources[fortress.ResourceProduced.Name].UpdateCount(resourceConsumed);
 			
 			GameManager.Instance.ProgressionInventory.SetConsumedResource(fortress.ResourceProduced.Name, resourceConsumed);
@@ -146,8 +146,8 @@
             tradingTime /= cycleDiv;
 
             int tradingWorkerNb = db.TradingPostStats.WorkerAmount + db.TradingPostUpgrades.WorkerAmount.value * fortress.UTPWorkerNbIndex;
-			int sellByWorker = db.TradingPostStats.SellByWorker + db.TradingPostUpgrades.SellByWorker.value * fortress.UTPSellByWorkerIndex;
-			int wCostByCycle = tradingWorkerNb * sellByWorker;
+			int goldBySell = db.TradingPostStats.SellByWorker + db.TradingPostUpgrades.GoldBySell.value * fortress.UTPSellByWorkerIndex;
+			int wCostByCycle = tradingWorkerNb;
 
 			int tradingCycleNb = (int)(timeElapsed.TotalSeconds / tradingTime);
 
@@ -161,7 +161,7 @@
 			if (tradingCycleNb < tradingRealCycleNb)
 				tradingRealCycleNb = tradingCycleNb;
 
-			int weaponConsumed = tradingRealCycleNb * tradingWorkerNb * sellByWorker;
+			int weaponConsumed = tradingRealCycleNb * tradingWorkerNb;
 
 			ulong goldProduced = 0;
 			int weaponIndex = 0;
@@ -173,7 +173,7 @@
 			{
 				if (playerProfile.Weapons[weapons[weaponIndex].Name].Count > 0)
 				{
-					goldProduced += playerProfile.Weapons[weapons[weaponIndex].Name].SellPrice;
+					goldProduced += playerProfile.Weapons[weapons[weaponIndex].Name].SellPrice + (ulong)goldBySell;
 					playerProfile.Weapons[weapons[weaponIndex].Name].UpdateCount(-1);
 					AchievementManager.Instance.UpdateAchievement("SELL_AMOUNT", 1);
 					GameManager.Instance.ProgressionInventory.SetConsumedWeapon(weapons[weaponIndex].Name, -1);

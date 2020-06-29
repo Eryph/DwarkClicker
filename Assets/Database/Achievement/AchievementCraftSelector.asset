@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: CRAFT_SELECTOR
   _name: Important Choices
-  _objective: Change tool created
+  _objective: Change item forged
   _stepMax: 01000000
   _mithrilReward: 5
   _achievementSprite: {fileID: 21300000, guid: bfdde1246e60e3f4fa739552ca49a397, type: 3}
