@@ -40,14 +40,14 @@
 			return retAchievement;
 		}
 
-		public void UpdateAchievement(string key, int value)
+		public void UpdateAchievement(string key, ulong value)
 		{
 			if (_profile == null)
 			{
 				_profile = JSonManager.Instance.PlayerProfile;
 			}
 
-			_profile._achievements[key].AddValue(value);
+			_profile._achievements[key].AddValue((int)value);
 		}
 
 		public AchievementContainer ExtractAchievement(string key)
@@ -84,10 +84,10 @@
 					_profile.Gold -= task.Amount;
 					break;
 				case ETaskType.RESOURCE:
-					_profile.Resources[task._resource.Name].UpdateCount(-task.Amount);
+					_profile.Resources[task._resource.Name].UpdateCount(-(int)task.Amount);
 					break;
 				case ETaskType.TOOL:
-					_profile.Weapons[task._weapon.Name].UpdateCount(-task.Amount);
+					_profile.Weapons[task._weapon.Name].UpdateCount(-(int)task.Amount);
 					break;
 			}
 

@@ -12,7 +12,7 @@
 		private Dictionary<string, int> _producedResources;
 		private Dictionary<string, int> _consumedWeapons;
 		private Dictionary<string, int> _consumedResources;
-		private int _gold;
+		private ulong _gold;
 		private int _mithril;
 		private TimeSpan _timePassed;
 		private bool _hasChanges = false;
@@ -21,7 +21,7 @@
 		public Dictionary<string, int> ProducedResource { get { return _producedResources; } }
 		public Dictionary<string, int> ConsumedWeapons { get { return _consumedWeapons; } }
 		public Dictionary<string, int> ConsumedResource { get { return _consumedResources; } }
-		public int Gold { get { return _gold; } }
+		public ulong Gold { get { return _gold; } }
 		public int Mithril { get { return _mithril; } }
 		public TimeSpan TimePassed { get { return _timePassed; } }
 		public bool HasChanges { get { return _hasChanges; } }
@@ -95,7 +95,7 @@
 			}
 		}
 
-		public void SetGold(int count)
+		public void SetGold(ulong count)
 		{
 			if (HasChanges == false && count != 0)
 				_hasChanges = true;

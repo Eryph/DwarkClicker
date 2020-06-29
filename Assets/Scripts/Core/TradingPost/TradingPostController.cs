@@ -107,7 +107,7 @@
             {
                 if (_isGoldTrans)
                 {
-                    int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.SellByWorker, _playerProfile.CurrentFortress.UTPSellByWorkerIndex);
+                    ulong cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.SellByWorker, _playerProfile.CurrentFortress.UTPSellByWorkerIndex);
                     if (_playerProfile.Gold >= cost)
                     {
                         SoundManager.Instance.PlaySound("BUY_CLICK");
@@ -141,7 +141,7 @@
             {
                 if (_isGoldTrans)
                 {
-                    int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.CycleDuration, _playerProfile.CurrentFortress.UTPCycleDurationIndex);
+                    ulong cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.CycleDuration, _playerProfile.CurrentFortress.UTPCycleDurationIndex);
                     if (_playerProfile.Gold >= cost)
                     {
                         SoundManager.Instance.PlaySound("BUY_CLICK");
@@ -175,7 +175,7 @@
             {
                 if (_isGoldTrans)
                 {
-                    int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WorkerAmount, _playerProfile.CurrentFortress.UTPWorkerNbIndex);
+                    ulong cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WorkerAmount, _playerProfile.CurrentFortress.UTPWorkerNbIndex);
                     if (_playerProfile.Gold >= cost)
                     {
                         SoundManager.Instance.PlaySound("BUY_CLICK");
@@ -209,7 +209,7 @@
             {
                 if (_isGoldTrans)
                 {
-                    int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.GoldMult, _playerProfile.CurrentFortress.UTPGoldMultIndex);
+                    ulong cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.GoldMult, _playerProfile.CurrentFortress.UTPGoldMultIndex);
                     if (_playerProfile.Gold >= cost)
                     {
                         SoundManager.Instance.PlaySound("BUY_CLICK");
@@ -245,7 +245,7 @@
                 {
                     if (_isGoldTrans)
                     {
-                        int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WinBeerChance, _playerProfile.CurrentFortress.UTPWinBeerChanceIndex);
+                        ulong cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WinBeerChance, _playerProfile.CurrentFortress.UTPWinBeerChanceIndex);
                         if (_playerProfile.Gold >= cost)
                         {
                             SoundManager.Instance.PlaySound("BUY_CLICK");
@@ -280,7 +280,7 @@
             {
                 if (_isGoldTrans)
                 {
-                    int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WinBeerAmount, _playerProfile.CurrentFortress.UTPWinBeerAmountIndex);
+                    ulong cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.TradingPostUpgrades.WinBeerAmount, _playerProfile.CurrentFortress.UTPWinBeerAmountIndex);
                     if (_playerProfile.Gold >= cost)
                     {
                         SoundManager.Instance.PlaySound("BUY_CLICK");
@@ -434,7 +434,7 @@
 					_realToSellAmount = _weaponToSellAmount - (_weaponToSellAmount - _playerProfile.Weapons[_weaponToSell.Name].Count);
 				}
 			}
-			_goldToProduce = (int)(_playerProfile.Weapons[_weaponToSell.Name].SellPrice * _realToSellAmount * _goldMultiplier);
+			_goldToProduce = (int)((int)_playerProfile.Weapons[_weaponToSell.Name].SellPrice * _realToSellAmount * _goldMultiplier);
 		}
 		#endregion Utils
 		#endregion Methods

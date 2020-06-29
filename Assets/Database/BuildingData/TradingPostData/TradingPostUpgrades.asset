@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _workerAmount:
     name: Merchants amount
-    desc: Increases the number of dwarf merchants
+    desc: Increases the number of Merchants
     value: 1
     cost: 150
     coef: 2

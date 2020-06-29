@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c900238184e66e242927faa14c1e9085, type: 3}
   m_Name: AchievementTempBonus
   m_EditorClassIdentifier: 
-  _key: TEMP_BONUS
+  _key: ELIXEER_STORAGE
   _name: Ready for a good day !
   _objective: Fill up elixeer
   _stepMax: 01000000

@@ -14,7 +14,7 @@
 	public class KingTask
 	{
 		#region Fields
-		public int _amount = 200;
+		public ulong _amount = 200;
 		public string _description = "fluff";
 		public ETaskType _taskType = ETaskType.TOOL;
 		public int _goldRewardAmount = 100;
@@ -25,7 +25,7 @@
 		#endregion Fields
 
 		#region Properties
-		public int Amount { get { return _amount; } }
+		public ulong Amount { get { return _amount; } }
 		public string Description { get { return _description; } }
 		public ETaskType TaskType { get { return _taskType; } }
 		public int GoldRewardAmount { get { return _goldRewardAmount; } }
@@ -36,7 +36,7 @@
 		#region Methods
 		public void Init(TaskData task)
 		{
-			_amount = (int)(task.AmountAsked * UnityEngine.Random.Range(task.PriceMultMin, task.PriceMultMax));
+			_amount = (ulong)(task.AmountAsked * UnityEngine.Random.Range(task.PriceMultMin, task.PriceMultMax));
 			_description = task.Description;
             _taskType = task.TypeAsked;
 			_mithrilRewardAmount = task.MithrilRewardAmount;

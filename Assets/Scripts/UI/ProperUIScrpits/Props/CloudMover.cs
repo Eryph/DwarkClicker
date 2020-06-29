@@ -37,7 +37,10 @@
 		{
 			_moveVector.x = _speed;
 			_startPos = transform.localPosition;
-		}
+            float yRand = UnityEngine.Random.Range(90, -90);
+            Vector3 newPos = new Vector3(_startPos.x, _startPos.y + yRand, _startPos.z);
+            transform.localPosition = newPos;
+        }
 
 		private void Update()
 		{
@@ -54,7 +57,9 @@
 
 		public void Reset()
 		{
-			transform.localPosition = _startPos;
+            float yRand = UnityEngine.Random.Range(1.5f, -1.5f);
+            Vector3 newPos = new Vector3(_startPos.x, _startPos.y + yRand, _startPos.z);
+			transform.localPosition = newPos;
 			_isMoving = false;
 			if (_resetClouds != null)
 				_resetClouds(_index);

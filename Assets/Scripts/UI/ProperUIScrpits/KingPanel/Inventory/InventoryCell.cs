@@ -7,8 +7,9 @@
 	using UnityEngine.UI;
 	using DwarfClicker.Core.Containers;
 	using Engine.Manager;
+    using DwarkClicker.Helper;
 
-	public class InventoryCell : MonoBehaviour
+    public class InventoryCell : MonoBehaviour
 	{
 		[SerializeField] private TextMeshProUGUI _name = null;
 		[SerializeField] private TextMeshProUGUI _amount = null;
@@ -18,13 +19,19 @@
 		public TextMeshProUGUI Amount { get { return _amount; } }
 		public Image ItemImage { get { return _image; } }
 
-		public void Init(Sprite sprite, int amount)
+		public void Init(Sprite sprite, ulong amount)
 		{
-			_amount.text = amount.ToString();
+			_amount.text = UIHelper.FormatIntegerString(amount);
 			_image.sprite = sprite;
 		}
 
-		public void Init(Resource resource)
+        public void Init(Sprite sprite, int amount)
+        {
+            _amount.text = UIHelper.FormatIntegerString(amount);
+            _image.sprite = sprite;
+        }
+
+        public void Init(Resource resource)
 		{
 			//_name.text = resource.Name;
 			_amount.text = resource.Count.ToString();

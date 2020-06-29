@@ -38,22 +38,22 @@
 				_goalImage.sprite = task.GetGoalSprite();
 				_goalAmount.text = task.Amount.ToString();
 
-			    _rewardImage.sprite = DatabaseManager.Instance.MithrilIcon;
+			    //_rewardImage.sprite = DatabaseManager.Instance.MithrilIcon;
 				_rewardAmount.text = task.MithrilRewardAmount.ToString();
 
 			
 
-				int goalCount = 0;
+				ulong goalCount = 0;
 				switch (task.TaskType)
 				{
 					case Core.Data.ETaskType.GOLD:
 						goalCount = profile.Gold;
 						break;
 					case Core.Data.ETaskType.RESOURCE:
-						goalCount = profile.Resources[task._resource.Name].Count;
+						goalCount = (ulong)profile.Resources[task._resource.Name].Count;
 						break;
 					case Core.Data.ETaskType.TOOL:
-						goalCount = profile.Weapons[task._weapon.Name].Count;
+						goalCount = (ulong)profile.Weapons[task._weapon.Name].Count;
 						break;
 				}
 

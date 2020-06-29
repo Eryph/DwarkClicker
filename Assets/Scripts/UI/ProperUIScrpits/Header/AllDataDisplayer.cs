@@ -26,6 +26,8 @@
 		[SerializeField] private TextMeshProUGUI _fortressCount = null;
         [SerializeField] private Image _fortressIcon = null;
 
+        //[SerializeField] private GameObject _quitButton = null;
+
 		private PlayerProfile _playerProfile = null;
 		#endregion Fields
 
@@ -90,11 +92,14 @@
             _fortressIcon.sprite = DatabaseManager.Instance.Fortress[_playerProfile.CurrentFortressIndex].FortressIcon;
 		}
 
-		public void OpenFortressPanel()
-		{
+        public void OpenFortressPanel()
+        {
             if (!FTUEManager.Instance.IsActivated)
+            {
                 _fortressPanel.SetActive(!_fortressPanel.activeSelf);
-		}
+                //_quitButton.SetActive(!_fortressPanel.activeSelf);
+            }
+        }
 
 		public void OpenDailyRewardPanel()
 		{

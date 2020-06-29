@@ -92,12 +92,12 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 9.25
+  m_fontSize: 11
   m_fontSizeBase: 5.5
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 1
-  m_fontSizeMax: 9.23
+  m_fontSizeMax: 11
   m_fontStyle: 16
   m_textAlignment: 257
   m_characterSpacing: 0
@@ -539,7 +539,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d85a3f3b00e1e7c4fb9bd3936f805528, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8827a7ae745e28f438612063fbd54399, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -611,8 +611,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d649d6e0550de4b9f6519541272d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _offBgSprite: {fileID: 21300000, guid: d85a3f3b00e1e7c4fb9bd3936f805528, type: 3}
-  _onBgSprite: {fileID: 21300000, guid: 83eebffee4d73f546a806014020256f8, type: 3}
+  _offBgSprite: {fileID: 21300000, guid: 8827a7ae745e28f438612063fbd54399, type: 3}
+  _onBgSprite: {fileID: 21300000, guid: 458c58e5c4a30da4c949d834ceb6343c, type: 3}
   _bg: {fileID: 114151172999541304}
   _upgradeName: {fileID: 114903932624549394}
   _upgradeDesc: {fileID: 114356537369264294}
@@ -681,7 +681,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1b5104c1d58ae294bacc14e1c6377169, type: 3}
+  m_Sprite: {fileID: 21300000, guid: edbf8ef51ac71f3418a8a595fceee9cd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -725,7 +725,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 17.8, y: 0}
-  m_SizeDelta: {x: 6, y: 6}
+  m_SizeDelta: {x: 15, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &222410583303442810
 CanvasRenderer:
@@ -753,7 +753,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c3d9f7185c2ae3b4d8e7b2ec5cfa1b01, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0f8964f246313d1458907072c596ed10, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -826,7 +826,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ec01b68b9784a9c48b4af25ffa873940, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 375a391230485a0419cfe3c978414a33, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

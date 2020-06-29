@@ -8,7 +8,7 @@
 		public string name;
 		public string desc;
         public int value;
-        public int cost;
+        public ulong cost;
 		public float coef;
         public int max;
     };
@@ -19,7 +19,7 @@
 		public string name;
 		public string desc;
 		public float value;
-        public int cost;
+        public ulong cost;
 		public float coef;
         public int max;
 	};

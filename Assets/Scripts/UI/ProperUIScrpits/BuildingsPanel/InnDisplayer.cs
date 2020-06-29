@@ -98,7 +98,7 @@
 
             if (_isGoldTrans)
             {
-                int price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.InnUpgrades.BeerByTap, currentFortress.InnBeerByTapIndex);
+                ulong price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.InnUpgrades.BeerByTap, currentFortress.InnBeerByTapIndex);
                 _beerByTapUpgrade.Init(uData.BeerByTap.name, uData.BeerByTap.desc, currentFortress.InnBeerByTapIndex, price, _playerProfile.Gold);
 
                 price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.InnUpgrades.Storage, currentFortress.InnStorageIndex);

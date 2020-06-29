@@ -119,7 +119,7 @@
             {
                 if (_isGoldTrans)
                 {
-                    int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.BeerConsumption, _playerProfile.CurrentFortress.UMineBeerConsoIndex);
+                    ulong cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.BeerConsumption, _playerProfile.CurrentFortress.UMineBeerConsoIndex);
                     if (_playerProfile.Gold >= cost)
                     {
                         SoundManager.Instance.PlaySound("BUY_CLICK");
@@ -152,7 +152,7 @@
             {
                 if (_isGoldTrans)
                 {
-                    int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.CycleDuration, _playerProfile.CurrentFortress.UMineCycleDurationIndex);
+                    ulong cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.CycleDuration, _playerProfile.CurrentFortress.UMineCycleDurationIndex);
                     if (_playerProfile.Gold >= cost)
                     {
                         SoundManager.Instance.PlaySound("BUY_CLICK");
@@ -187,7 +187,7 @@
                 {
                     if (_isGoldTrans)
                     {
-                        int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.Luck, _playerProfile.CurrentFortress.UMineLuckIndex);
+                        ulong cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.Luck, _playerProfile.CurrentFortress.UMineLuckIndex);
                         if (_playerProfile.Gold >= cost)
                         {
                             SoundManager.Instance.PlaySound("BUY_CLICK");
@@ -224,7 +224,7 @@
                 {
                     if (_isGoldTrans)
                     {
-                        int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.Mithril, _playerProfile.CurrentFortress.UMineMithrilChanceIndex);
+                        ulong cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.Mithril, _playerProfile.CurrentFortress.UMineMithrilChanceIndex);
                         if (_playerProfile.Gold >= cost)
                         {
                             SoundManager.Instance.PlaySound("BUY_CLICK");
@@ -258,7 +258,7 @@
             {
                 if (_isGoldTrans)
                 {
-                    int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.ResByWorker, _playerProfile.CurrentFortress.UMineResByWorkerIndex);
+                    ulong cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.ResByWorker, _playerProfile.CurrentFortress.UMineResByWorkerIndex);
                     if (_playerProfile.Gold >= cost)
                     {
                         SoundManager.Instance.PlaySound("BUY_CLICK");
@@ -293,7 +293,7 @@
                 {
                     if (_isGoldTrans)
                     {
-                        int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.RichVein, _playerProfile.CurrentFortress.UMineRichVeinIndex);
+                        ulong cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.RichVein, _playerProfile.CurrentFortress.UMineRichVeinIndex);
                         if (_playerProfile.Gold >= cost)
                         {
                             SoundManager.Instance.PlaySound("BUY_CLICK");
@@ -327,7 +327,7 @@
             {
                 if (_isGoldTrans)
                 {
-                    int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.WorkerAmount, _playerProfile.CurrentFortress.UMineWorkerNbIndex);
+                    ulong cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.WorkerAmount, _playerProfile.CurrentFortress.UMineWorkerNbIndex);
                     if (_playerProfile.Gold >= cost)
                     {
                         SoundManager.Instance.PlaySound("BUY_CLICK");

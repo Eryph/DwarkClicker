@@ -3,7 +3,8 @@
 	using DwarfClicker.Core.Achievement;
 	using DwarfClicker.Core.Containers;
 	using DwarfClicker.Core.Data;
-	using Engine.Manager;
+    using DwarkClicker.Helper;
+    using Engine.Manager;
 	using Engine.Utils;
 	using System;
 	using System.Collections;
@@ -49,7 +50,7 @@
 			_profile.Gold++;
 		}
 
-		public void UpdateGold(int incr)
+		public void UpdateGold(ulong incr)
 		{
 			_profile.Gold += incr;
 		}
@@ -71,7 +72,7 @@
 			_profile.Resources[resourceName].UpdateCount(amount);
 		}
 
-		public void GainGold(int amount)
+		public void GainGold(ulong amount)
 		{
 			_profile.Gold += amount;
 		}
@@ -83,7 +84,7 @@
             float trueResGain = resGain * _profile._resourcesMultiplierBonus;
 			_profile.CurrentFortress.Beer -= beerCost;
 			_profile.Resources[resource.Name].UpdateCount((int)trueResGain);
-			AchievementManager.Instance.UpdateAchievement("MINED_AMOUNT", (int)trueResGain);
+			AchievementManager.Instance.UpdateAchievement("MINED_AMOUNT", (ulong)trueResGain);
 			_profile.TriggerInventoryChangeEvent();
 
 		}
@@ -93,7 +94,7 @@
             float trueToolGain = nbToCraft * _profile._toolsMultiplierBonus;
             _profile.Resources[_toCraft.Recipe[0].Key].UpdateCount(-resourceToConsumed);
 			_profile.Weapons[_toCraft.Name].UpdateCount((int)trueToolGain);
-			AchievementManager.Instance.UpdateAchievement("FORGED_AMOUNT", (int)trueToolGain);
+			AchievementManager.Instance.UpdateAchievement("FORGED_AMOUNT", (ulong)trueToolGain);
 			_profile.TriggerInventoryChangeEvent();
 		}
 
@@ -104,8 +105,8 @@
 			{
 				_profile.Resources[_toCraft.Recipe[i].Key].UpdateCount(-_toCraft.Recipe[i].Count * nbToCraft);
 			}
-			AchievementManager.Instance.UpdateAchievement("FORGED_AMOUNT", (int)trueToolGain);
-			UpdateGold((int)(_toCraft.GoldValue * goldBonus * _profile._goldMultiplierBonus));
+			AchievementManager.Instance.UpdateAchievement("FORGED_AMOUNT", (ulong)trueToolGain);
+			UpdateGold((ulong)(_toCraft.GoldValue * goldBonus * _profile._goldMultiplierBonus));
 			
 			_profile.TriggerInventoryChangeEvent();
 		}
@@ -116,7 +117,7 @@
 			_profile.Weapons[_toSell.Name].UpdateCount(-nbToSell);
 
 
-			_profile.Gold += (int)(goldToProduce * _profile._goldMultiplierBonus);
+			_profile.Gold += (ulong)(goldToProduce * _profile._goldMultiplierBonus);
 			_profile.TriggerInventoryChangeEvent();
 
 			//Remanent Market Computing
@@ -129,38 +130,38 @@
 					if (weapons[i].Name == _profile.CurrentFortress.CurrentCraft.Name)
 					{
 						_profile.Weapons[weapons[i].Name].SellPrice -= weapons[i].PriceModifierDown;
-						_profile.Weapons[weapons[i].Name].SellPrice = Mathf.Clamp(_profile.Weapons[weapons[i].Name].SellPrice, weapons[i].PriceMin, weapons[i].PriceMax);
+						_profile.Weapons[weapons[i].Name].SellPrice = UIHelper.LongClamp(_profile.Weapons[weapons[i].Name].SellPrice, weapons[i].PriceMin, weapons[i].PriceMax);
 					}
 					else
 					{
 						_profile.Weapons[weapons[i].Name].SellPrice += weapons[i].PriceModifierUp;
-						_profile.Weapons[weapons[i].Name].SellPrice = Mathf.Clamp(_profile.Weapons[weapons[i].Name].SellPrice, weapons[i].PriceMin, weapons[i].PriceMax);
+						_profile.Weapons[weapons[i].Name].SellPrice = UIHelper.LongClamp(_profile.Weapons[weapons[i].Name].SellPrice, weapons[i].PriceMin, weapons[i].PriceMax);
 					}
 					_profile.Weapons[weapons[i].Name].ModTimer = 0;
 					
 				}
 			}
-			AchievementManager.Instance.UpdateAchievement("SELL_AMOUNT", nbToSell);
+			AchievementManager.Instance.UpdateAchievement("SELL_AMOUNT", (ulong)nbToSell);
 		}
 		#endregion Convert
 
 		#region Compute Upgrades
-		public int ComputeUpgradeCost(IntUpgrade up, int rank)
+		public ulong ComputeUpgradeCost(IntUpgrade up, int rank)
 		{
-			int cost = up.cost;
+			ulong cost = up.cost;
 			for (int i= 0; i < rank; i++)
 			{
-				cost = (int)(cost * up.coef);
+				cost = (ulong)(cost * up.coef);
 			}
 			return cost;
 		}
 
-		public int ComputeUpgradeCost(FloatUpgrade up, int rank)
+		public ulong ComputeUpgradeCost(FloatUpgrade up, int rank)
 		{
-			int cost = up.cost;
+			ulong cost = up.cost;
 			for (int i = 0; i < rank; i++)
 			{
-				cost = (int)(cost * up.coef);
+				cost = (ulong)(cost * up.coef);
 			}
 			return cost;
 		}

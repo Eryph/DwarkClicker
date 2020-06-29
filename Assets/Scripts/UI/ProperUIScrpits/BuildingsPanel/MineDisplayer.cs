@@ -72,7 +72,7 @@
 
             if (_isGoldTrans)
             {
-                int price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.WorkerAmount, currentFortress.UMineWorkerNbIndex);
+                ulong price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.WorkerAmount, currentFortress.UMineWorkerNbIndex);
                 _workerUpgrade.Init(uData.WorkerAmount.name, uData.WorkerAmount.desc, currentFortress.UMineWorkerNbIndex, price, _playerProfile.Gold);
 
                 price = _converter.ComputeUpgradeCost(DatabaseManager.Instance.MineUpgrades.ResByWorker, currentFortress.UMineResByWorkerIndex);

@@ -94,5 +94,15 @@
 
             return ret;
         }
-	}
+
+        public static ulong LongClamp(ulong value, ulong min, ulong max)
+        {
+            if (value > max)
+                return max;
+            if (value < min)
+                return min;
+            return value;
+        }
+
+    }
 }

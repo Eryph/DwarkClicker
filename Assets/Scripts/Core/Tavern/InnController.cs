@@ -56,9 +56,13 @@
 			}
 
 			_playerProfile.CurrentFortress.Beer = Mathf.Clamp(_playerProfile.CurrentFortress.Beer, 0f, _storage);
+            if (_playerProfile.CurrentFortress.Beer >= _storage)
+            {
+                AchievementManager.Instance.UpdateAchievement("ELIXEER_STORAGE", 1);
+            }
 
-			
-		}
+
+        }
 		#endregion Beer Brewing
 
 		#region Upgrades
@@ -68,7 +72,7 @@
             {
                 if (_isGoldTrans)
                 {
-                    int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.InnUpgrades.BeerByTap, _playerProfile.CurrentFortress.InnBeerByTapIndex);
+                    ulong cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.InnUpgrades.BeerByTap, _playerProfile.CurrentFortress.InnBeerByTapIndex);
                     if (_playerProfile.Gold >= cost)
                     {
                         SoundManager.Instance.PlaySound("BUY_CLICK");
@@ -104,7 +108,7 @@
             {
                 if (_isGoldTrans)
                 {
-                    int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.InnUpgrades.Storage, _playerProfile.CurrentFortress.InnStorageIndex);
+                    ulong cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.InnUpgrades.Storage, _playerProfile.CurrentFortress.InnStorageIndex);
                     if (_playerProfile.Gold >= cost)
                     {
                         SoundManager.Instance.PlaySound("BUY_CLICK");

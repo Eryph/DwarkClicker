@@ -71,7 +71,7 @@
 					}
 					if (DatabaseManager.Instance.DailyRewards[i].GoldGain > 0)
 					{
-						_dailyRewardBox[i].Init(DatabaseManager.Instance.DailyRewards[i].GoldGain, DatabaseManager.Instance.GoldIcon, Color.white);
+						_dailyRewardBox[i].Init((int)DatabaseManager.Instance.DailyRewards[i].GoldGain, DatabaseManager.Instance.GoldIcon, Color.white);
 					}
 					if (DatabaseManager.Instance.DailyRewards[i].ResourceGain > 0)
 					{

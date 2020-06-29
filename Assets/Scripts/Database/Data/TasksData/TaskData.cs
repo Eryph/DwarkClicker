@@ -14,7 +14,7 @@
 	[CreateAssetMenu(fileName = "KingTask", menuName = "Data/KingTask")]
 	public class TaskData : ScriptableObject
 	{
-		[SerializeField] private int _amountAsked = 200;
+		[SerializeField] private ulong _amountAsked = 200;
 		[SerializeField] private string _description = "fluff";
 		[SerializeField] private ETaskType _typeAsked = ETaskType.TOOL;
 		[SerializeField] private int _mithrilRewardAmount = 1;
@@ -22,7 +22,7 @@
 		[SerializeField] private float _rewardMultMax = 1.5f;
 
 
-		public int AmountAsked { get { return _amountAsked; } }
+		public ulong AmountAsked { get { return _amountAsked; } }
 		public string Description { get { return _description; } }
 		public ETaskType TypeAsked { get { return _typeAsked; } }
 		public int MithrilRewardAmount { get { return _mithrilRewardAmount; } }

@@ -48,7 +48,7 @@
 			string resourceKey = fortress.ResourceProduced.Name;
             float trueResGain = resGain * playerProfile._resourcesMultiplierBonus;
             playerProfile.Resources[resourceKey].UpdateCount((int)trueResGain);
-			AchievementManager.Instance.UpdateAchievement("MINED_AMOUNT", (int)trueResGain);
+			AchievementManager.Instance.UpdateAchievement("MINED_AMOUNT", (ulong)trueResGain);
 			GameManager.Instance.ProgressionInventory.SetProducedResource(resourceKey, resGain);
 
 			// Rich Vein
@@ -59,7 +59,7 @@
 			luckCounter = (int)(realCycleNb / luck);
             int gain = (int)(richVein * luckCounter * playerProfile._resourcesMultiplierBonus);
             playerProfile.Resources[resourceKey].UpdateCount(gain);
-			AchievementManager.Instance.UpdateAchievement("MINED_AMOUNT", gain);
+			AchievementManager.Instance.UpdateAchievement("MINED_AMOUNT", (ulong)gain);
 			GameManager.Instance.ProgressionInventory.SetProducedResource(resourceKey, gain);
 
 			// Rich Vein
@@ -116,8 +116,8 @@
 			int instantSellingChance = db.ForgeStats.InstantSellingChance - db.ForgeUpgrades.InstantSellingChance.value * fortress.UForgeInstantSellingChanceIndex;
 			float instantSellingGoldBonus = db.ForgeStats.InstantSellingGoldBonus + db.ForgeUpgrades.InstantSellingGoldBonus.value * fortress.UForgeInstantSellingGoldBonusIndex;
 			instantSellingCounter = (int)(forgeRealCycleNb / instantSellingChance);
-			int goldGain = (int)(instantSellingCounter * playerProfile.Weapons[fortress.CurrentCraft.Name].SellPrice * wByWorker * forgeWorkerNb * instantSellingGoldBonus);
-			playerProfile.Gold += (int)(goldGain * playerProfile._goldMultiplierBonus);
+			ulong goldGain = (ulong)((ulong)instantSellingCounter * playerProfile.Weapons[fortress.CurrentCraft.Name].SellPrice * (ulong)wByWorker * (ulong)forgeWorkerNb * instantSellingGoldBonus);
+			playerProfile.Gold += (ulong)(goldGain * playerProfile._goldMultiplierBonus);
 			GameManager.Instance.ProgressionInventory.SetGold(goldGain);
 
 			// Instant Selling
@@ -126,7 +126,7 @@
 			int weaponGain = weaponProduced - instantSellingCounter;
             int trueWeaponGain = (int)(weaponGain * playerProfile._toolsMultiplierBonus);
 			playerProfile.Weapons[weaponKey].UpdateCount(trueWeaponGain);
-			AchievementManager.Instance.UpdateAchievement("FORGED_AMOUNT", trueWeaponGain);
+			AchievementManager.Instance.UpdateAchievement("FORGED_AMOUNT", (ulong)trueWeaponGain);
 			GameManager.Instance.ProgressionInventory.SetProducedWeapon(weaponKey, trueWeaponGain);
 		}
 
@@ -163,7 +163,7 @@
 
 			int weaponConsumed = tradingRealCycleNb * tradingWorkerNb * sellByWorker;
 
-			int goldProduced = 0;
+			ulong goldProduced = 0;
 			int weaponIndex = 0;
 			int weaponConsumedIt = 0;
 
@@ -189,7 +189,7 @@
 				}
 			}
 
-			playerProfile.Gold += (int)(goldProduced * playerProfile._goldMultiplierBonus);
+			playerProfile.Gold += (ulong)(goldProduced * playerProfile._goldMultiplierBonus);
 			GameManager.Instance.ProgressionInventory.SetGold(goldProduced);
 			
 			// Update ModTimer
@@ -200,12 +200,12 @@
 					if (weapons[i].Name == playerProfile.CurrentFortress.CurrentCraft.Name)
 					{
 						playerProfile.Weapons[weapons[i].Name].SellPrice -= weapons[i].PriceModifierDown;
-						playerProfile.Weapons[weapons[i].Name].SellPrice = Mathf.Clamp(playerProfile.Weapons[weapons[i].Name].SellPrice, weapons[i].PriceMin, weapons[i].PriceMax);
+						playerProfile.Weapons[weapons[i].Name].SellPrice = UIHelper.LongClamp(playerProfile.Weapons[weapons[i].Name].SellPrice, weapons[i].PriceMin, weapons[i].PriceMax);
 					}
 					else
 					{
 						playerProfile.Weapons[weapons[i].Name].SellPrice += weapons[i].PriceModifierUp;
-						playerProfile.Weapons[weapons[i].Name].SellPrice = Mathf.Clamp(playerProfile.Weapons[weapons[i].Name].SellPrice, weapons[i].PriceMin, weapons[i].PriceMax);
+						playerProfile.Weapons[weapons[i].Name].SellPrice = UIHelper.LongClamp(playerProfile.Weapons[weapons[i].Name].SellPrice, weapons[i].PriceMin, weapons[i].PriceMax);
 					}
 					playerProfile.Weapons[weapons[i].Name].ModTimer -= weapons[i].ModifierTimer;
 				}

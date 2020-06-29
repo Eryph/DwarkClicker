@@ -55,7 +55,7 @@
 
 		public void AddGold()
 		{
-			_playerProfile.Gold += Convert.ToInt32(_goldField.text);
+			_playerProfile.Gold += Convert.ToUInt64(_goldField.text);
 		}
 		#endregion Methods
 	}

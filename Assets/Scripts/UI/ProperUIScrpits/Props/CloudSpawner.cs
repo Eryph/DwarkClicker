@@ -40,8 +40,8 @@
 				_cloud[index].ResetClouds += Erase;
 				_cloudMovedIndex.Add(index);
 				_timer.ResetTimer(Random.Range(_coolDown - _coolDownRandomThreshold, _coolDown + _coolDownRandomThreshold));
-				
-			}
+
+            }
 		}
 
 		private void Erase(int index)

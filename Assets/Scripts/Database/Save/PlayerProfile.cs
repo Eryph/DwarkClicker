@@ -58,7 +58,7 @@
 		#endregion FTUE
 
 		#region Inventory
-		public int _gold = 0;
+		public ulong _gold = 0;
 		public int _mithril = 0;
 
 		public DictionaryStringResource _resources = null;
@@ -188,7 +188,7 @@
 
 		public DictionaryStringWeapon Weapons { get { return _weapons; } }
 
-		public int Gold
+		public ulong Gold
 		{
 			get
 			{

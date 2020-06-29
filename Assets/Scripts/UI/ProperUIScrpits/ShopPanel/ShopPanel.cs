@@ -35,18 +35,21 @@
         [SerializeField] private TextMeshProUGUI _goldSongDesc = null;
         [SerializeField] private TextMeshProUGUI _goldSongPrice = null;
         [SerializeField] private TextMeshProUGUI _goldSongMult = null;
+        [SerializeField] private TextMeshProUGUI _goldSongCurrentMult = null;
 
         [Header("Mine Song")]
         [SerializeField] private TextMeshProUGUI _mineSongTitle = null;
         [SerializeField] private TextMeshProUGUI _mineSongDesc = null;
         [SerializeField] private TextMeshProUGUI _mineSongPrice = null;
         [SerializeField] private TextMeshProUGUI _mineSongMult = null;
+        [SerializeField] private TextMeshProUGUI _mineSongCurrentMult = null;
 
         [Header("Forge Song")]
         [SerializeField] private TextMeshProUGUI _forgeSongTitle = null;
         [SerializeField] private TextMeshProUGUI _forgeSongDesc = null;
         [SerializeField] private TextMeshProUGUI _forgeSongPrice = null;
         [SerializeField] private TextMeshProUGUI _forgeSongMult = null;
+        [SerializeField] private TextMeshProUGUI _forgeSongCurrentMult = null;
 
         [Header("Tea Texts")]
         [SerializeField] private TextMeshProUGUI _teaTitle = null;
@@ -166,15 +169,18 @@
         {
             _goldSongTitle.text = "Gold Song";
             _goldSongPrice.text = DatabaseManager.Instance.SongPrice.ToString();
-            _goldSongMult.text = JSonManager.Instance.PlayerProfile._goldMultiplierBonus.ToString("#.#") + "x";
+            _goldSongMult.text = (JSonManager.Instance.PlayerProfile._goldMultiplierBonus + DatabaseManager.Instance.PermanentBonus.PermanentGoldBonusAdd).ToString("#.#") + "x";
+            _goldSongCurrentMult.text = JSonManager.Instance.PlayerProfile._goldMultiplierBonus.ToString("#.#") + "x";
 
             _mineSongTitle.text = "Mine Song";
             _mineSongPrice.text = DatabaseManager.Instance.SongPrice.ToString();
-            _mineSongMult.text = JSonManager.Instance.PlayerProfile._resourcesMultiplierBonus.ToString("#.#") + "x";
+            _mineSongMult.text = (JSonManager.Instance.PlayerProfile._resourcesMultiplierBonus + DatabaseManager.Instance.PermanentBonus.PermanentResBonusAdd).ToString("#.#") + "x";
+            _mineSongCurrentMult.text = JSonManager.Instance.PlayerProfile._resourcesMultiplierBonus.ToString("#.#") + "x";
 
             _forgeSongTitle.text = "Forge Song";
             _forgeSongPrice.text =  DatabaseManager.Instance.SongPrice.ToString();
-            _forgeSongMult.text = JSonManager.Instance.PlayerProfile._toolsMultiplierBonus.ToString("#.#") + "x";
+            _forgeSongMult.text = (JSonManager.Instance.PlayerProfile._toolsMultiplierBonus + DatabaseManager.Instance.PermanentBonus.PermanentToolBonusAdd).ToString("#.#") + "x";
+            _forgeSongCurrentMult.text = JSonManager.Instance.PlayerProfile._toolsMultiplierBonus.ToString("#.#") + "x";
         }
 
         public void AddPermanentGoldBonus()

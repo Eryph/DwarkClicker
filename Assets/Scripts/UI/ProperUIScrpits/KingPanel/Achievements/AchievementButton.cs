@@ -20,7 +20,12 @@
 		[SerializeField] private Transform _bar = null;
         [SerializeField] private Image _background = null;
         [SerializeField] private Sprite _backgroundSprite = null;
+        [SerializeField] private Sprite _noFinishedBackground = null;
+        [SerializeField] private Sprite _rewardableBackground = null;
+        [SerializeField] private Sprite _rewardBackgroundInProgress = null;
+        [SerializeField] private Sprite _rewardBackgroundFinished = null;
         [SerializeField] private GameObject _pricePanel = null;
+        [SerializeField] private Image _rewardBackground = null;
 
 		private Vector3 _emptyPos = Vector3.zero;
 
@@ -53,17 +58,21 @@
 
 			if (_achievement._isfinished)
 			{
-				_barProgText.text = "Fnished !";
+				_barProgText.text = "Finished !";
                 _background.sprite = _backgroundSprite;
                 _pricePanel.gameObject.SetActive(false);
 			}
 			else if (_achievement.CanGetReward)
 			{
-				_barProgText.text = "Tap to claim your reward !";
+                _rewardBackground.sprite = _rewardableBackground;
+                _background.sprite = _rewardBackgroundFinished;
+                _barProgText.text = "Tap to claim your reward !";
 			}
 			else
 			{
-				_barProgText.text = UIHelper.FormatIntegerString(_achievement.CurrentValue) + "/" + UIHelper.FormatIntegerString(_achievement.CurrentStepMax);
+                _rewardBackground.sprite = _noFinishedBackground;
+                _background.sprite = _rewardBackgroundInProgress;
+                _barProgText.text = UIHelper.FormatIntegerString(_achievement.CurrentValue) + "/" + UIHelper.FormatIntegerString(_achievement.CurrentStepMax);
 			}
 
 			_descText.text = _achievement.Objective;

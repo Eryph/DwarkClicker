@@ -15,6 +15,7 @@ public class MainMenuController : MonoBehaviour {
 	[SerializeField] private GameObject _forgeUpgradeMenu = null;
 	[SerializeField] private GameObject _tradingPostUpgradeMenu = null;
 	[SerializeField] private GameObject _quitMenuButton = null;
+    [SerializeField] private GameObject _fortressMenu = null;
 
     [SerializeField] private DialboxController _dialboxController = null;
     #endregion Fields
@@ -95,6 +96,7 @@ public class MainMenuController : MonoBehaviour {
             _mineUpgradeMenu.SetActive(false);
             _forgeUpgradeMenu.SetActive(false);
             _tradingPostUpgradeMenu.SetActive(false);
+           //_fortressMenu.SetActive(false);
             _quitMenuButton.SetActive(false);
             _dialboxController.SetStepFinished();
         }

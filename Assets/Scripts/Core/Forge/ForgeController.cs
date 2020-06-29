@@ -106,7 +106,7 @@
             {
                 if (_isGoldTrans)
                 {
-                    int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.CycleDuration, _playerProfile.CurrentFortress.UForgeCycleDurationIndex);
+                    ulong cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.CycleDuration, _playerProfile.CurrentFortress.UForgeCycleDurationIndex);
                     if (_playerProfile.Gold >= cost)
                     {
                         SoundManager.Instance.PlaySound("BUY_CLICK");
@@ -141,7 +141,7 @@
             {
                 if (_isGoldTrans)
                 {
-                    int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WByWorker, _playerProfile.CurrentFortress.UForgeWByWorkerIndex);
+                    ulong cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WByWorker, _playerProfile.CurrentFortress.UForgeWByWorkerIndex);
                     if (_playerProfile.Gold >= cost)
                     {
                         SoundManager.Instance.PlaySound("BUY_CLICK");
@@ -177,7 +177,7 @@
             {
                 if (_isGoldTrans)
                 {
-                    int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WorkerAmount, _playerProfile.CurrentFortress.UForgeWorkerNbIndex);
+                    ulong cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.WorkerAmount, _playerProfile.CurrentFortress.UForgeWorkerNbIndex);
                     if (_playerProfile.Gold >= cost)
                     {
                         SoundManager.Instance.PlaySound("BUY_CLICK");
@@ -215,7 +215,7 @@
                 {
                     if (_isGoldTrans)
                     {
-                        int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingChance, _playerProfile.CurrentFortress.UForgeInstantSellingChanceIndex);
+                        ulong cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingChance, _playerProfile.CurrentFortress.UForgeInstantSellingChanceIndex);
                         if (_playerProfile.Gold >= cost)
                         {
                             SoundManager.Instance.PlaySound("BUY_CLICK");
@@ -252,7 +252,7 @@
             {
                 if (_isGoldTrans)
                 {
-                    int cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingGoldBonus, _playerProfile.CurrentFortress.UForgeInstantSellingGoldBonusIndex);
+                    ulong cost = _converter.ComputeUpgradeCost(DatabaseManager.Instance.ForgeUpgrades.InstantSellingGoldBonus, _playerProfile.CurrentFortress.UForgeInstantSellingGoldBonusIndex);
                     if (_playerProfile.Gold >= cost)
                     {
                         SoundManager.Instance.PlaySound("BUY_CLICK");
@@ -401,7 +401,7 @@
 				{
 					return false;
 				}
-				else if (_playerProfile.Resources[_currentForgingWeapon.Recipe[i].Key].Count < _currentForgingWeapon.Recipe[i].Count * mult)
+				else if (_playerProfile.Resources[_currentForgingWeapon.Recipe[i].Key].Count < _currentForgingWeapon.Recipe[i].Count/* * mult*/)
 				{
 					return false;
 				}

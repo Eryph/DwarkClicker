@@ -12,7 +12,7 @@
 		[SerializeField] private int _UID = 0;
 		[SerializeField] private string _name = "weaponName";
 		[SerializeField] private int _count = 0;
-		[SerializeField] private int _sellPrice = 0;
+		[SerializeField] private ulong _sellPrice = 0;
 		[SerializeField] private int _modTimer = 0;
 		[SerializeField] private int _modRank = 0;
 		[SerializeField] private KeyCountPair[] _recipie;
@@ -23,7 +23,7 @@
 		public int UID { get { return _UID; } }
 		public string Name { get { return _name; } }
 		public int Count { get { return _count; } }
-		public int SellPrice { get { return _sellPrice; } set { _sellPrice = value; } }
+		public ulong SellPrice { get { return _sellPrice; } set { _sellPrice = value; } }
 		public KeyCountPair[] Recipie { get { return _recipie; } }
 		public int ModTimer { get { return _modTimer; } set { _modTimer = value; } }
 		public int ModRank { get { return _modRank; } set { _modRank = value; } }

@@ -1,30 +1,30 @@
 fileFormatVersion: 2
-guid: ab10beeadb0130b48902a1f18cc1c7e9
+guid: 602b41e4e9c02184e899d33d7087353f
 TextureImporter:
   fileIDToRecycleName:
-    21300000: roundtouch-spritesheet-60x60_0
-    21300002: roundtouch-spritesheet-60x60_1
-    21300004: roundtouch-spritesheet-60x60_2
-    21300006: roundtouch-spritesheet-60x60_3
-    21300008: roundtouch-spritesheet-60x60_4
-    21300010: roundtouch-spritesheet-60x60_5
-    21300012: roundtouch-spritesheet-60x60_6
-    21300014: roundtouch-spritesheet-60x60_7
-    21300016: roundtouch-spritesheet-60x60_8
-    21300018: roundtouch-spritesheet-60x60_9
-    21300020: roundtouch-spritesheet-60x60_10
-    21300022: roundtouch-spritesheet-60x60_11
-    21300024: roundtouch-spritesheet-60x60_12
-    21300026: roundtouch-spritesheet-60x60_13
-    21300028: roundtouch-spritesheet-60x60_14
-    21300030: roundtouch-spritesheet-60x60_15
-    21300032: roundtouch-spritesheet-60x60_16
-    21300034: roundtouch-spritesheet-60x60_17
-    21300036: roundtouch-spritesheet-60x60_18
-    21300038: roundtouch-spritesheet-60x60_19
-    21300040: roundtouch-spritesheet-60x60_20
-    21300042: roundtouch-spritesheet-60x60_21
-    21300044: roundtouch-spritesheet-60x60_22
+    21300000: roundtouch-spritesheet-60x60 (1)_0
+    21300002: roundtouch-spritesheet-60x60 (1)_1
+    21300004: roundtouch-spritesheet-60x60 (1)_2
+    21300006: roundtouch-spritesheet-60x60 (1)_3
+    21300008: roundtouch-spritesheet-60x60 (1)_4
+    21300010: roundtouch-spritesheet-60x60 (1)_5
+    21300012: roundtouch-spritesheet-60x60 (1)_6
+    21300014: roundtouch-spritesheet-60x60 (1)_7
+    21300016: roundtouch-spritesheet-60x60 (1)_8
+    21300018: roundtouch-spritesheet-60x60 (1)_9
+    21300020: roundtouch-spritesheet-60x60 (1)_10
+    21300022: roundtouch-spritesheet-60x60 (1)_11
+    21300024: roundtouch-spritesheet-60x60 (1)_12
+    21300026: roundtouch-spritesheet-60x60 (1)_13
+    21300028: roundtouch-spritesheet-60x60 (1)_14
+    21300030: roundtouch-spritesheet-60x60 (1)_15
+    21300032: roundtouch-spritesheet-60x60 (1)_16
+    21300034: roundtouch-spritesheet-60x60 (1)_17
+    21300036: roundtouch-spritesheet-60x60 (1)_18
+    21300038: roundtouch-spritesheet-60x60 (1)_19
+    21300040: roundtouch-spritesheet-60x60 (1)_20
+    21300042: roundtouch-spritesheet-60x60 (1)_21
+    21300044: roundtouch-spritesheet-60x60 (1)_22
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -140,7 +140,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: roundtouch-spritesheet-60x60_0
+      name: roundtouch-spritesheet-60x60 (1)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -154,13 +154,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61f0acc7384f3404ebba6af982bef9b1
+      spriteID: 9bd54796502875147972583486ff3069
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roundtouch-spritesheet-60x60_1
+      name: roundtouch-spritesheet-60x60 (1)_1
       rect:
         serializedVersion: 2
         x: 60
@@ -174,16 +174,16 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf7d562a3450b5442beaa95ffc3516ef
+      spriteID: e19a900ac5e529d4a9c47f0770f04226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roundtouch-spritesheet-60x60_2
+      name: roundtouch-spritesheet-60x60 (1)_2
       rect:
         serializedVersion: 2
-        x: 121
+        x: 120
         y: 300
         width: 60
         height: 60
@@ -194,13 +194,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8558b59e1570d4449856835300bce98
+      spriteID: be9634d00c8ec704292ad3ecd4c5ddd7
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roundtouch-spritesheet-60x60_3
+      name: roundtouch-spritesheet-60x60 (1)_3
       rect:
         serializedVersion: 2
         x: 180
@@ -214,13 +214,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6902e37c2f040514a95a06b770e8a875
+      spriteID: 50959bd5cf1add54596cc70ae7a212e5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roundtouch-spritesheet-60x60_4
+      name: roundtouch-spritesheet-60x60 (1)_4
       rect:
         serializedVersion: 2
         x: 0
@@ -234,13 +234,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba330bac357b0124ba78922e511f775a
+      spriteID: cdaa1f928f2b28c4b97107e0796fd498
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roundtouch-spritesheet-60x60_5
+      name: roundtouch-spritesheet-60x60 (1)_5
       rect:
         serializedVersion: 2
         x: 60
@@ -254,13 +254,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1decca041d5df2840bec563a6f8831bf
+      spriteID: 3cda57dbcc8900c469fd71a0dd738d02
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roundtouch-spritesheet-60x60_6
+      name: roundtouch-spritesheet-60x60 (1)_6
       rect:
         serializedVersion: 2
         x: 120
@@ -274,13 +274,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb8df6c479e7b874aa4c1d37f78e1fe6
+      spriteID: 867e44a89a497c841bfab1491f464e4c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roundtouch-spritesheet-60x60_7
+      name: roundtouch-spritesheet-60x60 (1)_7
       rect:
         serializedVersion: 2
         x: 180
@@ -294,13 +294,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56d92d01eb8cf0b45b40a8be70daa452
+      spriteID: 84f644f3547eede458d82aff9d2f9fc6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roundtouch-spritesheet-60x60_8
+      name: roundtouch-spritesheet-60x60 (1)_8
       rect:
         serializedVersion: 2
         x: 0
@@ -314,13 +314,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 881d5f1d6aaffcb4395c01a1fb2a57e0
+      spriteID: 173b7218f3d7ec640bedcfea4249a186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roundtouch-spritesheet-60x60_9
+      name: roundtouch-spritesheet-60x60 (1)_9
       rect:
         serializedVersion: 2
         x: 60
@@ -334,13 +334,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b395f16ac6d1c2499895bc92c550b25
+      spriteID: afdd8964b2585d945adf173d55851612
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roundtouch-spritesheet-60x60_10
+      name: roundtouch-spritesheet-60x60 (1)_10
       rect:
         serializedVersion: 2
         x: 120
@@ -354,13 +354,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc0c20fe16c11724eb217075021d8d9b
+      spriteID: 23e6f314874563842a48133168759c6d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roundtouch-spritesheet-60x60_11
+      name: roundtouch-spritesheet-60x60 (1)_11
       rect:
         serializedVersion: 2
         x: 180
@@ -374,13 +374,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 807b165efe1298c45ac00fd22a89590a
+      spriteID: b405c1035ad9faa43aa1f7076e766278
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roundtouch-spritesheet-60x60_12
+      name: roundtouch-spritesheet-60x60 (1)_12
       rect:
         serializedVersion: 2
         x: 0
@@ -394,13 +394,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 476b0b788c7c8ec48a4b999d24c51238
+      spriteID: 3767c750af547f340bb5da11ac6d17f6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roundtouch-spritesheet-60x60_13
+      name: roundtouch-spritesheet-60x60 (1)_13
       rect:
         serializedVersion: 2
         x: 60
@@ -414,13 +414,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8154e646fb6042945b6278ffce9e59bf
+      spriteID: 5dd5673aa562c5b4ba60a282962729dc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roundtouch-spritesheet-60x60_14
+      name: roundtouch-spritesheet-60x60 (1)_14
       rect:
         serializedVersion: 2
         x: 120
@@ -434,13 +434,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 894f8066177d3c54880b08ee433646aa
+      spriteID: 36e68fd81a282ba4298d46d2563e055b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roundtouch-spritesheet-60x60_15
+      name: roundtouch-spritesheet-60x60 (1)_15
       rect:
         serializedVersion: 2
         x: 180
@@ -454,13 +454,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6383494cd894d214a80e91f63bcd8436
+      spriteID: d125a1a1b4996854e90004492ae91025
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roundtouch-spritesheet-60x60_16
+      name: roundtouch-spritesheet-60x60 (1)_16
       rect:
         serializedVersion: 2
         x: 0
@@ -474,13 +474,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b476aeb0ba076a64ba2ab2d69a1f7ce9
+      spriteID: 649167fd201e0cd47a14ab5692981521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roundtouch-spritesheet-60x60_17
+      name: roundtouch-spritesheet-60x60 (1)_17
       rect:
         serializedVersion: 2
         x: 60
@@ -494,13 +494,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48c64730de313ef4989f1521874bc3f9
+      spriteID: 81a57dedeff3f234f9dc3b0795e93173
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roundtouch-spritesheet-60x60_18
+      name: roundtouch-spritesheet-60x60 (1)_18
       rect:
         serializedVersion: 2
         x: 120
@@ -514,13 +514,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01e39b95a5ed7284bb0026dfa51e0631
+      spriteID: 25161c93bacde26448ec67d811dbb198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roundtouch-spritesheet-60x60_19
+      name: roundtouch-spritesheet-60x60 (1)_19
       rect:
         serializedVersion: 2
         x: 180
@@ -534,13 +534,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b47df7607f239fb4fa93ed3a5f03c358
+      spriteID: 2b3c5771978661640a292a72f02b760a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roundtouch-spritesheet-60x60_20
+      name: roundtouch-spritesheet-60x60 (1)_20
       rect:
         serializedVersion: 2
         x: 0
@@ -554,13 +554,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 677acb38971edc744bebe831d7b9d45e
+      spriteID: 233e1eca586cba14dae07103243ca376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roundtouch-spritesheet-60x60_21
+      name: roundtouch-spritesheet-60x60 (1)_21
       rect:
         serializedVersion: 2
         x: 60
@@ -574,13 +574,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dce0dfeffab82bb4e815111680786d78
+      spriteID: aa6a6abb25052a04d8771754cf0bb2bb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roundtouch-spritesheet-60x60_22
+      name: roundtouch-spritesheet-60x60 (1)_22
       rect:
         serializedVersion: 2
         x: 120
@@ -594,7 +594,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a6717c1589f1564c8291e42abacc9ee
+      spriteID: 17d26e10628a64c409b5a212df69c80b
       vertices: []
       indices: 
       edges: []
@@ -602,7 +602,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 25d462622c80caf41ae157e85fb279ea
+    spriteID: 3ac75067fc9dbab4cb18ea4df4aea1a3
     vertices: []
     indices: 
     edges: []

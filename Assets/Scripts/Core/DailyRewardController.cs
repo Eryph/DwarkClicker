@@ -51,7 +51,7 @@
 		private void Gain(int index, float mult = 1)
 		{
 			_converter.GainBeer((int)(DatabaseManager.Instance.DailyRewards[index].BeerGain * mult));
-			_converter.GainGold((int)(DatabaseManager.Instance.DailyRewards[index].GoldGain * mult));
+			_converter.GainGold((ulong)(DatabaseManager.Instance.DailyRewards[index].GoldGain * mult));
 			_converter.GainMithril((int)(DatabaseManager.Instance.DailyRewards[index].MithrilGain * mult));
 			_converter.GainResource(JSonManager.Instance.PlayerProfile.LastFortress.ResourceProduced.Name, (int)(DatabaseManager.Instance.DailyRewards[index].ResourceGain * mult));
 		}
